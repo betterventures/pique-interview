@@ -1,0 +1,16 @@
+machine:
+  ruby:
+    version: 2.4.0
+  node:
+    version: 7.8.0
+  environment:
+    RAILS_ENV: test
+    DATABASE_URL: postgresql://ubuntu:@127.0.0.1:5432/circle_test
+
+dependencies:
+  override:
+    - bundle install
+
+test:
+  override:
+    - rails test

@@ -8,6 +8,9 @@ machine:
     DATABASE_URL: postgresql://ubuntu:@127.0.0.1:5432/circle_test
 
 dependencies:
+  pre:
+    - gem uninstall bundler
+    - gem install bundler
   override:
     - bundle install
 

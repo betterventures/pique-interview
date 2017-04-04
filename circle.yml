@@ -9,7 +9,6 @@ machine:
 
 dependencies:
   pre:
-    - gem uninstall bundler
     - gem install bundler
   override:
     - bundle install

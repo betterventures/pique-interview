@@ -1,11 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+bob_student:
+  first_name: Bob
+  last_name: Smith
+  email: bobsmith@gmail.com
+  role: student
 
-one:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-
-two:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
+nasa_provider:
+  first_name: Nasa
+  last_name: Dude
+  email: nasadude@gmail.com
+  role: provider

@@ -1,0 +1,2 @@
+module IndiegogoHelper
+end

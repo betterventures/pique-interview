@@ -1,0 +1,2 @@
+class IndiegogoController < ApplicationController
+end

@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+provider:
+  name: provider
+
+student:
+  name: student
+
+reviewer:
+  name: reviewer

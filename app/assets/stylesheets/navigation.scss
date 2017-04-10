@@ -1,0 +1,197 @@
+.navigation {
+  width: 100%;
+}
+
+.navigation .root {
+  position: absolute;
+  width: 100%;
+  padding: 0px 0px 5px;
+  z-index: 40;
+  top: 0px;
+  height: 50px;
+  transition: all 0.4s ease;
+  background-color: transparent;
+}
+
+.navigation .fixed {
+  position: fixed;
+}
+
+.navigation .fill {
+  background-color: #132663;
+  transition: all 0.4s ease;
+}
+
+.navigation .brand {
+  position: relative;
+  float: left;
+  z-index: 1;
+}
+
+.navigation .logo {
+  display: inline-block;
+  height: 40px;
+  width: 95px;
+  margin-top: 7.5px;
+}
+
+.navigation .mobile {
+  display: block;
+  color: #fff;
+  margin: 5px 0 0;
+  text-align: right;
+}
+
+.navigation .open .mobile {
+  margin-bottom: 20px;
+}
+
+.navigation .menu {
+  display: none;
+}
+
+.navigation .dropdown {
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.navigation .open {
+  background-color: #132663;
+}
+
+@media (min-width: 1024px) {
+  .navigation .open {
+    position: initial;
+  }
+}
+
+.navigation .open .menu {
+  display: block;
+}
+
+.navigation .open .links {
+  padding: 15px 15px 25px;
+}
+
+.navigation .links {
+  float: right;
+  transition: all 0.4s ease;
+  padding: 15px 15px 0;
+}
+
+.navigation .fill .links {
+  padding-top: 7.5px
+}
+
+@media (min-width: 1024px) {
+  .navigation .open .links {
+    padding: 0 0 0;
+  }
+
+  .navigation .links {
+    float: right;
+    padding: 15px 0 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navigation .mobile,
+  .navigation .open .mobile {
+    display: none;
+  }
+  .navigation .menu,
+  .navigation .open .menu {
+    display: block;
+  }
+}
+
+.navigation .nav {
+  display: inline-block;
+  padding-left: 0;
+  list-style: none;
+  float: right;
+}
+
+@media (min-width: 1024px) {
+  .navigation .nav {
+    float: left;
+    margin: 0 20px 0 auto;
+  }
+}
+
+.navigation .link {
+  display: block;
+  color: #fff;
+  margin: 20px 0;
+  text-align: right;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 15px;
+  font-family: 'Avenir Next', sans-serif;
+  letter-spacing: 0px;
+  background-color: transparent;
+}
+
+@media (min-width: 1024px) {
+  .navigation .link {
+    display: inline-block;
+    text-align: center;
+    margin: 14px 15px;
+    padding: 5px 4px;
+  }
+  .navigation .link .selected {
+    width: 0px;
+    height: 1px;
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+    margin-top: 4px;
+  }
+  .navigation .link:hover .selected,
+  .navigation .link.active .selected {
+    width: 100%;
+    background-color: #fff;
+    margin-top: 4px;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.navigation .icon {
+  height: 50px;
+  width: 50px;
+}
+
+.navigation .btn {
+  display: block;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  background-color: transparent;
+  border-radius: 22px;
+  text-align: center;
+  font-family: 'Avenir Next', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  letter-spacing: 0px;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: all .3s ease-out;
+  text-align: right;
+}
+
+@media (min-width: 1024px) {
+  .navigation .btn {
+    display: inline-block;
+    padding: 8px 25px;
+    margin: 10px 13px;
+    border: 2px solid #fff;
+    text-align: center;
+  }
+  .navigation .btn:hover {
+    background-color: #fff;
+    color:  #205fdc;
+  }
+}

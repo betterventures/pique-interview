@@ -3,7 +3,7 @@ class Logo extends React.Component {
     const { className } = this.props;
     const size = {
       width: '106px',
-      height: '48px'
+      height: '30px'
     }
     return (
       <svg

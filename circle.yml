@@ -38,6 +38,5 @@ deployment:
         EOF
       - chmod 600 ~/.netrc
       - git remote add oriign https://git.heroku.com/pique-web.git
-      - git fetch heroku
       - git push heroku $CIRCLE_SHA1:refs/heads/master
       - heroku run rake db:migrate --app pique-web

@@ -16,3 +16,11 @@ dependencies:
 test:
   override:
     - rails test
+
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - git push git@heroku.com:pique-web.git $CIRCLE_SHA1:master
+      - heroku run rake db:migrate --app pique-web

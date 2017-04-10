@@ -22,5 +22,5 @@ deployment:
   production:
     branch: master
     commands:
-      - git push git@heroku.com:pique-web.git $CIRCLE_SHA1:master
+      - git push https://git.heroku.com/pique-web.git $CIRCLE_SHA1:refs/head/master
       - heroku run rake db:migrate --app pique-web

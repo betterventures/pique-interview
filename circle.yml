@@ -37,6 +37,6 @@ deployment:
           password $HEROKU_TOKEN
         EOF
       - chmod 600 ~/.netrc
-      - git remote add oriign https://git.heroku.com/pique-web.git
+      - git remote add origin https://git.heroku.com/pique-web.git
       - git push heroku $CIRCLE_SHA1:refs/heads/master
       - heroku run rake db:migrate --app pique-web

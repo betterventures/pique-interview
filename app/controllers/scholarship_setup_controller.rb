@@ -1,8 +1,8 @@
+# On-boarding process for a scholarship provider
 class ScholarshipSetupController < ApplicationController
   before_action :authenticate_provider!
 
-  def organization
-  end
+  def organization; end
 
   def new_organization
     @organization = Organization.create(organization_params)

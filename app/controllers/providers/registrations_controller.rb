@@ -1,3 +1,4 @@
+# Devise portion of Provider signup
 class Providers::RegistrationsController < Devise::RegistrationsController
   protected
 

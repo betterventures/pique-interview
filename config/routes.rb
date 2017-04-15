@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   }
 
   # Setup a scholarship
-  get 'new-scholarship/organization', to: 'scholarship_setup#create_organization'
+  get 'new-scholarship/organization', to: 'scholarship_setup#organization'
+  post 'new-scholarship/organization/new', to: 'scholarship_setup#new_organization'
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'welcome#index'
   get 'indiegogo/share', to: 'indiegogo#share'
-
 end

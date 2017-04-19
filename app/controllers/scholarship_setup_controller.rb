@@ -14,6 +14,28 @@ class ScholarshipSetupController < ApplicationController
 
   def new_scholarship
     @scholarship = Scholarship.create(scholarship_params)
+
+  end
+
+  def payment; end
+
+  def new_payment
+    @amount = 9999
+
+    customer = Stripe::Customer.create(
+      email: stripe_params[:stripeEmail],
+      source: stripe_params[:stripeToken]
+    )
+
+    Stripe::Charge.create(
+      customer: customer.id,
+      amount: @amount,
+      description: 'Scholarship post fee',
+      currency: 'usd'
+    )
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to payment_path
   end
 
   def scholarship_params
@@ -30,5 +52,9 @@ class ScholarshipSetupController < ApplicationController
   def organization_params
     params.require(:organization)
           .permit(:name, :phone, :email, :website, :address)
+  end
+
+  def stripe_params
+    params.permit(:stripeToken, :stripeEmail)
   end
 end

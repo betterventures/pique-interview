@@ -26,12 +26,16 @@ class ScholarshipSetupController < ApplicationController
       source: stripe_params[:stripeToken]
     )
 
-    Stripe::Charge.create(
+    charge = Stripe::Charge.create(
       customer: customer.id,
       amount: @amount,
       description: 'Scholarship post fee',
       currency: 'usd'
     )
+
+    Payment.create(stripe_charge_id: charge[:id],
+                   stripe_customer_id: charge[:customer],
+                   organization: current_provider.organization)
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to payment_path

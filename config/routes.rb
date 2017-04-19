@@ -5,7 +5,13 @@ Rails.application.routes.draw do
 
   # Setup a scholarship
   get 'new-scholarship/organization', to: 'scholarship_setup#organization'
-  post 'new-scholarship/organization/new', to: 'scholarship_setup#new_organization'
+  post 'new-scholarship/organization/new',
+       to: 'scholarship_setup#new_organization'
+
+  get 'new-scholarship/scholarship',
+      to: 'scholarship_setup#scholarship'
+  post 'new-scholarship/scholarship/new',
+       to: 'scholarship_setup#new_scholarship'
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

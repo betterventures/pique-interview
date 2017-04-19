@@ -10,6 +10,7 @@ gem 'puma', '~> 3.7.1'
 gem 'rails', '~> 5.0.2'
 gem 'react-rails', '~> 1.11.0'
 gem 'sass-rails', '~> 5.0'
+gem 'stripe', '~> 2.4.0'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 1.3.0'

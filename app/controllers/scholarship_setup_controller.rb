@@ -14,7 +14,6 @@ class ScholarshipSetupController < ApplicationController
 
   def new_scholarship
     @scholarship = Scholarship.create(scholarship_params)
-
   end
 
   def payment; end

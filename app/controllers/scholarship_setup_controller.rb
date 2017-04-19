@@ -8,12 +8,16 @@ class ScholarshipSetupController < ApplicationController
     @organization = Organization.create(organization_params)
     current_provider.organization = @organization
     current_provider.save
+
+    redirect_to new_scholarship_scholarship_path
   end
 
   def scholarship; end
 
   def new_scholarship
     @scholarship = Scholarship.create(scholarship_params)
+
+    redirect_to new_scholarship_payment_path
   end
 
   def payment; end

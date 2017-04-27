@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.0'
 
+gem 'cocoon', '~> 1.2.9'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.2.1'
 gem 'jbuilder', '~> 2.5'
@@ -22,7 +23,7 @@ end
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', '0.48.1', require: false
+  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end

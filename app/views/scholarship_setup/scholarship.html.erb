@@ -1,5 +1,5 @@
 Create a scholarship
-<%= form_for :scholarship, url: new_scholarship_scholarship_new_path do |f| %>
+<%= form_for @scholarship, url: new_scholarship_scholarship_new_path do |f| %>
   <h2> General Scholarship Details </h2>
   <p>* Required</p>
 
@@ -89,9 +89,14 @@ Create a scholarship
       <%= f.label :requires_community_service, "Community serivce requirement" %><br>
     </p>
     <h4> Location limitations </h4>
-    <p>
-      Placeholder
-    </p>
+    <div id="location_limitations">
+      <%= f.fields_for :location_limitations do |location_limitation| %>
+        <%= render 'location_limitation_fields', f: location_limitation %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association 'Add another location', f, :location_limitations %>
+      </div>
+    </div>
   </div>
   <h2>Supplemental Requirements</h2>
   <p>

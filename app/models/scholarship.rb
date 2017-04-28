@@ -1,5 +1,5 @@
 class Scholarship < ApplicationRecord
-  has_many :locations, inverse_of: :scholarship
-  accepts_nested_attributes_for :locations, reject_if: :all_blank,
+  has_many :location_limitations, inverse_of: :scholarship
+  accepts_nested_attributes_for :location_limitations, reject_if: :all_blank,
                                             allow_destroy: true
 end

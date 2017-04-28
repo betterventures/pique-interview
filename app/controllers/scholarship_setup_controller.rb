@@ -12,7 +12,9 @@ class ScholarshipSetupController < ApplicationController
     redirect_to new_scholarship_scholarship_path
   end
 
-  def scholarship; end
+  def scholarship
+    @scholarship = Scholarship.new
+  end
 
   def new_scholarship
     @scholarship = Scholarship.create(scholarship_params)
@@ -53,7 +55,8 @@ class ScholarshipSetupController < ApplicationController
                   :for_hs_junior, :for_hs_senior, :for_us_citizen, :for_male,
                   :for_female, :for_black_people, :for_white_people,
                   :for_hispanic_people, :for_asian_people, :for_native_people,
-                  :maximum_family_income, :requires_community_service)
+                  :maximum_family_income, :requires_community_service,
+                  location_limitations_attributes: [:id, :city, :state, :_destroy])
   end
 
   def organization_params

@@ -102,9 +102,14 @@ Create a scholarship
   <p>
     Please list any supplemental materials and documents you require students to submit
   </p>
-  <p>
-    Placeholder
-  </p>
+  <div id="supplemental_requirements">
+    <%= f.fields_for :supplemental_requirements do |supplemental_requirement| %>
+      <%= render 'supplemental_requirements_fields', f: supplemental_requirement %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add another required document', f, :supplemental_requirements %>
+    </div>
+  </div>
   <p>
     <%= f.submit "Post scholarship" %>
   </p>

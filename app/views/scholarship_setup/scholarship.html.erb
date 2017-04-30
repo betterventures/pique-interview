@@ -13,8 +13,20 @@ Create a scholarship
       <%= f.text_area :description %>
     </p>
     <p>
+      <%= f.label :eligibility %><br>
+      <%= f.text_area :eligibility %>
+    </p>
+    <p>
       <%= f.label :award_amount %><br>
       <%= f.number_field :award_amount %>
+    </p>
+    <p>
+      <%= f.label :number_of_awards %><br>
+      <%= f.number_field :number_of_awards, step: 1, min: 0 %>
+    </p>
+    <p>
+      <%= f.check_box :renewable %>
+      <%= f.label :renewable %>
     </p>
     <p>
       <%= f.label :gpa %><br>
@@ -27,6 +39,10 @@ Create a scholarship
     <p>
       <%= f.label :minimum_act_score %><br>
       <%= f.number_field :minimum_act_score %>
+    </p>
+    <p>
+      <%= f.check_box :flexible_scores %>
+      <%= f.label :flexible_scores %>
     </p>
     <p>
       <%= f.check_box :generic_recommendation %>
@@ -43,6 +59,10 @@ Create a scholarship
     <h2> Who is this scholarship intended for? </h2>
     <p>
       This helps us determine which students see your scholarship
+    </p>
+    <p>
+      <%= f.label :minimum_age %><br>
+      <%= f.number_field :minimum_age, step: 1, min: 0, max: 100 %>
     </p>
     <p>
       <%= f.check_box :for_hs_freshman %>
@@ -86,7 +106,11 @@ Create a scholarship
     </p>
     <p>
       <%= f.check_box :requires_community_service %>
-      <%= f.label :requires_community_service, "Community serivce requirement" %><br>
+      <%= f.label :requires_community_service, "Community service requirement" %><br>
+    </p>
+    <p>
+      <%= f.label :minimum_community_service, "Minimum hours" %><br>
+      <%= f.number_field :minimum_community_service %>
     </p>
     <h4> Location limitations </h4>
     <div id="location_limitations">

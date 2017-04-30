@@ -56,8 +56,10 @@ class ScholarshipSetupController < ApplicationController
                   :for_female, :for_black_people, :for_white_people,
                   :for_hispanic_people, :for_asian_people, :for_native_people,
                   :maximum_family_income, :requires_community_service,
-                  location_limitations_attributes: [:id, :city, :state, :_destroy],
-                  supplemental_requirements_attributes: [:id, :title, :_destroy])
+                  :number_of_awards, :minimum_age, :flexible_scores,
+                  :eligibility, :renewable, :minimum_community_service,
+                  location_limitations_attributes: %i[id city state _destroy],
+                  supplemental_requirements_attributes: %i[id title _destroy])
   end
 
   def organization_params

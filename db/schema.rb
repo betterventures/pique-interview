@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170429001657) do
+ActiveRecord::Schema.define(version: 20170430160622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,6 +108,25 @@ ActiveRecord::Schema.define(version: 20170429001657) do
     t.boolean  "requires_community_service"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "number_of_awards"
+    t.integer  "minimum_age"
+    t.boolean  "flexible_scores"
+    t.text     "eligibility"
+    t.boolean  "renewable"
+    t.integer  "minimum_community_service"
+  end
+
+  create_table "scholarships_study_areas", force: :cascade do |t|
+    t.integer "scholarship_id"
+    t.integer "study_area_id"
+    t.index ["scholarship_id"], name: "index_scholarships_study_areas_on_scholarship_id", using: :btree
+    t.index ["study_area_id"], name: "index_scholarships_study_areas_on_study_area_id", using: :btree
+  end
+
+  create_table "study_areas", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "supplemental_requirements", force: :cascade do |t|

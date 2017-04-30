@@ -2,3 +2,9 @@
 
 astronomer:
   title: "Astronomer Scholarship"
+  number_of_awards: 2
+  minimum_age: 1
+  flexible_scores: true
+  eligibility: "Anybody is welcome!"
+  renewable: true
+  minimum_community_service: 40

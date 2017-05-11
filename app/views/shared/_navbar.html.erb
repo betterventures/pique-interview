@@ -1,21 +1,21 @@
 <div class="nav">
-	<% if user_signed_in? %>
+	<% if provider_signed_in? %>
 		<li>
-		<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+		<%= link_to('Logout', destroy_provider_session_path, :method => :delete) %>
 		</li>
 	<% else %>
 		<li>
-		<%= link_to('Login', new_user_session_path)  %>
+		<%= link_to('Login', new_provider_session_path)  %>
 		</li>
 	<% end %>
 
-	<% if user_signed_in? %>
+	<% if provider_signed_in? %>
 		<li>
-		<%= link_to('Edit registration', edit_user_registration_path) %>
+		<%= link_to('Edit registration', edit_provider_registration_path) %>
 		</li>
 	<% else %>
 		<li>
-		<%= link_to('Register', new_user_registration_path)  %>
+		<%= link_to('Register', new_provider_registration_path)  %>
 		</li>
 	<% end %>
 </div>

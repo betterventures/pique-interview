@@ -2,16 +2,6 @@
 class ScholarshipSetupController < ApplicationController
   before_action :authenticate_provider!
 
-  def organization; end
-
-  def new_organization
-    @organization = Organization.create(organization_params)
-    current_provider.organization = @organization
-    current_provider.save
-
-    redirect_to new_scholarship_scholarship_path
-  end
-
   def scholarship
     @scholarship = Scholarship.new
   end

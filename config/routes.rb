@@ -2,11 +2,10 @@ Rails.application.routes.draw do
   devise_for :providers, controllers: {
     registrations: 'providers/registrations'
   }
-
-  # Setup a scholarship
-  get 'new-scholarship/organization', to: 'scholarship_setup#organization'
-  post 'new-scholarship/organization/new',
-       to: 'scholarship_setup#new_organization'
+  namespace :providers do
+    resources :organizations, only: [:new, :create, :edit, :show]
+    resources :scholarships
+  end
 
   get 'new-scholarship/scholarship',
       to: 'scholarship_setup#scholarship'

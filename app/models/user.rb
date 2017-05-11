@@ -9,6 +9,6 @@ class User < ApplicationRecord
   private
 
   def set_default_role
-    self.role ||= Role.find_by_name('student')
+    self.role ||= Role.student
   end
 end

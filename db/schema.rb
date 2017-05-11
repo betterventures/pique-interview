@@ -15,14 +15,6 @@ ActiveRecord::Schema.define(version: 20170430160622) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "essay_requirements", force: :cascade do |t|
-    t.integer  "word_limit"
-    t.integer  "scholarship_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["scholarship_id"], name: "index_essay_requirements_on_scholarship_id", using: :btree
-  end
-
   create_table "location_limitations", force: :cascade do |t|
     t.string   "city"
     t.string   "state"
@@ -30,13 +22,6 @@ ActiveRecord::Schema.define(version: 20170430160622) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["scholarship_id"], name: "index_location_limitations_on_scholarship_id", using: :btree
-  end
-
-  create_table "locations", force: :cascade do |t|
-    t.string   "city"
-    t.string   "state"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -116,19 +101,6 @@ ActiveRecord::Schema.define(version: 20170430160622) do
     t.integer  "minimum_community_service"
   end
 
-  create_table "scholarships_study_areas", force: :cascade do |t|
-    t.integer "scholarship_id"
-    t.integer "study_area_id"
-    t.index ["scholarship_id"], name: "index_scholarships_study_areas_on_scholarship_id", using: :btree
-    t.index ["study_area_id"], name: "index_scholarships_study_areas_on_study_area_id", using: :btree
-  end
-
-  create_table "study_areas", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "supplemental_requirements", force: :cascade do |t|
     t.string   "title"
     t.integer  "scholarship_id"
@@ -158,7 +130,6 @@ ActiveRecord::Schema.define(version: 20170430160622) do
     t.index ["role_id"], name: "index_users_on_role_id", using: :btree
   end
 
-  add_foreign_key "essay_requirements", "scholarships"
   add_foreign_key "location_limitations", "scholarships"
   add_foreign_key "providers", "organizations"
   add_foreign_key "supplemental_requirements", "scholarships"

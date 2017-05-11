@@ -1,7 +1,10 @@
 # Scholarship administrator (within an organization)
-class Provider < ApplicationRecord
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
+class Provider < User
   belongs_to :organization, optional: true
+
+  private
+
+  def set_default_role
+    self.role ||= Role.provider
+  end
 end

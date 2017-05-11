@@ -5,6 +5,10 @@
       <div class="header">
       </div>
 
+      <div class="notify">
+        <%= devise_error_messages! %>
+      </div>
+
       <div class="row">
         <div class="field">
           <%= f.text_field :first_name, :autofocus => true, :placeholder => "First Name", class: "firstname" %>
@@ -39,10 +43,6 @@
       </div>
 
       <div class="btns">
-        <div class="notify">
-          <%= devise_error_messages! %>
-        </div>
-
         <%= f.submit "Sign up", class: "btn submit" %>
         <%= link_to "Have an account?", new_provider_session_path, class: "btn switch" %>
       </div>

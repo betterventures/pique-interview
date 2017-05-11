@@ -1,0 +1,174 @@
+.auth-root {
+  background-image: linear-gradient(-229deg, rgba(23,127,255,.80) 1%, rgba(18,159,199,.80) 27%, rgba(5,250,39,.80) 100%);
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+}
+
+.signup-root {
+  box-shadow: 0 5px 33px rgba(39, 39, 39, 0.5);
+  border-radius: 0;
+  background-color: #fff;
+  left: 0;
+  margin: 0 auto;
+  max-width: 400px;
+  max-height: 600px;
+  padding: 25px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  top: 120px;
+  z-index: 2001;
+
+  .header {
+    display: inline-block;
+    border-bottom: 1px solid #44BCEF;
+    color: #44BCEF;
+    padding: 8px 0;
+    margin: 0 auto 40px;
+    font-family: 'Avenir Next', sans-serif;
+    font-weight: 200;
+    font-size: 14px;
+  }
+
+  .header:after {
+    content: 'Sign Up for Pique!';
+  }
+
+  .row {
+    height: 45px;
+    margin-bottom: 20px;
+  }
+
+  .row input {
+    border: 1px solid #B2BCD3;
+    border-radius: 5px;
+    box-shadow: none;
+    color: #000;
+    font-size: 15px;
+    font-weight: 300;
+    height: 45px;
+    outline-style: none;
+    padding: 0 15px;
+  }
+
+  .row input:focus {
+    border: 1px solid #4570F0;
+    box-shadow: none;
+  }
+
+  input::-webkit-input-placeholder {
+    color: #B2BCD3;
+  }
+  input:-moz-placeholder {
+    color: #B2BCD3;
+    opacity: 1;
+  }
+  input::-moz-placeholder {
+    color: #B2BCD3;
+    opacity:  1;
+  }
+  input:-ms-input-placeholder {
+    color: #B2BCD3;
+  }
+
+  .full {
+    width: 92%;
+  }
+
+  .firstname {
+    float: left;
+    width: 40%;
+  }
+
+  .lastname {
+    float: right;
+    width: 40%;
+  }
+
+  .btns {
+    height: 75px;
+    margin-bottom: 40px;
+    position: relative;
+    width: 100%;
+  }
+
+  .btn {
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Avenir Next", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    -webkit-touch-callout: none;
+    transition: 0.1s all ease-in;
+    user-select: none;
+    width: 46%;
+  }
+
+  .submit {
+    float: left;
+    color: #fff;
+    border: 1px solid #3cd070;
+    background-color: #3cd070;
+  }
+
+  .submit:hover {
+    color: #3cd070;
+    border: 1px solid #3cd070;
+    background-color: #fff;
+  }
+
+  .switch {
+    float: right;
+    color: #44BCEF;
+    border: 1px solid #44BCEF;
+    background-color: #fff;
+  }
+
+  .switch:focus,
+  .switch:active {
+    outline: none;
+    color: #44BCEF;
+    border: 1px solid #44BCEF;
+    background-color: #fff;
+  }
+
+  .switch:hover {
+    color: #fff;
+    background-color: #44BCEF;
+    border: 1px solid #44BCEF;
+  }
+
+  .notify {
+    color: red;
+    margin-bottom: 15px;
+    display: block;
+    font-size: 12px;
+    height: 17px;
+  }
+
+  .caption {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    color: #B2BCD3;
+    font-size: 14px;
+    width: 290px;
+    line-height: 19px;
+    margin-bottom: 15px;
+    font-family: 'Avenir Next', sans-serif;
+  }
+
+  .caption:after {
+    content: "By signing up, you agree to Pique Basic rules, Terms of service, and Privacy Policy";
+  }
+}

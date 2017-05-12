@@ -10,7 +10,7 @@
       <ul class="links">
         <% if provider_signed_in? %>
           <li class="link">
-            <%= link_to('Logout', destroy_provider_session_path, :method => :delete) %>
+            <%= link_to('Edit registration', edit_provider_registration_path) %>
           </li>
         <% else %>
           <li class="link">
@@ -20,7 +20,7 @@
 
         <% if provider_signed_in? %>
           <li class="link">
-            <%= link_to('Edit registration', edit_provider_registration_path) %>
+            <%= link_to('Logout', destroy_provider_session_path, :method => :delete) %>
           </li>
         <% else %>
           <li class="link">

@@ -9,7 +9,7 @@ class Providers::OrganizationsController < ApplicationController
     current_provider.organization = @organization
     current_provider.save
 
-    redirect_to new_scholarship_scholarship_path
+    redirect_to new_providers_scholarship_path
   end
 
   def edit
@@ -22,6 +22,6 @@ class Providers::OrganizationsController < ApplicationController
 
   def organization_params
     params.require(:organization)
-          .permit(:name, :phone, :email, :website, :address)
+          .permit(:name, :phone, :email, :website, :address, :city, :state)
   end
 end

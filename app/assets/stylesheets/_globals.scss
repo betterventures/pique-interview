@@ -1,11 +1,39 @@
-// Colors
-$black: #000;
-$emerald: #3cd070;
-$lavender: #b2bcd3;
-$pastel-blue: #44bcef;
-$royal-blue: #4570f0;
-$white: #fff;
+@import '_vars';
 
-// Shared Elements
-$pique-bg-gradient: linear-gradient(-229deg, rgba(23,127,255,.80) 1%, rgba(18,159,199,.80) 27%, rgba(5,250,39,.80) 100%);
+// Shared - Forms
+.row {
+  height: 45px;
+  margin-bottom: 20px;
+}
 
+.row input {
+  border: 1px solid $lavender;
+  border-radius: 5px;
+  box-shadow: none;
+  color: $black;
+  font-size: 15px;
+  font-weight: 300;
+  height: 45px;
+  outline-style: none;
+  padding: 0 15px;
+}
+
+.row input:focus {
+  border: 1px solid $royal-blue;
+  box-shadow: none;
+}
+
+input::-webkit-input-placeholder {
+  color: $lavender;
+}
+input:-moz-placeholder {
+  color: $lavender;
+  opacity: 1;
+}
+input::-moz-placeholder {
+  color: $lavender;
+  opacity:  1;
+}
+input:-ms-input-placeholder {
+  color: $lavender;
+}

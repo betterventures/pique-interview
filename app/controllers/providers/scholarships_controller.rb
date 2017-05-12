@@ -8,7 +8,7 @@ class Providers::ScholarshipsController < ApplicationController
   def create
     @scholarship = Scholarship.create(scholarship_params)
 
-    redirect_to new_scholarship_payment_path
+    redirect_to new_providers_scholarship_payment_path
   end
 
   private

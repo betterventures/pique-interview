@@ -6,7 +6,7 @@ class Providers::RegistrationsController < Devise::RegistrationsController
   protected
 
   def after_sign_up_path_for(_resource)
-    new_scholarship_organization_path
+    new_provider_organization_path
   end
 
   def configure_permitted_parameters

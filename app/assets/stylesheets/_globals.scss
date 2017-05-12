@@ -1,5 +1,35 @@
 @import '_vars';
 
+// Shared - Layout
+.body-container {
+  margin-top: 2 * $navbar-height - 8px;
+}
+
+.flash {
+  background-color: transparent;
+  margin-top: $navbar-height;
+  position: fixed;
+  z-index: 10;
+
+  p {
+    background-color: $white;
+    color: $black;
+    margin: 0;
+    position: fixed;
+    width: 100%;
+  }
+
+  .alert {
+    background-color: $white;
+    color: $strong-red;
+  }
+
+  .notice {
+    background-color: $emerald;
+    color: $white;
+  }
+}
+
 // Shared - Forms
 .row {
   height: 45px;

@@ -1,3 +1,5 @@
+@import '_vars';
+
 .navigation {
   width: 100%;
 }
@@ -5,10 +7,10 @@
 .navigation .root {
   position: absolute;
   width: 100%;
-  padding: 0px 0px 5px;
+  padding: 0;
   z-index: 40;
   top: 0px;
-  height: 50px;
+  height: $navbar-height;
   transition: all 0.4s ease;
   background-color: transparent;
 }
@@ -18,7 +20,7 @@
 }
 
 .navigation .fill {
-  background-color: #132663;
+  background-color: $royal-purple;
   transition: all 0.4s ease;
 }
 
@@ -58,7 +60,7 @@
 }
 
 .navigation .open {
-  background-color: #132663;
+  background-color: $royal-purple;
 }
 
 @media (min-width: 1024px) {
@@ -77,22 +79,19 @@
 
 .navigation .links {
   float: right;
+  margin: 0 9px;
+  padding: 0;
   transition: all 0.4s ease;
-  padding: 15px 15px 0;
-}
-
-.navigation .fill .links {
-  padding-top: 7.5px
 }
 
 @media (min-width: 1024px) {
   .navigation .open .links {
-    padding: 0 0 0;
+    padding: 0;
   }
 
   .navigation .links {
     float: right;
-    padding: 15px 0 0;
+    padding: 0;
   }
 }
 
@@ -122,23 +121,26 @@
 }
 
 .navigation .link {
+  background-color: transparent;
   display: block;
-  color: #fff;
   margin: 20px 0;
   text-align: right;
-  text-decoration: none;
-  font-weight: 300;
+}
+
+.navigation .link a {
+  color: $white;
+  font-family: $font-avenir;
   font-size: 15px;
-  font-family: 'Avenir Next', sans-serif;
+  font-weight: 300;
   letter-spacing: 0px;
-  background-color: transparent;
+  text-decoration: none;
 }
 
 @media (min-width: 1024px) {
   .navigation .link {
     display: inline-block;
     text-align: center;
-    margin: 14px 15px;
+    margin: 14px 9px;
     padding: 5px 4px;
   }
   .navigation .link .selected {

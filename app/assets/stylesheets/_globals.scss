@@ -1,0 +1,39 @@
+@import '_vars';
+
+// Shared - Forms
+.row {
+  height: 45px;
+  margin-bottom: 20px;
+}
+
+.row input {
+  border: 1px solid $lavender;
+  border-radius: 5px;
+  box-shadow: none;
+  color: $black;
+  font-size: 15px;
+  font-weight: 300;
+  height: 45px;
+  outline-style: none;
+  padding: 0 15px;
+}
+
+.row input:focus {
+  border: 1px solid $royal-blue;
+  box-shadow: none;
+}
+
+input::-webkit-input-placeholder {
+  color: $lavender;
+}
+input:-moz-placeholder {
+  color: $lavender;
+  opacity: 1;
+}
+input::-moz-placeholder {
+  color: $lavender;
+  opacity:  1;
+}
+input:-ms-input-placeholder {
+  color: $lavender;
+}

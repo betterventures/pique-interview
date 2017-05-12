@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
+  # Provider flow
   devise_for :providers, controllers: {
     registrations: 'providers/registrations'
   }
+  namespace :providers do
+    resources :organizations, only: [:new, :create, :edit, :show]
 
-  # Setup a scholarship
-  get 'new-scholarship/organization', to: 'scholarship_setup#organization'
-  post 'new-scholarship/organization/new',
-       to: 'scholarship_setup#new_organization'
+    # nest payments under scholarships
+    resources :scholarships, only: [:new, :create] do
+      resources :payments, only: [:new, :create]
+    end
+  end
 
   get 'new-scholarship/scholarship',
       to: 'scholarship_setup#scholarship'

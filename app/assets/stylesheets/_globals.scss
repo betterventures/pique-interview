@@ -2,20 +2,19 @@
 
 // Shared - Layout
 .body-container {
-  margin-top: 2 * $navbar-height - 8px;
+  margin-top: $navbar-height;
 }
 
 .flash {
   background-color: transparent;
-  margin-top: $navbar-height;
-  position: fixed;
+  position: relative;
   z-index: 10;
 
   p {
     background-color: $white;
     color: $black;
     margin: 0;
-    position: fixed;
+    position: absolute;
     width: 100%;
   }
 

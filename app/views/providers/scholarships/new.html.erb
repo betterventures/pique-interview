@@ -1,141 +1,218 @@
-Create a scholarship
-<%= form_for @scholarship, url: new_scholarship_scholarship_new_path do |f| %>
-  <h2> General Scholarship Details </h2>
-  <p>* Required</p>
+<div class="create-scholarship-page">
+  <p class="header">
+    Scholarship Application Post
+  </p>
 
-  <div>
-    <p>
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </p>
-    <p>
-      <%= f.label :description %><br>
-      <%= f.text_area :description %>
-    </p>
-    <p>
-      <%= f.label :eligibility %><br>
-      <%= f.text_area :eligibility %>
-    </p>
-    <p>
-      <%= f.label :award_amount %><br>
-      <%= f.number_field :award_amount %>
-    </p>
-    <p>
-      <%= f.label :number_of_awards %><br>
-      <%= f.number_field :number_of_awards, step: 1, min: 0 %>
-    </p>
-    <p>
-      <%= f.check_box :renewable %>
-      <%= f.label :renewable %>
-    </p>
-    <p>
-      <%= f.label :gpa %><br>
-      <%= f.number_field :gpa, step: 0.01%>
-    </p>
-    <p>
-      <%= f.label :minimum_sat_score %><br>
-      <%= f.number_field :minimum_sat_score %>
-    </p>
-    <p>
-      <%= f.label :minimum_act_score %><br>
-      <%= f.number_field :minimum_act_score %>
-    </p>
-    <p>
-      <%= f.check_box :flexible_scores %>
-      <%= f.label :flexible_scores %>
-    </p>
-    <p>
-      <%= f.check_box :generic_recommendation %>
-      <%= f.label :generic_recommendation, "Allow generic recommendations" %>
-    </p>
-  </div>
-  <div>
-    <h2> Essay Requirements </h2>
-    <p>
-      Placeholder
-    </p>
-  </div>
-  <div>
-    <h2> Who is this scholarship intended for? </h2>
-    <p>
-      This helps us determine which students see your scholarship
-    </p>
-    <p>
-      <%= f.label :minimum_age %><br>
-      <%= f.number_field :minimum_age, step: 1, min: 0, max: 100 %>
-    </p>
-    <p>
-      <%= f.check_box :for_hs_freshman %>
-      <%= f.label :for_hs_freshman, "Highschool freshman" %>
-      <%= f.check_box :for_hs_sophomore %>
-      <%= f.label :for_hs_sophomore, "Highschool sophomore" %>
-      <br />
-      <%= f.check_box :for_hs_junior %>
-      <%= f.label :for_hs_junior, "Highschool junior" %>
-      <%= f.check_box :for_hs_senior %>
-      <%= f.label :for_hs_senior, "Highschool senior" %><br>
-    </p>
-    <p>
-      <%= f.check_box :for_us_citizen %>
-      <%= f.label :for_us_citizen, "US Citizenship Required" %><br>
-    </p>
-    <p>
-      <%= f.check_box :for_female %>
-      <%= f.label :for_female, "Female" %>
-      <%= f.check_box :for_male %>
-      <%= f.label :for_male, "Male" %>
-    </p>
-    <h4> Race/Ethnicity Requirements</h4>
-    <p>
-      <%= f.check_box :for_black_people %>
-      <%= f.label :for_black_people, "Black/African American" %>
-      <%= f.check_box :for_white_people %>
-      <%= f.label :for_white_people, "White/Caucasian" %>
-      <br />
-      <%= f.check_box :for_asian_people %>
-      <%= f.label :for_asian_people, "Asian/Pacific Islander" %>
-      <%= f.check_box :for_hispanic_people %>
-      <%= f.label :for_hispanic_people, "Hispanic/Latino" %>
-      <br />
-      <%= f.check_box :for_native_people %>
-      <%= f.label :for_native_people, "Native American" %>
-    </p>
-    <h4> Area of study requirements </h4>
-    <p>
-      Placeholder
-    </p>
-    <p>
-      <%= f.check_box :requires_community_service %>
-      <%= f.label :requires_community_service, "Community service requirement" %><br>
-    </p>
-    <p>
-      <%= f.label :minimum_community_service, "Minimum hours" %><br>
-      <%= f.number_field :minimum_community_service %>
-    </p>
-    <h4> Location limitations </h4>
-    <div id="location_limitations">
-      <%= f.fields_for :location_limitations do |location_limitation| %>
-        <%= render 'location_limitation_fields', f: location_limitation %>
+  <div class="new-scholarship-form-container">
+    <div class="form-header">
+      <p class="form-title">General Scholarship Details</p>
+      <p class="form-legend">* Required</p>
+    </div>
+
+    <div class="form-body">
+      <%= form_for @scholarship, url: new_scholarship_scholarship_new_path do |f| %>
+        <h2> General Scholarship Details </h2>
+        <p>* Required</p>
+
+        <div class="row">
+          <div class="field required">
+            <%= f.label 'Scholarship Title' %>
+            <%= f.text_field :title, required: true, class: "full" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field required">
+            <%= f.label :description %>
+            <%= f.text_area :description, required: true, class: "full" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <%= f.label :eligibility %>
+            <%= f.text_area :description, class: "full" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field required">
+            <%= f.label 'Scholarship Photo' %>
+            <%= f.button :photo, required: true, class: "btn" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <%= f.label 'Award Amount' %>
+            <%= f.number_field :award_amount, class: "word" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <%= f.label 'Minimum Age' %>
+            <%= f.number_field :minimum_age, class: "word" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <%= f.label 'Number of Awards' %>
+            <%= f.number_field :number_of_awards, step: 1, min: 0 %>
+          </div>
+          <div class="field">
+            <%= f.check_box :renewable %>
+            <%= f.label 'Renewable?' %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <%= f.label 'Minimum GPA' %>
+            <%= f.number_field :gpa, step: 0.01, placeholder: '0.0' %>
+          </div>
+          <div class="comment">
+            All GPAs are unweighted
+          </div>
+          <div class="comment">
+            Skip if you do not have a minimum GPA requirement
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <%= f.label 'Minimum Composite Test Scores' %>
+            <%= f.number_field :minimum_sat_score, placeholder: 'SAT Score' %>
+          </div>
+          <div class="field">
+            <%= f.number_field :minimum_act_score, placeholder: 'ACT Score' %>
+          </div>
+          <div class="comment">
+            Skip if you do not have score requirements
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <%= f.label 'Flexible on GPA and SAT scores?' %>
+            <%= f.label 'Yes' %> <%= f.radio_button :flexible_scores, value: true %>
+            <%= f.label 'No' %>  <%= f.radio_button :flexible_scores, value: false %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <%= f.label :generic_recommendation, "Generic Recommendations OK?" %>
+            <%= f.label 'Yes' %> <%= f.radio_button :generic_recommendation, value: true %>
+            <%= f.label 'No' %>  <%= f.radio_button :generic_recommendation, value: false %>
+          </div>
+          <div class="comment">
+            Why Accept a Generic Recommendation?
+          </div>
+          <div class="comment">
+            Skip if you do not require a recommendation
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <%= f.label 'Number of Required Recommendations' %>
+            <%= f.number_field :minimum_recommendations, placeholder: 0 %>
+          </div>
+          <div class="comment">
+            Skip if you do not require a recommendation
+          </div>
+        </div>
+
+        <div>
+          <h2> Essay Requirements </h2>
+          <p>
+            Placeholder
+          </p>
+        </div>
+        <div>
+          <h2> Who is this scholarship intended for? </h2>
+          <p>
+            This helps us determine which students see your scholarship
+          </p>
+          <p>
+            <%= f.label :minimum_age %>
+            <%= f.number_field :minimum_age, step: 1, min: 0, max: 100 %>
+          </p>
+          <p>
+            <%= f.check_box :for_hs_freshman %>
+            <%= f.label :for_hs_freshman, "Highschool freshman" %>
+            <%= f.check_box :for_hs_sophomore %>
+            <%= f.label :for_hs_sophomore, "Highschool sophomore" %>
+            <br />
+            <%= f.check_box :for_hs_junior %>
+            <%= f.label :for_hs_junior, "Highschool junior" %>
+            <%= f.check_box :for_hs_senior %>
+            <%= f.label :for_hs_senior, "Highschool senior" %>
+          </p>
+          <p>
+            <%= f.check_box :for_us_citizen %>
+            <%= f.label :for_us_citizen, "US Citizenship Required" %>
+          </p>
+          <p>
+            <%= f.check_box :for_female %>
+            <%= f.label :for_female, "Female" %>
+            <%= f.check_box :for_male %>
+            <%= f.label :for_male, "Male" %>
+          </p>
+          <h4> Race/Ethnicity Requirements</h4>
+          <p>
+            <%= f.check_box :for_black_people %>
+            <%= f.label :for_black_people, "Black/African American" %>
+            <%= f.check_box :for_white_people %>
+            <%= f.label :for_white_people, "White/Caucasian" %>
+            <br />
+            <%= f.check_box :for_asian_people %>
+            <%= f.label :for_asian_people, "Asian/Pacific Islander" %>
+            <%= f.check_box :for_hispanic_people %>
+            <%= f.label :for_hispanic_people, "Hispanic/Latino" %>
+            <br />
+            <%= f.check_box :for_native_people %>
+            <%= f.label :for_native_people, "Native American" %>
+          </p>
+          <h4> Area of study requirements </h4>
+          <p>
+            Placeholder
+          </p>
+          <p>
+            <%= f.check_box :requires_community_service %>
+            <%= f.label :requires_community_service, "Community service requirement" %>
+          </p>
+          <p>
+            <%= f.label :minimum_community_service, "Minimum hours" %>
+            <%= f.number_field :minimum_community_service %>
+          </p>
+          <h4> Location limitations </h4>
+          <div id="location_limitations">
+            <%= f.fields_for :location_limitations do |location_limitation| %>
+              <%= render 'location_limitation_fields', f: location_limitation %>
+            <% end %>
+            <div class="links">
+              <%= link_to_add_association 'Add another location', f, :location_limitations %>
+            </div>
+          </div>
+        </div>
+        <h2>Supplemental Requirements</h2>
+        <p>
+          Please list any supplemental materials and documents you require students to submit
+        </p>
+        <div id="supplemental_requirements">
+          <%= f.fields_for :supplemental_requirements do |supplemental_requirement| %>
+            <%= render 'supplemental_requirements_fields', f: supplemental_requirement %>
+          <% end %>
+          <div class="links">
+            <%= link_to_add_association 'Add another required document', f, :supplemental_requirements %>
+          </div>
+        </div>
+        <p>
+          <%= f.submit "Post scholarship" %>
+        </p>
+
       <% end %>
-      <div class="links">
-        <%= link_to_add_association 'Add another location', f, :location_limitations %>
-      </div>
     </div>
-  </div>
-  <h2>Supplemental Requirements</h2>
-  <p>
-    Please list any supplemental materials and documents you require students to submit
-  </p>
-  <div id="supplemental_requirements">
-    <%= f.fields_for :supplemental_requirements do |supplemental_requirement| %>
-      <%= render 'supplemental_requirements_fields', f: supplemental_requirement %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association 'Add another required document', f, :supplemental_requirements %>
-    </div>
-  </div>
-  <p>
-    <%= f.submit "Post scholarship" %>
-  </p>
-
-<% end %>

@@ -9,7 +9,7 @@ class Providers::OrganizationsController < ApplicationController
     current_provider.organization = @organization
     current_provider.save
 
-    redirect_to new_providers_scholarship_path
+    redirect_to providers_scholarship_step_path
   end
 
   def edit

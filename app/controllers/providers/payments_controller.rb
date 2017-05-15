@@ -2,6 +2,7 @@ class Providers::PaymentsController < ApplicationController
   before_action :authenticate_provider!
 
   def new
+    @scholarship = Scholarship.find(params[:scholarship_id])
   end
 
   def create

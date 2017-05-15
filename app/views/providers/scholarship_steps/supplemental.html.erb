@@ -1,0 +1,13 @@
+<% content_for :form_header do %>
+  <p class="form-title">Supplemental Requirements</p>
+  <p class="form-subtitle">Please list any supplemental requirements you require students to submit</p>
+<% end %>
+
+<%= render layout: 'form' do |f| %>
+  <%= f.fields_for :supplemental_requirements do |supplemental_requirement| %>
+    <%= render 'supplemental_requirements_fields', f: supplemental_requirement %>
+  <% end %>
+  <div class="links">
+    <%= link_to_add_association 'Add another required document', f, :supplemental_requirements %>
+  </div>
+<% end %>

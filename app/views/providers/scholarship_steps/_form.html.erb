@@ -1,0 +1,25 @@
+<div class="scholarship-page">
+
+  <p class="header">
+    Scholarship Application Post
+  </p>
+
+  <div class="scholarship-form-container">
+    <div class="form-header">
+      <%= content_for :form_header %>
+    </div>
+
+    <div class="form-body">
+      <% submit_path ||= wizard_path %>
+
+      <%= form_for @scholarship, url: submit_path do |f| %>
+        <%= yield f %>
+
+        <div class="actions">
+          <%= f.submit "Next" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>

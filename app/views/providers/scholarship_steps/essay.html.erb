@@ -1,0 +1,69 @@
+<% content_for :form_header do %>
+  <p class="form-title">Essay Requirements</p>
+  <p class="form-legend">* Required</p>
+<% end %>
+
+<%= render layout: 'form' do |f| %>
+  <div class="row">
+    <div class="field">
+      <%= label_tag 'Number of Essays' %>
+      <%= select_tag :essay, options_for_select([1, 2, 3, 4], 1), id: "num-essays-field", autofocus: true, onchange: 'duplicateEssayFields()' %>
+    </div>
+  </div>
+
+  <div id="essays">
+    <div class="essay-fields">
+      <%= f.fields_for :essay_requirements do |essay_fields| %>
+        <div class="row">
+          <div class="field required">
+            <%= f.label 'Essay #1 Prompt' %>
+            <%= f.text_area :prompt, required: true, class: "full", placeholder: "Enter your scholarship's prompt here" %>
+          </div>
+          <div class="comment">
+            Add another Prompt for Essay #1
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field required">
+            <%= f.label 'Essay #1 Word Limit' %>
+            <%= f.number_field :word_limit, required: true, class: "full", placeholder: "e.g., 100" %>
+          </div>
+          <div class="comment">
+            Keep in mind that ~250 words is equivalent to one typed page, double spaced.
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  function duplicateEssayFields() {
+    var numEssays = parseInt(
+      $('#num-essays-field :selected').val()
+    );
+    var $essayFields = $('.essay-fields');
+
+    // Check if >= current # of fields
+    if (numEssays > $essayFields.length) {
+      for (var i = numEssays; i <= $essayFields.length; i++) {
+        // can check for fields to reattach here
+        $essayFields
+          .last()
+          .clone()
+          // consider modifying essay # here
+          .appendTo('#essays');
+      }
+    } else if (numEssays < $essayFields.length) {
+      for (var i = $essayFields.length; i > numEssays; i--) {
+        // can store removed element in toReattach array here
+        $essayFields
+          .last()
+          .remove();
+      }
+    }
+
+    return false;
+  }
+</script>

@@ -1,10 +1,9 @@
 @import '_vars';
 
-$col-width: 15%;
-$col-container-width: 100%;
+$col-width: 30%;
+$col-container-width: 70%;
 $form-width: 70%;
-$full-input-width: 45%;
-$label-width: 30%;
+$full-input-width: 46%;
 $row-height: 34px;
 
 .scholarship-page {
@@ -43,6 +42,11 @@ $row-height: 34px;
     margin-bottom: 0;
   }
 
+  .form-subtitle {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-normal;
+  }
+
   .form-legend {
     color: $strong-red;
     margin-top: 0;
@@ -64,7 +68,7 @@ $row-height: 34px;
       line-height: $row-height;
       padding: 0 36px 0 0;
       text-align: right;
-      width: $label-width;
+      width: $col-width;
     }
 
     input {
@@ -78,17 +82,35 @@ $row-height: 34px;
     }
 
     .full {
+      display: inline-block;
       width: $full-input-width;
     }
 
     .col-container {
+      position: relative;
+      margin-left: 1.15 * $col-width;
       width: $col-container-width;
     }
 
     .col {
       display: inline-block;
       margin: 0 5% 0 0;
-      width: 15%;
+      position: relative;
+      width: $col-width;
+    }
+
+    .col-x15 {
+      display: inline-block;
+      margin: 0;
+      position: relative;
+      width: 1.5 * $col-width;
+    }
+
+    .col-x2 {
+      display: inline-block;
+      margin: 0 5% 0 0;
+      position: relative;
+      width: 2 * $col-width;
     }
 
     .comment {
@@ -99,9 +121,18 @@ $row-height: 34px;
     }
 
     .inline-label {
+      font-size: $font-size-sm + 2px;
       font-weight: 400;
+      float: right;
+      line-height: 42px;
       padding: 0 9px;
       text-align: left;
+      width: 47%;
+    }
+
+    .col-x15 .inline-label {
+      line-height: 40px;
+      width: 83%;
     }
 
     .half-col {
@@ -110,10 +141,31 @@ $row-height: 34px;
       width: 48%
     }
 
-    .required label:after {
+    .required > label:after {
       content: "*";
       color: $strong-red;
     }
+
+    #race-ethnicity-requirements {
+      vertical-align: top;
+    }
+
+    .area-of-study {
+      display: inline;
+      line-height: 32px;
+      position: relative;
+    }
+
+    .location-limitation {
+      margin: 0 0 14px 0;
+    }
+
+    .remove-link {
+      padding-left: 24px;
+      position: relative;
+      display: inline-block;
+    }
+
   }
 
   .btns {
@@ -156,6 +208,15 @@ $row-height: 34px;
     position: relative;
     left: $col-width / 2;
     bottom: $col-width / 4;
+  }
+
+  #add-prompt {
+    color: $light-grey;
+    display: inline-block;
+    font-size: $font-size-sm;
+    left: 34.5%;
+    position: relative;
+    width: $full-input-width;
   }
 }
 

@@ -82,7 +82,7 @@ $word-input-width: 15%;
       width: $word-input-width;
     }
 
-    .required label:after {
+    .required > label:after {
       content: "*";
     }
   }

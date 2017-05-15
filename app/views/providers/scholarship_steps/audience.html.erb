@@ -8,93 +8,157 @@
   <div class="row">
     <div class="field required">
       <%= f.label 'School Year Requirement' %>
-      <%= f.check_box :for_hs_freshman %> <%= f.label 'High School Freshman' %>
-      <%= f.check_box :for_hs_junior %> <%= f.label 'High School Junior' %>
-      <br>
-      <%= f.check_box :for_hs_sophomore %> <%= f.label 'High School Sophomore' %>
-      <%= f.check_box :for_hs_senior %> <%= f.label 'High School Senior' %>
+      <div class="col-container" id="sy-requirement">
+        <div class="col-x15">
+          <%= f.label :for_hs_freshman, 'High School Freshman', class: 'inline-label' %>
+          <%= f.check_box :for_hs_freshman %>
+          <%= f.label :for_hs_junior, 'High School Junior', class: 'inline-label' %>
+          <%= f.check_box :for_hs_junior %>
+        </div>
+        <div class="col-x15">
+          <%= f.label :for_hs_sophomore, 'High School Sophomore', class: 'inline-label' %>
+          <%= f.check_box :for_hs_sophomore %>
+          <%= f.label :for_hs_senior, 'High School Senior', class: 'inline-label' %>
+          <%= f.check_box :for_hs_senior %>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="row">
     <div class="field required">
-      <%= f.label 'U.S. Citizenship Requirement' %>
-      <%= f.label 'Yes' %> <%= f.radio_button :for_us_citizen, true %>
-      <%= f.label 'No' %> <%= f.radio_button :for_us_citizen, false %>
+      <%= f.label :for_us_citizen, 'U.S. Citizenship Requirement' %>
+      <div class="col-container">
+        <div class="col">
+          <div class="half-col">
+            <%= f.label 'Yes', class: 'inline-label' %>
+            <%= f.radio_button :for_us_citizen, true %>
+          </div>
+          <div class="half-col">
+            <%= f.label 'No', class: 'inline-label' %>
+            <%= f.radio_button :for_us_citizen, false %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="row">
     <div class="field">
       <%= f.label 'Maximum Family Income' %>
-      <%= f.number_field :maximum_family_income, class: "word" %>
+      <div class="col-container">
+        <div class="col">
+          <%= f.number_field :maximum_family_income, placeholder: "$ " %>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="row">
     <div class="field">
       <%= f.label 'Gender Requirement' %>
-      <%= f.check_box :for_male %> <%= f.label 'Male' %>
-      <%= f.check_box :for_female %> <%= f.label 'Female' %>
+      <div class="col-container">
+        <div class="col-x15">
+          <%= f.label 'Male', class: 'inline-label' %>
+          <%= f.check_box :for_male %>
+        </div>
+        <div class="col-x15">
+          <%= f.label 'Female', class: 'inline-label' %>
+          <%= f.check_box :for_female %>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="row">
     <div class="field">
       <%= f.label 'Race/Ethnicity Requirements' %>
-      <%= f.check_box :for_black_people %> <%= f.label 'Black/African-American' %>
-      <%= f.check_box :for_white_people %> <%= f.label 'White/Caucasian' %>
-      <br>
-      <%= f.check_box :for_asian_people %> <%= f.label 'Asian/Pacific Islander' %>
-      <%= f.check_box :for_hispanic_people %> <%= f.label 'Hispanic/Latino' %>
-      <br>
-      <%= f.check_box :for_native_people %> <%= f.label 'Native American' %>
+      <div class="col-container">
+        <div class="col-x15">
+          <%= f.label :for_black_people, 'Black/African-American', class: 'inline-label' %>
+          <%= f.check_box :for_black_people %>
+          <%= f.label :for_white_people, 'White/Caucasian', class: 'inline-label' %>
+          <%= f.check_box :for_white_people %>
+          <%= f.label :for_native_people, 'Native American', class: 'inline-label' %>
+          <%= f.check_box :for_native_people %>
+        </div>
+        <div class="col-x15" id="race-ethnicity-requirements">
+          <%= f.label :for_asian_people, 'Asian/Pacific Islander', class: 'inline-label' %>
+          <%= f.check_box :for_asian_people %>
+          <%= f.label :for_hispanic_people, 'Hispanic/Latino', class: 'inline-label' %>
+          <%= f.check_box :for_hispanic_people %>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="row">
     <div class="field">
       <%= f.label 'Degree/Program Type Sought' %>
-      <%= f.check_box :for_two_year_program %> <%= f.label '2 Year Program' %>
-      <%= f.check_box :for_four_year_program %> <%= f.label '4 Year Program' %>
+      <div class="col-container">
+        <div class="col-x15">
+          <%= f.label :for_two_year_program, '2 Year Program', class: 'inline-label' %>
+          <%= f.check_box :for_two_year_program %>
+        </div>
+        <div class="col-x15">
+          <%= f.label :for_four_year_program, '4 Year Program', class: 'inline-label' %>
+          <%= f.check_box :for_four_year_program %>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="row">
     <div class="field">
       <%= f.fields_for :area_of_study_requirements, AreaOfStudyRequirement.new do |area_of_study_requirement| %>
-        <%= f.label 'Area of Study Requirements' %>
-        <%= render 'area_of_study_requirement_fields', f: area_of_study_requirement %>
+        <%= f.label :area_of_study_requirements, 'Area of Study Requirements' %>
+        <div class="col-container">
+          <%= render 'area_of_study_requirement_fields', f: area_of_study_requirement %>
+          <div id="add-area-of-study" class="comment">
+            <%= link_to_add_association 'Add another Area of Study Requirement', f, :area_of_study_requirements %>
+          </div>
+        </div>
       <% end %>
-      <div class="comment">
-        <%= link_to_add_association 'Add another Area of Study Requirement', f, :area_of_study_requirements %>
-      </div>
     </div>
   </div>
 
   <div class="row">
     <div class="field">
       <%= f.label 'Community Service Requirement' %>
-      <%= f.label 'Yes' %> <%= f.radio_button :requires_community_service, true %>
-      <%= f.label 'No' %> <%= f.radio_button :requires_community_service, false %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="field">
-      <%= f.label :minimum_community_service, "Minimum Hours" %>
-      <%= f.number_field :minimum_community_service %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="field">
-      <%= f.fields_for :location_limitations, LocationLimitation.new do |location_limitation| %>
-        <%= render 'location_limitation_fields', f: location_limitation %>
-      <% end %>
-      <div class="links">
-        <%= link_to_add_association 'Add another location', f, :location_limitations %>
+      <div class="col-container">
+        <div class="col">
+          <div class="half-col">
+            <%= f.label 'Yes', class: 'inline-label' %>
+            <%= f.radio_button :requires_community_service, true %>
+          </div>
+          <div class="half-col">
+            <%= f.label 'No', class: 'inline-label' %>
+            <%= f.radio_button :requires_community_service, false %>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= f.label :minimum_community_service, "Minimum Service Hours" %>
+      <div class="col-container">
+        <%= f.number_field :minimum_community_service, placeholder: 'e.g., 100' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= f.label :location_limitations, 'Locations Scholarship is Limited To?' %>
+      <div class="col-container">
+        <%= f.fields_for :location_limitations, LocationLimitation.new do |location_limitation| %>
+          <%= render 'location_limitation_fields', f: location_limitation %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association 'Add another location', f, :location_limitations %>
+        </div>
     </div>
   </div>
 <% end %>

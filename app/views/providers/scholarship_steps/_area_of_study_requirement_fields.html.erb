@@ -1,4 +1,10 @@
 <div class="area-of-study">
-  <%= f.select :type, AreaOfStudyRequirement.types.map { |k,v| [k.humanize, k] } %>
-  <%= link_to_remove_association "Remove Area of Study", f %>
+  <div class="col-x15">
+    <%= f.select :type, AreaOfStudyRequirement.types.map { |k,v| [k.humanize, k] } %>
+  </div>
+  <div class="col-x15">
+    <div class="comment">
+      <%= link_to_remove_association "Remove Area of Study Requirement", f %>
+    </div>
+  </div>
 </div>

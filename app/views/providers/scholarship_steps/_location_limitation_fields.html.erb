@@ -1,7 +1,11 @@
-<div class="nested-fields">
-    <%= f.label :city %>
-    <%= f.text_field :city %>
-    <%= f.label :state %>
-    <%= f.text_field :state %>
-  <%= link_to_remove_association "Remove location", f %>
+<div class="location-limitation">
+  <div class="col-x15">
+    <%= f.text_field :city, placeholder: 'City (optional)' %>
+  </div>
+  <div class="col-x15">
+    <%= f.text_field :state, placeholder: 'State' %>
+    <span class="remove-link">
+      <%= link_to_remove_association "X", f %>
+    </span>
+  </div>
 </div>

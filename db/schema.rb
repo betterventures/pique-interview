@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512094403) do
+ActiveRecord::Schema.define(version: 20170514231825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "area_of_study_requirements", force: :cascade do |t|
+    t.integer "type"
+    t.integer "scholarship_id"
+    t.index ["scholarship_id"], name: "index_area_of_study_requirements_on_scholarship_id", using: :btree
+  end
 
   create_table "location_limitations", force: :cascade do |t|
     t.string   "city"
@@ -100,6 +106,8 @@ ActiveRecord::Schema.define(version: 20170512094403) do
     t.text     "eligibility"
     t.boolean  "renewable"
     t.integer  "minimum_community_service"
+    t.boolean  "for_two_year_program"
+    t.boolean  "for_four_year_program"
   end
 
   create_table "supplemental_requirements", force: :cascade do |t|
@@ -133,6 +141,7 @@ ActiveRecord::Schema.define(version: 20170512094403) do
     t.index ["role_id"], name: "index_users_on_role_id", using: :btree
   end
 
+  add_foreign_key "area_of_study_requirements", "scholarships"
   add_foreign_key "location_limitations", "scholarships"
   add_foreign_key "providers", "organizations"
   add_foreign_key "supplemental_requirements", "scholarships"

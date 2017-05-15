@@ -4,8 +4,8 @@
 <% end %>
 
 <%= render layout: 'form' do |f| %>
-  <%= f.fields_for :supplemental_requirements do |supplemental_requirement| %>
-    <%= render 'supplemental_requirements_fields', f: supplemental_requirement %>
+  <%= f.fields_for :supplemental_requirements, SupplementalRequirement.new do |supplemental_requirement| %>
+    <%= render 'supplemental_requirement_fields', f: supplemental_requirement %>
   <% end %>
   <div class="links">
     <%= link_to_add_association 'Add another required document', f, :supplemental_requirements %>

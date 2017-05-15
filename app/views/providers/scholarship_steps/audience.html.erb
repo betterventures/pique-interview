@@ -62,8 +62,9 @@
 
   <div class="row">
     <div class="field">
-      <%= f.fields_for :area_of_study_requirements do |area_of_study_requirement| %>
-        <%= render 'area_of_study_requirements_fields', f: area_of_study_requirement %>
+      <%= f.fields_for :area_of_study_requirements, AreaOfStudyRequirement.new do |area_of_study_requirement| %>
+        <%= f.label 'Area of Study Requirements' %>
+        <%= render 'area_of_study_requirement_fields', f: area_of_study_requirement %>
       <% end %>
       <div class="comment">
         <%= link_to_add_association 'Add another Area of Study Requirement', f, :area_of_study_requirements %>
@@ -88,7 +89,7 @@
 
   <div class="row">
     <div class="field">
-      <%= f.fields_for :location_limitations do |location_limitation| %>
+      <%= f.fields_for :location_limitations, LocationLimitation.new do |location_limitation| %>
         <%= render 'location_limitation_fields', f: location_limitation %>
       <% end %>
       <div class="links">

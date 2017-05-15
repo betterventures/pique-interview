@@ -3,11 +3,6 @@
   <p class="form-legend">* Required</p>
 <% end %>
 
-<%= render layout: 'providers/scholarships/steps/form', locals: { submit_path: providers_scholarships_path } do |f| %>
-  <div class="row">
-    <div class="field required">
-      <%= f.label 'Scholarship Title' %><span class="asterisk">*</span>
-      <%= f.text_field :title, required: true, class: "full" %>
-    </div>
-  </div>
+<%= render layout: 'providers/scholarship_steps/form', locals: { submit_path: providers_scholarships_path } do |f| %>
+  <%= render partial: 'providers/scholarship_steps/general_fields', locals: { f: f } %>
 <% end %>

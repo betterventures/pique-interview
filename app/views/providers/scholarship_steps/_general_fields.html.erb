@@ -22,89 +22,137 @@
 <div class="row">
   <div class="field required">
     <%= f.label 'Scholarship Photo' %>
-    <%= f.button :photo, required: true, class: "btn" %>
+    <div class="col-container">
+      <div class="col">
+        <%= f.file_field :photo, required: true, class: "upload-btn" %>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="row">
   <div class="field">
     <%= f.label 'Award Amount' %>
-    <%= f.number_field :award_amount, class: "word" %>
+    <div class="col-container">
+      <div class="col">
+        <%= f.number_field :award_amount, id: "award-amount", placeholder: '$ ' %>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="row">
   <div class="field">
     <%= f.label 'Minimum Age' %>
-    <%= f.number_field :minimum_age, class: "word" %>
+    <div class="col-container">
+      <div class="col">
+        <%= f.number_field :minimum_age, placeholder: 15 %>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="row">
   <div class="field">
     <%= f.label 'Number of Awards' %>
-    <%= f.number_field :number_of_awards, step: 1, min: 0 %>
+    <div class="col-container">
+      <div class="col">
+        <%= f.number_field :number_of_awards, step: 1, min: 0, placeholder: 1 %>
+      </div>
+    </div>
   </div>
+</div>
+
+<div class="row">
   <div class="field">
-    <%= f.check_box :renewable %>
     <%= f.label 'Renewable?' %>
+    <div class="col-container">
+      <div class="col">
+        <%= f.check_box :renewable %>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="row">
   <div class="field">
-    <%= f.label 'Minimum GPA' %>
-    <%= f.number_field :gpa, step: 0.01, placeholder: '0.0' %>
-  </div>
-  <div class="comment">
-    All GPAs are unweighted
-  </div>
-  <div class="comment">
-    Skip if you do not have a minimum GPA requirement
-  </div>
-</div>
-
-<div class="row">
-  <div class="field">
-    <%= f.label 'Minimum Composite Test Scores' %>
-    <%= f.number_field :minimum_sat_score, placeholder: 'SAT Score' %>
-  </div>
-  <div class="field">
-    <%= f.number_field :minimum_act_score, placeholder: 'ACT Score' %>
-  </div>
-  <div class="comment">
-    Skip if you do not have score requirements
+    <%= f.label :gpa, 'Minimum GPA' %>
+    <div class="col-container">
+      <div class="col">
+        <%= f.number_field :gpa, step: 0.01, placeholder: '0.0' %>
+      </div>
+      <div class="comment col">
+        All GPAs are unweighted
+      </div>
+      <div class="comment col">
+        Skip if you do not have a minimum GPA requirement
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="row">
   <div class="field">
-    <%= f.label 'Flexible on GPA and SAT scores?' %>
-    <%= f.label 'Yes' %> <%= f.radio_button :flexible_scores, true %>
-    <%= f.label 'No' %>  <%= f.radio_button :flexible_scores, false %>
+    <%= f.label :min_scores, 'Minimum Composite Test Scores' %>
+    <div class="col-container">
+      <div class="col">
+        <%= f.number_field :minimum_sat_score, placeholder: 'SAT Score' %>
+      </div>
+      <div class="col">
+        <%= f.number_field :minimum_act_score, placeholder: 'ACT Score' %>
+      </div>
+      <div class="comment col">
+        Skip if you do not have score requirements
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="row">
   <div class="field">
-    <%= f.label :generic_recommendation, "Generic Recommendations OK?" %>
-    <%= f.label 'Yes' %> <%= f.radio_button :generic_recommendation, true %>
-    <%= f.label 'No' %>  <%= f.radio_button :generic_recommendation, false %>
-  </div>
-  <div class="comment">
-    Why Accept a Generic Recommendation?
-  </div>
-  <div class="comment">
-    Skip if you do not require a recommendation
+    <%= f.label :flexible_scores, 'Flexible on GPA and SAT scores?' %>
+    <div class="col-container">
+      <div class="col">
+        <div class="half-col">
+          <%= f.label 'Yes', class: "inline-label" %> <%= f.radio_button :flexible_scores, true %>
+        </div>
+        <div class="half-col">
+          <%= f.label 'No', class: "inline-label" %>  <%= f.radio_button :flexible_scores, false %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="row">
   <div class="field">
-    <%= f.label 'Number of Required Recommendations' %>
-    <%= f.number_field :minimum_recommendations, placeholder: 0 %>
+    <%= f.label :generic_recommendation, "Accept Standard Recommendations?" %>
+    <div class="col-container">
+      <div class="col">
+        <div class="half-col">
+          <%= f.label 'Yes', class: "inline-label" %> <%= f.radio_button :generic_recommendation, true %>
+        </div>
+        <div class="half-col">
+          <%= f.label 'No', class: "inline-label" %>  <%= f.radio_button :generic_recommendation, false %>
+        </div>
+      </div>
+      <div class="comment col">
+        Why Accept a Generic Recommendation?
+      </div>
+    </div>
   </div>
-  <div class="comment">
-    Skip if you do not require a recommendation
+</div>
+
+<div class="row">
+  <div class="field">
+    <%= f.label :minimum_recommendations, 'Number of Required Recommendations' %>
+    <div class="col-container">
+      <div class="col">
+        <%= f.number_field :minimum_recommendations, placeholder: 0 %>
+      </div>
+      <div class="comment col">
+        Skip if you do not require a recommendation
+      </div>
+    </div>
   </div>
 </div>

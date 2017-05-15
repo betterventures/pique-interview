@@ -1,16 +1,13 @@
-// Place all the styles related to the Organizations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 @import '_vars';
 
+$col-width: 15%;
+$col-container-width: 100%;
 $form-width: 70%;
 $full-input-width: 45%;
-$label-width: 33%;
+$label-width: 30%;
 $row-height: 34px;
-$word-input-width: 15%;
 
-.create-org-page {
+.scholarship-page {
   background-image: $pique-bg-gradient;
   font-family: $font-avenir;
   font-size: $font-size-md;
@@ -19,7 +16,7 @@ $word-input-width: 15%;
   .header {
     background-color: $white;
     color: $pastel-blue;
-    font-size: $font-size-lg;
+    font-size: $font-size-xl;
     font-weight: 100;
     height: 80px;
     line-height: 80px;
@@ -57,10 +54,12 @@ $word-input-width: 15%;
 
   .row {
     height: $row-height;
-    margin: 32px;
+    display: inline-block;
+    margin: 18px 0;
+    width: 100%;
 
     label {
-      float: left;
+      display: inline-block;
       font-weight: $font-weight-bold;
       line-height: $row-height;
       padding: 0 36px 0 0;
@@ -73,17 +72,47 @@ $word-input-width: 15%;
       font-size: $font-size-md;
     }
 
+    textarea {
+      height: 3 * $row-height;
+      font-size: $font-size-md;
+    }
+
     .full {
       width: $full-input-width;
     }
 
-    .word {
-      margin-right: 28px;
-      width: $word-input-width;
+    .col-container {
+      width: $col-container-width;
+    }
+
+    .col {
+      display: inline-block;
+      margin: 0 5% 0 0;
+      width: 15%;
+    }
+
+    .comment {
+      color: $light-grey;
+      font-size: $font-size-sm;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .inline-label {
+      font-weight: 400;
+      padding: 0 9px;
+      text-align: left;
+    }
+
+    .half-col {
+      display: inline-block;
+      position: relative;
+      width: 48%
     }
 
     .required label:after {
       content: "*";
+      color: $strong-red;
     }
   }
 
@@ -112,4 +141,21 @@ $word-input-width: 15%;
     user-select: none;
     width: 25%;
   }
+
+  // Scholarship-specific styles and classes
+  .upload-btn {
+    background-color: $white;
+    border: none;
+    color: $black;
+  }
+
+  .dollar-sign {
+    content: "$ ";
+    color: $black;
+    font-size: $font-size-md;
+    position: relative;
+    left: $col-width / 2;
+    bottom: $col-width / 4;
+  }
 }
+

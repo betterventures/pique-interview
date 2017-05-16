@@ -29,13 +29,20 @@
        }(document, 'script', 'facebook-jssdk'));
     </script>
 
-    <%= render 'shared/navbar' %>
+    <% if content_for :navbar %>
+      <%= content_for :navbar %>
+    <% else %>
+      <%= render 'shared/navbar' %>
+    <% end %>
+
     <div class="flash">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>
+
     <div class="body-container">
       <%= yield %>
     </div>
+
   </body>
 </html>

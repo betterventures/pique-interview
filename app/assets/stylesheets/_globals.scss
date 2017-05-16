@@ -1,8 +1,13 @@
 @import '_vars';
 
 // Shared - Layout
+body {
+  background-image: $pique-bg-gradient;
+  min-height: 900px;
+}
+
 .body-container {
-  margin-top: $navbar-height;
+  padding-top: $navbar-height;
 }
 
 .flash {

@@ -16,4 +16,13 @@ class Scholarship < ApplicationRecord
   accepts_nested_attributes_for :supplemental_requirements,
                                 reject_if: :all_blank,
                                 allow_destroy: true
+
+  enum faith_requirement: {
+    no_requirement: 0,
+    arab: 1,
+    muslim: 2,
+    jewish: 3,
+    christian: 4,
+    catholic: 5
+  }
 end

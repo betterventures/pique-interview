@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515022757) do
+ActiveRecord::Schema.define(version: 20170516140445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,8 +105,8 @@ ActiveRecord::Schema.define(version: 20170515022757) do
     t.boolean  "for_native_people"
     t.decimal  "maximum_family_income"
     t.boolean  "requires_community_service"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.integer  "number_of_awards"
     t.integer  "minimum_age"
     t.boolean  "flexible_scores"
@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 20170515022757) do
     t.integer  "minimum_community_service"
     t.boolean  "for_two_year_program"
     t.boolean  "for_four_year_program"
+    t.integer  "faith_requirement",          default: 0
   end
 
   create_table "supplemental_requirements", force: :cascade do |t|

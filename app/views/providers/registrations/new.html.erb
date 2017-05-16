@@ -8,7 +8,7 @@
       </div>
 
       <div class="notify">
-        <%= devise_error_messages! %>
+        <%= devise_error_messages? ? devise_error_flash : alert %>
       </div>
 
       <div class="row">

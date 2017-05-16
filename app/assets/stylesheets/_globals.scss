@@ -54,6 +54,10 @@ body {
   padding: 0 15px;
 }
 
+.row textarea {
+  padding: 10px 15px;
+}
+
 .row input:focus,
 .row textarea:focus {
   border: 1px solid $royal-blue;

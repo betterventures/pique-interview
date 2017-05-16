@@ -108,7 +108,7 @@ $row-height: 34px;
       display: inline-block;
       margin: 0 5% 0 0;
       position: relative;
-      width: 2 * $col-width;
+      width: 1.5 * $col-width;
     }
 
     .comment {
@@ -236,6 +236,12 @@ $row-height: 34px;
       color: $pastel-blue;
       margin-left: 20px;
       width: 100px;
+    }
+  }
+
+  .essay-fields {
+    .row .field textarea.full {
+      width: 76%;
     }
   }
 }

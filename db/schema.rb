@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516140445) do
+ActiveRecord::Schema.define(version: 20170516144455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,8 @@ ActiveRecord::Schema.define(version: 20170516140445) do
     t.boolean  "for_two_year_program"
     t.boolean  "for_four_year_program"
     t.integer  "faith_requirement",          default: 0
+    t.date     "cycle_start"
+    t.date     "cycle_end"
   end
 
   create_table "supplemental_requirements", force: :cascade do |t|

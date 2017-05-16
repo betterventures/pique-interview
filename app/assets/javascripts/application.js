@@ -17,4 +17,7 @@
 //= require react_ujs
 //= require components
 //= require cocoon
+//= require moment
+//= require bootstrap-sprockets
+//= require bootstrap-datetimepicker
 //= require_tree .

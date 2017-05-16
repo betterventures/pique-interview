@@ -20,11 +20,25 @@
 </div>
 
 <div class="row">
-  <div class="field required">
+  <div class="field ">
     <%= f.label 'Scholarship Photo' %>
     <div class="col-container">
       <div class="col">
-        <%= f.file_field :photo, required: true, class: "upload-btn" %>
+        <%= f.file_field :photo, class: "upload-btn" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <%= f.label 'Scholarship Cycle' %>
+    <div class="col-container">
+      <div class="col">
+        <%= f.text_field :cycle_start, class: "", id: "cycle-start", placeholder: 'Start Date', value: @scholarship.cycle_start_str %>
+      </div>
+      <div class="col">
+        <%= f.text_field :cycle_end, class: "", id: "cycle-end", placeholder: 'End Date', value: @scholarship.cycle_end_str %>
       </div>
     </div>
   </div>
@@ -156,3 +170,14 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  $(function () {
+    $('#cycle-start').datetimepicker({
+      format: 'L'
+    });
+    $('#cycle-end').datetimepicker({
+      format: 'L'
+    });
+  });
+</script>

@@ -37,11 +37,11 @@ class Scholarship < ApplicationRecord
   end
 
   def cycle_start_str
-    cycle_start.strftime(EXPECTED_DATE_FORMAT)
+    !!@cycle_start && @cycle_start.strftime(EXPECTED_DATE_FORMAT)
   end
 
   def cycle_end_str
-    cycle_end.strftime(EXPECTED_DATE_FORMAT)
+    !!@cycle_end && @cycle_end.strftime(EXPECTED_DATE_FORMAT)
   end
 
   private

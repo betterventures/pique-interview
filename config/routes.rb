@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   devise_scope :provider do
     root 'providers/sessions#new'
   end
+
   get 'indiegogo/share', to: 'indiegogo#share'
 end

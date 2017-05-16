@@ -50,10 +50,10 @@ class Scholarship < ApplicationRecord
     case time_obj.class.to_s
     when Date.to_s || DateTime.to_s
       time_obj
-    when String.to_s
+    when String.to_s && !time_obj.empty?
       Date.strptime(time_obj, EXPECTED_DATE_FORMAT)
     else
-      fail
+      nil
     end
   end
 end

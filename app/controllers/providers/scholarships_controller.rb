@@ -1,4 +1,5 @@
 class Providers::ScholarshipsController < ApplicationController
+  include Providers::ScholarshipsHelper
   before_action :authenticate_provider!
 
   def new

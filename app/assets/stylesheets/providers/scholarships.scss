@@ -217,5 +217,26 @@ $row-height: 34px;
     list-style-type: none;
     padding: inherit;
   }
+
+  .actions {
+    padding: 56px 0 28px;
+
+    .submit-btn {
+      background-color: $pastel-blue;
+      border-radius: 2px;
+      color: $white;
+      margin-left: 20px;
+      width: 120px;
+    }
+
+    .submit-btn-inverse {
+      background-color: $white;
+      border-radius: 2px;
+      border: 1px solid $pastel-blue;
+      color: $pastel-blue;
+      margin-left: 20px;
+      width: 100px;
+    }
+  }
 }
 

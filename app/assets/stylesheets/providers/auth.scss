@@ -32,11 +32,15 @@
     border-bottom: 1px solid $pastel-blue;
     color: $pastel-blue;
     display: inline-block;
-    margin: 0 auto 20px;
+    margin: 0 auto;
     font-family: $font-avenir;
     font-weight: 200;
     font-size: $font-size-md;
     padding: 8px 0;
+  }
+
+  .row input {
+    margin-bottom: 16px;
   }
 
   .full {
@@ -82,7 +86,6 @@
   .checkbox-container {
     left: 0.5px;
     margin-bottom: 3px;
-    margin-top: 15px;
     position: relative;
     text-align: left;
   }
@@ -137,7 +140,7 @@
 
   .notify {
     color: red;
-    margin-bottom: 15px;
+    margin: 14px 0;
     display: block;
     font-size: 12px;
     height: 17px;
@@ -162,7 +165,7 @@
     font-size: $font-size-md;
     line-height: 19px;
     margin: 0 auto;
-    margin-bottom: 18px;
+    margin-bottom: 1px;
     position: relative;
     width: 290px;
   }

@@ -3,7 +3,7 @@
 $col-width: 30%;
 $col-container-width: 70%;
 $form-width: 70%;
-$full-input-width: 46%;
+$full-input-width: 57%;
 $row-height: 34px;
 
 .scholarship-page {
@@ -113,6 +113,7 @@ $row-height: 34px;
 
     .comment {
       color: $light-grey;
+      display: inline-block;
       font-size: $font-size-sm;
       text-align: left;
       vertical-align: top;
@@ -193,10 +194,32 @@ $row-height: 34px;
   }
 
   // Scholarship-specific styles and classes
+
+  #photo-row {
+    height: 120px;
+  }
+
   .upload-btn {
     background-color: $white;
-    border: none;
+    border: 1px solid $faded-grey;
+    border-radius: 2px;
     color: $black;
+    display: inline-block;
+    font-size: $font-size-md - 1;
+    height: $row-height;
+    vertical-align: top;
+    width: 120px;
+  }
+
+  #filepicker-input {
+    display: none;
+  }
+
+  .filepicker-wrapper {
+    height: 100%;
+    position: relative;
+    display: inline-block;
+    bottom: 95px;
   }
 
   .dollar-sign {

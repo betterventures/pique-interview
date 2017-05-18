@@ -1,30 +1,57 @@
 <div class="row">
   <div class="field required">
     <%= f.label 'Scholarship Title' %>
-    <%= f.text_field :title, required: true, class: "full" %>
+    <div class="col-container">
+      <%= f.text_field :title, required: true, class: "full" %>
+    </div>
   </div>
 </div>
 
 <div class="row">
   <div class="field required">
     <%= f.label :description %>
-    <%= f.text_area :description, required: true, class: "full" %>
+    <div class="col-container">
+      <%= f.text_area :description, required: true, class: "full" %>
+    </div>
   </div>
 </div>
 
 <div class="row">
   <div class="field">
     <%= f.label :eligibility %>
-    <%= f.text_area :description, class: "full" %>
+    <div class="col-container">
+      <%= f.text_area :description, class: "full" %>
+    </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="field ">
-    <%= f.label 'Scholarship Photo' %>
+<div class="row" id="photo-row">
+  <div class="field">
+    <%= f.label :photo_url, 'Scholarship Banner Image' %>
     <div class="col-container">
       <div class="col">
-        <%= f.file_field :photo, class: "upload-btn" %>
+        <div class="filepicker-wrapper">
+          <input id="filepicker-input"
+                class="upload-btn"
+                data-fp-button-text="Choose File"
+                data-fp-apikey="Aw4WfTTq8QxmplkGIzrYgz"
+                data-fp-crop-ratio="3/2"
+                data-fp-crop-force="true"
+                mimetype="image/*"
+                type="filepicker"
+                name="scholarship[photo_url]"
+                style="display: none;"
+                >
+        </div>
+      </div>
+      <div class="col">
+        <% if @scholarship && @scholarship.photo_url %>
+          <%= filepicker_image_tag @scholarship.photo_url, w: 160, h: 160, fit: 'clip' %>
+        <% else %>
+          <div class="comment">
+            We recommend images of size 1500x1000px for best resolution, or 600x400 at a minimum.
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

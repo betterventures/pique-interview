@@ -11,5 +11,6 @@ module PiqueWeb
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.filepicker_rails.api_key = Rails.application.secrets.filepicker_api_key
   end
 end

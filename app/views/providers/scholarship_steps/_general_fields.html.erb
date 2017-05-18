@@ -37,21 +37,21 @@
                 data-fp-apikey="Aw4WfTTq8QxmplkGIzrYgz"
                 data-fp-crop-ratio="3/2"
                 data-fp-crop-force="true"
+                data-fp-openTo="COMPUTER"
+                data-fp-multiple="false"
                 mimetype="image/*"
                 type="filepicker"
                 name="scholarship[photo_url]"
+                value="<%= @scholarship.try(:photo_url) %>"
+                onchange="insertFilepickerImg(event)"
                 style="display: none;"
                 >
         </div>
       </div>
       <div class="col">
-        <% if @scholarship && @scholarship.photo_url %>
-          <%= filepicker_image_tag @scholarship.photo_url, w: 160, h: 160, fit: 'clip' %>
-        <% else %>
-          <div class="comment">
-            We recommend images of size 1500x1000px for best resolution, or 600x400 at a minimum.
-          </div>
-        <% end %>
+        <div id="filepicker-img-overlay">
+          <img id="filepicker-img-preview" src="<%= @scholarship.try(:photo_url) %>" height="100" width="160" />
+        </div>
       </div>
     </div>
   </div>
@@ -207,4 +207,27 @@
       format: 'L'
     });
   });
+</script>
+
+  <script type="text/javascript">
+    // Make Filepicker widget play nice with Turbolinks
+  function setupFilepicker() {
+    var $uploadBtns = $('button.upload-btn');
+    if ($uploadBtns.length < 1) {
+      var $filepickerInputs = $('#filepicker-input');
+      for (var i = 0; i < $filepickerInputs.length; i++) {
+        filepicker.constructWidget($filepickerInputs[i]);
+      }
+    }
+  }
+
+  function insertFilepickerImg(event) {
+    var $filepickerImg = $('#filepicker-img-preview');
+    $filepickerImg.toggleClass('fade');
+    $filepickerImg.attr('src', event.fpfile.url);
+    $filepickerImg.toggleClass('fade');
+  }
+
+  $(document).on('page:change', setupFilepicker);
+  $(document).on('turbolinks:load', setupFilepicker);
 </script>

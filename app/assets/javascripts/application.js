@@ -11,8 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require react
 //= require react_ujs
 //= require components
@@ -20,4 +20,5 @@
 //= require moment
 //= require bootstrap-sprockets
 //= require bootstrap-datetimepicker
+//= require turbolinks
 //= require_tree .

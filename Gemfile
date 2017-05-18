@@ -7,6 +7,9 @@ gem 'devise', '~> 4.2.1'
 gem 'filestack-rails', require: 'filepicker-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
+# Enable filepicker when page is rendered via Turbolinks.
+# Necessary because JS in the <head> is not reloaded, as in our Scholarship wizard.
+gem 'jquery-turbolinks'
 gem 'pg', '~> 0.18.4'
 gem 'puma', '~> 3.7.1'
 gem 'rails', '~> 5.0.2'

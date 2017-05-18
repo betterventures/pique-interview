@@ -199,18 +199,6 @@ $row-height: 34px;
     height: 120px;
   }
 
-  .upload-btn {
-    background-color: $white;
-    border: 1px solid $faded-grey;
-    border-radius: 2px;
-    color: $black;
-    display: inline-block;
-    font-size: $font-size-md - 1;
-    height: $row-height;
-    vertical-align: top;
-    width: 120px;
-  }
-
   #filepicker-input {
     display: none;
   }
@@ -220,6 +208,38 @@ $row-height: 34px;
     position: relative;
     display: inline-block;
     bottom: 95px;
+  }
+
+  .upload-btn {
+    background-color: $white;
+    border: 1px solid $faded-grey;
+    border-radius: 2px;
+    color: $black;
+    display: inline-block;
+    font-size: $font-size-md - 1;
+    height: $row-height;
+    position: relative;
+    top: 16px;
+    width: 120px;
+  }
+
+  #filepicker-img-overlay {
+    background-color: $light-grey;
+    z-index: 10;
+    height: 100px;
+    width: 160px;
+  }
+
+  #filepicker-img-overlay img {
+    -webkit-transition: opacity 0.5s linear;
+    -moz-transition: opacity 0.5s linear;
+    -o-transition: opacity 0.5s linear;
+    -ms-transition: opacity 0.5s linear;
+    transition: opacity 0.5s linear;
+  }
+
+  .fade {
+    opacity: 0.25;
   }
 
   .dollar-sign {

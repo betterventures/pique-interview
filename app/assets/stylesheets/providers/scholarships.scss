@@ -4,7 +4,7 @@ $col-width: 30%;
 $col-container-width: 70%;
 $form-width: 70%;
 $full-input-width: 57%;
-$row-height: 34px;
+$row-height: 30px;
 
 .scholarship-page {
   font-family: $font-avenir;
@@ -111,12 +111,23 @@ $row-height: 34px;
       width: 1.5 * $col-width;
     }
 
+    .col-x3 {
+      display: inline-block;
+      margin: 0 5% 0 0;
+      position: relative;
+      width: 2.5 * $col-width;
+    }
+
     .comment {
       color: $light-grey;
       display: inline-block;
       font-size: $font-size-sm;
       text-align: left;
       vertical-align: top;
+    }
+
+    .nested-fields {
+      margin: 18px 0;
     }
 
     .inline-label {

@@ -42,6 +42,11 @@
     margin-bottom: 16px;
   }
 
+  .row input,
+  .row textarea {
+    border: 1px solid $lavender;
+  }
+
   .full {
     width: 92%;
   }

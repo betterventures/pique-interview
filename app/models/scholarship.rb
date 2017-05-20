@@ -7,7 +7,10 @@ class Scholarship < ApplicationRecord
   has_many :supplemental_requirements, inverse_of: :scholarship, dependent: :destroy
 
   accepts_nested_attributes_for :area_of_study_requirements,
-                                reject_if: :all_blank,
+                                reject_if: ->(attrs) {
+                                  attrs['aos_type'].nil? ||
+                                  attrs['aos_type'].to_s == AreaOfStudyRequirement::TYPE_NO_REQUIREMENT.to_s
+                                },
                                 allow_destroy: true
   accepts_nested_attributes_for :essay_requirements,
                                 reject_if: :all_blank,

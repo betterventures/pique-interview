@@ -1,10 +1,30 @@
-<div class="area-of-study">
-  <div class="col-x15">
-    <%= f.select :type, AreaOfStudyRequirement.types.map { |k,v| [k.humanize, k] } %>
-  </div>
-  <div class="col-x15">
-    <div class="comment">
-      <%= link_to_remove_association "Remove Area of Study Requirement", f %>
+<div class="nested-fields">
+  <div class="area-of-study">
+    <div class="col-x15">
+      <%= f.select :aos_type, AreaOfStudyRequirement.aos_types.map { |k,v| [k.humanize, k] } %>
+    </div>
+
+    <% if defined?(is_first_association) && is_first_association %>
+    <div class="col-x15">
+      <div id="add-area-of-study" class="comment">
+        <%= link_to_add_association 'Add another Area of Study Requirement',
+                                    scholarship_form,
+                                    :area_of_study_requirements,
+                                    {
+                                      data: {
+                                        'association-insertion-node' => '.areas-of-study',
+                                        'association-insertion-traversal' => 'closest',
+                                        'association-insertion-method' => 'after'
+                                      }
+                                    }
+        %>
+      </div>
     </div>
   </div>
+    <% else %>
+    <div class="comment">
+      <%= link_to_remove_association "X", f %>
+    </div>
+  </div>
+    <% end %>
 </div>

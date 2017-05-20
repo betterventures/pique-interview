@@ -21,8 +21,35 @@ module Providers
                       :for_asian_people, :for_native_people,
                       :maximum_family_income,
                       :requires_community_service, :minimum_community_service,
-                      location_limitations_attributes: %i[id city state _destroy],
-                      supplemental_requirements_attributes: %i[id title _destroy])
+                      area_of_study_requirements_attributes: %i[
+                        id
+                        aos_type
+                        scholarship_id
+                        _destroy
+                      ],
+                      essay_requirements_attributes: [
+                        :id,
+                        :word_limit,
+                        :scholarship_id,
+                        essay_prompts_attributes: [
+                          :id,
+                          :prompt,
+                          :essay_requirement_id,
+                          :_destroy
+                        ]
+                      ],
+                      location_limitations_attributes: %i[
+                        id
+                        city
+                        state
+                        _destroy
+                      ],
+                      supplemental_requirements_attributes: %i[
+                        id
+                        title
+                        _destroy
+                      ]
+                    )
       else
         {}
       end

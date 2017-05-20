@@ -10,7 +10,7 @@ class Providers::ScholarshipStepsController < ApplicationController
 
   def update
     @scholarship = Scholarship.find(params[:scholarship_id])
-    @scholarship.update_attributes(scholarship_params)
+    @scholarship.update_attributes!(scholarship_params)
     render_wizard @scholarship
   end
 

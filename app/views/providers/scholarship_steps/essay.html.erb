@@ -17,32 +17,8 @@
 
   <div id="essays">
     <div class="essay-fields">
-      <%= f.fields_for :essay_requirements, EssayRequirement.new do |essay_fields| %>
-        <div class="row">
-          <div class="field required">
-            <%= essay_fields.label 'Essay #1 Prompt' %>
-            <div class="col-container">
-              <%= essay_fields.text_area :prompt, required: true, class: "full", placeholder: "Enter your scholarship's prompt here" %>
-              <div id="add-prompt">
-                Add another Prompt for Essay #1
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="field required">
-            <%= essay_fields.label 'Essay #1 Word Limit' %>
-            <div class="col-container">
-              <div class="col">
-                <%= essay_fields.number_field :word_limit, required: true, placeholder: "e.g., 100" %>
-              </div>
-              <div class="col-x2 comment">
-                Keep in mind that ~250 words is equivalent to one typed page, double spaced.
-              </div>
-            </div>
-          </div>
-        </div>
+      <%= f.fields_for :essay_requirements, @essay_req = @scholarship.essay_requirements.build do |essay_fields| %>
+        <%= render 'essay_requirement_fields', f: essay_fields, essay_req: @essay_req %>
       <% end %>
     </div>
   </div>

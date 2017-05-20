@@ -121,15 +121,19 @@
 
   <div class="row">
     <div class="field">
-      <%= f.fields_for :area_of_study_requirements, AreaOfStudyRequirement.new do |area_of_study_requirement| %>
-        <%= f.label :area_of_study_requirements, 'Area of Study Requirements' %>
-        <div class="col-container">
-          <%= render 'area_of_study_requirement_fields', f: area_of_study_requirement %>
-          <div id="add-area-of-study" class="comment">
-            <%= link_to_add_association 'Add another Area of Study Requirement', f, :area_of_study_requirements %>
-          </div>
+      <%= f.label :area_of_study_requirements, 'Area of Study Requirements' %>
+      <div class="col-container">
+        <div class="areas-of-study">
+          <%= f.fields_for :area_of_study_requirements, AreaOfStudyRequirement.new do |area_of_study_requirement| %>
+              <%= render 'area_of_study_requirement_fields', f: area_of_study_requirement, scholarship_form: f, is_first_association: true %>
+          <% end %>
+          <% @scholarship.area_of_study_requirements.each do |aos| %>
+            <%= f.fields_for :area_of_study_requirements, aos do |area_of_study_requirement| %>
+              <%= render 'area_of_study_requirement_fields', f: area_of_study_requirement, scholarship_form: f %>
+            <% end %>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
 

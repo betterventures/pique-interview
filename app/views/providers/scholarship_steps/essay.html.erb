@@ -9,14 +9,14 @@
       <%= label_tag 'Number of Essays' %>
       <div class="col-container">
         <div class="col">
-          <%= select_tag :essay, options_for_select([1, 2, 3, 4], 1), id: "num-essays-field", autofocus: true, onchange: 'duplicateEssayFields()' %>
+          <%= select_tag :essay, options_for_select((1..4).to_a, 1), id: "num-essays-field", autofocus: true, onchange: 'duplicateEssayFields()' %>
         </div>
       </div>
     </div>
   </div>
 
   <div id="essays">
-    <div class="essay-fields">
+    <div class="essay-requirements">
       <% if @scholarship.essay_requirements.count > 0 %>
         <% @scholarship.essay_requirements.each.with_index do |essay_req, i| %>
           <%= f.fields_for :essay_requirements, essay_req do |essay_req_fields| %>
@@ -29,15 +29,80 @@
         <% end %>
       <% end %>
     </div>
+    <div id="add-essay-requirement" class="comment">
+      <%= link_to_add_association "Add another Essay to your Scholarship",
+                                  f,
+                                  :essay_requirements,
+                                  {
+                                    render_options: {
+                                      locals: {
+                                        essay_req: @scholarship.essay_requirements.build,
+                                        i: @scholarship.essay_requirements.count
+                                      },
+                                    },
+                                    data: {
+                                      'association-insertion-method' => 'after'
+                                    },
+                                    id: 'add-essay-requirement-link'
+                                  }
+      %>
+    </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  /*
+   * Set up data-association-insertion-node as a function for .essay-requirements
+   * See: https://github.com/nathanvda/cocoon#control-the-insertion-behaviour
+   */
+  $(document).ready(function () {
+    $('#add-essay-requirement-link').
+      data('association-insertion-node', function ($node) {
+        return $node.parents('#essays').children('.essay-requirements').children('.nested-fields').last();
+      });
+  });
+</script>
+
+<script type="text/javascript">
+  /*
+   * Set the essay number for each EssayReq label.
+   * Gross javascript but there is no way to do this on server-side with added associations.
+   * Currently uses callback hooks for before/after insertion provided by Cocoon gem.
+   * Feel free to refactor :/.
+   * Comment Author: FK
+   */
+  function replaceEssayIndices() {
+    var elsToMod = $('.nested-fields.essay-requirements-container');
+
+    $(elsToMod).each(function (i, essayReq) {
+      // Replace the string `Essay#_` within all `label` and `a` tags.
+      $(essayReq).find('label, a').each(function (_j, el) {
+        var currentText = $(el).html();
+        $(el).html(
+          // start indices at 1.
+          currentText.replace(/Essay #\d/g, "Essay #" + (i + 1))
+        );
+      });
+    });
+  }
+
+  $(document).ready(function () {
+    $('.essay-requirements')
+      .on('cocoon:after-insert', function (_e, _el) {
+        replaceEssayIndices();
+      })
+      .on('cocoon:after-remove', function (_e, _el) {
+        replaceEssayIndices();
+      });
+  });
+</script>
 
 <script type="text/javascript">
   function duplicateEssayFields() {
     var numEssays = parseInt(
       $('#num-essays-field :selected').val()
     );
-    var $essayFields = $('.essay-fields');
+    var $essayFields = $('.essay-requirements');
 
     // Check if >= current # of fields
     if (numEssays > $essayFields.length) {

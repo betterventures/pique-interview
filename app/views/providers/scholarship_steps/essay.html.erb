@@ -17,8 +17,16 @@
 
   <div id="essays">
     <div class="essay-fields">
-      <%= f.fields_for :essay_requirements, @essay_req = @scholarship.essay_requirements.build do |essay_fields| %>
-        <%= render 'essay_requirement_fields', f: essay_fields, essay_req: @essay_req %>
+      <% if @scholarship.essay_requirements.count > 0 %>
+        <% @scholarship.essay_requirements.each do |essay_req| %>
+          <%= f.fields_for :essay_requirements, essay_req do |essay_req_fields| %>
+            <%= render 'essay_requirement_fields', f: essay_req_fields, essay_req: essay_req %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= f.fields_for :essay_requirements, @essay_req = @scholarship.essay_requirements.build do |essay_req_fields| %>
+          <%= render 'essay_requirement_fields', f: essay_req_fields, essay_req: @essay_req %>
+        <% end %>
       <% end %>
     </div>
   </div>

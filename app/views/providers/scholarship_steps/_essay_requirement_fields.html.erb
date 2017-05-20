@@ -3,8 +3,16 @@
     <%= f.label 'Essay #1 Prompt' %>
     <div class="col-container">
       <div class="essay-prompts">
-        <%= f.fields_for :essay_prompts, essay_req.essay_prompts.build do |essay_prompt| %>
-          <%= render 'essay_prompt_fields', f: essay_prompt %>
+        <% if essay_req.essay_prompts.count > 0 %>
+          <% essay_req.essay_prompts.each do |essay_prompt| %>
+            <%= f.fields_for :essay_prompts, essay_prompt do |essay_prompt_fields| %>
+              <%= render 'essay_prompt_fields', f: essay_prompt_fields %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <%= f.fields_for :essay_prompts, essay_req.essay_prompts.build do |essay_prompt_fields| %>
+            <%= render 'essay_prompt_fields', f: essay_prompt_fields %>
+          <% end %>
         <% end %>
       </div>
       <div id="add-essay-prompt" class="comment">

@@ -1,6 +1,8 @@
+<% i ||= 0; i += 1 # define the index of the EssayRequirement for the label %>
+
 <div class="row">
   <div class="field required">
-    <%= f.label 'Essay #1 Prompt' %>
+    <%= f.label "Essay ##{i} Prompt" %>
     <div class="col-container">
       <div class="essay-prompts">
         <% if essay_req.essay_prompts.count > 0 %>
@@ -16,7 +18,7 @@
         <% end %>
       </div>
       <div id="add-essay-prompt" class="comment">
-        <%= link_to_add_association 'Add another Essay Prompt',
+        <%= link_to_add_association "Add another Prompt for Essay ##{i}",
                                     f,
                                     :essay_prompts,
                                     {

@@ -18,9 +18,9 @@
   <div id="essays">
     <div class="essay-fields">
       <% if @scholarship.essay_requirements.count > 0 %>
-        <% @scholarship.essay_requirements.each do |essay_req| %>
+        <% @scholarship.essay_requirements.each.with_index do |essay_req, i| %>
           <%= f.fields_for :essay_requirements, essay_req do |essay_req_fields| %>
-            <%= render 'essay_requirement_fields', f: essay_req_fields, essay_req: essay_req %>
+            <%= render 'essay_requirement_fields', f: essay_req_fields, essay_req: essay_req, i: i %>
           <% end %>
         <% end %>
       <% else %>

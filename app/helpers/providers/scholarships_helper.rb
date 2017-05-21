@@ -31,6 +31,7 @@ module Providers
                         :id,
                         :word_limit,
                         :scholarship_id,
+                        :_destroy,
                         essay_prompts_attributes: [
                           :id,
                           :prompt,

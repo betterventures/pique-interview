@@ -109,12 +109,16 @@
      *    Undelete any associations that have been previously deleted.
      *    (Up to the number of desired fields.)
      */
-    $essayFields
-      .find('.delete-req-btn-container input[type="hidden"][value="1"]')
-      .val('false');
+    for (var i = 0; i < numEssaysDesired; i++) {
+      $essayFields
+        .eq(i)
+        .find('.delete-req-btn-container input[type="hidden"][value="1"]')
+        .val('false');
 
-    $('.essay-requirement-container[style="display: none;"]')
-      .attr('style', '');
+      $essayFields
+        .eq(i)
+        .attr('style', '');
+    }
 
     /*
      * 2. If more fields desired,

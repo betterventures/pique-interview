@@ -1,6 +1,6 @@
 <% i ||= 0; i += 1 # define the index of the EssayRequirement for the label %>
 
-<div class="nested-fields essay-requirements-container">
+<div class="nested-fields essay-requirement-container">
   <div class="row">
     <div class="field required">
       <%= f.label "Essay ##{i} Prompt" %>
@@ -48,8 +48,8 @@
     </div>
   </div>
 
-  <div class="comment">
-    <%= link_to_remove_association "Delete", f %>
+  <div class="hidden delete-req-btn-container">
+    <%= link_to_remove_association "Delete", f, class: 'delete-req-btn' %>
   </div>
 </div>
 

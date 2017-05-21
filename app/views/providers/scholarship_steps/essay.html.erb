@@ -9,7 +9,7 @@
       <%= label_tag 'Number of Essays' %>
       <div class="col-container">
         <div class="col">
-          <%= select_tag :essay, options_for_select((1..4).to_a, 1), id: "num-essays-field", autofocus: true, onchange: 'duplicateEssayFields()' %>
+          <%= select_tag :essay, options_for_select((1..4).to_a, @scholarship.essay_requirements.count), id: "num-essays-field", autofocus: true, onchange: 'setEssayFields()' %>
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
         <% end %>
       <% end %>
     </div>
-    <div id="add-essay-requirement" class="comment">
+    <div id="add-essay-requirement" class="hidden">
       <%= link_to_add_association "Add another Essay to your Scholarship",
                                   f,
                                   :essay_requirements,
@@ -72,7 +72,7 @@
    * Comment Author: FK
    */
   function replaceEssayIndices() {
-    var elsToMod = $('.nested-fields.essay-requirements-container');
+    var elsToMod = $('.nested-fields.essay-requirement-container');
 
     $(elsToMod).each(function (i, essayReq) {
       // Replace the string `Essay#_` within all `label` and `a` tags.
@@ -98,29 +98,44 @@
 </script>
 
 <script type="text/javascript">
-  function duplicateEssayFields() {
-    var numEssays = parseInt(
+  function setEssayFields() {
+    var numEssaysDesired = parseInt(
       $('#num-essays-field :selected').val()
     );
-    var $essayFields = $('.essay-requirements');
+    var $essayFields = $('.essay-requirements .essay-requirement-container');
 
-    // Check if >= current # of fields
-    if (numEssays > $essayFields.length) {
-      for (var i = numEssays; i <= $essayFields.length; i++) {
-        // can check for fields to reattach here
-        $essayFields
-          .last()
-          .clone()
-          // consider modifying essay # here
-          .appendTo('#essays');
+    /*
+     * 1. If more fields desired,
+     *    Undelete any associations that have been previously deleted.
+     *    (Up to the number of desired fields.)
+     */
+    $essayFields
+      .find('.delete-req-btn-container input[type="hidden"][value="1"]')
+      .val('false');
+
+    $('.essay-requirement-container[style="display: none;"]')
+      .attr('style', '');
+
+    /*
+     * 2. If more fields desired,
+     *    Add any additional fields needed, after undeleting existing, hidden fields.
+     */
+    if (numEssaysDesired > $essayFields.length) {
+      for (var i = $essayFields.length; i < numEssaysDesired; i++) {
+        $('#add-essay-requirement-link')
+          .click();
       }
-    } else if (numEssays < $essayFields.length) {
-      for (var i = $essayFields.length; i > numEssays; i--) {
-        // can store removed element in toReattach array here
+    /*
+     * 3. If fewer fields desired,
+     *    Delete the excess fields.
+     *    - Will mark delete if is a previously saved association
+     *    - Or just remove if is newly created assoication input.
+     */
+    } else if (numEssaysDesired < $essayFields.length) {
         $essayFields
-          .last()
-          .remove();
-      }
+          .slice(numEssaysDesired, $essayFields.length)
+          .find('a.delete-req-btn.remove_fields')
+          .click();
     }
 
     return false;

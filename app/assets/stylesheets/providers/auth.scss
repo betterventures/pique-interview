@@ -32,7 +32,6 @@
     color: $pastel-blue;
     display: inline-block;
     margin: 0 auto;
-    font-family: $font-avenir;
     font-weight: 200;
     font-size: $font-size-md;
     padding: 8px 0;
@@ -73,7 +72,6 @@
     border: none;
     cursor: pointer;
     display: inline-block;
-    font-family: $font-avenir;
     font-weight: 400;
     font-size: 18px;
     line-height: 25px;
@@ -101,7 +99,6 @@
 
   .checkbox-label {
     color: $lavender;
-    font-family: $font-avenir;
     font-size: .95em;
     font-weight: 400;
     position: relative;
@@ -154,7 +151,6 @@
   .caption {
     color: $lavender;
     display: block;
-    font-family: $font-avenir;
     font-size: $font-size-md;
     line-height: 19px;
     margin: 0 auto;
@@ -166,7 +162,6 @@
   .password {
     color: $lavender;
     display: block;
-    font-family: $font-avenir;
     font-size: $font-size-md;
     line-height: 19px;
     margin: 0 auto;

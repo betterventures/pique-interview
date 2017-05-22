@@ -11,7 +11,6 @@ $row-height: 34px;
 $word-input-width: 15%;
 
 .create-org-page {
-  font-family: $font-avenir;
   font-size: $font-size-md;
   height: 100%;
 
@@ -98,7 +97,6 @@ $word-input-width: 15%;
     cursor: pointer;
     display: inline-block;
     float: right;
-    font-family: $font-avenir;
     font-weight: 500;
     font-size: $font-size-md;
     line-height: 20px;

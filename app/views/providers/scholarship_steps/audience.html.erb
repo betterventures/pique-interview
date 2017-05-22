@@ -168,8 +168,16 @@
     <div class="field">
       <%= f.label :location_limitations, 'Locations Scholarship is Limited To?' %>
       <div class="col-container">
-        <%= f.fields_for :location_limitations, LocationLimitation.new do |location_limitation_fields| %>
-          <%= render 'location_limitation_fields', f: location_limitation_fields %>
+        <% if @scholarship.location_limitations.count > 0 %>
+          <% @scholarship.location_limitations.each do |location_limitation| %>
+            <%= f.fields_for :location_limitations, location_limitation do |location_limitation_fields| %>
+              <%= render 'location_limitation_fields', f: location_limitation_fields %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <%= f.fields_for :location_limitations, @scholarship.location_limitations.build do |location_limitation_fields| %>
+            <%= render 'location_limitation_fields', f: location_limitation_fields %>
+          <% end %>
         <% end %>
         <div class="links">
           <%= link_to_add_association 'Add another location', f, :location_limitations %>

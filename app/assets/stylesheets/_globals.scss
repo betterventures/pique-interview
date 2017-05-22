@@ -34,7 +34,12 @@ body {
   }
 }
 
-// Shared - Forms
+/*
+ *
+ * Shared - Forms
+ *
+ */
+
 .row {
   display: inline;
   height: 45px;
@@ -42,7 +47,8 @@ body {
 }
 
 .row input,
-.row textarea {
+.row textarea,
+.row select {
   border: 1px solid $light-grey;
   border-radius: 5px;
   box-shadow: none;
@@ -54,28 +60,37 @@ body {
   padding: 0 15px;
 }
 
+.row select {
+  width: 58%;
+}
+
 .row textarea {
   padding: 10px 15px;
 }
 
 .row input:focus,
-.row textarea:focus {
+.row textarea:focus,
+.row select:focus {
   border: 1px solid $royal-blue;
   box-shadow: none;
 }
 
-input::-webkit-input-placeholder {
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
   color: $lavender;
 }
-input:-moz-placeholder {
+input:-moz-placeholder,
+textarea:-moz-placeholder {
   color: $lavender;
   opacity: 1;
 }
-input::-moz-placeholder {
+input::-moz-placeholder,
+textarea::-moz-placeholder {
   color: $lavender;
   opacity:  1;
 }
-input:-ms-input-placeholder {
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
   color: $lavender;
 }
 

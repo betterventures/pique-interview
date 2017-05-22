@@ -69,7 +69,8 @@ $row-height: 30px;
       width: $col-width;
     }
 
-    input {
+    input,
+    select {
       height: $row-height;
       font-size: $font-size-md;
     }

@@ -52,6 +52,7 @@ $row-height: 30px;
 
   .form-body {
     padding: 1px 0 36px;
+    margin: 0 32px 20px;
   }
 
   .row {
@@ -137,10 +138,10 @@ $row-height: 30px;
     }
 
     .inline-label {
-      font-size: $font-size-sm + 2px;
+      font-size: $font-size-md;
       font-weight: 400;
       float: right;
-      line-height: 42px;
+      line-height: 38px;
       padding: 0 9px;
       text-align: left;
       width: 47%;
@@ -207,6 +208,12 @@ $row-height: 30px;
     transition: 0.1s all ease-in;
     user-select: none;
     width: 25%;
+  }
+
+  .delete-association-btn {
+    color: $light-grey;
+    font-size: $font-size-md;
+    vertical-align: top;
   }
 
   // Scholarship-specific styles and classes

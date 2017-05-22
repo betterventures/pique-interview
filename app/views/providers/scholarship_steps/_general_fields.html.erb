@@ -94,7 +94,7 @@
       <%= render 'providers/scholarship_steps/award_fields', f: award_fields, i: (@scholarship.awards.count + 1) %>
     <% end %>
   <% end %>
-  <div class="add-association-container" class="hidden">
+  <div class="add-association-container hidden">
     <%= link_to_add_association "Add another Award to your Scholarship",
                                 f,
                                 :awards,

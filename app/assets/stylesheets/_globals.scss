@@ -1,6 +1,22 @@
 @import '_vars';
 
-// Shared - Layout
+/*
+ * Global CSS Classes.
+ */
+.hidden {
+  display: none;
+}
+
+/*
+ * Global Element Styles
+ */
+a {
+  text-decoration: none;
+}
+
+/*
+ * Shared Styles - Layout.
+ */
 body {
   background-image: $pique-bg-gradient;
   min-height: 900px;
@@ -36,7 +52,7 @@ body {
 
 /*
  *
- * Shared - Forms
+ * Shared Styles - Forms.
  *
  */
 
@@ -94,9 +110,12 @@ textarea:-ms-input-placeholder {
   color: $lavender;
 }
 
-/*
- * Global classes
- */
-.hidden {
-  display: none;
+.comment {
+  color: $light-grey;
+  display: inline-block;
+  font-size: $font-size-sm;
+  padding-left: 2px;
+  text-align: left;
+  vertical-align: top;
 }
+

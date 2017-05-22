@@ -16,7 +16,11 @@
         <%= yield f %>
 
         <div class="actions">
-          <%= f.submit "Next", class: "btn submit-btn" %>
+          <% if defined?(next_wizard_path) && step != wizard_steps.last %>
+            <%= f.submit "Next", class: "btn submit-btn" %>
+          <% elsif defined?(next_wizard_path) && step == wizard_steps.last %>
+            <%= f.submit "Finish", class: "btn submit-btn" %>
+          <% end %>
           <% if defined?(previous_wizard_path) && step != wizard_steps.first %>
             <%= link_to 'Back', previous_wizard_path, class: "btn submit-btn-inverse" %>
           <% end %>

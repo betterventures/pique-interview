@@ -4,10 +4,29 @@
 <% end %>
 
 <%= render layout: 'form' do |f| %>
-  <%= f.fields_for :supplemental_requirements, SupplementalRequirement.new do |supplemental_requirement| %>
-    <%= render 'supplemental_requirement_fields', f: supplemental_requirement %>
-  <% end %>
-  <div class="links">
-    <%= link_to_add_association 'Add another required document', f, :supplemental_requirements %>
+  <div id="supplemental-requirements">
+    <% if @scholarship.supplemental_requirements.count > 0 %>
+      <% @scholarship.supplemental_requirements.each do |supplemental_requirement| %>
+        <%= f.fields_for :supplemental_requirements, supplemental_requirement do |supplemental_requirement_fields| %>
+          <%= render 'supplemental_requirement_fields', f: supplemental_requirement_fields %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%= f.fields_for :supplemental_requirements, @scholarship.supplemental_requirements.build do |supplemental_requirement_fields| %>
+        <%= render 'supplemental_requirement_fields', f: supplemental_requirement_fields %>
+      <% end %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add another required document',
+                                  f,
+                                  :supplemental_requirements,
+                                  {
+                                    data: {
+                                      'association-insertion-method' => 'before'
+                                    },
+                                    id: 'add-supplemental-requirement-link'
+                                  }
+      %>
+    </div>
   </div>
 <% end %>

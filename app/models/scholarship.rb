@@ -19,15 +19,21 @@ class Scholarship < ApplicationRecord
                                 },
                                 allow_destroy: true
   accepts_nested_attributes_for :essay_requirements,
-                                reject_if: :all_blank,
+                                reject_if: ->(attrs) {
+                                  attrs['word_limit'].nil?
+                                },
                                 allow_destroy: true
   accepts_nested_attributes_for :location_limitations,
                                 reject_if: ->(attrs) {
-                                  attrs['state'].nil?
+                                  attrs['state'].nil? ||
+                                  attrs['state'].empty?
                                 },
                                 allow_destroy: true
   accepts_nested_attributes_for :supplemental_requirements,
-                                reject_if: :all_blank,
+                                reject_if: ->(attrs) {
+                                  attrs['title'].nil? ||
+                                  attrs['title'].empty?
+                                },
                                 allow_destroy: true
 
   enum faith_requirement: {

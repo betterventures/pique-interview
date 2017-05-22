@@ -1,5 +1,15 @@
-<div class="supplemental-requirement">
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= link_to_remove_association "Remove document", f %>
+<div class="nested-fields supplemental-requirement">
+  <div class="row">
+    <div class="col-container full">
+      <div class="col">
+        <%= f.text_field :title, placeholder: 'Document Title' %>
+      </div>
+      <div class="col comment">
+        Add supplemental required documents<br>i.e. "Parents' W-2 Form"
+      </div>
+      <div class="col-x05">
+        <%= link_to_remove_association "X", f %>
+      </div>
+    </div>
+  </div>
 </div>

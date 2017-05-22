@@ -91,6 +91,11 @@ $row-height: 30px;
       width: $col-container-width;
     }
 
+    .col-container.full {
+      margin: 0 32px;
+      width: 94%;
+    }
+
     .col {
       display: inline-block;
       margin: 0 5% 0 0;
@@ -176,7 +181,6 @@ $row-height: 30px;
       position: relative;
       display: inline-block;
     }
-
   }
 
   .btns {
@@ -292,6 +296,20 @@ $row-height: 30px;
       color: $pastel-blue;
       margin-left: 20px;
       width: 100px;
+    }
+  }
+
+  #supplemental-requirements {
+    .col-x05 {
+      display: inline-block;
+      margin: 0 5% 0 0;
+      position: relative;
+      width: $col-width / 2;
+    }
+
+    #add-supplemental-requirement-link {
+      display: inline-block;
+      margin: 8px 32px;
     }
   }
 

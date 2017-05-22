@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170520003119) do
+ActiveRecord::Schema.define(version: 20170522042449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20170520003119) do
     t.integer "aos_type"
     t.integer "scholarship_id"
     t.index ["scholarship_id"], name: "index_area_of_study_requirements_on_scholarship_id", using: :btree
+  end
+
+  create_table "awards", force: :cascade do |t|
+    t.integer  "amount",         null: false
+    t.integer  "scholarship_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["scholarship_id"], name: "index_awards_on_scholarship_id", using: :btree
   end
 
   create_table "essay_prompts", force: :cascade do |t|

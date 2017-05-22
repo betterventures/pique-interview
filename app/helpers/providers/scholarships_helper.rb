@@ -8,7 +8,7 @@ module Providers
         params.require(:scholarship)
               .permit(:title, :description, :eligibility,
                       :photo_url,
-                      :number_of_awards, :award_amount, :renewable,
+                      :renewable,
                       :minimum_age,
                       :cycle_start, :cycle_end,
                       :gpa, :minimum_sat_score, :minimum_act_score, :flexible_scores,
@@ -21,6 +21,12 @@ module Providers
                       :for_asian_people, :for_native_people,
                       :maximum_family_income,
                       :requires_community_service, :minimum_community_service,
+                      awards_attributes: %i[
+                        id
+                        amount
+                        scholarship_id
+                        _destroy
+                      ],
                       area_of_study_requirements_attributes: %i[
                         id
                         aos_type

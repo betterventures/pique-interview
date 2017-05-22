@@ -1,11 +1,17 @@
 class Scholarship < ApplicationRecord
   EXPECTED_DATE_FORMAT = "%m/%d/%Y"
 
+  has_many :awards, inverse_of: :scholarship
   has_many :area_of_study_requirements, inverse_of: :scholarship, dependent: :destroy
   has_many :essay_requirements, inverse_of: :scholarship, dependent: :destroy
   has_many :location_limitations, inverse_of: :scholarship, dependent: :destroy
   has_many :supplemental_requirements, inverse_of: :scholarship, dependent: :destroy
 
+  accepts_nested_attributes_for :awards,
+                                reject_if: ->(attrs) {
+                                  attrs['amount'].nil?
+                                },
+                                allow_destroy: true
   accepts_nested_attributes_for :area_of_study_requirements,
                                 reject_if: ->(attrs) {
                                   attrs['aos_type'].nil? ||

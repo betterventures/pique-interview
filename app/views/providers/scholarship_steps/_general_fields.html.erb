@@ -73,10 +73,53 @@
 
 <div class="row">
   <div class="field">
-    <%= f.label 'Award Amount' %>
+    <%= f.label 'Number of Awards' %>
     <div class="col-container">
       <div class="col">
-        <%= f.number_field :award_amount, id: "award-amount", placeholder: '$ ' %>
+        <%= number_field_tag :num_awards, @scholarship.awards.count, step: 1, min: 0, placeholder: 'e.g., 3', id: "num-awards-field", oninput: 'setAssociationFields()' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="awards">
+  <% if @scholarship.awards.count > 0 %>
+    <% @scholarship.awards.each.with_index do |award, i| %>
+      <%= f.fields_for :awards, award do |award_fields| %>
+        <%= render 'providers/scholarship_steps/award_fields', f: award_fields, i: i %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= f.fields_for :awards, @scholarship.awards.build do |award_fields| %>
+      <%= render 'providers/scholarship_steps/award_fields', f: award_fields, i: (@scholarship.awards.count + 1) %>
+    <% end %>
+  <% end %>
+  <div class="add-association-container" class="hidden">
+    <%= link_to_add_association "Add another Award to your Scholarship",
+                                f,
+                                :awards,
+                                {
+                                  partial: 'providers/scholarship_steps/award_fields',
+                                  render_options: {
+                                    locals: {
+                                      i: @scholarship.awards.count
+                                    },
+                                  },
+                                  data: {
+                                    'association-insertion-method' => 'before'
+                                  },
+                                  class: 'add-association-link'
+                                }
+    %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <%= f.label 'Renewable Scholarship?' %>
+    <div class="col-container">
+      <div class="col">
+        <%= f.check_box :renewable %>
       </div>
     </div>
   </div>
@@ -88,28 +131,6 @@
     <div class="col-container">
       <div class="col">
         <%= f.number_field :minimum_age, placeholder: 15 %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="field">
-    <%= f.label 'Number of Awards' %>
-    <div class="col-container">
-      <div class="col">
-        <%= f.number_field :number_of_awards, step: 1, min: 0, placeholder: 1 %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="field">
-    <%= f.label 'Renewable?' %>
-    <div class="col-container">
-      <div class="col">
-        <%= f.check_box :renewable %>
       </div>
     </div>
   </div>
@@ -231,3 +252,91 @@
   $(document).on('page:change', setupFilepicker);
   $(document).on('turbolinks:load', setupFilepicker);
 </script>
+
+<script type="text/javascript">
+  /*
+   * Set the essay number for each association label.
+   * @param assocContainerId {String} :: the ID of the top-level element that contains
+   *  the .nested-fields associations
+   *
+   * Notes:
+   * Gross javascript but there is no way to do this on server-side with added associations.
+   * Currently uses callback hooks for before/after insertion provided by Cocoon gem.
+   * Feel free to refactor :/.
+   * Comment Author: FK
+   */
+  function replaceAssociationIndices(assocContainerId) {
+    var elsToMod = $(assocContainerId + ' .nested-fields.association-container');
+
+    $(elsToMod).each(function (i, association) {
+      // Replace the string `{Association}#_` within all `label` and `a` tags.
+      $(association).find('label, a').each(function (_j, el) {
+        var currentText = $(el).html();
+        $(el).html(
+          // start indices at 1.
+          currentText.replace(/Award #\d/g, "Award #" + (i + 1))
+        );
+      });
+    });
+  }
+
+  $(document).ready(function () {
+    $('#awards')
+      .on('cocoon:after-insert', function (_e, _el) {
+        replaceAssociationIndices('#awards');
+      })
+      .on('cocoon:after-remove', function (_e, _el) {
+        replaceAssociationIndices('#awards');
+      });
+  });
+</script>
+
+<script type="text/javascript">
+  function setAssociationFields() {
+    var numAssociationsDesired = parseInt(
+      $('#num-awards-field').val()
+    );
+    var $associationFields = $('#awards .association-container');
+
+    /*
+     * 1. If more fields desired,
+     *    Undelete any associations that have been previously deleted.
+     *    (Up to the number of desired fields.)
+     */
+    for (var i = 0; i < numAssociationsDesired; i++) {
+      $associationFields
+        .eq(i)
+        .find('.delete-association-btn-container input[type="hidden"][value="1"]')
+        .val('false');
+
+      $associationFields
+        .eq(i)
+        .attr('style', '');
+    }
+
+    /*
+     * 2. If more fields desired,
+     *    Add any additional fields needed, after undeleting existing, hidden fields.
+     */
+    if (numAssociationsDesired > $associationFields.length) {
+      for (var i = $associationFields.length; i < numAssociationsDesired; i++) {
+        $('#awards .add-association-link')
+          .click();
+      }
+    /*
+     * 3. If fewer fields desired,
+     *    Delete the excess fields.
+     *    - Will mark delete if is a previously saved association
+     *    - Or just remove if is newly created assoication input.
+     */
+    } else if (numAssociationsDesired < $associationFields.length) {
+        $associationFields
+          .slice(numAssociationsDesired, $associationFields.length)
+          .find('a.delete-association-btn.remove_fields')
+          .click();
+    }
+
+    return false;
+  }
+</script>
+

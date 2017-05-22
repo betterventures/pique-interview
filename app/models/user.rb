@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  belongs_to :role
   before_validation :set_default_role
 
   # Include default devise modules. Others available are:
@@ -7,9 +6,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  enum role: {
+    provider: 0,
+    recommender: 1,
+    reviewer: 2,
+    student: 3
+  }
+
   private
 
   def set_default_role
-    self.role ||= Role.student
+    self.role ||= self.role_types[:student]
   end
 end

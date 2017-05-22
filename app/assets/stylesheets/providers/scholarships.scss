@@ -1,9 +1,9 @@
 @import '_vars';
 
-$col-width: 30%;
+$col-width: 26%;
 $col-container-width: 70%;
 $form-width: 70%;
-$full-input-width: 57%;
+$full-input-width: 60%;
 $row-height: 30px;
 
 .scholarship-page {
@@ -67,7 +67,7 @@ $row-height: 30px;
       line-height: $row-height;
       padding: 0 36px 0 0;
       text-align: right;
-      width: $col-width;
+      width: 1.1 * $col-width;
     }
 
     input,
@@ -88,7 +88,7 @@ $row-height: 30px;
 
     .col-container {
       position: relative;
-      margin-left: 1.15 * $col-width;
+      margin-left: 1.3 * $col-width;
       width: $col-container-width;
     }
 
@@ -248,9 +248,11 @@ $row-height: 30px;
 
   #filepicker-img-overlay {
     background-color: $light-grey;
-    z-index: 10;
     height: 100px;
+    left: 10px;
+    position: relative;
     width: 160px;
+    z-index: 10;
   }
 
   #filepicker-img-overlay img {

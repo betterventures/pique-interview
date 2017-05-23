@@ -11,6 +11,10 @@ Rails.application.routes.draw do
       resources :payments, only: [:new, :create]
       resources :steps, only: [:show, :update], controller: 'scholarship_steps'
     end
+
+    # user account info routes
+    get 'account_info', to: 'account_info#edit'
+    put 'account_info', to: 'account_info#update'
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

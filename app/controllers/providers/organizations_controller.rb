@@ -11,7 +11,7 @@ class Providers::OrganizationsController < ApplicationController
 
     # eventually this should redirect to dashboard
     # if user has already created a scholarship
-    redirect_to new_providers_scholarship_path
+    redirect_to providers_account_info_path
   end
 
   def edit

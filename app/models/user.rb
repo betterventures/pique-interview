@@ -16,6 +16,6 @@ class User < ApplicationRecord
   private
 
   def set_default_role
-    self.role ||= self.role_types[:student]
+    self.role ||= self.class.roles[:student]
   end
 end

@@ -5,6 +5,6 @@ class Provider < User
   private
 
   def set_default_role
-    self.role ||= self.role_types[:provider]
+    self.role ||= self.class.roles[:provider]
   end
 end

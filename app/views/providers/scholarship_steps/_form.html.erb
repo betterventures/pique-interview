@@ -16,7 +16,7 @@
         <%= yield f %>
 
         <div class="actions">
-          <% if defined?(next_wizard_path) && step != wizard_steps.last %>
+          <% if !defined?(wizard_path) || (defined?(next_wizard_path) && step != wizard_steps.last) %>
             <%= f.submit "Next", class: "btn submit-btn" %>
           <% elsif defined?(next_wizard_path) && step == wizard_steps.last %>
             <%= f.submit "Finish", class: "btn submit-btn" %>

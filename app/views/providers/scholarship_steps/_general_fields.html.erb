@@ -91,7 +91,7 @@
     <% end %>
   <% else %>
     <%= f.fields_for :awards, @scholarship.awards.build do |award_fields| %>
-      <%= render 'providers/scholarship_steps/award_fields', f: award_fields, i: (@scholarship.awards.count + 1) %>
+      <%= render 'providers/scholarship_steps/award_fields', f: award_fields, i: @scholarship.awards.count %>
     <% end %>
   <% end %>
   <div class="add-association-container hidden">

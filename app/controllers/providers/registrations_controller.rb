@@ -15,7 +15,7 @@ class Providers::RegistrationsController < Devise::RegistrationsController
       keys: [
         :first_name,
         :last_name,
-        :role_id,
+        :role,
       ]
     )
   end

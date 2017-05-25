@@ -7,6 +7,13 @@ class Provider < User
 
   belongs_to :organization, optional: true
 
+  def to_json
+    {
+      photo_url: photo_url,
+      display_name: name,
+    }
+  end
+
   private
 
   def set_default_role

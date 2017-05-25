@@ -16,5 +16,9 @@ module PiqueWeb
     # Configure Babel Transpilers
     # - Commented out, as we are transpiling our React components with Webpacker
     #config.react.jsx_transform_options = {}
+
+    # Configure React-Rails
+    # - Some helpful helpers
+    config.react.camelize_props = true  # always camelize props passed to `react_component`
   end
 end

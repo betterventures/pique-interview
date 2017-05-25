@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525090310) do
+ActiveRecord::Schema.define(version: 20170525095923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,8 +74,9 @@ ActiveRecord::Schema.define(version: 20170525090310) do
   create_table "scholarship_applications", force: :cascade do |t|
     t.integer  "student_id"
     t.integer  "scholarship_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "stage",          default: 0
     t.index ["scholarship_id", "student_id"], name: "index_scholarship_applications_on_scholarship_id_and_student_id", unique: true, using: :btree
     t.index ["scholarship_id"], name: "index_scholarship_applications_on_scholarship_id", using: :btree
     t.index ["student_id"], name: "index_scholarship_applications_on_student_id", using: :btree

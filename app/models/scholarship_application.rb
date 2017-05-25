@@ -4,4 +4,20 @@ class ScholarshipApplication < ApplicationRecord
 
   # validate that student cannot apply to the same scholarship more than once
   validates :scholarship_id, uniqueness: { scope: :student_id }
+
+  # leave space for intermediate stages
+  # - allow for new stages to be added
+  # - while preserving backwards-compatibility with existing data
+  # - enables queries like: `where('stage > 6')`
+  enum stage: {
+    brand_new: 0,
+    reviewed: 10,
+    finalist: 100
+  }
+
+  private
+
+  def set_initial_stage
+    self.stage ||= self.class.stages[:brand_new]
+  end
 end

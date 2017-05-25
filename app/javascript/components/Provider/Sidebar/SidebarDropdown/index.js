@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CaretIcon from '../../Icons/Caret'
+import CaretIcon from '../../../Icons/Caret'
 import css from './style.css'
 
 export class SidebarDropdown extends Component {

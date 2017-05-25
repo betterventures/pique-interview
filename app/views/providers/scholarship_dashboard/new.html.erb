@@ -1,4 +1,15 @@
 <div id="app">
-  <%= react_component('Sidebar/index', {user: @user}) %>
-  <%= react_component('Dashboard/dashboard', {applicants: @applicants}) %>
+  <% @applicants.each do |k,v| %>
+    <% v.each do |a| %>
+      <div>
+        <br>
+        <%= a %>
+      </div>
+    <% end %>
+    <div>
+      <%= @user.to_json %>
+    </div>
+  <% end %>
+
+  <%= react_component('Provider/index', {applicants: @applicants, user: @user}) %>
 </div>

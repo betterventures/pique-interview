@@ -1,5 +1,5 @@
 import React from 'react'
-import Rating from '../../Rating'
+import Rating from '../../../Rating'
 import css from './style.css'
 
 const DashboardCards = ({ items }) => {

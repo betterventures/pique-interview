@@ -8,7 +8,7 @@ const AppSidebar = ({ user }) => {
       <div className={css.backdrop} />
       <div className={css.student}>
         <div className={css.border}>
-          <img className={css.img} src={user.photoURL}/>
+          <img className={css.img} src={user.photoUrl}/>
         </div>
         <div className={css.name}>{user.displayName}</div>
       </div>

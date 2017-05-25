@@ -2,7 +2,7 @@ class Scholarship < ApplicationRecord
   EXPECTED_DATE_FORMAT = "%m/%d/%Y"
 
   has_many :scholarship_applications, inverse_of: :scholarship
-  has_many :applicants, through: :scholarship_applications, source: :user
+  has_many :applicants, through: :scholarship_applications, source: :student
 
   has_many :awards, inverse_of: :scholarship
   has_many :area_of_study_requirements, inverse_of: :scholarship, dependent: :destroy

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525044733) do
+ActiveRecord::Schema.define(version: 20170525090310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,12 +72,13 @@ ActiveRecord::Schema.define(version: 20170525044733) do
   end
 
   create_table "scholarship_applications", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "student_id"
     t.integer  "scholarship_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.index ["scholarship_id", "student_id"], name: "index_scholarship_applications_on_scholarship_id_and_student_id", unique: true, using: :btree
     t.index ["scholarship_id"], name: "index_scholarship_applications_on_scholarship_id", using: :btree
-    t.index ["user_id"], name: "index_scholarship_applications_on_user_id", using: :btree
+    t.index ["student_id"], name: "index_scholarship_applications_on_student_id", using: :btree
   end
 
   create_table "scholarships", force: :cascade do |t|
@@ -160,7 +161,7 @@ ActiveRecord::Schema.define(version: 20170525044733) do
   add_foreign_key "essay_requirements", "scholarships"
   add_foreign_key "location_limitations", "scholarships"
   add_foreign_key "scholarship_applications", "scholarships"
-  add_foreign_key "scholarship_applications", "users"
+  add_foreign_key "scholarship_applications", "users", column: "student_id"
   add_foreign_key "supplemental_requirements", "scholarships"
   add_foreign_key "users", "organizations"
 end

@@ -13,7 +13,7 @@ class Providers::ScholarshipsController < ApplicationController
   end
 
   def edit
-    @scholarship = Scholarship.find(params[:id])
+    @scholarship = Scholarship.find(params[:scholarship_id])
     render_wizard @scholarship
   end
 end

@@ -36,7 +36,7 @@ module Providers
         {
           first_name: 'Brian',
           last_name: 'Rucker',
-          tagline: 'Hi! My name is Brian and I am the Founder of Pique, the Common Application for schoalrships. I love reading during my free time, being my own BAWSSS and tearing up dem clubs',
+          tagline: 'Hi! My name is Brian and I am the Founder of Pique, the Common Application for scholarships. I love reading during my free time, being my own BAWSSS and tearing up dem clubs',
           gpa: 3.7,
           email: BRUCKER_EMAIL,
           password: SecureRandom.hex,

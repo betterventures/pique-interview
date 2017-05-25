@@ -12,5 +12,9 @@ module PiqueWeb
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.filepicker_rails.api_key = Rails.application.secrets.filepicker_api_key
+
+    # Configure Babel Transpilers
+    # - Commented out, as we are transpiling our React components with Webpacker
+    #config.react.jsx_transform_options = {}
   end
 end

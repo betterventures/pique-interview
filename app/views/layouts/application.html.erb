@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Get Pique</title>
-    <%= csrf_meta_tags %>
+    <% if content_for?(:title) %>
+      <%= yield(:title) %>
+    <% else %>
+      <title>Get Pique</title>
+    <% end %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= yield :head %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application' %>
-    <%= stylesheet_pack_tag 'application' %>
     <%= favicon_link_tag 'favicon.ico' %>
     <%= filepicker_js_include_tag %>
+
+
+    <%= javascript_pack_tag('vendor-bundle', 'data-turbolinks-track': true) %>
+    <%= javascript_pack_tag('app-bundle', 'data-turbolinks-track': true) %>
+
+    <%= csrf_meta_tags %>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
@@ -42,6 +52,8 @@
     <div class="body-container">
       <%= yield %>
     </div>
+
+    <%= redux_store_hydration_data %>
 
   </body>
 </html>

@@ -1,1 +1,1 @@
-web: bundle exec rails server -p $PORT
+run: echo "Run Procfile.static or Procfile.hot"

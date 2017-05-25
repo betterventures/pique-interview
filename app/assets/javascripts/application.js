@@ -18,7 +18,13 @@
 //= require bootstrap-sprockets
 //= require bootstrap-datetimepicker
 //= require turbolinks
+
+/*
+ * Require React stack _after_ Turbolinks in order to not turn off component mounting.
+ */
+
 //= require react
 //= require react_ujs
 //= require components
+
 //= require_tree .

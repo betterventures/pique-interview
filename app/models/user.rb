@@ -14,6 +14,10 @@ class User < ApplicationRecord
     student: 2    # applicants
   }
 
+  def name
+    "#{first_name} #{last_name}"
+  end
+
   private
 
   def set_default_role

@@ -1,10 +1,22 @@
 class Scholarship < ApplicationRecord
   EXPECTED_DATE_FORMAT = "%m/%d/%Y"
 
+  # applications
   has_many :scholarship_applications, inverse_of: :scholarship
-  has_many :applicants, through: :scholarship_applications, source: :student
+  has_many :new_applications, -> { brand_new }, inverse_of: :scholarship, class_name: 'ScholarshipApplication'
+  has_many :reviewed_applications, -> { reviewed }, inverse_of: :scholarship, class_name: 'ScholarshipApplication'
+  has_many :finalist_applications, -> { finalist }, inverse_of: :scholarship, class_name: 'ScholarshipApplication'
 
+  # applicants
+  has_many :applicants, through: :scholarship_applications, source: :student
+  has_many :new_applicants, through: :new_applications, source: :student
+  has_many :reviewed_applicants, through: :reviewed_applications, source: :student
+  has_many :finalist_applicants, through: :finalist_applications, source: :student
+
+  # awards
   has_many :awards, inverse_of: :scholarship
+
+  # requirements
   has_many :area_of_study_requirements, inverse_of: :scholarship, dependent: :destroy
   has_many :essay_requirements, inverse_of: :scholarship, dependent: :destroy
   has_many :location_limitations, inverse_of: :scholarship, dependent: :destroy
@@ -47,6 +59,36 @@ class Scholarship < ApplicationRecord
     christian: 4,
     catholic: 5
   }
+
+  # provide the keys expected by the frontend, for now
+  def applications_by_stage
+    {
+      new: new_applications,
+      reviewed: reviewed_applications,
+      interviewees: [],
+      finalists: finalist_applications
+    }
+  end
+
+  # not derived from `applications_by_stage` in order to reduce the number of queries
+  # - `map` would execute n={collection_size} queries
+  def applicants_by_stage
+    {
+      new: new_applicants,
+      reviewed: reviewed_applicants,
+      interviewees: [],
+      finalists: finalist_applicants
+    }
+  end
+
+  # applicants in json format
+  def applicants_by_stage_json
+    applicants_by_stage.reduce({}) do |acc, el|
+      key, applicants = el
+      acc[key] = applicants.map(&:to_json)
+      acc
+    end
+  end
 
   def cycle_start=(start_time)
     super time_to_date(start_time)

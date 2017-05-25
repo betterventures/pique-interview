@@ -6,11 +6,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  # please note if you change the key name, to keep the int the same
+  # (for backwards compatibility)
   enum role: {
-    provider: 0,
-    recommender: 1,
-    reviewer: 2,
-    student: 3
+    provider: 0,  # providers (admin) and reviewers
+    educator: 1,  # counselors (admin) and recommenders
+    student: 2    # applicants
   }
 
   private

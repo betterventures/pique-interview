@@ -13,13 +13,13 @@ gem 'jquery-turbolinks'
 gem 'pg', '~> 0.18.4'
 gem 'puma', '~> 3.7.1'
 gem 'rails', '~> 5.0.3'
-gem 'react-rails', '~> 1.11.0'
+gem 'react_on_rails', '~> 8.0.0.beta.2'
 gem 'sass-rails', '~> 5.0'
 gem 'stripe', '~> 2.4.0'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 3.2.0'
-gem 'webpacker', github: 'rails/webpacker'
+gem 'webpacker_lite'
 gem 'wicked'
 
 # datepicker

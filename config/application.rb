@@ -19,6 +19,6 @@ module PiqueWeb
 
     # Configure React-Rails
     # - Some helpful helpers
-    config.react.camelize_props = true  # always camelize props passed to `react_component`
+    #config.react.camelize_props = true  # always camelize props passed to `react_component`
   end
 end

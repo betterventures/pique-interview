@@ -1,3 +1,15 @@
+module RenderingExtension
+
+  # Return a Hash that contains custom values from the view context that will get merged with
+  # the standard rails_context values and passed to all calls to generator functions used by the
+  # react_component and redux_store view helpers
+  def self.custom_context(view_context)
+    {
+     somethingUseful: view_context.session[:something_useful]
+    }
+  end
+end
+
 # Shown below are the defaults for configuration
 ReactOnRails.configure do |config|
   # Client bundles are configured in application.js

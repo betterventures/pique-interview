@@ -19,14 +19,10 @@ class Providers::ScholarshipDashboardController < ApplicationController
   end
 
   def new
-    # data fetching/setup is done in :populate_redux_data
+    # ivar fetching/setup is done early in :populate_redux_data
   end
 
   private
-
-  def initialize_shared_store
-    @store = redux_store("SharedReduxStore", props: @app_props_server_render)
-  end
 
   def populate_redux_data
     @scholarship = Scholarship.find(params[:scholarship_id])
@@ -37,7 +33,13 @@ class Providers::ScholarshipDashboardController < ApplicationController
       scholarship: @scholarship.to_json,
       applicants: @applicants,
       user: @user,
-      store: @store,
     }
   end
+
+  def initialize_shared_store
+    @store = redux_store("SharedReduxStore", props: @props)
+    logger.debug("GOT A STORE!")
+    logger.debug(@store)
+  end
+
 end

@@ -21,9 +21,9 @@ import ProviderUser from '../containers/Protected/Provider'
 import Root from '../containers/Root'
 
 // Stores
-// Whatever had `applyMiddleware` called on it
-// (and usually createStore of a combinedReducer)
-// is the Store
+// (Note: Whatever had `applyMiddleware` called on it
+//  (and usually createStore(combinedReducer))
+//  is the Store)
 import SharedReduxStore from '../stores/SharedReduxStore'
 
 

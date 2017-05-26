@@ -7,12 +7,12 @@ import combinedReducer from '../api/reducers';
 const middleware = [thunkmasterFlex()];
 
 /*
- *  Export a function that takes the props and returns a Redux store
+ *  Generator: Export a function that takes the props and returns a Redux store.
  *  This is used so that 2 components can have the same store.
  */
 export default (props, railsContext) => {
   const newProps = { ...props, railsContext };
-  return applyMiddleware(middleware)(createStore)(combinedReducer, newProps);
+  return applyMiddleware(...middleware)(createStore)(combinedReducer, newProps);
 };
 
 function thunkmasterFlex() {

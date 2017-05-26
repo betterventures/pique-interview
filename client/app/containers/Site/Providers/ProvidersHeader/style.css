@@ -1,0 +1,87 @@
+.root {
+  position: relative;
+  height: 630px;
+  width: 100%;
+  font-family: 'Avenir Next';
+  background: #215edd;
+  background: -moz-linear-gradient(45deg, #215edd 0%, #4abced 100%);
+  background: -webkit-linear-gradient(45deg, #215edd 0%, #4abced 100%);
+  background: linear-gradient(45deg, #215edd 0%, #4abced 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#215edd', endColorstr='#4abced', GradientType=1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+  background-position: center center;
+}
+
+.hero {
+  position: relative;
+  padding-top: 150px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  font-family: 'Avenir Next';
+}
+
+.checklist {
+  color: #fff;
+  max-width: 630px;
+  margin: 0 auto;
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.h1 {
+  font-size: 30px;
+  line-height: 38px;
+  text-align: center;
+}
+
+.h6 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 17px;
+  text-align: center;
+}
+
+.subtitle {
+  display: block;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 100;
+  text-align: center;
+  line-height: 26px;
+  letter-spacing: 1px;
+}
+
+.screens {
+  position: relative;
+  max-width: 900px;
+  margin: 40px auto 0 auto;
+}
+
+.img {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  transition-duration: 1s;
+}
+
+.loading {
+  composes: img;
+  visibility: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.loaded {
+  composes: img;
+  visibility: visible;
+  transition-animation: all 1s ease-in-out;
+}
+
+.btn {
+  text-align: center;
+}

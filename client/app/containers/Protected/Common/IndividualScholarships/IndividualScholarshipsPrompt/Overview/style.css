@@ -1,0 +1,20 @@
+.root {
+  padding: 0 15px 40px;
+}
+
+.copy {
+  max-width: 520px;
+  margin-bottom: 50px;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 23px;
+  color: #777777;
+}
+
+.btn {
+  composes: btn from 'containers/Protected/Common/IndividualScholarships/style.css';
+}
+
+.text {
+  margin-bottom: 30px;
+}

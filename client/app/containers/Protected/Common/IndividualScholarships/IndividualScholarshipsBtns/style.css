@@ -1,0 +1,36 @@
+.root {
+  display: inline-block;
+  margin: 0 20px 0 auto;
+}
+
+.btn {
+  text-align: center;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-weight: 200;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+}
+
+.fill {
+  composes: btn;
+  background-color: #1698FB;
+}
+
+.nofill {
+  composes: btn;
+  border: 1px solid #1698FB;
+  background-color: transparent;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.fill .link {
+  color: #fff;
+}
+
+.nofill .link {
+  color: #1698FB;
+}

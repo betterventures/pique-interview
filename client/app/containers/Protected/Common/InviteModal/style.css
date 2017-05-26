@@ -1,0 +1,78 @@
+.modal {
+  position: relative;
+  background-color: #fff;
+  width: 575px;
+  height: 275px;
+  margin: 250px auto 0;
+  color: #000;
+  background-clip: padding-box;
+  box-shadow: 0 4px 16px rgba(0,0,0,.2);
+  border: 1px solid rgba(0,0,0,.333);
+  padding: 30px 42px;
+  z-index: 3;
+}
+
+.modal.share {
+  height: 350px;
+}
+
+.curtain {
+  background-color: #fff;
+  opacity: 0.75;
+}
+
+.title {
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 24px;
+}
+
+.done {
+  position: absolute;
+  left: 42px;
+  bottom: 30px;
+  width: 100%;
+}
+
+.btn {
+  line-height: 27px;
+  color: #fff;
+  padding: 2px 25px;
+  font-size: 11px;
+  font-family: 'HelveticaNeue', Helvetica, sans-serif;
+  background-color: #0E5CB5;
+}
+
+.label {
+  line-height: 28px;
+  color: #646464;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.input {
+  font-size: 12px;
+  padding-left: 10px;
+  background-color: #fff;
+  margin: 0 0 15px;
+  line-height: 1.4em;
+  word-wrap: break-word;
+  min-height: 36px;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  border-bottom: 1px solid #cbcbcb;
+  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+}
+
+.extra {
+  composes: input;
+  min-height: 46px;
+}
+
+.hide {
+  display: none;
+}
+
+.share .hide {
+  display: block;
+}

@@ -1,0 +1,6 @@
+.auth-root {
+  margin: 0 auto;
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(-229deg, rgba(23,127,255,0.80) 1%, rgba(18,159,199,0.80) 27%, rgba(5,250,39,0.80) 100%);
+}

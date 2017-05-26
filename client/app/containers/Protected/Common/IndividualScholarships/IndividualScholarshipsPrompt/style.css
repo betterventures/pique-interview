@@ -1,0 +1,50 @@
+.root {
+  position: relative;
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.root:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.title {
+  display: block;
+  font-family: 'Helvetica Neue', Helvetica, san-serif;
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 40px;
+  padding: 0 15px;
+}
+
+.border {
+  border: 1px solid #EFEFEF;
+  margin-bottom: 30px;
+}
+
+.overview {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .overview {
+    width: 60%;
+    float: left;
+  }
+}
+
+.details {
+  display: none;
+  width: 40%;
+  float: right;
+}
+
+@media (min-width: 1024px) {
+  .details {
+    display: block;
+  }
+}

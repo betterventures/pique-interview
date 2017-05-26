@@ -1,0 +1,31 @@
+.root {
+  position: relative;
+  width: 100%;
+  height: 35px;
+  padding: 15px 0;
+  text-align: right;
+}
+
+.btn {
+  line-height: 27px;
+  padding: 10px 30px;
+  font-size: 11px;
+  text-decoration: none;
+  font-family: 'HelveticaNeue', Helvetica, sans-serif;
+  font-weight: 200;
+  border-radius: 2px;
+}
+
+.next {
+  composes: btn;
+  color: #fff;
+  background-color: rgba(23,127,255,0.80);
+  margin-left: 20px;
+}
+
+.back {
+  composes: btn;
+  color: rgba(23,127,255,0.80);
+  background-color: transparent;
+  border: 1px solid rgba(23,127,255,0.50);
+}

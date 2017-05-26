@@ -1,0 +1,26 @@
+.root {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 700px;
+}
+
+.option {
+  display: inline-block;
+  width: 50%;
+}
+
+.btn {
+  font-family: 'HelveticaNeue-Medium', Helvetica;
+  font-size: 14px;
+  color: #44BCEF;
+  font-size: 14px;
+  font-weight: 500;
+  width: 215px;
+  padding: 10px 0;
+  margin: 20px auto 30px;
+  background-color: transparent;
+  border: 2px solid #0A66CD;
+  border-radius: 3px;
+  outline: none;
+}

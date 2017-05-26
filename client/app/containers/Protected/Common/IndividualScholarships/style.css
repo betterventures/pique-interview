@@ -1,0 +1,13 @@
+.root {
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 55px;
+}
+
+.btn {
+  font-size: 17px;
+  width: 160px;
+  height: 45px;
+  line-height: 45px;
+}

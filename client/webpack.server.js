@@ -10,6 +10,12 @@ module.exports = {
     filename: 'server.js',
   },
   resolve: {
+    alias: {
+      api: path.join(process.cwd(), 'app', 'api'),
+      containers: path.join(process.cwd(), 'app', 'containers'),
+      components: path.join(process.cwd(), 'app', 'components'),
+      images: path.join(process.cwd(), 'app', 'assets', 'images'),
+    },
     modules: [
       path.join(__dirname, 'app'),
       'node_modules',

@@ -1,0 +1,162 @@
+.root {
+  position: absolute;
+  top: 120px;
+  right: 0;
+  left: 0;
+  z-index: 2001;
+  padding: 25px;
+  max-width: 450px;
+  max-height: 600px;
+  box-shadow: 0 5px 33px rgba(39, 39, 39, 0.5);
+  border-radius: 0;
+  background-color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  transition: all 0.2s ease-in-out;
+}
+
+.header {
+  display: inline-block;
+  border-bottom: 1px solid #44BCEF;
+  color: #44BCEF;
+  padding: 8px 0;
+  margin: 0 auto 40px;
+  font-family: 'Avenir Next', sans-serif;
+  font-weight: 200;
+  font-size: 14px;
+}
+
+.header:after {
+  content: 'Sign Up for Pique!';
+}
+
+.row {
+  height: 45px;
+  margin-bottom: 20px;
+}
+
+.row input {
+  padding-left: 15px;
+  border-radius: 5px;
+  outline-style: none;
+  color: #000;
+  height: 45px;
+  border: 1px solid #B2BCD3;
+  box-shadow: none;
+}
+
+.row input:focus {
+  border: 1px solid #4570F0;
+  box-shadow: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #B2BCD3;
+}
+input:-moz-placeholder {
+  color: #B2BCD3;
+  opacity: 1;
+}
+input::-moz-placeholder {
+  color: #B2BCD3;
+  opacity:  1;
+}
+input:-ms-input-placeholder {
+  color: #B2BCD3;
+}
+
+.full {
+  width: 100%;
+}
+
+.firstname {
+  float: left;
+  width: 50%;
+}
+
+.lastname {
+  float: right;
+  width: 47%;
+}
+
+.btns {
+  position: relative;
+  width: 100%;
+  height: 75px;
+  margin-bottom: 40px;
+}
+
+.btn {
+  display: inline-block;
+  font-family: "Avenir Next", sans-serif;
+  width: 48%;
+  padding: 12px;
+  height: 50px;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 50px;
+  border: none;
+  transition: 0.1s all ease-in;
+  cursor: pointer;
+}
+
+.submit {
+  composes: btn;
+  float: left;
+  color: #fff;
+  border: 1px solid #3cd070;
+  background-color: #3cd070;
+}
+
+.submit:hover {
+  color: #3cd070;
+  border: 1px solid #3cd070;
+  background-color: #fff;
+}
+
+.switch {
+  composes: btn;
+  float: right;
+  color: #44BCEF;
+  border: 1px solid #44BCEF;
+  background-color: #fff;
+}
+
+.switch:focus,
+.switch:active {
+  outline: none;
+  color: #44BCEF;
+  border: 1px solid #44BCEF;
+  background-color: #fff;
+}
+
+.switch:hover {
+  color: #fff;
+  background-color: #44BCEF;
+  border: 1px solid #44BCEF;
+}
+
+.notify {
+  color: red;
+  margin-bottom: 15px;
+  display: block;
+  font-size: 12px;
+  height: 17px;
+}
+
+.caption {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  color: #B2BCD3;
+  font-size: 14px;
+  width: 290px;
+  line-height: 19px;
+  margin-bottom: 15px;
+  font-family: 'Avenir Next', sans-serif;
+}
+
+.caption:after {
+  content: "By signing up, you agree to Pique Basic rules, Terms os service, and Privacy Policy";
+}

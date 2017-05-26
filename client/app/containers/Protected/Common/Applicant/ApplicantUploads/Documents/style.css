@@ -1,0 +1,44 @@
+.root {
+
+}
+
+.header {
+  composes: header from '../../style.css';
+}
+
+.box {
+  composes: box from '../../style.css';
+  padding: 0 50px;
+}
+
+
+.copy {
+  composes: copy from '../../style.css';
+}
+
+.placeholder {
+  composes: placeholder from '../../style.css';
+}
+
+.section {
+  padding: 40px 0 40px;
+  border-bottom: 1px solid #EFEFEF;
+}
+
+.title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 19px;
+  color: #2B2A2A;
+  margin-bottom: 20px;
+}
+
+.icon {
+  margin-right: 20px;
+}
+
+.add {
+  cursor: pointer;
+}

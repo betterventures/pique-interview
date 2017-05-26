@@ -1,0 +1,119 @@
+.root {
+  position: relative;
+  height: 100%;
+  background: linear-gradient(45deg, #44008d 0%, #125aac 100%);
+  color: #fff;
+  padding: 20px 0;
+  overflow: hidden;
+  font-family: 'Avenir Next', sans-serif;
+}
+
+@media (min-width: 668px) {
+  .root {
+/*     height: 1250px; */
+margin-bottom: -100px;
+  }
+}
+
+@media (min-width: 900px) {
+  .root {
+    margin-bottom: -60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .root {
+    margin-bottom: 0;
+  }
+}
+
+.mask {
+  display: none;
+  overflow: hidden;
+  position: absolute;
+  transform: skew(0deg,-10deg);
+  background: linear-gradient(-45deg, #44008d 0%, #194bbc 100%);
+  width: 100%;
+  height: 1000px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 5;
+}
+
+@media (min-width: 668px) {
+  .mask {
+    display: block;
+    top: 40%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mask {
+    display: block;
+    top: 35%;
+  }
+}
+
+.wrap {
+  position: relative;
+  min-height: 630px;
+  height: calc(52% + 200px);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.wrap:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+@media (min-width: 668px) {
+  .wrap {
+    height: 900px;
+    padding: 0 30px;
+  }
+}
+
+@media (min-width: 668px) {
+  .wrap {
+    height: 1000px;
+  }
+}
+
+.section {
+  width: 100%;
+  font-size: 18px;
+  line-height: 24px;
+  color: #fff;
+}
+
+.one,
+.two {
+  composes: section;
+}
+
+.one {
+  margin-bottom: 30px;
+}
+
+@media (min-width: 668px) {
+  .one {
+    margin-bottom: 35%;
+    float: right;
+    text-align: right;
+  }
+
+  .two {
+    text-align: left;
+    float: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  .one {
+    margin-bottom: 30%;
+  }
+}

@@ -1,0 +1,107 @@
+.root {
+  display: none;
+  position: absolute;
+  margin: 0 auto;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  width: 100%;
+}
+
+@media (min-width: 668px) {
+  .root {
+    display: inline-block;
+    position: relative;
+    min-height: 67px;
+  }
+  .root a:hover {
+    text-decoration: none;
+    color: #44008D;
+  }
+}
+
+.one,
+.two {
+  composes: root;
+}
+
+.one {
+  bottom: 70px;
+}
+
+.two {
+  bottom: -500px;
+}
+
+@media (min-width: 668px) {
+  .one {
+    text-align: right;
+  }
+  .two {
+    text-align: left;
+    top: 0;
+  }
+}
+
+.btn {
+  display: inline-block;
+  position: relative;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  width: 160px;
+  height: 48px;
+  margin: 0 5px;
+  padding: 7px;
+  line-height: 30px;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid #fff;
+  border-radius: 40px;
+  font-family: 'Avenir Next', sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 0px;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+  outline: none;
+}
+
+@media (min-width: 668px) {
+  .btn {
+    width: 180px;
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .btn {
+    margin-top: 40px;
+  }
+}
+
+.btn:first-child {
+  background-color: #fff;
+  color: #44008D;
+}
+
+.btn:nth-child(2) {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.btn:first-child:hover,
+.btn:nth-child(2):hover {
+  background-color: transparent;
+  color: #fff;
+}
+
+.btn:nth-child(2) a {
+  color: #fff;
+}
+
+.btn:nth-child(2):hover a {
+  color: #44008D;
+}

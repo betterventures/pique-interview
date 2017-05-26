@@ -1,0 +1,8 @@
+.root {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  margin-top: 55px;
+  background-size: cover;
+  background-image: linear-gradient(-229deg, rgba(23,127,255,0.56) 1%, rgba(18,159,199,0.56) 27%, rgba(10,210,109,0.56) 68%, rgba(5,250,39,0.56) 100%);
+}

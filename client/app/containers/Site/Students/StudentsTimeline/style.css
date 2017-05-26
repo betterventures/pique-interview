@@ -1,0 +1,294 @@
+.root {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  background-image: linear-gradient(209deg, #0078FF 0%, #194BBC -6%, #3122A2 45%, #3122A2 45%, #36199D 51%, #37179B 53%, #3D0D95 60%, #3D0D95 60%, #44008D 87%);
+}
+
+.content {
+  position: relative;
+  margin: 80px auto 0;
+  height: auto;
+  max-width: 1200px;
+}
+
+@media (min-width: 1024px) {
+  .content {
+    height: 1500px;
+  }
+}
+
+.wrap {
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.header {
+  display: block;
+  position: relative;
+  margin: 0 auto 20px;
+  padding-top: 70px;
+  line-height: 40px;
+  text-align: center;
+  font-family: 'Avenir Next', sans-serif;
+  font-size: 24px;
+  font-weight: 200;
+  color: #fff;
+  border: none;
+}
+
+.header:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -10px;
+  margin: 0 auto;
+  border-bottom: none;
+  background-color: #fff;
+  width: 90px;
+  height: 2px;
+}
+
+.timeline {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .timeline {
+    display: block;
+  }
+}
+
+.timeline {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 130px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.timeline img {
+  right: 0;
+  left: 0;
+  z-index: 2;
+  margin: 0 auto;
+}
+
+
+.top {
+  position: absolute;
+  top: -45px;
+  right: 0;
+  left: 0;
+}
+
+.fixed {
+  position: fixed;
+  top: 190px;
+  right: 0;
+  left: 0;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  left: 0;
+}
+
+.column {
+  display: block;;
+  position: relative;
+  clear: both;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Avenir Next', sans-serif;
+  color: #fff;
+  padding-right: 20px;
+  padding-left: 20px;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 1024px) {
+  .column {
+    height: 550px;
+  }
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 200;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.copy {
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.copy span {
+  font-weight: 600;
+}
+
+.text {
+  max-width: 475px;
+  display: inline-block;
+}
+
+.right,
+.left {
+  display: block;
+  position: relative;
+  height: auto;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 40px;
+}
+
+@media (min-width: 1024px) {
+  .left,
+  .right {
+    margin: 0 auto;
+    height: 500px;
+    width: 50%;
+  }
+  .left {
+    float: left;
+  }
+  .right {
+    float: right;
+  }
+}
+
+.left .text,
+.left .img
+.right .text,
+.right .img,
+.right .card {
+  display: block;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .left .text,
+  .left .img,
+  .right .text,
+  .right .img,
+  .right .card {
+    position: absolute;
+    top: 0;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+.left .text {
+  text-align: left;
+}
+
+.right .text {
+  text-align: right;
+}
+
+@media (min-width: 1024px) {
+  .left .text {
+    left: -120%;
+  }
+  .right .text {
+    right: -120%;
+  }
+}
+
+.left .img,
+.right .img {
+  height: auto;
+  width: 100%;
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .left .img {
+    display: block;
+    left: -120%;
+    margin-left: -60px;
+    height: auto;
+    width: 410px;
+  }
+  .right .img {
+    display: block;
+    right: -120%;
+    top: -50px;
+    margin-right: -60px;
+    height: auto;
+    width: 410px
+  }
+}
+
+@media (min-width: 1280px) {
+  .left .img {
+    width: 520px;
+  }
+  .right .img {
+    width: 500px;
+  }
+}
+
+.right .card {
+  background-color: #f9f9f9;
+  color: #3845C1;
+  width: 100%;
+  height: 270px;
+  padding: 20px;
+  border-radius: 7px;
+  box-shadow: 10px 12px 10px 0 rgba(0,0,0,0.5);
+  font-family: 'Avenir Next', sans-serif;
+}
+
+.right .card .copy {
+  text-align: left;
+  font-family: 'Avenir Next', sans-serif;
+  font-weight: 300;
+  line-height: 25px;
+  font-size: 14px;
+}
+
+.right .card .example {
+  color: #3845C1;
+  text-align: left;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+.right .card .comment {
+  color: #3845C1;
+  text-align: left;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 25px;
+}
+
+@media (min-width: 1024px) {
+  .right .card {
+    right: -120%;
+    width: 475px;
+  }
+}
+
+.left.in .text,
+.left.in .img {
+  left: 0;
+}
+
+.right.in .text,
+.right.in .img,
+.right.in .card {
+  right: 0;
+}

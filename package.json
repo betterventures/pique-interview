@@ -35,5 +35,10 @@
   "author": "Frank Kotsianas and Evan Turner",
   "license": "MIT",
   "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "babel-preset-es2016": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "postcss-smart-import": "^0.7.2",
+    "precss": "^1.4.0"
+  }
 }

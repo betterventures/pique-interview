@@ -1,0 +1,103 @@
+.root {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .root {
+    width: 33.3333333333%;
+  }
+}
+
+.card {
+  position: relative;
+  height: 420px;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 8px 40px 0 rgba(72,85,105,0.15);
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.body {
+  margin: 30px 0;
+  padding: 0 15px 15px;
+}
+
+.title {
+  font-size: 18px;
+  color: #000;
+  line-height: 22px;
+  font-weight: 400;
+  margin-bottom:  15px;
+}
+
+.copy {
+  font-weight: 200;
+  font-size: 12px;
+  color: #2A2C30;
+  line-height: 20px;
+}
+
+.copy span {
+  color: #B2BCD3;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 200;
+}
+
+.img {
+  position: relative;
+  height: 150px;
+  width: 100%;
+  background-size: cover;
+}
+
+.footer {
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  left: 15px;
+}
+
+.row {
+  line-height: 30px;
+  font-size: 12px;
+  color: #B2BCD4;
+}
+
+.row span {
+  color: #44D378;
+  font-size: 24px;
+  line-height: 29px;
+  margin-right: 5px;
+}
+
+.svg {
+  vertical-align: text-bottom;
+  margin-right: 5px;
+}
+
+.svg2 {
+  composes: svg;
+  border: 1px solid #44D378;
+  border-radius: 50%;
+}
+
+.time {
+  color: #F69423;
+}
+
+.money {
+  color: #44D378;
+}
+
+.save {
+  position: absolute;
+  bottom: -45px;
+  right: 0;
+  cursor: pointer;
+}

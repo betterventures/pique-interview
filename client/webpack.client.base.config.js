@@ -26,8 +26,16 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
+      api: join(process.cwd(), 'app', 'api'),
+      containers: join(process.cwd(), 'app', 'containers'),
+      components: join(process.cwd(), 'app', 'components'),
       images: join(process.cwd(), 'app', 'assets', 'images'),
+      stores: join(process.cwd(), 'app', 'stores'),
     },
+    modules: [
+      join(__dirname, 'app'),
+      'node_modules',
+    ],
   },
 
   plugins: [

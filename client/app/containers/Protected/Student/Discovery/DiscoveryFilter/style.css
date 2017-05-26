@@ -1,0 +1,68 @@
+.root {
+  width: 100%;
+  color: #000000;
+  margin: 40px auto 0;
+  max-width: 1000px;
+}
+
+.bar {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  background-color: #fff;
+  box-shadow: 0 8px 40px 0 rgba(72,85,105,0.15);
+  font-size: 12.5px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .bar {
+    flex-wrap: no-wrap;
+    height: 60px;
+  }
+}
+
+.field {
+  width: 100%;
+  line-height: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 3px;
+  border-top: 1px solid #E7E7E7;
+}
+
+.field:nth-child(1) {
+  border-top: none;
+  border-left: none;
+}
+
+@media (min-width: 1024px) {
+  .field {
+    width: 20%;
+    border-left: 1px solid #E7E7E7;
+  }
+}
+
+.caption {
+  color: #B2BCD4;
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+
+.label {
+  margin: 0 10px;
+}
+
+
+.field select {
+  float: right;
+  margin: 20px 10px 0;
+  color: #4FD580;
+}
+
+.range,
+.field input[type="range" i] {
+  margin-left: 10px;
+  background-color: #31D36C;
+  color: #31D36C;
+}

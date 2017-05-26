@@ -1,0 +1,25 @@
+
+
+.fields {
+  margin-bottom: 50px;
+}
+
+.row {
+  composes: row from '../style.css';
+}
+
+.label {
+  composes: label from '../style.css';
+}
+
+.field {
+  composes: field from '../style.css';
+}
+
+.input {
+  composes: input from '../style.css';
+}
+
+.btn {
+  composes: btn from '../../style.css';
+}

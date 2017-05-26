@@ -1,0 +1,47 @@
+.root {
+  background-color: #fff;
+  border: 1px solid #e7e9eB;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.form {
+  padding: 15px;
+  border-bottom: 1px solid #e7e9eB;
+}
+
+.label {
+  color: #888;
+  font-weight: 300;
+  text-align: right;
+  margin-bottom: 14px;
+  width: 165px;
+}
+
+.input {
+  height: 35px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-size: 13px;
+  border: 1px solid #e7e9eB;
+}
+
+.save {
+  margin-left: 15px;
+  background-color: #0E5CB5;
+  color: #fff;
+  vertical-align: top;
+  border-radius: 3px;
+  user-select: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  text-align: center;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 21px;
+  padding: 7px 14px;
+  margin-left: 0;
+}

@@ -1,0 +1,11 @@
+.copy {
+  composes: copy from '../style.css';
+}
+
+.tag {
+  font-size: 14px;
+  line-height: 30px;
+  height: 30px;
+  width: 145px;
+  margin-bottom: 15px;
+}

@@ -1,0 +1,68 @@
+.form {
+  composes: form from '../style.css';
+}
+
+.title {
+  composes: title from '../style.css';
+}
+
+.fields {
+  composes: fields from '../style.css';
+}
+
+.row {
+  composes: row from '../style.css';
+}
+
+.label {
+  composes: label from '../style.css';
+}
+
+.field {
+  composes: field from '../style.css';
+}
+
+.input {
+  composes: input from '../style.css';
+}
+
+.sm {
+  composes: sm from '../style.css';
+}
+
+.tall {
+  composes: tall from '../style.css';
+}
+
+.info {
+  composes: info from '../style.css';
+}
+
+.link {
+  composes: link from '../style.css';
+}
+
+.file {
+  composes: file from '../style.css';
+}
+
+.caption {
+  composes: caption from '../style.css';
+}
+
+.req {
+  composes: req from '../style.css';
+}
+
+.comment {
+  composes: comment from '../style.css';
+}
+
+.more {
+  composes: more from '../style.css';
+}
+
+.prompt {
+  composes: row;
+  margin-bottom: 10px;
+}

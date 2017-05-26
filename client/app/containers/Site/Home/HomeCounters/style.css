@@ -1,0 +1,11 @@
+.row {
+  position: relative;
+  height: 110px;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .row {
+    margin-top: 100px;
+  }
+}

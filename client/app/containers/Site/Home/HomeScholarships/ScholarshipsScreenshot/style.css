@@ -1,0 +1,82 @@
+.root {
+  display: block;
+  position: relative;
+  opacity: 0;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  vertical-align: middle;
+  max-width: 800px;
+}
+
+@media (min-width: 668px) {
+  .root {
+    position: absolute;
+    width: 48%;
+  }
+}
+
+.one {
+  composes: root;
+}
+
+.two {
+  composes: root;
+}
+
+@media (min-width: 668px) {
+  .one {
+    left: 2%;
+    bottom: 48%;
+    z-index: 3;
+  }
+  .two {
+    top: 44%;
+    right: 2%;
+    z-index: 5;
+  }
+}
+
+@media (min-width: 1024px) {
+  .one {
+    top: 200px;
+    bottom: auto;
+  }
+  .two {
+    top: 38%;
+  }
+}
+
+.fade1 {
+  animation-name: fadeInLeft;
+}
+
+.fade2 {
+  animation-name: fadeInRight;
+}
+
+.img {
+  height: auto;
+  width: 100%;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,253 @@
+.root {
+  position: fixed;
+  background-color: #140552;
+  height: 55px;
+  width: 100%;
+  color: #fff;
+  z-index: 2;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 2;
+  transform: scaleX(1);
+}
+
+.modal.open {
+  display: block;
+}
+
+.curtain {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: transparent;
+  opacity: 0.5;
+}
+
+.wrap {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto 0 0;
+}
+
+.wrap:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+@media (min-width: 1024px) {
+  .compact {
+    margin: 0 auto;
+  }
+
+  .compact {
+    max-width: 980px;
+  }
+
+  .compact .brand {
+    width: auto;
+    margin: 0 auto 0 15px;
+  }
+
+  .compact .border {
+    background-color: transparent;
+  }
+}
+
+.curtain {
+  z-index: 2;
+}
+
+.brand {
+  position: relative;
+  float: left;
+  width: 215px;
+  margin: 0 auto;
+  text-align: center;
+  height: 55px;
+  z-index: 1;
+}
+
+.logo {
+  height: 45px;
+  width: 70px;
+  text-align: center;
+}
+
+.link {
+  position: absolute;
+  width: 100%;
+  top: 5px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.nav {
+  position: relative;
+  float: right;
+  width: calc(100% - 215px);
+  max-width: 1215px;
+  height: 55px;
+  margin: 0 auto;
+}
+
+.btns {
+  position: absolute;
+  top: 15px;
+  left: 30px;
+}
+
+.avatar {
+  height: 33px;
+  width: 33px;
+  border-radius: 5px;
+}
+
+.border {
+  position: absolute;
+  top: 5px;
+  left: 216px;
+  width: 1px;
+  background-color: #1A85FF;
+  margin: 5px auto;
+  height: 35px;
+}
+
+.btn {
+  display: inline-block;
+  font-family: 'HelveticaNeue-Medium', Helvetica;
+  font-size: 14px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 5px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 2px;
+}
+
+.settings {
+  position: absolute;
+  top: 12px;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+}
+
+.icon {
+  height: 15px;
+  width: 15px;
+  text-align: center;
+}
+
+.ul {
+  display: flex;
+  position: relative;
+  margin: 0 auto;
+  padding-right: 15px;
+}
+
+.li {
+  display: inline-block;
+  position: relative;
+  list-style: none;
+  margin-left: 20px;
+  min-width: 25px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.nub {
+  position: absolute;
+  width: 0;
+  height: 0;
+  z-index: 2;
+  top: -10px;
+  right: 7px;
+  margin-left: 11px;
+  z-index: 1;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+}
+
+.point {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: -10px;
+  right: 6px;
+  margin-top: -1px;
+  margin-left: 10px;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 11px solid rgba(0,0,0,.2);
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  width: 200px;
+  z-index: 1;
+  top: 50px;
+  right: 0;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.4);
+}
+
+.dropdown.open {
+  display: block;
+}
+
+.tooltip {
+  position: relative;
+  padding: 5px 7.5px 7.5px;
+}
+
+.li {
+  display: block;
+  position: relative;
+  list-style: none;
+  color: #666;
+  cursor: pointer;
+  height: 26px;
+  font-family: 'HelveticaNeue', Helvetica, sans-serif;
+  font-weight: 200;
+  -webkit-font-smoothing: antialiased;
+  text-align: left;
+  padding: 5px;
+  margin-left: 0;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.ul > .li {
+  padding-top: 0;
+}
+
+.route {
+  position: absolute;
+  text-decoration: none;
+  color: #666;
+  height: 21px;
+  width: 100%;
+  left: 5px;
+  right: 0;
+  outline: none;
+}
+
+.route:hover {
+  text-decoration: underline;
+}

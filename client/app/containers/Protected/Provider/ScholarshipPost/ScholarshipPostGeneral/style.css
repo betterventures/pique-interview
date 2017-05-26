@@ -1,0 +1,74 @@
+.form {
+  composes: form from '../style.css';
+}
+
+.title {
+  composes: title from '../style.css';
+}
+
+.fields {
+  composes: fields from '../style.css';
+}
+
+.row {
+  composes: row from '../style.css';
+}
+
+.label {
+  composes: label from '../style.css';
+}
+
+.field {
+  composes: field from '../style.css';
+}
+
+.input {
+  composes: input from '../style.css';
+}
+
+.sm {
+  composes: sm from '../style.css';
+}
+
+.tall {
+  composes: tall from '../style.css';
+}
+
+.info {
+  composes: info from '../style.css';
+}
+
+.link {
+  composes: link from '../style.css';
+}
+
+.file {
+  composes: file from '../style.css';
+  vertical-align: top;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  outline: none;
+}
+
+.caption {
+  composes: caption from '../style.css';
+  color: red;
+}
+
+.req {
+  composes: req from '../style.css';
+}
+
+.remove {
+  composes: remove from '../style.css'
+}
+
+.radio {
+  composes: radio from '../style.css';
+}
+
+.img {
+  display: inline-block;
+  height: 80px;
+  width: 80px;
+}

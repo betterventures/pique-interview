@@ -1,0 +1,72 @@
+.root {
+  position: relative;
+  z-index: 5;
+  padding-bottom: 20px;
+}
+
+.one {
+  composes: root;
+  max-height: 230px;
+}
+
+.two {
+  composes: root;
+  max-height: 250px;
+}
+
+@media (min-width: 668px) {
+  .one,
+  .two {
+    height: 230px;
+  }
+  .two {
+    margin-top: 7%;
+    height: 190px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .one {
+    height: 215px;
+  }
+  .two {
+    height: 150px;
+  }
+}
+
+.one .title,
+.one .line {
+  text-align: right;
+}
+
+.two .title,
+.two .line {
+  text-align: left;
+}
+
+@media (min-width: 668px) {
+  .two .title {
+    width: 48%;
+  }
+}
+
+.title {
+  font-weight: 100;
+  font-size: 24px;
+  margin-bottom: 20px;
+  line-height: 27px;
+  letter-spacing: 1px;
+}
+
+
+.line {
+  display: block;
+  font-weight: 200;
+  line-height: 24px;
+  font-size: 18px;
+}
+
+.lead {
+  font-weight: 600;
+}
+

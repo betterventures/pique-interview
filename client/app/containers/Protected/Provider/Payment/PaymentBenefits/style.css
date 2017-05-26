@@ -1,0 +1,59 @@
+.root {
+  composes: box from '../style.css';
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+@media (min-width: 1024px) {
+  .root {
+    float: left;
+  }
+}
+
+.text {
+  color: #2682D0;
+  font-size: 26px;
+  line-height: 31px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.item .img {
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 30px;
+}
+
+.img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.item .text {
+  display: inline-block;
+  font-family: 'Avenir Next', sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 500;
+  color: #000;
+  width: 410px;
+  text-align: left;
+  letter-spacing: 0;
+  margin-bottom: 25px;
+  vertical-align: top;
+}
+
+.border {
+  height: 2px;
+  background-color: #4990E2;
+  width: 350px;
+  margin: 20px auto;
+}

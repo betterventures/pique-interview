@@ -1,0 +1,109 @@
+.root {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  background: linear-gradient(45deg, #215edd 0%, #4abced 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+  background-position: center center;
+}
+
+.header {
+  top: 100px;
+}
+
+@media (min-width: 720px) {
+  .header {
+    top: 150px;
+  }
+}
+
+.header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 75%;
+  margin: 0 auto;
+  font-size: 24px;
+  text-align: center;
+  color: #fff;
+}
+
+@media (min-width: 1024px) {
+ .header {
+    font-size: 30px;
+ }
+}
+
+.header .line {
+  line-height: 33px;
+  font-family: 'Avenir Next', sans-serif;
+  font-weight: 500;
+}
+
+.copy {
+  top: 270px;
+  line-height: 22px;
+  font-size: 16px;
+}
+
+@media (min-width: 720px) {
+  .copy {
+    top: 235px;
+    line-height: 22px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .copy {
+    top: 245px;
+  }
+}
+
+.copy {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  max-width: 665px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.btn {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  cursor: pointer;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 100px;
+  padding: 8px 25px;
+  color: #fff;
+  width: 210px;
+  height: 50px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 100;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.btn:hover {
+  background-color: #fff;
+  color:  #205fdc;
+}
+
+@media (min-width: 720px) {
+  .btn {
+    bottom: 100px;
+  }
+}

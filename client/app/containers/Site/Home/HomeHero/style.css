@@ -1,0 +1,131 @@
+.hero {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  height: 500px;
+  width: 100%;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+@media (min-width: 769px) {
+  .hero {
+    margin-bottom: 40px;
+    background-size: 120%;
+  }
+}
+
+
+@media (min-width: 1025px) {
+  .hero {
+    height: 600px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero {
+    background-size: 100%;
+  }
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  background-color: #132663;
+  opacity: 0;
+}
+
+.text {
+  position: relative;
+  padding-top: 130px;
+  margin-bottom: 30px;
+  width: 100%;
+  color: #fff;
+}
+
+@media (min-width: 668px) {
+  .text {
+    padding-top: 160px;
+  }
+}
+
+@media (min-width: 769px) {
+  .text {
+
+  }
+}
+
+@media (min-width: 1025px) {
+  .text {
+    padding-top: 250px;
+  }
+}
+
+.h1 {
+  margin: 0 auto 15px;
+  text-align: center;
+  font-family: 'Avenir Next', sans-serif;
+  color: #fff;
+  width: 75%;
+  max-width: 875px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-size: 32px;
+  line-height: 1.1;
+  text-shadow: 0px 1px 5px #949292;
+}
+
+.h1:after {
+  content: "We're the Common App for Scholarships.";
+}
+
+@media (min-width: 1024px) {
+  .h1 {
+    width: 100%;
+    font-size: 42px;
+  }
+}
+
+.sub {
+  font-family: 'Avenir Next', sans-serif;
+  font-size: 18px;
+  font-weight: 200;
+  opacity: 0.8;
+  padding: 0 15px;
+  text-shadow: 0px 1px 2px rgba(0,0,0,0.20);
+  text-align: center;
+}
+
+.btn {
+  position: relative;
+  height: 48px;
+  width: 220px;
+  margin: 10px auto 0;
+  padding: 10px 26px;
+  z-index: 21;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 40px;
+  color: #fff;
+  font-family: 'Avenir Next', sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s background-color ease-in;
+}
+
+.btn:hover {
+  background-color: #fff;
+  color: #0F9A7B;
+}
+
+/* @media (min-width: 1024px) {
+  .btn {
+    top: 405px;
+  }
+} */

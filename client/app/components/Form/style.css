@@ -1,0 +1,236 @@
+.root {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.type {
+  display: flex;
+  position: relative;
+  border-radius: 25px;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+
+.option {
+  display: inline-block;
+  position: relative;
+  height: 60px;
+  width: 100%;
+  text-align: center;
+  color: #2971E0;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 12.5px;
+  cursor: pointer;
+}
+
+.selected {
+  text-align: center;
+  width: 70px;
+  height: 1px;
+  margin: 0 auto;
+  margin-top: 5px;
+  transition: all 0.1s ease-in-out;
+  background-color: #2971E0;
+}
+
+.other {
+  composes: selected;
+  width: 0px;
+  background-color: transparent;
+}
+
+.option:nth-child(2) .divider {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  display: inline-block;
+  height: 25px;
+  width: 1px;
+  background-color: #cecece;
+}
+
+.row {
+  height: 45px;
+  margin-bottom: 20px;
+}
+
+.row input {
+  padding-left: 15px;
+  border-radius: 5px;
+  outline-style: none;
+  color: #000;
+  height: 45px;
+  border: 1px solid #B2BCD3;
+  box-shadow: none;
+}
+
+.row input:focus {
+  border: 1px solid #4570F0;
+  box-shadow: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #B2BCD3;
+}
+input:-moz-placeholder {
+  color: #B2BCD3;
+  opacity: 1;
+}
+input::-moz-placeholder {
+  color: #B2BCD3;
+  opacity:  1;
+}
+input:-ms-input-placeholder {
+  color: #B2BCD3;
+}
+
+.city,
+.firstname {
+  float: left;
+  width: 48%;
+}
+
+.state,
+.lastname {
+  float: right;
+  width: 48%;
+}
+
+.full {
+  width: 100%;
+}
+
+.copyright {
+  position: absolute;
+  bottom: 15px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  font-size: 12px;
+  color: #fff;
+  margin-top: 20px;
+  font-weight: 200;
+}
+
+.copyright:after {
+  content: "Pique © 2016";
+}
+
+.select {
+  text-indent: 7.5px;
+  margin-bottom: 20px;
+  height: 45px;
+  width: 100%;
+  border: 1px solid #B2BCD3;
+  box-shadow: none;
+  color: #B2BCD3;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  background-image: none;
+  outline-style: none;
+  border-radius: 4px;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.select option:not(:checked) {
+  color : #000;
+}
+
+.select:focus {
+  border: 1px solid #4570F0;
+  box-shadow: none;
+}
+
+.submit {
+  display: inline-block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 100%;
+  padding: 12px;
+  font-weight: 200;
+  font-size: 16px;
+  border-radius: 50px;
+  border: none;
+  transition: 0.1s all ease-in;
+  background-color: #fff;
+  color: #4570F0;
+  border: 1px solid #4570F0;
+  cursor: pointer;
+}
+
+.submit:hover {
+  border: 1.5px solid #3cd070;
+  background-color: #3cd070;
+  color: #fff;
+}
+
+.notify {
+  color: red;
+  margin-bottom: 15px;
+  display: block;
+  font-size: 12px;
+  height: 17px;
+  text-align: center;
+}
+
+.message {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 27px;
+  font-family: 'Avenir Next';
+  color: #3162C6;
+}
+
+.confirmation {
+  min-height: 540px;
+  margin-top: 25%;
+  transition: 0.2s;
+}
+
+.confirmation img {
+  margin-bottom: 30px;
+}
+
+.thanks {
+  margin-bottom: 30px;
+}
+
+.share {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.icon {
+  display: inline-block;
+  width: 100px;
+  height: 60px;
+}
+
+.share-btn {
+  border-radius: 50%;
+  text-align: center;
+  height: 52px;
+  width: 52px;
+}
+
+.tw {
+  composes: share-btn;
+  background-color: #55ACEE;
+}
+
+.fb {
+  composes: share-btn;
+  background-color: #5474B7;
+}
+
+.tw,
+.fb {
+  cursor: pointer;
+  margin: 0 auto;
+}

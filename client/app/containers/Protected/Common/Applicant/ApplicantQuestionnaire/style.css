@@ -1,0 +1,67 @@
+.root {
+  margin-bottom: 30px;
+}
+
+.card {
+  composes: box from '../style.css';
+  height: auto;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 2px 7px #d9d9da;
+  border-radius: 5px;
+  padding: 0px 25px 20px;
+  text-align: center;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.header {
+  composes: header from '../style.css';
+}
+
+.rating {
+  color: #4abced;
+  font-size: 26px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #dde2e7;
+}
+
+.target {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.star {
+  height: 26px;
+  width: 26px;
+}
+
+.inputs {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.label {
+  display: inline-block;
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 0;
+  font-weight: 400;
+  font-size: 14px;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #333;
+}
+
+.radio {
+  margin-right: 10px;
+}
+
+.question {
+  padding-top: 35px;
+  font-size: 18px;
+  font-weight: 200;
+  color: #020f3c;
+}

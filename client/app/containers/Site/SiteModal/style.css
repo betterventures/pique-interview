@@ -1,0 +1,219 @@
+.root {
+  position: fixed;
+  top: 0;
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 120px;
+    z-index: 2000;
+  transform: scaleX(1);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.curtain {
+  position: absolute;
+  z-index: 2000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(74, 188, 237, 0.4);
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.curtain.leave {
+  opacity: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 2001;
+  padding: 25px;
+  max-width: 450px;
+  max-height: 540px;
+  box-shadow: 0 5px 33px rgba(39, 39, 39, 0.5);
+  border-radius: 0;
+  background-color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.content.enter {
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.content.leave {
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+@media (min-width: 1024px) {
+  .content {
+    width: 450px;
+  }
+}
+
+.header {
+  display: inline-block;
+  border-bottom: 1px solid #67C7EF;
+  color: #67C7EF;
+  padding: 8px 0;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.header:after {
+  content: 'Sign up with Pique!';
+}
+
+.terms,
+.caption {
+  display: block;
+  color: #B2BCD3;
+  margin-bottom: 15px;
+  font-size: 12px;
+}
+
+.caption:after {
+  content: "Sign up for our emailing list to receive updates on when we're going live!";
+}
+
+.row {
+  height: 45px;
+  margin-bottom: 20px;
+}
+
+.row input {
+  padding-left: 15px;
+  border-radius: 5px;
+  outline-style: none;
+  color: #000;
+  height: 45px;
+  border: 1px solid #B2BCD3;
+  box-shadow: none;
+}
+
+.row input:focus {
+  border: 1px solid #4570F0;
+  box-shadow: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #B2BCD3;
+}
+input:-moz-placeholder {
+  color: #B2BCD3;
+  opacity: 1;
+}
+input::-moz-placeholder {
+  color: #B2BCD3;
+  opacity:  1;
+}
+input:-ms-input-placeholder {
+  color: #B2BCD3;
+}
+
+.city,
+.firstname {
+  float: left;
+  width: 48%;
+}
+
+.state,
+.lastname {
+  float: right;
+  width: 48%;
+}
+
+.full {
+  width: 100%;
+}
+
+.copyright {
+  position: absolute;
+  bottom: 15px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  font-size: 12px;
+  color: #fff;
+  margin-top: 20px;
+  font-weight: 200;
+}
+
+.copyright:after {
+  content: "Pique © 2016";
+}
+
+.select {
+  text-indent: 7.5px;
+  margin-bottom: 20px;
+  height: 45px;
+  width: 100%;
+  border: 1px solid #B2BCD3;
+  box-shadow: none;
+  color: #B2BCD3;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  background-image: none;
+  outline-style: none;
+  border-radius: 4px;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.select option:not(:checked) {
+  color : #000;
+}
+
+.select:focus {
+  border: 1px solid #4570F0;
+  box-shadow: none;
+}
+
+.submit {
+  display: inline-block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 48%;
+  padding: 12px;
+  font-weight: 200;
+  font-size: 16px;
+  border-radius: 50px;
+  border: none;
+  transition: 0.1s all ease-in;
+  background-color: #3cd070;
+  color: #fff;
+  border: 1.5px solid #3cd070;
+  cursor: pointer;
+}
+
+.submit:hover {
+  background-color: #fff;
+  border: 1px solid #3cd070;
+  color: #3cd070;
+}
+
+.notify {
+  color: red;
+  margin-bottom: 15px;
+  display: block;
+  font-size: 12px;
+  height: 17px;
+}
+
+.message {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 27px;
+  font-family: 'Avenir Next';
+  color: #3162C6;
+}

@@ -1,0 +1,117 @@
+.root {
+  color: #2B2A2A;
+  font-size: 15px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  width: 100%;
+  text-align: right;
+  padding: 20px;
+}
+
+.menu {
+  display: inline-block;
+  position: relative;
+  max-width: 385px;
+  margin: 0;
+}
+
+.sort {
+  width: 100%;
+  border-bottom: 1px solid #2B2A2A;
+}
+
+.btn {
+  padding: 15px 0;
+}
+
+@media (min-width: 414px) {
+  .menu {
+    width: 385px;
+  }
+}
+
+.text {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.filters, .curtain {
+  display: none;
+}
+
+.open .filters, .open .curtain {
+  display: block;
+}
+
+.filters {
+  position: absolute;
+  bottom: -184px;
+  right: 0;
+  background-color: #fff;
+  width: 100%;
+  height: 185px;
+  border-radius: 1px;
+  text-align: left;
+  z-index: 10;
+}
+
+.curtain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+  height: 100vh;
+  wight: 100vw;
+}
+
+.header {
+  text-align: left;
+  margin-bottom: 35px;
+}
+
+.wrap {
+  padding: 15px 40px;
+}
+
+.header:after {
+  content: 'Filter';
+  text-transform: uppercase;
+  color: #2B2A2A;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+
+.filter {
+  height: 35px;
+}
+
+.name, .input {
+  display: inline-block;
+  text-align: left;
+}
+
+.name {
+  width: 150px;
+  color: #2B2A2A;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 19px;
+}
+
+.input {
+  height: 15px;
+  width: 15px;
+  border-radius: 2px;
+
+  background-color: transparent;
+  border: 1px solid #BFBFBF;
+}
+
+.on .input {
+  background-color: #1698FB;
+}

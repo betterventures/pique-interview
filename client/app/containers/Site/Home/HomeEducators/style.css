@@ -1,0 +1,97 @@
+.root {
+  position: relative;
+  background-image: linear-gradient(229deg, #44BCEF 1%, #3FB1ED 11%, #0A49CC 100%);
+  padding: 20px 15px 330px;
+  z-index: 30;
+  overflow: hidden;
+}
+
+.card {
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  padding-bottom: 100px;
+  height: 630px;
+  margin: 0 auto;
+}
+
+.img {
+  width: 90px;
+  margin: 15px auto 30px;
+}
+
+.caption {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #F7F8FA;
+  font-weight: 100;
+  letter-spacing: 1px;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.body {
+  margin: 30px auto;
+}
+
+.copy {
+  text-align: center;
+  font-size: 16px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.9px;
+  font-weight: 200;
+  line-height: 23px;
+}
+
+.copy span {
+  font-weight: 600;
+}
+
+.btn {
+  position: relative;
+  margin: 30px auto;
+  cursor: pointer;
+  outline: none;
+  border-radius: 100px;
+  padding: 8px 25px;
+  color:  #fff;
+  border: 1px solid #fff;
+  background-color: transparent;
+  width: 180px;
+  height: 45px;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 100;
+  transition: all 0.1s ease;
+  font-family: 'Avenir Next', sans-serif;
+}
+
+.btn:hover {
+  background-color: #fff;
+  border: 1px solid transparent;
+  color: #197CD8;
+}
+
+.tablet {
+  position: absolute;
+  top: 65%;
+  left: 0;
+  right: 0;
+}
+
+@media (min-width: 720px) {
+  .tablet {
+    top: 55%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tablet {
+    top: 500px;
+  }
+}
+
+.tablet img {
+  width: 100%;
+  height: auto;
+  max-width: 760px;
+}

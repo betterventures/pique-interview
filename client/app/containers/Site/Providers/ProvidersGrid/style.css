@@ -1,0 +1,92 @@
+.root {
+  display: inline-block;
+  width: 100%;
+  padding-bottom: 70px;
+  color: #fff;
+  font-family: 'Avenir Next', sans-serif;
+  background: linear-gradient(45deg, #215edd 0%, #4abced 100%);
+}
+
+.header {
+  position: relative;
+  text-align: center;
+  border: none;
+  color: #fff;
+  font-weight: 400;
+  font-size: 24px;
+  margin: 70px auto 70px;
+  padding-bottom: 10px;
+}
+
+.header:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -10px;
+  margin: 0 auto;
+  border-bottom: none;
+  width: 90px;
+  height: 2px;
+  background-color: #fff;
+}
+
+@media (min-width: 1024px) {
+  .header {
+    font-size: 36px;
+    margin-bottom: 100px;
+  }
+}
+
+.ul {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.item {
+  position: relative;
+  list-style: none;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+@media (min-width: 1024px) {
+  .item {
+    display: inline-block;
+    width: 475px;
+    padding: 20px;
+    margin-bottom: auto;
+  }
+}
+
+.item img {
+  height: 90px;
+  width: auto;
+}
+
+.h3 {
+  font-weight: 200;
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+.h5 {
+  margin: 30px auto 0 auto;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 27px;
+  max-width: 410px;
+  text-align: center;
+}
+
+.h5 span {
+  font-weight: 500;
+}

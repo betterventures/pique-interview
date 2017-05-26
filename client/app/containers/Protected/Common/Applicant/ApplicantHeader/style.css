@@ -1,0 +1,55 @@
+.root {
+  position: relative;
+  width: 100%;
+  min-height: 160px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.image {
+  display: inline-block;
+  position: relative;
+  float: left;
+  background-size: 120%;
+  background-color: #fff;
+  border-radius: 8px;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  height: 160px;
+  width: 160px;
+  margin-right: 10px;
+  top: -60px;
+  border: 6px solid #FFFBFB;
+}
+
+.info {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 5px auto;
+}
+
+.name {
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 30px;
+}
+
+.desc {
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.location {
+  color: #a0a0a0;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+
+.pin {
+  display: inline-block;
+  text-endering: optimizeLegibility;
+  height: 16px;
+  width: 16px;
+}

@@ -1,0 +1,65 @@
+.root {
+  position: relative;
+  text-align: center;
+  color: #1EA4DD;
+  max-width: 1200px;
+  margin: 0 auto 70px;
+}
+
+.header {
+  display: block;
+  position: relative;
+  margin: 0 auto 40px;
+  line-height: 40px;
+  text-align: center;
+  font-family: 'Avenir Next', sans-serif;
+  font-size: 24px;
+  font-weight: 200;
+  color: #1EA4DD;
+  border: none;
+}
+
+.header:after {
+  position: absolute;
+  content: '';
+  right: 0;
+  left: 0;
+  bottom: -10px;
+  margin: 0 auto;
+  border-bottom: none;
+  background-color: #1EA4DD;
+  width: 90px;
+  height: 2px;
+}
+
+.directions {
+  position: relative;
+  padding-right: 30px;
+  padding-left: 30px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .directions {
+    max-width: 1200px;
+  }
+}
+
+.root img {
+  margin-left: 2.3%;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 1024px) {
+  .root img {
+    width: 964px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .root img {
+    width: 100%;
+  }
+}

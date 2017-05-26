@@ -12,14 +12,13 @@ gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'pg', '~> 0.18.4'
 gem 'puma', '~> 3.7.1'
-gem 'rails', '~> 5.0.3'
-gem 'react_on_rails', '~> 8.0.0.beta.2'
+gem 'rails', '= 5.0.2'
+gem 'react_on_rails', '~> 7.0.4'
 gem 'sass-rails', '~> 5.0'
 gem 'stripe', '~> 2.4.0'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 3.2.0'
-gem 'webpacker_lite'
 gem 'wicked'
 
 # datepicker
@@ -39,5 +38,8 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
+# react_on_rails' webpacker_lite fork of Webpacker
+# - some simplified configuration
+# - unclear whether they'll keep it or go back to Webpacker as it evolves
 gem 'mini_racer', platforms: :ruby
 gem 'webpacker_lite'

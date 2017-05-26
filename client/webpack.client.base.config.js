@@ -1,41 +1,37 @@
 // Common client-side webpack configuration used by
 // webpack.client.rails.hot.config and webpack.client.rails.build.config.
+
 const webpack = require('webpack');
-const { resolve, join } = require('path');
+const path = require('path');
 const webpackCommon = require('./webpack.common');
 const { assetLoaderRules } = webpackCommon;
 
-const ManifestPlugin = require('webpack-manifest-plugin');
-const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
-const configPath = resolve('..', 'config', 'webpack');
-const { paths, publicPath } = webpackConfigLoader(configPath);
-
 const devBuild = process.env.NODE_ENV !== 'production';
 
-const config = {
+module.exports = {
 
-  // in the project dir
-  context: resolve(__dirname),
+  // the project dir
+  context: __dirname,
   entry: {
     // This will contain the app entry points defined by
     // webpack.client.rails.hot.config and webpack.client.rails.build.config
-    'app-bundle': [
+    app: [
       './app/startup/clientRegistration',
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
     alias: {
-      api: join(process.cwd(), 'app', 'api'),
-      containers: join(process.cwd(), 'app', 'containers'),
-      components: join(process.cwd(), 'app', 'components'),
-      images: join(process.cwd(), 'app', 'assets', 'images'),
-      stores: join(process.cwd(), 'app', 'stores'),
+      api: path.join(process.cwd(), 'app', 'api'),
+      containers: path.join(process.cwd(), 'app', 'containers'),
+      components: path.join(process.cwd(), 'app', 'components'),
+      images: path.join(process.cwd(), 'app', 'assets', 'images'),
+      stores: path.join(process.cwd(), 'app', 'stores'),
     },
     modules: [
-      join(__dirname, 'app'),
+      path.join(__dirname, 'app'),
       'node_modules',
     ],
+    extensions: ['.js', '.jsx'],
   },
 
   plugins: [
@@ -46,13 +42,12 @@ const config = {
 
     // https://webpack.js.org/guides/code-splitting-libraries/#implicit-common-vendor-chunk
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor-bundle',
+      name: 'vendor',
       minChunks(module) {
         // this assumes your vendor imports exist in the node_modules directory
         return module.context && module.context.indexOf('node_modules') !== -1;
       },
     }),
-    new ManifestPlugin({ fileName: paths.manifest, publicPath, writeToFileEmit: true }),
   ],
 
   module: {
@@ -71,12 +66,3 @@ const config = {
     ],
   },
 };
-
-module.exports = config;
-
-if (devBuild) {
-  console.log('Webpack dev build for Rails'); // eslint-disable-line no-console
-  module.exports.devtool = 'eval-source-map';
-} else {
-  console.log('Webpack production build for Rails'); // eslint-disable-line no-console
-}

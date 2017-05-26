@@ -16,18 +16,16 @@
 
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
-const { resolve } = require('path');
+
 import webpackConfig from './webpack.client.rails.hot.config';
 
-const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
-const configPath = resolve('..', 'config', 'webpack');
-const { devServer: devServerConfig, publicPath } = webpackConfigLoader(configPath);
+const hotRailsPort = process.env.HOT_RAILS_PORT || 3500;
 
 const compiler = webpack(webpackConfig);
 
 const devServer = new WebpackDevServer(compiler, {
-  contentBase: `http://lvh.me:${devServerConfig.port}`,
-  publicPath,
+  contentBase: `http://lvh.me:${hotRailsPort}`,
+  publicPath: webpackConfig.output.publicPath,
   hot: true,
   inline: true,
   historyApiFallback: true,
@@ -43,9 +41,9 @@ const devServer = new WebpackDevServer(compiler, {
   },
 });
 
-devServer.listen(devServerConfig.port, 'localhost', err => {
+devServer.listen(hotRailsPort, 'localhost', err => {
   if (err) console.error(err);
   console.log(
-    `=> 🔥  Webpack development server is running on port ${devServerConfig.port}`
+    `=> 🔥  Webpack development server is running on port ${hotRailsPort}`
   );
 });

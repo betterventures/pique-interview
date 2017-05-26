@@ -4289,9 +4289,9 @@ react-helmet@^5.0.3:
     prop-types "^15.5.4"
     react-side-effect "^1.1.0"
 
-react-on-rails@^8.0.0-beta.2:
-  version "8.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-8.0.0-beta.2.tgz#3b68639935ba449ccfbf4014435c0e9a0a79fae4"
+react-on-rails@7.0.4:
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-7.0.4.tgz#1bbd7d41f50051c19b5d14df152270accabe0e8f"
 
 react-proptypes@^0.0.1:
   version "0.0.1"

@@ -30,3 +30,9 @@ node_modules
 
 # Files copied from Sprockets during precompilation
 /public/assets/*
+
+# Yarn logs?
+client/yarn-error.log
+
+# Webpack generated assets
+app/assets/webpack/*

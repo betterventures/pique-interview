@@ -2,13 +2,10 @@
 /* eslint-disable comma-dangle */
 
 const webpack = require('webpack');
-const { resolve, join } = require('path');
+const path = require('path');
+const { imageLoaderRules } = require('./webpack.common');
 const webpackCommon = require('./webpack.common');
 const { assetLoaderRules } = webpackCommon;
-
-const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
-const configPath = resolve('..', 'config', 'webpack');
-const { paths } = webpackConfigLoader(configPath);
 
 const devBuild = process.env.NODE_ENV !== 'production';
 const nodeEnv = devBuild ? 'development' : 'production';
@@ -22,22 +19,22 @@ module.exports = {
   ],
   output: {
     filename: 'server-bundle.js',
-    path: resolve('..', paths.output, paths.assets),
+    path: path.resolve(__dirname, '../app/assets/webpack'),
   },
   resolve: {
     alias: {
-      api: join(process.cwd(), 'app', 'api'),
-      containers: join(process.cwd(), 'app', 'containers'),
-      components: join(process.cwd(), 'app', 'components'),
-      images: join(process.cwd(), 'app', 'assets', 'images'),
+      api: path.join(process.cwd(), 'app', 'api'),
+      containers: path.join(process.cwd(), 'app', 'containers'),
+      components: path.join(process.cwd(), 'app', 'components'),
+      images: path.join(process.cwd(), 'app', 'assets', 'images'),
+      stores: path.join(process.cwd(), 'app', 'stores'),
     },
     modules: [
-      join(__dirname, 'app'),
+      path.join(__dirname, 'app'),
       'node_modules',
     ],
     extensions: ['.js', '.jsx'],
   },
-
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {

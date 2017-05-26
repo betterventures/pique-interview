@@ -1,5 +1,5 @@
 # Used by webpacker_lite to configure the helpers and by webpack from the
-# client/webpack.config.js file, in variable `paths`.
+# client/webpack.client.base.config.js and other sibling config files, using variable `paths`.
 default: &default
   output: public
   manifest: manifest.json

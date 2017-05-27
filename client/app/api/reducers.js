@@ -202,8 +202,8 @@ const userReducer = (state={}, action) => {
 
 
 export default combineReducers({
-  auth: authReducer,
   app: appReducer,
+  auth: authReducer,
   formSubmitted: registerReducer,
   loading: loadingReducer,
   open: modalReducer,
@@ -211,5 +211,5 @@ export default combineReducers({
   routing: routeReducer,
   application: applicationReducer,
   ui: uiReducer,
-  user: {},
+  user: userReducer,
 })

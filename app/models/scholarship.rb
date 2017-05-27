@@ -61,6 +61,17 @@ class Scholarship < ApplicationRecord
   }
 
   # provide the keys expected by the frontend, for now
+  def self.by_location(scholarships)
+    {
+      all: [scholarships],
+      national: [scholarships],
+      niche: [],
+      local: [],
+      based: [],
+    }
+  end
+
+  # provide the keys expected by the frontend, for now
   def applications_by_stage
     {
       new: new_applications,
@@ -70,7 +81,7 @@ class Scholarship < ApplicationRecord
     }
   end
 
-  # not derived from `applications_by_stage` in order to reduce the number of queries
+  # not derived from `applications_by_stage` in order to reduce query count
   # - `map` would execute n={collection_size} queries
   def applicants_by_stage
     {

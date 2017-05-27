@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Match, Redirect } from 'react-router'
+import Match from 'react-router/Match'
+import Redirect from 'react-router/Redirect'
 import Sidebar from 'containers/Protected/Provider/Sidebar'
 import LazyLoad, { importDefault } from 'components/LazyLoad'
 

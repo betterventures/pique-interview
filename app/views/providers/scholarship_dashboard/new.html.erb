@@ -1,17 +1,8 @@
-<div id="app">
-  <% @applicants.each do |k,v| %>
-    <% v.each do |a| %>
-      <div>
-        <br>
-        <%= a %>
-      </div>
-    <% end %>
-    <div>
-      <%= @user.to_json %>
-    </div>
-  <% end %>
+<% @is_react_page = true %>
+<% content_for :navbar do %>
+  <div></div>
+<% end %>
 
-  <%# no props - store is obtained by the component. %>
-  <%# NB: store must exist previously (`redux_store` helper in controller or view) %>
-  <%= react_component('Root') %>
-</div>
+<%# no props - store is obtained by the component. %>
+<%# NB: store must exist previously (`redux_store` helper in controller or view) %>
+<%= react_component('Root') %>

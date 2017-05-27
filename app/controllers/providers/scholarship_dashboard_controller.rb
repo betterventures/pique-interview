@@ -4,13 +4,14 @@ class Providers::ScholarshipDashboardController < ApplicationController
   # import the `react_component`/`redux_store` helper methods
   include ReactOnRails::Controller
 
+  # ensure logged in
   before_action :authenticate_provider!
-
   # populate data for the store
   before_action :populate_redux_data
   # initialize the shared Redux store
   before_action :initialize_shared_store
 
+  # for server rendering of react components
   rescue_from ReactOnRails::PrerenderError do |err|
     Rails.logger.error(err.message)
     Rails.logger.error(err.backtrace.join("\n"))
@@ -26,20 +27,19 @@ class Providers::ScholarshipDashboardController < ApplicationController
 
   def populate_redux_data
     @scholarship = Scholarship.find(params[:scholarship_id])
-    @applicants = @scholarship.applicants_by_stage_json
     @user = current_provider.to_json
 
     @props = {
-      scholarship: @scholarship.to_json,
-      applicants: @applicants,
+      app: {
+        scholarships: Scholarship.by_location([ @scholarship ]),
+        applicants: @scholarship.applicants_by_stage_json,
+      },
       user: @user,
     }
   end
 
   def initialize_shared_store
     @store = redux_store("SharedReduxStore", props: @props)
-    logger.debug("GOT A STORE!")
-    logger.debug(@store)
   end
 
 end

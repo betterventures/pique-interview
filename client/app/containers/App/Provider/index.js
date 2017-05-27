@@ -7,7 +7,7 @@ import * as API from 'api'
 import * as Actions from 'api/actions'
 import css from './style.css'
 
-export class App extends Component {
+export class ProviderApp extends Component {
   state = {redirect: false}
   updateRouteState = props => {
     const { pathname, location, locationChange } = props
@@ -34,10 +34,10 @@ export class App extends Component {
   }
 
   render() {
-    const site = _ => importDefault(import('containers/Site'))
     const app = _ => importDefault(import('containers/Protected'))
     const { redirect } = this.state
     const { user, initialized, loading, open } = this.props
+
     if (redirect) {
       return <Redirect to='/' />
     }
@@ -45,7 +45,7 @@ export class App extends Component {
       <div className={`${css.root} ${open ? css.open : ''}`}>
         {initialized
           ? <div className={`${css.router} ${!loading ? css.ready : ''}`}>
-              <LazyLoad modules={{Component: user ? app : site}}>
+              <LazyLoad modules={{Component: app }}>
                 {({ Component }) => <Component />}
               </LazyLoad>
             </div>
@@ -59,10 +59,10 @@ export default connect(
   state => ({
     open: state.open,
     route: state.route,
-    user: state.auth.user,
+    user: state.user,  // formerly state.auth.user
     loading: state.loading,
-    initialized: state.auth.initialized,
-    isAuthed: state.auth.isAuthed,
+    initialized: true, // formerly state.auth.initialized
+    isAuthed: true     // formerly states.auth.isAuthed
   }),
   Actions
-)(App)
+)(ProviderApp)

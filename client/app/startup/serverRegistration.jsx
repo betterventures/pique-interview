@@ -28,7 +28,7 @@ import SharedReduxStore from 'stores/SharedReduxStore'
 
 
 // Other?
-//import 'sanitize.css/sanitize.css'
+import 'sanitize.css/sanitize.css'
 
 ReactOnRails.register({
   ProviderUser,

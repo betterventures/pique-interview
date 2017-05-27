@@ -36,7 +36,7 @@ export class MembersRoutes extends Component {
 
 export default connect(
   state => {
-    const { user } = state.auth
+    const { user } = state
     return {
       applicants: state.app.applicants,
       scholarships: state.app.scholarships,

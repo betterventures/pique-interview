@@ -61,8 +61,14 @@
       <%= render 'shared/navbar' %>
     <% end %>
 
-    <div class="body-container">
-      <%= yield %>
+    <div id="app">
+      <% if !@is_react_page %>
+        <div class="body-container">
+          <%= yield %>
+        </div>
+      <% else %>
+        <%= yield %>
+      <% end %>
     </div>
 
     <%= redux_store_hydration_data %>

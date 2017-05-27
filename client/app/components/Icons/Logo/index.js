@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const LogoIcon = ({ className, style }) => {
-  const size = !className ? {width: '106px', height: '48px'} : style
+  const size = !style ? {width: '106px', height: '48px'} : style
   return (
     <svg
       className={className}

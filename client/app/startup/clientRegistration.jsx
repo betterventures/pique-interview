@@ -14,7 +14,7 @@ import 'es5-shim';
 import ReactOnRails from 'react-on-rails';
 
 // Components
-// Logo, progressBar, etc.
+import Logo from 'components/Icons/Logo'
 
 // App / Containers
 import ProviderUser from '../containers/Protected/Provider'
@@ -36,6 +36,7 @@ ReactOnRails.setOptions({
 });
 
 ReactOnRails.register({
+  Logo,
   ProviderUser,
   Root,
 });

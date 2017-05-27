@@ -196,15 +196,20 @@ const railsContextReducer = (state={}, action) => {
   return state;
 }
 
+const userReducer = (state={}, action) => {
+  return state;
+}
+
 
 export default combineReducers({
-  routing: routeReducer,
-  formSubmitted: registerReducer,
   auth: authReducer,
-  open: modalReducer,
-  loading: loadingReducer,
-  ui: uiReducer,
   app: appReducer,
-  application: applicationReducer,
+  formSubmitted: registerReducer,
+  loading: loadingReducer,
+  open: modalReducer,
   railsContext: railsContextReducer,
+  routing: routeReducer,
+  application: applicationReducer,
+  ui: uiReducer,
+  user: {},
 })

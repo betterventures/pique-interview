@@ -1,17 +1,19 @@
 import React from 'react'
+import ReactOnRails from 'react-on-rails'
 import { Provider } from 'react-redux'
-import { HashRouter } from 'react-router'
+import Router from 'react-router/HashRouter'
 import { Match } from 'react-router'
 import App from 'containers/App'
 
-const Root = store => {
-  return _ => (
+export default () => {
+  // get the existing store
+  const store = ReactOnRails.getStore('SharedReduxStore');
+
+  return (
     <Provider store={store}>
-      <HashRouter>
+      <Router>
         <Match pattern="*" component={App} />
-      </HashRouter>
+      </Router>
     </Provider>
   )
 }
-
-export default Root

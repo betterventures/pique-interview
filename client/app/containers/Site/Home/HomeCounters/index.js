@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import DebtCounter from './DebtCounter'
 import StatsCounters from './StatsCounters'
-import Waves from './waves'
+import Waves from './Waves'
 import css from './style.css'
 
 export const HomeCounters = props => {

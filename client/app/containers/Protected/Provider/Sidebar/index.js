@@ -38,6 +38,6 @@ const links = [{
 
 export default connect(
   state => ({
-    user: state.auth.user
+    user: state.user
   })
 )(AppSidebar)

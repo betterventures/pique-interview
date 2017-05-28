@@ -108,7 +108,7 @@ function shouldBail(pathname) {
 export default connect(
   state => {
     return {
-      user: state.auth.user,
+      user: state.user,
       compact: setCompact(state.routing.route),
       abort: shouldBail(state.routing.route),
     }

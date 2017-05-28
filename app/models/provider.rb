@@ -10,7 +10,7 @@ class Provider < User
   def to_json
     {
       display_name: name,
-      photo_url: photo_url,
+      photoURL: photo_url || DEFAULT_PHOTO_URL,
       type: self.class.to_s.downcase,
     }
   end

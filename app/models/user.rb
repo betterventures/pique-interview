@@ -15,7 +15,7 @@ class User < ApplicationRecord
     student: 2    # applicants
   }
 
-  DEFAULT_PHOTO_URL = 'blank_figure.png'
+  DEFAULT_PHOTO_URL = '/assets/blank_figure.png'
 
   def name
     "#{first_name} #{last_name}"

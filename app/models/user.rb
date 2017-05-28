@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   before_validation :set_default_role
+  before_validation :set_default_photo_url
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -14,6 +15,8 @@ class User < ApplicationRecord
     student: 2    # applicants
   }
 
+  DEFAULT_PHOTO_URL = 'blank_figure.png'
+
   def name
     "#{first_name} #{last_name}"
   end
@@ -22,5 +25,9 @@ class User < ApplicationRecord
 
   def set_default_role
     self.role ||= self.class.roles[:student]
+  end
+
+  def set_default_photo_url
+    self.photo_url ||= DEFAULT_PHOTO_URL
   end
 end

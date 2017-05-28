@@ -41,7 +41,7 @@ module Providers
           email: BRUCKER_EMAIL,
           password: SecureRandom.hex,
           role: :student,
-          photo_url: 'brucker.png'
+          photo_url: '/assets/brucker.png'
         },
         {
           first_name: 'Zakiya',
@@ -51,7 +51,7 @@ module Providers
           email: ZGIBBONS_EMAIL,
           password: SecureRandom.hex,
           role: :student,
-          photo_url: 'zgibbons.png',
+          photo_url: '/assets/zgibbons.png',
         },
         {
           first_name: 'Sade',
@@ -61,7 +61,7 @@ module Providers
           email: SSTEVENS_EMAIL,
           password: SecureRandom.hex,
           role: :student,
-          photo_url: 'sstevens.png',
+          photo_url: '/assets/sstevens.png',
         },
         {
           first_name: "D'Angelo",
@@ -71,7 +71,7 @@ module Providers
           email: DRUCKER_EMAIL,
           password: SecureRandom.hex,
           role: :student,
-          photo_url: 'drucker.png',
+          photo_url: '/assets/drucker.png',
         },
         {
           first_name: "Carla",
@@ -81,7 +81,7 @@ module Providers
           email: CPIEDRA_EMAIL,
           password: SecureRandom.hex,
           role: :student,
-          photo_url: 'cpiedra.png',
+          photo_url: '/assets/cpiedra.png',
         },
       ]
     end

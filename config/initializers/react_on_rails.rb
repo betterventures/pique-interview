@@ -16,7 +16,7 @@ ReactOnRails.configure do |config|
 
   # Directory where your generated assets go. All generated assets must go to the same directory.
   # Configure this in your webpack config files. This relative to your Rails root directory.
-  config.generated_assets_dir = File.join(%w[app assets webpack], Rails.env)
+  config.generated_assets_dir = File.join(%w[app assets webpack])
 
   # Define the files we need to check for webpack compilation when running tests.
   config.webpack_generated_files = %w( app-bundle.js vendor-bundle.js server-bundle.js )
@@ -94,4 +94,5 @@ ReactOnRails.configure do |config|
   # see https://github.com/shakacode/react_on_rails/blob/master/docs/additional-reading/rails-assets.md
   # And you will use a setting like this.
   # config.symlink_non_digested_assets_regex = /\.(png|jpg|jpeg|gif|tiff|woff|ttf|eot|svg|map)/
+  config.symlink_non_digested_assets_regex = /\d+-bundle\.js/
 end

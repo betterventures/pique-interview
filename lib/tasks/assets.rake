@@ -1,9 +1,16 @@
-# These tasks run as pre-requisites of assets:precompile.
-# Note, it's not possible to refer to ReactOnRails configuration values at this point.
+# lib/tasks/assets.rake
+#
+# Before compiling Sprockets assets, clean out all existing files, and any previous manifests.
+# - Old manifests and files can create collisions when symlinking *-bundle.js import files,
+# - which are fatal errors.
 Rake::Task["assets:precompile"]
-  .clear_prerequisites
-  .enhance([:environment, "react_on_rails:assets:compile_environment"])
-  .enhance do
-    Rake::Task["react_on_rails:assets:symlink_non_digested_assets"].invoke
-    Rake::Task["react_on_rails:assets:delete_broken_symlinks"].invoke
+  .enhance(["assets:clean_compiled"])
+
+namespace :assets do
+  task :clean_compiled do
+    puts "*" * 100
+    puts "Cleaning public/assets dir before Sprockets processing. This avoids having missing or collided Webpacked files, especially *-bundle.js `import` files (code splits)."
+    puts "*" * 100
+    rm_r Dir.glob(Rails.root.join("public/assets"))
   end
+end

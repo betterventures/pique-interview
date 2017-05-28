@@ -58,7 +58,7 @@ export class AppHeader extends Component {
           <div className={`${css.wrap} ${compact ? css.compact : ''}`}>
             <div className={css.brand}>
               <Link className={css.link} to="/dashboard/new">
-                <LogoIcon className={css.logo}/>
+                <LogoIcon className={css.logo} />
               </Link>
             </div>
 

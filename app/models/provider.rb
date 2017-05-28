@@ -11,7 +11,7 @@ class Provider < User
     {
       display_name: name,
       photoURL: photo_url || DEFAULT_PHOTO_URL,
-      type: self.class.to_s.downcase,
+      type: role,
     }
   end
 

@@ -22,7 +22,8 @@ class Student < User
       description: tagline,
       gpa: gpa_string,
       image: photo_url,
-      activities: []
+      type: role,
+      activities: [],
     }
   end
 

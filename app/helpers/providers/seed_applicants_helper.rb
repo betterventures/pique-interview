@@ -7,6 +7,14 @@ module Providers
     DRUCKER_EMAIL = 'drucker@email.com'
     CPIEDRA_EMAIL = 'cpiedra@email.com'
 
+    # have the dummy users apply to one or more scholarships
+    # - useful for quick setup!
+    def self.apply_to_scholarships!(*scholarships)
+      scholarships.each do |s|
+        dummy_users.each {|u| u.apply!(s) }
+      end
+    end
+
     # list of dummy emails; can be used to identify and delete seed data from Org accounts
     def self.dummy_emails
       [
@@ -19,14 +27,14 @@ module Providers
     end
 
     def self.dummy_users
-      User.where(email: dummy_emails)
+      Student.where(email: dummy_emails)
     end
 
     def self.seed_dummy_users!
       if (dummy_users.count == dummy_emails.length)
         dummy_users.reload
       else
-        User.create!(dummy_data)
+        Student.create!(dummy_data)
       end
     end
 

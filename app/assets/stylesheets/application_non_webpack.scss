@@ -1,4 +1,16 @@
 /*
+ * *****************  WHAT IS THIS FILE?  ***************************************************************************************
+ *
+ * `app/assets/application_non_webpack.scss`
+ *
+ * COMPARE TO: app/assets/application_static.scss:
+ * - `application_non_webpack` (this file) is the 'standard' application.scss - for all app-wide styles, nested stylesheets, and imports.
+ * - `application_static.scss` loads **Webpacked CSS**, but in a static manner:
+ *    (i.e.: it's your component modular CSS styles, but only when you're not hot reloading.)
+ *    (Hot reloading will load them in for you, so you don't need `application-static.scss`.)
+ *
+ * *********************************************************************************************************
+ *
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -13,7 +25,6 @@
  *= require_tree .
  *= require_self
  */
- @import url('https://fonts.googleapis.com/css?family=Lato');
  @import 'bootstrap-sprockets';
  @import 'bootstrap-custom';
  @import 'bootstrap-datetimepicker';

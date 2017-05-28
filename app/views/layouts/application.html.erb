@@ -9,10 +9,12 @@
 
     <%= yield :head %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <!-- in react_on_rails 7, load JS in using the env_javascript_include_tag webpack helper -->
-    <!-- ! add back in in react_on_rails 8 (for non-webpacked assets) -->
+    <!-- ! add back in in react_on_rails 8 (for your non-Webpacked assets) -->
     <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Same for CSS                                                 -->
+    <!-- ! add back in in react_on_rails 8 (for your non-Webpacked assets) -->
+    <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag 'favicon.ico' %>
     <%= filepicker_js_include_tag %>
 

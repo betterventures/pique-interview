@@ -1,7 +1,7 @@
 .root {
   composes: box from '../style.css';
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 30px !important;
+  padding-right: 30px !important;
 }
 
 @media (min-width: 1024px) {

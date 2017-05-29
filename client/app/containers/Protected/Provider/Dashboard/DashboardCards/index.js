@@ -14,10 +14,12 @@ const DashboardCards = ({ items }) => {
               <div className={css.stripe}>
                 <div className={css.name}>{x.name}</div>
                 <div className={css.desc}>{x.description}</div>
-                <Rating
+                <div
                   className={css.rating}
-                  style={{width: '28px', height: '28px'}}
-                  value={x.rating} />
+                  style={{height: '28px'; font-weight: 400}}
+                  value={x.rating}>
+                  (( Score here ))
+                </div>
               </div>
             </Link>
             <div className={css.details}>

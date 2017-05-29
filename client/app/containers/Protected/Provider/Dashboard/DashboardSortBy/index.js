@@ -8,7 +8,6 @@ export class DashboardSortBy extends Component {
     filters: [
       {value: 'unscored', text: 'Unscored by Me'},
       {value: 'scored', text: 'Scored by Me'},
-      {value: 'all', text: 'All Interviewees'},
     ]
   }
 

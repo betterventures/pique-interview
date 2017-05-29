@@ -23,10 +23,9 @@ const AppSidebar = ({ user }) => {
 const links = [{
   title: 'Applications',
   links: [
-    {to: '/dashboard/new', text: 'New'},
-    {to: '/dashboard/reviewed', text: 'Reviewed'},
-    {to: '/dashboard/interviewees', text: 'Interviewees'},
-    {to: '/dashboard/finalists', text: 'Finalists'},
+    {to: '/dashboard/new', text: 'Unscored'},
+    {to: '/dashboard/reviewed', text: 'Scored'},
+    {to: '/dashboard/finalists', text: 'Award Recipients'},
   ],
 },{
   title: 'Selection Committee',

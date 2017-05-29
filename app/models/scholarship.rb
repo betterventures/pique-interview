@@ -61,10 +61,10 @@ class Scholarship < ApplicationRecord
   }
 
   # provide the keys expected by the frontend, for now
-  def self.by_location(scholarships)
+  def self.by_location(*scholarships)
     {
-      all: [scholarships],
-      national: [scholarships],
+      all: scholarships,
+      national: scholarships,
       niche: [],
       local: [],
       based: [],

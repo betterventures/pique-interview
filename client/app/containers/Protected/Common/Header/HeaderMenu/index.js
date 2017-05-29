@@ -1,32 +1,52 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import * as Actions from 'api/actions'
 import css from './style.css'
 
-export const HeaderMenu = ({ open, onClick, signOut }) => {
-  return (
-    <div className={`${css.root} ${open ? css.open : ''}`}>
-      <div className={css.point} />
-      <div className={css.nub} />
-      <ul className={css.tooltip}>
-        <li
-          onClick={onClick}
-          className={css.li}>Profile</li>
-        <li
-          onClick={onClick}
-          className={css.li}>
-          <Link
-            to='/settings'
-            className={css.route}>Settings</Link>
-          </li>
-        <li
-          onClick={onClick}
-          className={css.li}>Preview Scholarship</li>
-        <li
-          onClick={signOut}
-          className={css.li}>Log Out</li>
-      </ul>
-    </div>
-  )
+export class HeaderMenu extends Component {
+  render() {
+    const { open, onClick, scholarship, signOut } = this.props
+
+    return (
+      <div className={`${css.root} ${open ? css.open : ''}`}>
+        <div className={css.point} />
+        <div className={css.nub} />
+        <ul className={css.tooltip}>
+          <li
+            onClick={onClick}
+            className={css.li}>
+              <a href={`/providers/scholarships/${scholarship.id}/steps/general`}>
+                View Scholarship</a>
+            </li>
+          <li
+            onClick={onClick}
+            className={css.li}>
+              <a href={`/providers/scholarships/${scholarship.id}/steps/general`}>
+                Edit Scholarship</a>
+            </li>
+          <li
+            onClick={onClick}
+            className={css.li}>
+              <a href="/providers/edit">Settings</a>
+            </li>
+          <li
+            onClick={signOut}
+            className={css.li}>
+              <a rel="nofollow" data-method="delete" href="/providers/sign_out">Log Out</a>
+            </li>
+        </ul>
+      </div>
+    )
+  }
 }
 
-export default HeaderMenu
+export default connect(
+  state => {
+    return {
+      scholarship: state.app.scholarships['national'][0][0] || {},
+      user: state.user,
+    }
+  },
+ Actions
+)(HeaderMenu)

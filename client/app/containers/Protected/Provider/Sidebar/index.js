@@ -28,10 +28,10 @@ const links = [{
     {to: '/dashboard/recipients', text: 'Award Recipients'},
   ],
 },{
-  title: 'Selection Committee',
+  title: 'Scholarship Review',
   links: [
-    {to: '/committee', text: 'Committee Page'},
-    {text: 'Invite Members'},
+    {to: '/committee',  text: 'Selection Committee'},
+    {to: '/score_card', text: 'Score Card'},
   ],
 }]
 

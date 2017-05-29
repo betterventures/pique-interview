@@ -233,10 +233,10 @@
 <script type="text/javascript">
   // Make Filepicker widget play nice with Turbolinks
   function setupFilepicker() {
-    var $uploadBtns = $('button.upload-btn');
-    if ($uploadBtns.length < 1) {
-      var $filepickerInputs = $('#filepicker-input');
-      for (var i = 0; i < $filepickerInputs.length; i++) {
+    var $filepickerInputs = $('#filepicker-input');
+    for (var i = 0; i < $filepickerInputs.length; i++) {
+      var $uploadBtns = $('button.upload-btn');
+      if ($uploadBtns.length <= i) {
         filepicker.constructWidget($filepickerInputs[i]);
       }
     }
@@ -249,8 +249,7 @@
     $filepickerImg.toggleClass('fade');
   }
 
-  $(document).on('page:change', setupFilepicker);
-  $(document).on('turbolinks:load', setupFilepicker);
+  $(document).on('turbolinks:load', function () { setTimeout(setupFilepicker, 1000) });
 </script>
 
 <script type="text/javascript">

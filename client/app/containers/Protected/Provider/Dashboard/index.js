@@ -14,14 +14,14 @@ export class Dashboard extends Component {
 
   static defaultProps = {
     routes: [
-      {pattern: '/dashboard/new',          key: 'new'},
-      {pattern: '/dashboard/reviewed',     key: 'reviewed'},
-      {pattern: '/dashboard/finalists',    key: 'finalists'},
+      {pattern: '/dashboard/unscored',   key: 'unscored'},
+      {pattern: '/dashboard/scored',     key: 'scored'},
+      {pattern: '/dashboard/recipients', key: 'recipients'},
     ],
     links: [
-      {to: '/dashboard/new',          key: 'new',          text: 'Unscored'},
-      {to: '/dashboard/reviewed',     key: 'reviewed',     text: 'Scored'},
-      {to: '/dashboard/finalists',    key: 'finalists',    text: 'Award Recipients'},
+      {to: '/dashboard/unscored',   key: 'unscored',   text: 'Unscored'},
+      {to: '/dashboard/scored',     key: 'scored',     text: 'Scored'},
+      {to: '/dashboard/recipients', key: 'recipients', text: 'Award Recipients'},
     ]
   }
 
@@ -52,14 +52,14 @@ export class Dashboard extends Component {
     return (
       <div className={css.root}>
         <Match pattern='/dashboard' exactly render={props =>
-          <Redirect to='/dashboard/new' />
+          <Redirect to='/dashboard/unscored' />
         } />
         <div className='wrap'>
           <Match
             pattern='/dashboard'
             render={props => <DashboardNav {...props} links={links} />} />
 
-          <Match pattern='/dashboard/finalists' component={DashboardSortBy} />
+          <Match pattern='/dashboard/recipients' component={DashboardSortBy} />
 
           {routes.map(x =>
             <Match

@@ -3,15 +3,15 @@ class Scholarship < ApplicationRecord
 
   # applications
   has_many :scholarship_applications, inverse_of: :scholarship
-  has_many :new_applications, -> { brand_new }, inverse_of: :scholarship, class_name: 'ScholarshipApplication'
-  has_many :reviewed_applications, -> { reviewed }, inverse_of: :scholarship, class_name: 'ScholarshipApplication'
-  has_many :finalist_applications, -> { finalist }, inverse_of: :scholarship, class_name: 'ScholarshipApplication'
+  has_many :unscored_applications, -> { unscored }, inverse_of: :scholarship, class_name: 'ScholarshipApplication'
+  has_many :scored_applications, -> { scored }, inverse_of: :scholarship, class_name: 'ScholarshipApplication'
+  has_many :recipient_applications, -> { recipient }, inverse_of: :scholarship, class_name: 'ScholarshipApplication'
 
   # applicants
   has_many :applicants, through: :scholarship_applications, source: :student
-  has_many :new_applicants, through: :new_applications, source: :student
-  has_many :reviewed_applicants, through: :reviewed_applications, source: :student
-  has_many :finalist_applicants, through: :finalist_applications, source: :student
+  has_many :unscored_applicants, through: :unscored_applications, source: :student
+  has_many :scored_applicants, through: :scored_applications, source: :student
+  has_many :recipient_applicants, through: :recipient_applications, source: :student
 
   # awards
   has_many :awards, inverse_of: :scholarship
@@ -74,10 +74,9 @@ class Scholarship < ApplicationRecord
   # provide the keys expected by the frontend, for now
   def applications_by_stage
     {
-      new: new_applications,
-      reviewed: reviewed_applications,
-      interviewees: [],
-      finalists: finalist_applications
+      unscored: unscored_applications,
+      scored: scored_applications,
+      recipients: recipient_applications,
     }
   end
 
@@ -85,10 +84,9 @@ class Scholarship < ApplicationRecord
   # - `map` would execute n={collection_size} queries
   def applicants_by_stage
     {
-      new: new_applicants,
-      reviewed: reviewed_applicants,
-      interviewees: [],
-      finalists: finalist_applicants
+      unscored: unscored_applicants,
+      scored: scored_applicants,
+      recipients: recipient_applicants,
     }
   end
 

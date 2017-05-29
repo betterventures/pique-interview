@@ -16,7 +16,7 @@ const DashboardCards = ({ items }) => {
                 <div className={css.desc}>{x.description}</div>
                 <div
                   className={css.rating}
-                  style={{height: '28px'; font-weight: 400}}
+                  style={{height: '28px', 'font-weight': 400}}
                   value={x.rating}>
                   (( Score here ))
                 </div>

@@ -10,7 +10,7 @@ import css from './style.css'
 export class AppHeader extends Component {
   constructor(props) {
     super(props)
-    this.signOut = :: this.signOut
+    this.signOut = ::this.signOut
     this.toggleDropdown = ::this.toggleDropdown
     this.updateLayoutOnLocationChange = ::this.updateLayoutOnLocationChange
   }
@@ -57,7 +57,7 @@ export class AppHeader extends Component {
 
           <div className={`${css.wrap} ${compact ? css.compact : ''}`}>
             <div className={css.brand}>
-              <Link className={css.link} to="/dashboard/new">
+              <Link className={css.link} to="/dashboard/unscored">
                 <LogoIcon className={css.logo} />
               </Link>
             </div>

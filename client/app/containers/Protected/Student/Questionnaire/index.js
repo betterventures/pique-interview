@@ -273,7 +273,7 @@ export class StudentQuestionnaire extends Component {
           <ScholarshipPostBtns
             text="Get Started!"
             onClick={this.props.submitApplication}
-            submit='/dashboard/new' />
+            submit='/dashboard/unscored' />
         </div>
       </div>
     )

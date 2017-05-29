@@ -10,14 +10,14 @@ class ScholarshipApplication < ApplicationRecord
   # - while preserving backwards-compatibility with existing data
   # - enables queries like: `where('stage > 6')`
   enum stage: {
-    brand_new: 0,
-    reviewed: 10,
-    finalist: 100
+    unscored: 0,
+    scored: 10,
+    recipient: 100,
   }
 
   private
 
   def set_initial_stage
-    self.stage ||= self.class.stages[:brand_new]
+    self.stage ||= self.class.stages[:unscored]
   end
 end

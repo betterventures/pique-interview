@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     new_providers_scholarship_path
   end
 
+  def after_sign_out_path_for(resource)
+    new_provider_session_path
+  end
+
   def after_update_path_for(resource)
     new_providers_scholarship_path
   end

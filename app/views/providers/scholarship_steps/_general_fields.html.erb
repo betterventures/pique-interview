@@ -76,7 +76,7 @@
     <%= f.label 'Number of Awards' %>
     <div class="col-container">
       <div class="col">
-        <%= number_field_tag :num_awards, @scholarship.awards.count, step: 1, min: 0, placeholder: 'e.g., 3', id: "num-awards-field", oninput: 'setAssociationFields()' %>
+        <%= number_field_tag :num_awards, (award_count = @scholarship.awards.count; award_count == 0 ? award_count + 1 : award_count ), step: 1, min: 0, placeholder: 'e.g., 3', id: "num-awards-field", oninput: 'setAssociationFields()' %>
       </div>
     </div>
   </div>

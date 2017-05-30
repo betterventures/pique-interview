@@ -127,7 +127,7 @@
 
 <div class="row">
   <div class="field">
-    <%= f.label 'Minimum Age' %>
+    <%= f.label :minimum_age, 'Minimum Age' %>
     <div class="col-container">
       <div class="col">
         <%= f.number_field :minimum_age, placeholder: 15 %>
@@ -176,10 +176,12 @@
     <div class="col-container">
       <div class="col">
         <div class="half-col">
-          <%= f.label 'Yes', class: "inline-label" %> <%= f.radio_button :flexible_scores, true %>
+          <%= f.radio_button :flexible_scores, true %>
+          <%= f.label 'Yes', class: "inline-label" %>
         </div>
         <div class="half-col">
-          <%= f.label 'No', class: "inline-label" %>  <%= f.radio_button :flexible_scores, false %>
+          <%= f.radio_button :flexible_scores, false %>
+          <%= f.label 'No', class: "inline-label" %>
         </div>
       </div>
     </div>
@@ -249,7 +251,10 @@
     $filepickerImg.toggleClass('fade');
   }
 
-  $(document).on('turbolinks:load', function () { setTimeout(setupFilepicker, 1000) });
+  // TODO: Improve. Original filepicker widget needs to initialize before we can check
+  //       for presence, so use a timeout. Manage the widget initialization differently
+  //       so we can control mounting, then remount for turbolinks.
+  $(document).on('turbolinks:load', function () { setTimeout(setupFilepicker, 1500) });
 </script>
 
 <script type="text/javascript">

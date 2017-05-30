@@ -12,10 +12,12 @@
   background-color: $white;
   border-radius: 0;
   box-shadow: 0 5px 33px rgba(39, 39, 39, 0.5);
+  font-family: $font-avenir;
+  font-weight: 200;
   left: 0;
   margin: 0 auto;
   max-height: 600px;
-  max-width: 400px;
+  max-width: 425px;
   padding: 25px;
   position: absolute;
   right: 0;
@@ -32,13 +34,12 @@
     color: $pastel-blue;
     display: inline-block;
     margin: 0 auto;
-    font-weight: 200;
-    font-size: $font-size-md;
+    font-size: $font-size-md + 1px;
     padding: 8px 0;
   }
 
   .row input {
-    margin-bottom: 16px;
+    margin: 0 15px 16px;
   }
 
   .row input,
@@ -50,14 +51,17 @@
     width: 92%;
   }
 
+  .firstname,
+  .lastname {
+    width: 42%;
+  }
+
   .firstname {
     float: left;
-    width: 40%;
   }
 
   .lastname {
     float: right;
-    width: 40%;
   }
 
   .btns {
@@ -72,8 +76,8 @@
     border: none;
     cursor: pointer;
     display: inline-block;
-    font-weight: 400;
     font-size: 18px;
+    font-weight: 300;
     line-height: 25px;
     padding: 12px;
     text-align: center;
@@ -82,14 +86,14 @@
     -webkit-touch-callout: none;
     transition: 0.1s all ease-in;
     user-select: none;
-    width: 46%;
+    width: 48%;
   }
 
   .checkbox-container {
-    left: 0.5px;
-    margin-bottom: 3px;
+    left: 15px;
     position: relative;
     text-align: left;
+    top: 3px;
   }
 
   .checkbox {
@@ -100,7 +104,6 @@
   .checkbox-label {
     color: $lavender;
     font-size: .95em;
-    font-weight: 400;
     position: relative;
     top: .15em;
   }

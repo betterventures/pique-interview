@@ -6,6 +6,7 @@ class Provider < User
   default_scope { where(role: :provider) }
 
   belongs_to :organization, optional: true
+  has_many :scholarships, through: :organization
 
   def to_json
     {

@@ -21,6 +21,7 @@ module Providers
                       :for_asian_people, :for_native_people,
                       :maximum_family_income,
                       :requires_community_service, :minimum_community_service,
+                      :organization_id,
                       awards_attributes: %i[
                         id
                         amount

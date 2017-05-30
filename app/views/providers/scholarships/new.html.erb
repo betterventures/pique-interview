@@ -4,5 +4,8 @@
 <% end %>
 
 <%= render layout: 'providers/scholarship_steps/form', locals: { submit_path: providers_scholarships_path } do |f| %>
+  <%# When creating a new scholarship, it belongs to the org of the Provider creating it %>
+  <%= f.hidden_field :organization_id, value: current_provider.organization_id %>
+
   <%= render partial: 'providers/scholarship_steps/general_fields', locals: { f: f } %>
 <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525095923) do
+ActiveRecord::Schema.define(version: 20170530155859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,8 @@ ActiveRecord::Schema.define(version: 20170525095923) do
     t.date     "cycle_start"
     t.date     "cycle_end"
     t.string   "photo_url"
+    t.integer  "organization_id"
+    t.index ["organization_id"], name: "index_scholarships_on_organization_id", using: :btree
   end
 
   create_table "supplemental_requirements", force: :cascade do |t|
@@ -163,6 +165,7 @@ ActiveRecord::Schema.define(version: 20170525095923) do
   add_foreign_key "location_limitations", "scholarships"
   add_foreign_key "scholarship_applications", "scholarships"
   add_foreign_key "scholarship_applications", "users", column: "student_id"
+  add_foreign_key "scholarships", "organizations"
   add_foreign_key "supplemental_requirements", "scholarships"
   add_foreign_key "users", "organizations"
 end

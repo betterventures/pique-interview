@@ -1,6 +1,9 @@
 class Scholarship < ApplicationRecord
   EXPECTED_DATE_FORMAT = "%m/%d/%Y"
 
+  # org
+  belongs_to :organization, optional: true
+
   # applications
   has_many :scholarship_applications, inverse_of: :scholarship
   has_many :unscored_applications, -> { unscored }, inverse_of: :scholarship, class_name: 'ScholarshipApplication'

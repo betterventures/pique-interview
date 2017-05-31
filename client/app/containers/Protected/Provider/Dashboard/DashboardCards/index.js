@@ -31,7 +31,7 @@ const DashboardCards = ({ items }) => {
                 <div className={css.title}>Activities</div>
                 <div className={css.val}>
                   {x.activities.map((x, i) =>
-                    <div key={i} className={css.activity}>{x}</div>
+                    <div key={i} className={css.activity}><strong>{x.position_held}</strong> at {x.title}</div>
                   )}
                 </div>
               </div>

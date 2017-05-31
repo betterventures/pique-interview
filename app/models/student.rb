@@ -4,8 +4,16 @@ class Student < User
 
   default_scope { where(role: :student) }
 
+  has_many :activities, inverse_of: :student, dependent: :destroy
   has_many :scholarship_applications, inverse_of: :student, dependent: :destroy
   has_many :applied_scholarships, through: :scholarship_applications, source: :scholarship
+
+  # student nested attrs - eg Activities
+  accepts_nested_attributes_for :activities,
+                                reject_if: ->(attrs) {
+                                  attrs['title'].nil?
+                                },
+                                allow_destroy: true
 
   def gpa_string
     sprintf('%.2f', gpa.round(2))
@@ -23,7 +31,7 @@ class Student < User
       gpa: gpa_string,
       image: photo_url,
       type: role,
-      activities: [],
+      activities: activities.to_a,
     }
   end
 

@@ -56,7 +56,30 @@ module Providers
           email: BRUCKER_EMAIL,
           password: SecureRandom.hex,
           role: :student,
-          photo_url: '/assets/brucker.png'
+          photo_url: '/assets/brucker.png',
+          activities_attributes: [
+            {
+              title: 'Debate Team',
+              position_held: 'Captain',
+              start_date: '09/2014',
+              end_date: '06/2015',
+              description: 'I led the debate team to our first State Championship!',
+            },
+            {
+              title: 'Student Newspaper',
+              position_held: 'Journalist',
+              start_date: '09/2014',
+              end_date: '06/2016',
+              description: 'I reported on school and local news for Benjamin Banneker High School.',
+            },
+            {
+              title: 'Student Council',
+              position_held: 'President',
+              start_date: '09/2016',
+              end_date: '06/2017',
+              description: 'I was elected Student Body President of the Class of 2017 by my peers!',
+            },
+          ],
         },
         {
           first_name: 'Zakiya',
@@ -67,6 +90,29 @@ module Providers
           password: SecureRandom.hex,
           role: :student,
           photo_url: '/assets/zgibbons.png',
+          activities_attributes: [
+            {
+              title: 'Student Newspaper',
+              position_held: 'Journalist',
+              start_date: '09/2014',
+              end_date: '06/2017',
+              description: "I organized our school's first newspaper and collaborated with the local news on coverage.",
+            },
+            {
+              title: 'Drama Club',
+              position_held: 'Director, Acting Lead',
+              start_date: '09/2013',
+              end_date: '06/2016',
+              description: 'I was the lead in 3 school plays, and directed the upperclassmen in our production of "Evita".',
+            },
+            {
+              title: 'The Washington Post',
+              position_held: 'Intern',
+              start_date: '06/2016',
+              end_date: '09/2017',
+              description: 'I was one of three students in the DC Metro area to be selected for a prestigious internship at the national newspaper, the Washington Post.',
+            },
+          ],
         },
         {
           first_name: 'Sade',
@@ -77,6 +123,29 @@ module Providers
           password: SecureRandom.hex,
           role: :student,
           photo_url: '/assets/sstevens.png',
+          activities_attributes: [
+            {
+              title: 'Dance Club',
+              position_held: 'President',
+              start_date: '09/2013',
+              end_date: '06/2017',
+              description: "I founded and grew our school's Dance Club from 3 members to 45, and organized 6 productions over the course of my 4-year tenure.",
+            },
+            {
+              title: 'Black Student League',
+              position_held: 'President',
+              start_date: '09/2016',
+              end_date: '06/2017',
+              description: 'I organized events focused on the black community at Wilson High and in DC at large, including service-, academic-, and professionally-focused events.',
+            },
+            {
+              title: 'The Washington Post',
+              position_held: 'Intern',
+              start_date: '06/2016',
+              end_date: '09/2017',
+              description: 'I was one of three students in the DC Metro area to be selected for a prestigious internship at the national newspaper, the Washington Post.',
+            },
+          ],
         },
         {
           first_name: "D'Angelo",
@@ -87,6 +156,29 @@ module Providers
           password: SecureRandom.hex,
           role: :student,
           photo_url: '/assets/drucker.png',
+          activities_attributes: [
+            {
+              title: 'Debate Team',
+              position_held: 'Captain',
+              start_date: '09/2016',
+              end_date: '06/2017',
+              description: "As captain of the Banneker Debate Team, I led us to our first National competition, placing Third in the nation, out of a pool of 250 schools.",
+            },
+            {
+              title: 'Student News',
+              position_held: 'Journalist',
+              start_date: '09/2013',
+              end_date: '06/2015',
+              description: "As Journalist at the Banneker News, I embarked on a project to interview all of the city's Councilmembers, and learn more about the way our government functions at the local level.",
+            },
+            {
+              title: 'Student Government',
+              position_held: 'President',
+              start_date: '06/2015',
+              end_date: '09/2016',
+              description: 'As President of the Student Government, I focused on fundraising and community service, donating over $10,000 to effective charities by the end of the year.',
+            },
+          ],
         },
         {
           first_name: "Carla",
@@ -97,6 +189,29 @@ module Providers
           password: SecureRandom.hex,
           role: :student,
           photo_url: '/assets/cpiedra.png',
+          activities_attributes: [
+            {
+              title: 'International Club',
+              position_held: 'President',
+              start_date: '09/2013',
+              end_date: '06/2015',
+              description: "As President of the International Club, I organized Spring Break trips to Peru and Argentina, and facilitated Spanish language and culture classes during the school year for 26 students.",
+            },
+            {
+              title: 'Drama Club',
+              position_held: 'Actor',
+              start_date: '09/2013',
+              end_date: '06/2017',
+              description: "As a member of Drama Club, I acted in 12 productions over my four years, including 2 lead and 2 musical lead roles.",
+            },
+            {
+              title: 'Student Government',
+              position_held: 'Treasurer',
+              start_date: '06/2016',
+              end_date: '09/2017',
+              description: 'As Treasurer for the Student Government, I reduced cost for our annual Formal and Prom by $5000 for the previous year, while accomodating 200 more students and securing a newer, larger venue for the Class of 2017.',
+            },
+          ],
         },
       ]
     end

@@ -1,5 +1,10 @@
 @import '_vars';
 
+.navbar-wrapper {
+  background-color: $royal-purple;
+  height: $navbar-height;
+}
+
 .navigation {
   width: 100%;
 }

@@ -1,10 +1,12 @@
-<%# TODO: Programmatically render the Reduxless or Common Header based on presence of Redux page: %>
-<%#       Passed in local: @react-page %>
-<%#       Hypothetically, can also check if store is hydrated %>
-<%= react_component('ReduxlessHeader',
-  props: {
-    scholarships: Scholarship.by_location(current_user.scholarships),
-    user: current_user.to_json,
-  },
-)
-%>
+<div class="navbar-wrapper">
+  <%# TODO: Programmatically render the Reduxless or Common Header based on presence of Redux page: %>
+  <%#       Passed in local: @react-page %>
+  <%#       Hypothetically, can also check if store is hydrated %>
+  <%= react_component('ReduxlessHeader',
+    props: {
+      scholarships: Scholarship.by_location(current_user.scholarships),
+      user: current_user.to_json,
+    },
+  )
+  %>
+</div>

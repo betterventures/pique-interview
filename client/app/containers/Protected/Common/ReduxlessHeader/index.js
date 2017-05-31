@@ -45,16 +45,18 @@ export default class ReduxlessHeader extends Component {
   render() {
     const { open, compact } = this.state
     const { user, scholarships, abort } = this.props
+    const scholarship = scholarships.all['0']
 
     return !abort
       ? <div className={css.root}>
           <div className={`${css.modal} ${open ? css.open : ''}`}>
             <div className={css.curtain} onClick={this.toggleDropdown} />
+            {scholarship.inspect}
           </div>
 
           <div className={`${css.wrap} ${compact ? css.compact : ''}`}>
             <div className={css.brand}>
-              <a className={css.link} href="/dashboard">
+              <a className={css.link} href={`/providers/scholarships/${scholarship.id}/dashboard`}>
                 <LogoIcon className={css.logo} />
               </a>
             </div>
@@ -73,7 +75,7 @@ export default class ReduxlessHeader extends Component {
                       onClick={this.toggleDropdown} />
 
                     <ReduxlessHeaderMenu
-                      scholarship={scholarships.all['0']}
+                      scholarship={scholarship}
                       user={user}
                       open={open}
                       onClick={this.toggleDropdown}

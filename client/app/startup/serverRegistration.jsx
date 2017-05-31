@@ -4,20 +4,19 @@ import 'es5-shim';
 /*
  * serverRegistration.jsx:
  *
- * Anything you want to mount directly -
+ * Register anything you want to mount directly -
  * (i.e. via <%= react_component(...) %>) -
- * Must be registered in this file
- * In order to be visible to ReactRailsUJS
- * (what `react_component` calls into)
+ * In order to make it visible to `ReactOnRails`
+ * (what `react_component` calls into).
  */
 
 import ReactOnRails from 'react-on-rails';
 
 // Components
-// Logo, progressBar, etc.
+import Logo from 'components/Icons/Logo'
 
 // App / Containers
-import ProviderUser from 'containers/Protected/Provider'
+import ReduxlessHeader from '../containers/Protected/Common/ReduxlessHeader'
 import Root from 'containers/Root'
 
 // Stores
@@ -26,12 +25,12 @@ import Root from 'containers/Root'
 // is the Store
 import SharedReduxStore from 'stores/SharedReduxStore'
 
-
 // Other?
 import 'sanitize.css/sanitize.css'
 
 ReactOnRails.register({
-  ProviderUser,
+  Logo,
+  ReduxlessHeader,
   Root,
 });
 

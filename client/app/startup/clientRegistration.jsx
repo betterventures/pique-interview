@@ -16,6 +16,8 @@ import ReactOnRails from 'react-on-rails';
 import Logo from 'components/Icons/Logo'
 
 // App / Containers
+// Go with NoReduxHeader (LayoutHeader), and add some logic around it
+import ReduxlessHeader from '../containers/Protected/Common/ReduxlessHeader'
 import Root from '../containers/Root'
 
 // Stores
@@ -23,7 +25,6 @@ import Root from '../containers/Root'
 //  (and usually createStore(combinedReducer))
 //  is the Store)
 import SharedReduxStore from '../stores/SharedReduxStore'
-
 
 // Other?
 import 'sanitize.css/sanitize.css'
@@ -34,6 +35,7 @@ ReactOnRails.setOptions({
 });
 
 ReactOnRails.register({
+  ReduxlessHeader,
   Logo,
   Root,
 });

@@ -59,7 +59,10 @@
 
     <% if content_for :navbar %>
       <%= content_for :navbar %>
+    <% elsif @is_react_page %>
+      <%# do nothing - expect navbar to be contained in App component %>
     <% else %>
+      <%# redux-less navbar %>
       <%= render 'shared/navbar' %>
     <% end %>
 

@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router'
-import * as Actions from 'api/actions'
 import css from './style.css'
 
-export class HeaderMenu extends Component {
+export default class ReduxlessHeaderMenu extends Component {
   render() {
     const { open, onClick, scholarship, signOut } = this.props
 
@@ -40,13 +37,3 @@ export class HeaderMenu extends Component {
     )
   }
 }
-
-export default connect(
-  state => {
-    return {
-      scholarship: (state.app && state.app.scholarships['all'][0]) || {},
-      user: state.user,
-    }
-  },
- Actions
-)(HeaderMenu)

@@ -64,10 +64,12 @@ class Scholarship < ApplicationRecord
   }
 
   # provide the keys expected by the frontend, for now
-  def self.by_location(*scholarships)
+  def self.by_location(scholarships)
+    # allow passing in an array or single scholarship
+    s = Array(scholarships)
     {
-      all: scholarships,
-      national: scholarships,
+      all: s,
+      national: s,
       niche: [],
       local: [],
       based: [],

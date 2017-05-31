@@ -13,4 +13,9 @@ module ApplicationHelper
   def devise_error_messages?
     !resource.errors.empty?
   end
+
+  # add additional Devise types here as they are created
+  def current_user
+    current_provider
+  end
 end

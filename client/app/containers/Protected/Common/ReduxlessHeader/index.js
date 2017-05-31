@@ -51,7 +51,6 @@ export default class ReduxlessHeader extends Component {
       ? <div className={css.root}>
           <div className={`${css.modal} ${open ? css.open : ''}`}>
             <div className={css.curtain} onClick={this.toggleDropdown} />
-            {scholarship.inspect}
           </div>
 
           <div className={`${css.wrap} ${compact ? css.compact : ''}`}>

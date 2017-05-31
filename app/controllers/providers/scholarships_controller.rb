@@ -8,6 +8,11 @@ class Providers::ScholarshipsController < ApplicationController
 
   def create
     @scholarship = Scholarship.create(scholarship_params)
+
+    # seed the scholarship with applicants on create
+    Providers::SeedApplicantsHelper.seed_dummy_users!
+    Providers::SeedApplicantsHelper.apply_to_scholarships!(@scholarship)
+
     # redirect to the essay path after creating the general instructions
     redirect_to providers_scholarship_step_path(@scholarship, :essay)
   end

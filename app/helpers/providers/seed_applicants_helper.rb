@@ -9,9 +9,16 @@ module Providers
 
     # have the dummy users apply to one or more scholarships
     # - useful for quick setup!
-    def self.apply_to_scholarships!(*scholarships)
-      scholarships.each do |s|
-        dummy_users.each {|u| u.apply!(s) }
+    def self.apply_to_scholarships!(scholarships)
+      schols_arr = Array(scholarships)
+
+      applicants = dummy_users
+      unscored_applicants = applicants[0..2]
+      scored_applicants = applicants[3..4]
+
+      schols_arr.each do |s|
+        unscored_applicants.each {|u| u.apply!(s) }
+        scored_applicants.each {|u| u.apply!(s, ScholarshipApplication.stages[:scored]) }
       end
     end
 

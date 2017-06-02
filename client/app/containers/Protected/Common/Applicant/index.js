@@ -27,13 +27,13 @@ export const Applicant = props => {
 }
 
 function getProfile(group, id) {
-  return group.filter(x => x.id === id)[0]
+  return group.filter(x => x.id.toString() === id.toString())[0]
 }
 
 export default connect(
   (state, ownProps) => {
     return {
-      ...getProfile(state.app.applicants.new, ownProps.params.id)
+      ...getProfile(state.app.applicants.unscored, ownProps.params.id)
     }
   }
 )(Applicant)

@@ -14,25 +14,29 @@ export class IndividualScholarshipsOverview extends Component {
     const { scholarship } = this.props
     return (
       <div className={css.root}>
-        <div className={css.prompt}>
+        <div className={css.row}>
           <div className={css.title}>Eligibility Requirements</div>
           <div className={css.copy}>
             <div className={css.text}>{scholarship.eligibility}</div>
           </div>
         </div>
-        <div className={css.details}>
-          <IndividualScholarshipsDetails />
-        </div>
-        <div className={css.prompt}>
+        <div>
           {
             scholarship.essay_requirements && scholarship.essay_requirements.length > 0
               ?
                 scholarship.essay_requirements.map(function (essayRequirement, i) {
                   return (
-                    <div key={essayRequirement.id}>
-                      <div className={css.border} />
-                      <div className={css.title}>Scholarship Essay #{i+1}</div>
-                      <IndividualScholarshipsPrompt essayRequirement={essayRequirement} key={essayRequirement.id} />
+                    <div className={css.row} key={essayRequirement.id}>
+                      <div className={css.prompt}>
+                        <div key={essayRequirement.id}>
+                          <div className={css.border} />
+                          <div className={css.title}>Scholarship Essay #{i+1}</div>
+                          <IndividualScholarshipsPrompt essayRequirement={essayRequirement} />
+                        </div>
+                      </div>
+                      <div className={css.details}>
+                        <IndividualScholarshipsDetails />
+                      </div>
                     </div>
                   )
                 })

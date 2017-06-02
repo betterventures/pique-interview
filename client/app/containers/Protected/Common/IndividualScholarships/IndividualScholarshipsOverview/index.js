@@ -27,9 +27,9 @@ export class IndividualScholarshipsOverview extends Component {
                 scholarship.essay_requirements.map(function (essayRequirement, i) {
                   return (
                     <div className={css.row} key={essayRequirement.id}>
+                      <div className={css.border} />
                       <div className={css.prompt}>
                         <div key={essayRequirement.id}>
-                          <div className={css.border} />
                           <div className={css.title}>Scholarship Essay #{i+1}</div>
                           <IndividualScholarshipsPrompt essayRequirement={essayRequirement} />
                         </div>

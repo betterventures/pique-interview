@@ -45,7 +45,7 @@ export default class ReduxlessHeader extends Component {
   render() {
     const { open, compact } = this.state
     const { user, scholarships, abort } = this.props
-    const scholarship = scholarships.all['0']
+    const scholarship = ( scholarships.all && scholarships.all['0']) || {}
 
     return !abort
       ? <div className={css.root}>
@@ -55,9 +55,17 @@ export default class ReduxlessHeader extends Component {
 
           <div className={`${css.wrap} ${compact ? css.compact : ''}`}>
             <div className={css.brand}>
-              <a className={css.link} href={`/providers/scholarships/${scholarship.id}/dashboard`}>
-                <LogoIcon className={css.logo} />
-              </a>
+              {
+                scholarship.id
+                  ?
+                    <a className={css.link} href={`/providers/scholarships/${scholarship.id}/dashboard`}>
+                      <LogoIcon className={css.logo} />
+                    </a>
+                  :
+                    <a className={css.link} href={`/providers/scholarships/new`}>
+                      <LogoIcon className={css.logo} />
+                    </a>
+              }
             </div>
 
             <div className={css.border} />

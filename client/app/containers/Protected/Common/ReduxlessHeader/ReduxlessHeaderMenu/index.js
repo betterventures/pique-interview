@@ -13,15 +13,30 @@ export default class ReduxlessHeaderMenu extends Component {
           <li
             onClick={onClick}
             className={css.li}>
-              <a href={`/providers/scholarships/${scholarship.id}/steps/general`}>
-                View Scholarship</a>
-            </li>
-          <li
-            onClick={onClick}
-            className={css.li}>
-              <a href={`/providers/scholarships/${scholarship.id}/steps/general`}>
-                Edit Scholarship</a>
-            </li>
+            {
+              scholarship.id
+                ?
+                  <a href={`/providers/scholarships/${scholarship.id}/steps/general`}>
+                    View Scholarship
+                  </a>
+                :
+                  <a href={`/providers/scholarships/new`}>
+                    New Scholarship
+                  </a>
+            }
+          </li>
+          {
+            scholarship.id
+              ?
+                <li
+                  onClick={onClick}
+                  className={css.li}>
+                    <a href={`/providers/scholarships/${scholarship.id}/steps/general`}>
+                      Edit Scholarship</a>
+                  </li>
+              :
+                ''
+          }
           <li
             onClick={onClick}
             className={css.li}>

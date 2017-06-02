@@ -16,7 +16,7 @@ export const Applicant = props => {
       <div className={css.profile}>
         <ApplicantHeader {...props} />
         <ApplicantUploads {...props} />
-        <div className={css.board} style={{display: 'none'}}>
+        <div className={css.board}>
           <ApplicantQuestionnaire {...props} />
           <ApplicantComments />
         </div>

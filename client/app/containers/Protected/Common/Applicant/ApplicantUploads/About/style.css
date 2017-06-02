@@ -51,9 +51,11 @@
 @media (min-width: 668px) {
   .position .strong:nth-child(1) {
     float: left;
+    font-weight: 700;
   }
   .position .strong:nth-child(2) {
     float: right;
+    font-weight: 700;
   }
 }
 

@@ -117,7 +117,7 @@ function createTestData({ applicants, scholarships }) {
     applicants: {
       unscored: applicants,
       scored: applicants.slice(2, -1),
-      recipients: applicants.slice(3, -1),
+      awarded: applicants.slice(3, -1),
     },
     scholarships: {
       all: scholarships,

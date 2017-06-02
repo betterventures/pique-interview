@@ -8,13 +8,13 @@ class Scholarship < ApplicationRecord
   has_many :scholarship_applications, inverse_of: :scholarship
   has_many :unscored_applications, -> { unscored }, inverse_of: :scholarship, class_name: 'ScholarshipApplication'
   has_many :scored_applications, -> { scored }, inverse_of: :scholarship, class_name: 'ScholarshipApplication'
-  has_many :recipient_applications, -> { recipient }, inverse_of: :scholarship, class_name: 'ScholarshipApplication'
+  has_many :awarded_applications, -> { awarded }, inverse_of: :scholarship, class_name: 'ScholarshipApplication'
 
   # applicants
   has_many :applicants, through: :scholarship_applications, source: :student
   has_many :unscored_applicants, through: :unscored_applications, source: :student
   has_many :scored_applicants, through: :scored_applications, source: :student
-  has_many :recipient_applicants, through: :recipient_applications, source: :student
+  has_many :awarded_applicants, through: :awarded_applications, source: :student
 
   # awards
   has_many :awards, inverse_of: :scholarship
@@ -115,7 +115,7 @@ class Scholarship < ApplicationRecord
     {
       unscored: unscored_applications,
       scored: scored_applications,
-      recipients: recipient_applications,
+      awarded: awarded_applications,
     }
   end
 
@@ -125,7 +125,7 @@ class Scholarship < ApplicationRecord
     {
       unscored: unscored_applicants,
       scored: scored_applicants,
-      recipients: recipient_applicants,
+      awarded: awarded_applicants,
     }
   end
 

@@ -14,11 +14,13 @@ module Providers
 
       applicants = dummy_users
       unscored_applicants = applicants[0..2]
-      scored_applicants = applicants[3..4]
+      scored_applicants = applicants[3..3]
+      awarded_applicants = applicants[4..4]
 
       schols_arr.each do |s|
         unscored_applicants.each {|u| u.apply!(s) }
         scored_applicants.each {|u| u.apply!(s, ScholarshipApplication.stages[:scored]) }
+        awarded_applicants.each {|u| u.apply!(s, ScholarshipApplication.stages[:awarded]) }
       end
     end
 

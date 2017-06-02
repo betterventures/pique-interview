@@ -16,12 +16,12 @@ export class Dashboard extends Component {
     routes: [
       {pattern: '/dashboard/unscored',   key: 'unscored'},
       {pattern: '/dashboard/scored',     key: 'scored'},
-      {pattern: '/dashboard/recipients', key: 'recipients'},
+      {pattern: '/dashboard/awarded',    key: 'awarded'},
     ],
     links: [
-      {to: '/dashboard/unscored',   key: 'unscored',   text: 'Unscored'},
-      {to: '/dashboard/scored',     key: 'scored',     text: 'Scored'},
-      {to: '/dashboard/recipients', key: 'recipients', text: 'Award Recipients'},
+      {to: '/dashboard/unscored',   key: 'unscored',  text: 'Unscored'},
+      {to: '/dashboard/scored',     key: 'scored',    text: 'Scored'},
+      {to: '/dashboard/awarded',    key: 'awarded',   text: 'Award Recipients'},
     ]
   }
 
@@ -59,7 +59,7 @@ export class Dashboard extends Component {
             pattern='/dashboard'
             render={props => <DashboardNav {...props} links={links} />} />
 
-          <Match pattern='/dashboard/recipients' component={DashboardSortBy} />
+          <Match pattern='/dashboard/awarded' component={DashboardSortBy} />
 
           {routes.map(x =>
             <Match

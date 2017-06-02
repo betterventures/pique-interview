@@ -141,7 +141,7 @@ const uiReducer = (state={}, action) => {
 const applicants = {
   unscored: [],
   scored: [],
-  recipients: [],
+  awarded: [],
 }
 const scholarships = {
   all: [],

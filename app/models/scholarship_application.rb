@@ -12,7 +12,7 @@ class ScholarshipApplication < ApplicationRecord
   enum stage: {
     unscored: 0,
     scored: 10,
-    recipient: 100,
+    awarded: 100,
   }
 
   private

@@ -24,8 +24,8 @@ const links = [{
   title: 'Applications',
   links: [
     {to: '/dashboard/unscored', text: 'Unscored'},
-    {to: '/dashboard/scored', text: 'Scored'},
-    {to: '/dashboard/recipients', text: 'Award Recipients'},
+    {to: '/dashboard/scored',   text: 'Scored'},
+    {to: '/dashboard/awarded',  text: 'Award Recipients'},
   ],
 },{
   title: 'Scholarship Review',

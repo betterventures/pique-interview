@@ -18,6 +18,7 @@ export class IndividualScholarshipsDetails extends Component {
   detailsFor(scholarship) {
     let details = []
 
+    // Scholarship Due Date
     if (scholarship.cycle_end) {
       details.push(
         {
@@ -28,6 +29,7 @@ export class IndividualScholarshipsDetails extends Component {
         }
       )
     }
+    // Award Amounts
     if (scholarship.awards && scholarship.awards.length > 0) {
       details.push(
         {
@@ -38,6 +40,7 @@ export class IndividualScholarshipsDetails extends Component {
         }
       )
     }
+    // Minimum Recs
     if (scholarship.minimum_recommendations) {
       details.push(
         {
@@ -48,6 +51,7 @@ export class IndividualScholarshipsDetails extends Component {
         }
       )
     }
+    // Essay Requirements
     if (scholarship.essay_requirements && scholarship.essay_requirements.length > 0) {
       details.push(
         {
@@ -58,6 +62,7 @@ export class IndividualScholarshipsDetails extends Component {
         }
       )
     }
+    // Has-Applied
     if (scholarship.applied_scholarships && scholarships.applied_scholarships[scholarship.id] && scholarships[scholarship.id].status) {
       details.push(
         {
@@ -69,6 +74,7 @@ export class IndividualScholarshipsDetails extends Component {
         }
       )
     }
+    // Test Scores
     if (scholarship.minimum_sat_score || scholarship.minimum_act_score) {
       details.push(
         {
@@ -76,6 +82,15 @@ export class IndividualScholarshipsDetails extends Component {
           color: '#FF0000',
           text: 'Standardized Test Scores',
           accent: `${scholarship.minimum_sat_score ? 'SAT' : ''}${scholarship.minimum_sat_score && scholarship.minimum_act_score ? ' or ' : ''}${scholarship.minimum_act_score ? 'ACT' : ''} Scores`,
+        }
+      )
+    } else {
+      details.push(
+        {
+          component: CheckmarkRed,
+          color: '#FF0000',
+          text: 'Standardized Test Scores',
+          accent: 'No Score Required',
         }
       )
     }

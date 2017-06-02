@@ -33,7 +33,7 @@ function getProfile(group, id) {
 export default connect(
   (state, ownProps) => {
     return {
-      ...getProfile(state.app.applicants.unscored, ownProps.params.id)
+      ...getProfile(state.app.applicants.all, ownProps.params.id)
     }
   }
 )(Applicant)

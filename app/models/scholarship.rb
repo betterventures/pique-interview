@@ -113,6 +113,7 @@ class Scholarship < ApplicationRecord
   # provide the keys expected by the frontend, for now
   def applications_by_stage
     {
+      all: scholarship_applications,
       unscored: unscored_applications,
       scored: scored_applications,
       awarded: awarded_applications,
@@ -123,6 +124,7 @@ class Scholarship < ApplicationRecord
   # - `map` would execute n={collection_size} queries
   def applicants_by_stage
     {
+      all: applicants,
       unscored: unscored_applicants,
       scored: scored_applicants,
       awarded: awarded_applicants,

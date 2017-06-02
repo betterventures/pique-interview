@@ -115,6 +115,7 @@ function convertMapToList(data) {
 function createTestData({ applicants, scholarships }) {
   return {
     applicants: {
+      all: applicants,
       unscored: applicants,
       scored: applicants.slice(2, -1),
       awarded: applicants.slice(3, -1),

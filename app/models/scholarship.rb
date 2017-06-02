@@ -63,6 +63,13 @@ class Scholarship < ApplicationRecord
     catholic: 5
   }
 
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :eligibility, presence: true
+  validates :cycle_start, presence: true
+  validates :cycle_end, presence: true
+  validates :minimum_recommendations, presence: true
+
   # include nested attributes in JSON responses
   def nested_options
     {
@@ -140,20 +147,21 @@ class Scholarship < ApplicationRecord
   end
 
   def cycle_start_str
-    !!@cycle_start && @cycle_start.strftime(EXPECTED_DATE_FORMAT)
+    !!cycle_start && cycle_start.strftime(EXPECTED_DATE_FORMAT)
   end
 
   def cycle_end_str
-    !!@cycle_end && @cycle_end.strftime(EXPECTED_DATE_FORMAT)
+    !!cycle_end && cycle_end.strftime(EXPECTED_DATE_FORMAT)
   end
 
   private
 
   def time_to_date(time_obj)
     case time_obj.class.to_s
-    when Date.to_s || DateTime.to_s
+    when (Date.to_s || DateTime.to_s)
       time_obj
-    when String.to_s && !time_obj.empty?
+    when String.to_s
+      return nil if time_obj.empty?  # submitting an empty date
       Date.strptime(time_obj, EXPECTED_DATE_FORMAT)
     else
       nil

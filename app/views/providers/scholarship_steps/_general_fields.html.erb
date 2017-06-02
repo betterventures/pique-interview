@@ -17,10 +17,10 @@
 </div>
 
 <div class="row">
-  <div class="field">
+  <div class="field required">
     <%= f.label :eligibility %>
     <div class="col-container">
-      <%= f.text_area :eligibility, class: "full" %>
+      <%= f.text_area :eligibility, required: true, class: "full" %>
     </div>
   </div>
 </div>
@@ -58,14 +58,14 @@
 </div>
 
 <div class="row">
-  <div class="field">
+  <div class="field required">
     <%= f.label 'Scholarship Cycle' %>
     <div class="col-container">
       <div class="col">
-        <%= f.text_field :cycle_start, class: "", id: "cycle-start", placeholder: 'Start Date', value: @scholarship.cycle_start_str %>
+        <%= f.text_field :cycle_start, class: "", id: "cycle-start", placeholder: 'Start Date', value: @scholarship.cycle_start_str, required: true %>
       </div>
       <div class="col">
-        <%= f.text_field :cycle_end, class: "", id: "cycle-end", placeholder: 'End Date', value: @scholarship.cycle_end_str %>
+        <%= f.text_field :cycle_end, class: "", id: "cycle-end", placeholder: 'End Date', value: @scholarship.cycle_end_str, required: true %>
       </div>
     </div>
   </div>
@@ -208,11 +208,11 @@
 </div>
 
 <div class="row">
-  <div class="field">
+  <div class="field required">
     <%= f.label :minimum_recommendations, 'Number of Required Recommendations' %>
     <div class="col-container">
       <div class="col">
-        <%= f.number_field :minimum_recommendations, placeholder: 0 %>
+        <%= f.number_field :minimum_recommendations, placeholder: 0, required: true %>
       </div>
       <div class="comment col">
         Skip if you do not require a recommendation

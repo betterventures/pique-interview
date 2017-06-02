@@ -31,7 +31,7 @@ export class IndividualScholarshipsOverview extends Component {
                   return (
                     <div key={essayRequirement.id}>
                       <div className={css.border} />
-                      <div className={css.title}>Scholarship Prompt #{i+1}</div>
+                      <div className={css.title}>Scholarship Essay #{i+1}</div>
                       <IndividualScholarshipsPrompt essayRequirement={essayRequirement} key={essayRequirement.id} />
                     </div>
                   )

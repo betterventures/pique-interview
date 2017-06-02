@@ -31,7 +31,7 @@ class Providers::ScholarshipDashboardController < ApplicationController
 
     @props = {
       app: {
-        scholarships: Scholarship.by_location([ @scholarship ]),
+        scholarships: Scholarship.by_location(@scholarship),
         applicants: @scholarship.applicants_by_stage_json,
       },
       user: @user,

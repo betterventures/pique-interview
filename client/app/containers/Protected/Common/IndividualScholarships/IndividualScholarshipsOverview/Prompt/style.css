@@ -1,10 +1,14 @@
 .root {
-  padding: 0 15px 40px;
+  padding: 0 0 40px;
 }
 
 .copy {
+  composes: copy from '../style.css';
+}
+
+.subtitle {
   max-width: 520px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   font-family: Arial, sans-serif;
   font-size: 15px;
   line-height: 23px;

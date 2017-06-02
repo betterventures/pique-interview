@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { ButtonFill } from '../IndividualScholarshipsBtns'
+import * as Actions from 'api/actions'
 import css from './style.css'
 
 export class IndividualScholarshipsHeader extends Component {
@@ -7,18 +9,13 @@ export class IndividualScholarshipsHeader extends Component {
     super(props)
   }
 
-  static defaultProps = {
-    description: `Pique sets out to tackle one the most commonly experienced pains of the millennial demographic, student debt. At Pique, we're creating the common application for scholarships to simplify the scholarship application process for students across America.`
-
-  }
-
   render() {
-    const { description } = this.props
+    const { scholarship } = this.props
     return (
       <div className={css.root}>
-        <div className={css.header}>MLK Scholarships</div>
+        <div className={css.header}>{scholarship.title}</div>
         <div className={css.copy}>
-          {description} <span className={css.more}>Read More</span>
+          {scholarship.description} <span className={css.more}>Read More</span>
         </div>
 
         <div className={css.btns}>
@@ -31,4 +28,11 @@ export class IndividualScholarshipsHeader extends Component {
   }
 }
 
-export default IndividualScholarshipsHeader
+export default connect(
+  state => {
+    return {
+      scholarship: (state.app && state.app.scholarships['all'][0]) || {},
+    }
+  },
+  Actions
+)(IndividualScholarshipsHeader)

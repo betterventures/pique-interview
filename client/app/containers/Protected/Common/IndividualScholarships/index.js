@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import IndividualScholarshipsBanner from './IndividualScholarshipsBanner'
 import IndividualScholarshipsHeader from './IndividualScholarshipsHeader'
-import IndividualScholarshipsPrompt from './IndividualScholarshipsPrompt'
+import IndividualScholarshipsOverview from './IndividualScholarshipsOverview'
 import IndividualScholarshipsFooter from './IndividualScholarshipsFooter'
 import css from './style.css'
 
@@ -15,7 +15,7 @@ export class IndividualScholarships extends Component {
       <div className={css.root}>
         <IndividualScholarshipsBanner />
         <IndividualScholarshipsHeader />
-        <IndividualScholarshipsPrompt />
+        <IndividualScholarshipsOverview />
         <IndividualScholarshipsFooter />
       </div>
 

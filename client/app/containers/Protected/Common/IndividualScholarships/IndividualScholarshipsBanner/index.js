@@ -1,17 +1,33 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import img from './banner.png'
+import * as Actions from 'api/actions'
 import css from './style.css'
 
-const IndividualScholarshipsBanner = props => {
-  return (
-    <div
-      style={{backgroundImage: `url(${img})`}}
-      className={css.root}>
-      <div className={css.logo}>
-        <div className={css.text}>MLK</div>
+export class IndividualScholarshipsBanner extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    const { scholarship } = this.props
+    return (
+      <div
+        style={{backgroundImage: `url(${scholarship.photo_url})`}}
+        className={css.root}>
+        <div className={css.logo}>
+          <div className={css.text}>Photo?</div>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
-export default IndividualScholarshipsBanner
+export default connect(
+  state => {
+    return {
+      scholarship: (state.app && state.app.scholarships['all'][0]) || {},
+    }
+  },
+  Actions
+)(IndividualScholarshipsBanner)

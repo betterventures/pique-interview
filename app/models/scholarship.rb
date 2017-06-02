@@ -63,6 +63,33 @@ class Scholarship < ApplicationRecord
     catholic: 5
   }
 
+  # include nested attributes in JSON responses
+  def nested_options
+    {
+      include: {
+        awards: { only: [:amount] },
+        essay_requirements: { only: [:id, :word_limit],
+                              include: {
+                                essay_prompts: { only: [:id, :prompt] },
+                              },
+                            },
+        organization: { only: [:name, :address, :city, :state] },
+      }
+    }
+  end
+  def to_json(options={})
+    super(
+      nested_options
+        .merge(options)
+    )
+  end
+  def as_json(options={})
+    super(
+      nested_options
+        .merge(options)
+    )
+  end
+
   # provide the keys expected by the frontend, for now
   def self.by_location(scholarships)
     # allow passing in an array or single scholarship

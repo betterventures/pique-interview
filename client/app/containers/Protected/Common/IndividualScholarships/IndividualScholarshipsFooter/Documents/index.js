@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { ButtonFill } from '../../IndividualScholarshipsBtns'
+import * as Actions from 'api/actions'
 import css from './style.css'
 
 export class IndividualScholarshipsDocuments extends Component {
@@ -8,6 +10,7 @@ export class IndividualScholarshipsDocuments extends Component {
   }
 
   render() {
+    const { scholarship } = this.props
     return (
       <div>
         <div className={css.fields}>
@@ -17,9 +20,22 @@ export class IndividualScholarshipsDocuments extends Component {
               <select className={css.input}type="text"/>
             </div>
           </div>
-          <div className={css.row}>
-            <div className={css.label}>SAT Test Scores*</div>
-          </div>
+          {scholarship.minimum_sat_score
+              ?
+                <div className={css.row}>
+                  <div className={css.label}>SAT Test Scores*</div>
+                </div>
+              :
+                ''
+          }
+          {scholarship.minimum_act_score
+              ?
+                <div className={css.row}>
+                  <div className={css.label}>ACT Test Scores*</div>
+                </div>
+              :
+                ''
+          }
         </div>
           <ButtonFill
             className={css.btn}
@@ -29,4 +45,12 @@ export class IndividualScholarshipsDocuments extends Component {
   }
 }
 
-export default IndividualScholarshipsDocuments
+
+export default connect(
+  state => {
+    return {
+      scholarship: (state.app && state.app.scholarships['all'][0]) || {},
+    }
+  },
+  Actions
+)(IndividualScholarshipsDocuments)

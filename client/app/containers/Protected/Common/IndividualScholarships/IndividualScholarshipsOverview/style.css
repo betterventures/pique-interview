@@ -3,7 +3,7 @@
   width: 100%;
   max-width: 1050px;
   margin: 0 auto;
-  padding: 50px 0;
+  padding: 50px 15px;
 }
 
 .root:after {
@@ -18,7 +18,6 @@
   font-size: 24px;
   line-height: 29px;
   margin-bottom: 40px;
-  padding: 0 15px;
 }
 
 .border {
@@ -26,21 +25,35 @@
   margin-bottom: 30px;
 }
 
-.overview {
+.prompt {
   width: 100%;
 }
 
+.eligibility {
+  margin-bottom: 50px;
+}
+
 @media (min-width: 1024px) {
-  .overview {
+  .prompt {
     width: 60%;
     float: left;
   }
 }
 
+.copy {
+  max-width: 520px;
+  margin-bottom: 50px;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 23px;
+  color: #777777;
+}
+
 .details {
   display: none;
-  width: 40%;
   float: right;
+  padding-top: 74px;
+  width: 40%;
 }
 
 @media (min-width: 1024px) {

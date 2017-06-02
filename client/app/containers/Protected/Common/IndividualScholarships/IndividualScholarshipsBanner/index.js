@@ -16,7 +16,7 @@ export class IndividualScholarshipsBanner extends Component {
         style={{backgroundImage: `url(${scholarship.photo_url})`}}
         className={css.root}>
         <div className={css.logo}>
-          <div className={css.text}>Photo?</div>
+          <div className={css.text}></div>
         </div>
       </div>
     )

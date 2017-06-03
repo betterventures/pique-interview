@@ -35,7 +35,7 @@ export class IndividualScholarshipsOverview extends Component {
                         </div>
                       </div>
                       <div className={css.details}>
-                        <IndividualScholarshipsDetails />
+                        <IndividualScholarshipsDetails essayRequirementIdx={i} />
                       </div>
                     </div>
                   )

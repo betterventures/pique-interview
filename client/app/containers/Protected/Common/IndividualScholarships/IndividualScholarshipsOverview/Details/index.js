@@ -16,7 +16,7 @@ export class IndividualScholarshipsDetails extends Component {
     this.detailsFor = ::this.detailsFor
   }
 
-  detailsFor(scholarship) {
+  detailsFor(scholarship, essayRequirementIdx) {
     let details = []
 
     // Scholarship Due Date
@@ -59,7 +59,7 @@ export class IndividualScholarshipsDetails extends Component {
           component: PaperPlane,
           color: '#E8B50C',
           text: 'Word Limit',
-          accent: `${scholarship.essay_requirements[0].word_limit} Words`,
+          accent: `${scholarship.essay_requirements[essayRequirementIdx].word_limit} Words`,
         }
       )
     }
@@ -118,8 +118,8 @@ export class IndividualScholarshipsDetails extends Component {
   }
 
   render() {
-    const { scholarship } = this.props
-    const details = this.detailsFor(scholarship)
+    const { scholarship, essayRequirementIdx } = this.props
+    const details = this.detailsFor(scholarship, essayRequirementIdx)
 
     return (
       <div className={css.root}>
@@ -136,9 +136,10 @@ export class IndividualScholarshipsDetails extends Component {
 }
 
 export default connect(
-  state => {
+  (state, ownProps) => {
     return {
       scholarship: (state.app && state.app.scholarships['all'][0]) || {},
+      essayRequirementIdx: ownProps.essayRequirementIdx,
     }
   },
   Actions

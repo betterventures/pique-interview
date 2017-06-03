@@ -22,7 +22,7 @@ export class ProviderUser extends Component {
         component: _ => importDefault(import('containers/Protected/Provider/Payment')),
         sidebar: false
       },{
-        pattern: '/individual-scholarships',
+        pattern: '/preview',
         component: _ => importDefault(import('containers/Protected/Common/IndividualScholarships')),
         sidebar: false
       },{

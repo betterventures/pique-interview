@@ -16,7 +16,7 @@ export class HeaderMenu extends Component {
           <li
             onClick={onClick}
             className={css.li}>
-              <a href={`/providers/scholarships/${scholarship.id}/dashboard/#/individual-scholarships`}>
+              <a href={`/providers/scholarships/${scholarship.id}/dashboard/#/preview`}>
                 View Scholarship</a>
             </li>
           <li

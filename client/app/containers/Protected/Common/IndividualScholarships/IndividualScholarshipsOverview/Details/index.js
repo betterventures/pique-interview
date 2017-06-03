@@ -8,6 +8,7 @@ import PaperPlane from './PaperPlane'
 import Reward from './Reward'
 import * as Actions from 'api/actions'
 import css from './style.css'
+import moment from 'moment'
 
 export class IndividualScholarshipsDetails extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ export class IndividualScholarshipsDetails extends Component {
           component: Timer,
           color: '#F69423',
           text: 'Due',
-          accent: scholarship.cycle_end,
+          accent: moment(scholarship.cycle_end).format('dddd, MMMM D, Y')
         }
       )
     }

@@ -10,9 +10,11 @@ Rails.application.routes.draw do
     resources :scholarships, only: [:new, :create] do
       resources :payments, only: [:new, :create]
       resources :steps, only: [:show, :update], controller: 'scholarship_steps'
-
-      get '/', to: 'scholarship_dashboard#new'
     end
+
+    # schol dash route
+    # TODO: just put this all in scholarship#show
+    get '/scholarships/:scholarship_id/', to: 'scholarship_dashboard#new', as: 'scholarship_dashboard'
 
     # user account info routes
     get 'account_info', to: 'account_info#edit'

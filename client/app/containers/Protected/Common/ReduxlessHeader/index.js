@@ -58,7 +58,7 @@ export default class ReduxlessHeader extends Component {
               {
                 scholarship.id
                   ?
-                    <a className={css.link} href={`/providers/scholarships/${scholarship.id}/dashboard`}>
+                    <a className={css.link} href={`/providers/scholarships/${scholarship.id}/`}>
                       <LogoIcon className={css.logo} />
                     </a>
                   :

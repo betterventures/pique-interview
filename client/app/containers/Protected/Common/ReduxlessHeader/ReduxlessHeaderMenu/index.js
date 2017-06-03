@@ -16,7 +16,7 @@ export default class ReduxlessHeaderMenu extends Component {
             {
               scholarship.id
                 ?
-                  <a href={`/providers/scholarships/${scholarship.id}/dashboard/#/preview`}>
+                  <a href={`/providers/scholarships/${scholarship.id}/#/preview`}>
                     View Scholarship
                   </a>
                 :

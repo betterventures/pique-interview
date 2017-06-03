@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       resources :payments, only: [:new, :create]
       resources :steps, only: [:show, :update], controller: 'scholarship_steps'
 
-      get 'dashboard', to: 'scholarship_dashboard#new'
+      get '/', to: 'scholarship_dashboard#new'
     end
 
     # user account info routes

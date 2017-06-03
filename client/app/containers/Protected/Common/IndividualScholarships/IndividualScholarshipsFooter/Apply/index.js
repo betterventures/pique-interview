@@ -6,21 +6,27 @@ import css from './style.css'
 export class IndividualScholarshipsApply extends Component {
   render() {
     const { scholarship } = this.props
+
+    let recommendations = []
+    if (scholarship.minimum_recommendations) {
+      let i = 0
+      while (++i <= scholarship.minimum_recommendations) recommendations.push(i)
+    }
+
     return (
       <div className={css.root}>
         <div className={css.copy}>{`Select the items from your Pique Proflie you would like to use to apply to the ${scholarship.title} Scholarship. Your ‘cover letter’ and ‘official transcript’ will automatically be sent with your application.`}</div>
-        <div className={css.row}>
-          <div className={css.label}>Recommendation #1</div>
-          <div className={css.field}>
-            <select className={css.input}type="text"/>
-          </div>
-        </div>
-        <div className={css.row}>
-          <div className={css.label}>Recommendation #2</div>
-          <div className={css.field}>
-            <select className={css.input}type="text"/>
-          </div>
-        </div>
+        {
+          recommendations.map((i) => (
+            <div className={css.row} key={i}>
+              <div className={css.label}>Recommendation #{i}</div>
+              <div className={css.field}>
+                <select className={css.input}type="text"/>
+              </div>
+            </div>
+            )
+          )
+        }
         <div className={css.row}>
           <div className={css.label}>Scholarship Essay</div>
           <div className={css.field}>

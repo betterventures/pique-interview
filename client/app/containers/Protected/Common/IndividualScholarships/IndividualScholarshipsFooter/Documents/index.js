@@ -12,7 +12,7 @@ export class IndividualScholarshipsDocuments extends Component {
   render() {
     const { scholarship } = this.props
     return (
-      <div>
+      <div className={css.root}>
         <div className={css.fields}>
           <div className={css.row}>
             <div className={css.label}>Parents W2 Form</div>

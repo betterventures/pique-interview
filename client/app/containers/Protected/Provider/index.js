@@ -39,11 +39,11 @@ export class ProviderUser extends Component {
         sidebar: true
       },
     ]
-    const NavigateToPayment = props => <Redirect to='/payment' />
+    const NavigateToDashboard = props => <Redirect to='/dashboard' />
 
     return (
       <div className={css.root}>
-        <Match pattern='/' exactly render={NavigateToPayment} />
+        <Match pattern='/' exactly render={NavigateToDashboard} />
 
         {routes.map((x, i) =>
           <Match key={i} pattern={x.pattern} render={props =>

@@ -74,13 +74,15 @@ class Scholarship < ApplicationRecord
   def nested_options
     {
       include: {
-        awards: { only: [:amount] },
-        essay_requirements: { only: [:id, :word_limit],
-                              include: {
-                                essay_prompts: { only: [:id, :prompt] },
-                              },
-                            },
-        organization: { only: [:name, :address, :city, :state] },
+        awards: { only: [:amount], },
+        organization: { only: [:name, :address, :city, :state], },
+        supplemental_requirements: { only: [:id, :title], },
+        essay_requirements: {
+          only: [:id, :word_limit],
+          include: {
+            essay_prompts: { only: [:id, :prompt], },
+          },
+        },
       }
     }
   end

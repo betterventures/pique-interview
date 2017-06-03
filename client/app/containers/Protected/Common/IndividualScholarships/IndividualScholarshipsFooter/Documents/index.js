@@ -14,12 +14,21 @@ export class IndividualScholarshipsDocuments extends Component {
     return (
       <div className={css.root}>
         <div className={css.fields}>
-          <div className={css.row}>
-            <div className={css.label}>Parents W2 Form</div>
-            <div className={css.field}>
-              <select className={css.input}type="text"/>
-            </div>
-          </div>
+          {
+            scholarship.supplemental_requirements && scholarship.supplemental_requirements.length > 0
+              ?
+                scholarship.supplemental_requirements.map((suppRec, i) => (
+                  <div className={css.row} key={suppRec.id}>
+                    <div className={css.label}>{suppRec.title}</div>
+                    <div className={css.field}>
+                      <select className={css.input}type="text"/>
+                    </div>
+                  </div>
+                  )
+                )
+              :
+                ''
+          }
           {scholarship.minimum_sat_score
               ?
                 <div className={css.row}>
@@ -35,6 +44,16 @@ export class IndividualScholarshipsDocuments extends Component {
                 </div>
               :
                 ''
+          }
+          {
+            (!scholarship.supplemental_requirements.length &&
+              !scholarship.minimum_sat_score &&
+              !scholarship.minimum_act_score
+                ?
+                  <span className={css.copy}>None!</span>
+                :
+                  ''
+            )
           }
         </div>
           <ButtonFill

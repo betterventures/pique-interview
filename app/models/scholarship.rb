@@ -91,6 +91,12 @@ class Scholarship < ApplicationRecord
             essay_prompts: { only: [:id, :prompt], },
           },
         },
+        score_card: {
+          only: [:id],
+          include: {
+            score_card_fields: { only: [:id, :title, :possible_score] },
+          },
+        },
       }
     }
   end

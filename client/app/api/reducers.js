@@ -168,6 +168,18 @@ const appReducer = (state={ applicants, scholarships }, action) => {
     case 'SIGNOUT':
       return { applicants }
 
+    case 'ADD_SCORE_CARD_FIELD':
+      let newState = Object.assign({}, state)
+      let scoreCardFields = (newState.scholarships['all'][0] &&
+                            newState.scholarships['all'][0].score_card &&
+                            newState.scholarships['all'][0].score_card.score_card_fields)
+      scoreCardFields = scoreCardFields || {}
+      scoreCardFields.push({
+      ...action.payload
+      })
+
+      return newState
+
     default:
       return state
   }

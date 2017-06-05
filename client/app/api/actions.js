@@ -75,3 +75,9 @@ export const updateUserInfo = payload => {
 export const onboardingRoute = _ => {
   return {type: 'ONBOARDING_ROUTE'}
 }
+
+
+// Score Card
+export const addScoreCardField = payload => {
+  return {type: 'ADD_SCORE_CARD_FIELD', payload}
+}

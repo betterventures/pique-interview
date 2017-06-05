@@ -39,7 +39,7 @@ export class ProviderUser extends Component {
         sidebar: true
       },{
         pattern: '/scorecard',
-        component: _ => importDefault(import('containers/Protected/Provider/ScoreCard')),
+        component: _ => importDefault(import('containers/Protected/Provider/ScholarshipScoreCard')),
         sidebar: true
       },
     ]

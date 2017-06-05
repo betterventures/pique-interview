@@ -31,7 +31,7 @@ const links = [{
   title: 'Scholarship Review',
   links: [
     {to: '/committee',  text: 'Selection Committee'},
-    {to: '/score_card', text: 'Score Card'},
+    {to: '/scorecard', text: 'Score Card'},
   ],
 }]
 

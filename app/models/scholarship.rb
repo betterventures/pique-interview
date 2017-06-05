@@ -16,6 +16,9 @@ class Scholarship < ApplicationRecord
   has_many :scored_applicants, through: :scored_applications, source: :student
   has_many :awarded_applicants, through: :awarded_applications, source: :student
 
+  # score_cards
+  has_one :score_card, inverse_of: :scholarship, dependent: :destroy
+
   # awards
   has_many :awards, inverse_of: :scholarship
 
@@ -51,6 +54,11 @@ class Scholarship < ApplicationRecord
                                 reject_if: ->(attrs) {
                                   attrs['title'].nil? ||
                                   attrs['title'].empty?
+                                },
+                                allow_destroy: true
+  accepts_nested_attributes_for :score_card,
+                                reject_if: ->(attrs) {
+                                  attrs['scholarship_id'].nil?
                                 },
                                 allow_destroy: true
 

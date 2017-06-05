@@ -37,6 +37,10 @@ export class ProviderUser extends Component {
         pattern: '/committee',
         component: _ => importDefault(import('containers/Protected/Provider/Committee')),
         sidebar: true
+      },{
+        pattern: '/scorecard',
+        component: _ => importDefault(import('containers/Protected/Provider/ScoreCard')),
+        sidebar: true
       },
     ]
     const NavigateToDashboard = props => <Redirect to='/dashboard' />

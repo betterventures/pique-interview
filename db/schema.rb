@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531064228) do
+ActiveRecord::Schema.define(version: 20170602190943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,6 +133,22 @@ ActiveRecord::Schema.define(version: 20170531064228) do
     t.index ["organization_id"], name: "index_scholarships_on_organization_id", using: :btree
   end
 
+  create_table "score_card_fields", force: :cascade do |t|
+    t.integer  "score_card_id"
+    t.string   "title",          null: false
+    t.integer  "possible_score", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["score_card_id"], name: "index_score_card_fields_on_score_card_id", using: :btree
+  end
+
+  create_table "score_cards", force: :cascade do |t|
+    t.integer  "scholarship_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["scholarship_id"], name: "index_score_cards_on_scholarship_id", using: :btree
+  end
+
   create_table "supplemental_requirements", force: :cascade do |t|
     t.string   "title"
     t.integer  "scholarship_id"
@@ -176,6 +192,8 @@ ActiveRecord::Schema.define(version: 20170531064228) do
   add_foreign_key "scholarship_applications", "scholarships"
   add_foreign_key "scholarship_applications", "users", column: "student_id"
   add_foreign_key "scholarships", "organizations"
+  add_foreign_key "score_card_fields", "score_cards"
+  add_foreign_key "score_cards", "scholarships"
   add_foreign_key "supplemental_requirements", "scholarships"
   add_foreign_key "users", "organizations"
 end

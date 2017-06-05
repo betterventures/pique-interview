@@ -56,7 +56,17 @@ module Providers
                         id
                         title
                         _destroy
-                      ]
+                      ],
+                      score_card_attributes: [
+                        :id,
+                        :scholarship_id,
+                        score_card_fields_attributes: [
+                          :id,
+                          :score_card_id,
+                          :title,
+                          :possible_score,
+                        ],
+                      ],
                     )
       else
         {}

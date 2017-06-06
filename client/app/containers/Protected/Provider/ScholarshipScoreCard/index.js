@@ -59,6 +59,8 @@ export class ScholarshipScoreCard extends Component {
             <div>
               <div className={css.comment}>
                 Current Score Card
+                <br />
+                <br />
               </div>
               <ScoreCard />
             </div>

@@ -76,6 +76,29 @@ export const onboardingRoute = _ => {
   return {type: 'ONBOARDING_ROUTE'}
 }
 
+// Scholarship Syncing
+export const updateScholarship = payload => {
+  return {type: 'UPDATE_SCHOLARSHIP', payload}
+}
+
+// Saves Scholarship JSON in db, and also updates it in store
+export const saveAndUpdateScholarship = payload => {
+  return (dispatch) => {
+    API.updateScholarship(
+      payload
+    ).then((status, body) => {
+      return updateScholarship(
+        // or {body.scholarship, scholarshipIdx} if want to use returned value
+        payload
+      )
+    }).catch((err) => {
+      // return null so as not to update Store;
+      // perhaps also fire an error message/flash of some sort? (Reducer)
+      console.error(`Error saving scholarship. Text: ${err}.`)
+      return false
+    })
+  }
+}
 
 // Score Card
 export const addScoreCardField = payload => {

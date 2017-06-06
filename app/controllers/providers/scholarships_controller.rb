@@ -21,4 +21,10 @@ class Providers::ScholarshipsController < ApplicationController
     @scholarship = Scholarship.find(params[:scholarship_id])
     render_wizard @scholarship
   end
+
+  def update_json
+    @scholarship = Scholarship.find(params[:scholarship_id])
+    @scholarship.update_attributes!(scholarship_params)
+    render status: 200, :json => { scholarship: @scholarship.to_json }
+  end
 end

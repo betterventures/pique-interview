@@ -79,11 +79,13 @@ class Scholarship < ApplicationRecord
   validates :minimum_recommendations, presence: true
 
   # include nested attributes in JSON responses
+  # NB: Very important to return the :id field for any nested attr,
+  #     so that records are updated instead of created when the scholarship JSON is POSTed back
   def nested_options
     {
       include: {
-        awards: { only: [:amount], },
-        organization: { only: [:name, :address, :city, :state], },
+        awards: { only: [:id, :amount], },
+        organization: { only: [:id, :name, :address, :city, :state], },
         supplemental_requirements: { only: [:id, :title], },
         essay_requirements: {
           only: [:id, :word_limit],
@@ -164,12 +166,22 @@ class Scholarship < ApplicationRecord
     super time_to_date(end_time)
   end
 
+  def cycle_start
+    return self[:cycle_start].strftime(EXPECTED_DATE_FORMAT) if self[:cycle_start]
+    nil
+  end
+
+  def cycle_end
+    return self[:cycle_end].strftime(EXPECTED_DATE_FORMAT) if self[:cycle_end]
+    nil
+  end
+
   def cycle_start_str
-    !!cycle_start && cycle_start.strftime(EXPECTED_DATE_FORMAT)
+    cycle_start
   end
 
   def cycle_end_str
-    !!cycle_end && cycle_end.strftime(EXPECTED_DATE_FORMAT)
+    cycle_end
   end
 
   private

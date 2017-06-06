@@ -168,17 +168,29 @@ const appReducer = (state={ applicants, scholarships }, action) => {
     case 'SIGNOUT':
       return { applicants }
 
+    // TODO: This should be replaced with 'UPDATE_SCHOLARSHIP':
+    // - Takes Scholarship object and index and sets Store state to that scholarship
+    // As a side effect, may make an API call to save this state to the database
     case 'ADD_SCORE_CARD_FIELD':
-      let newState = Object.assign({}, state)
-      let scoreCardFields = (newState.scholarships['all'][0] &&
-                            newState.scholarships['all'][0].score_card &&
-                            newState.scholarships['all'][0].score_card.score_card_fields)
-      scoreCardFields = scoreCardFields || {}
-      scoreCardFields.push({
+      let newAddScoreCardFieldState = Object.assign({}, state)
+      let addScoreCardFields = (newAddScoreCardFieldState.scholarships['all'][0] &&
+                            newAddScoreCardFieldState.scholarships['all'][0].score_card &&
+                            newAddScoreCardFieldState.scholarships['all'][0].score_card.score_card_fields)
+      addScoreCardFields = addScoreCardFields || []
+      addScoreCardFields.push({
       ...action.payload
       })
+      return newAddScoreCardFieldState
 
-      return newState
+    // Update the specified scholarship with the specified payload
+    // TODO: Modify `scholarships` to be an Object, not array, and pass scholarship.id instead of scholarshipIdx
+    case 'UPDATE_SCHOLARSHIP':
+      let updatedScholarshipState = Object.assign({}, state)
+      // default to idx 0 for now; implement API for extensibility to multiple Scholarships later
+      let scholarshipIdx = payload.scholarshipIdx || 0
+      let updatedSchol = updatedScholarshipState = updatedScholarshipState.scholarships['all'][scholarshipIdx]
+      updatedSchol = payload.scholarship
+      return updatedScholarshipState
 
     default:
       return state

@@ -6,21 +6,24 @@ module Providers
     def scholarship_params
       if params[:scholarship]
         params.require(:scholarship)
-              .permit(:title, :description, :eligibility,
+              .permit(:id,
                       :photo_url,
                       :renewable,
                       :minimum_age,
                       :cycle_start, :cycle_end,
+                      :title, :description, :eligibility,
                       :gpa, :minimum_sat_score, :minimum_act_score, :flexible_scores,
                       :minimum_recommendations, :generic_recommendation,
                       :for_hs_freshman, :for_hs_sophomore,
                       :for_hs_junior, :for_hs_senior,
+                      :for_two_year_program, :for_four_year_program,
                       :for_us_citizen,
                       :for_male, :for_female,
                       :for_black_people, :for_white_people, :for_hispanic_people,
                       :for_asian_people, :for_native_people,
                       :maximum_family_income,
                       :requires_community_service, :minimum_community_service,
+                      :faith_requirement,
                       :organization_id,
                       awards_attributes: %i[
                         id

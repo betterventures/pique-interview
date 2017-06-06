@@ -1,4 +1,6 @@
+import axios from 'axios'
 import firebase from 'firebase'
+import ReactOnRails from 'react-on-rails'
 
 firebase.initializeApp({
   apiKey: 'AIzaSyBlwBDc0fn1CkYnw966lgS-dT0GunHyXPo',
@@ -136,4 +138,60 @@ function seedDatabase({data, path}) {
     .ref()
     .child(path)
   data.map(x => ref.push(x))
+}
+
+function _baseUrl(env) {
+  const scheme = 'http://'
+  switch (env) {
+    case 'prod':
+      return 'getpique.co'
+
+    case 'stg':
+      return 'pique-web-staging.herokuapp.com'
+
+    default:
+      return 'localhost:5000'
+  }
+}
+
+function authenticityHeaders(headers={}) {
+  return ReactOnRails.authenticityHeaders(headers)
+}
+
+// formats the keys of any nested Objects with _attributes, for acceptance as nested attrs by Rails
+function formatNestedAttrs(payload) {
+  const formatted = Object.keys(payload).reduce((acc, k) => {
+    let v = payload[k]
+    // if value is an Object, rename and recurse
+    // special case for null, which is an Object
+    if (v === null) {
+      acc[k] = v
+    // rename array contents without renaming the array keys
+    } else if (Array.isArray(v)) {
+      let newKey = `${k}_attributes`
+      acc[newKey] = v.map((el) => formatNestedAttrs(el))
+    } else if (typeof v === 'object') {
+      let newKey = `${k}_attributes`
+      acc[newKey] = formatNestedAttrs(v)
+    } else {
+      acc[k] = v
+    }
+
+    return acc
+  }, {})
+
+  return formatted
+}
+
+export const updateScholarship = payload => {
+  const formatted = {
+    scholarship: formatNestedAttrs(payload.scholarship)
+  }
+  return axios.put(
+    `/providers/scholarships/${payload.scholarship.id}`,
+    formatted,
+    {
+      headers: authenticityHeaders(),
+    }
+  )
 }

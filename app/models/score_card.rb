@@ -6,7 +6,7 @@ class ScoreCard < ApplicationRecord
   accepts_nested_attributes_for :score_card_fields,
                                 reject_if: ->(attrs) {
                                   attrs['title'].nil? || attrs['title'].empty? ||
-                                  attrs['possible_score'].nil? || attrs['possible_score'].empty?
+                                  attrs['possible_score'].nil? || attrs['possible_score'].to_s.empty?
                                 },
                                 allow_destroy: true
 end

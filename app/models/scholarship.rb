@@ -80,7 +80,9 @@ class Scholarship < ApplicationRecord
 
   # include nested attributes in JSON responses
   # NB: Very important to return the :id field for any nested attr,
-  #     so that records are updated instead of created when the scholarship JSON is POSTed back
+  #     so that records are updated instead of created when the scholarship JSON is POSTed back.
+  #     Same goes for :{parent}_id, so that nested attrs are correctly mapped (eg created and deleted).
+  #     If your PUT/POST updates are not working, check that the parent_ids are present in the payload.
   def nested_options
     {
       include: {
@@ -88,15 +90,15 @@ class Scholarship < ApplicationRecord
         organization: { only: [:id, :name, :address, :city, :state], },
         supplemental_requirements: { only: [:id, :title], },
         essay_requirements: {
-          only: [:id, :word_limit],
+          only: [:id, :scholarship_id, :word_limit],
           include: {
-            essay_prompts: { only: [:id, :prompt], },
+            essay_prompts: { only: [:id, :essay_requirement_id, :prompt], },
           },
         },
         score_card: {
-          only: [:id],
+          only: [:id, :scholarship_id],
           include: {
-            score_card_fields: { only: [:id, :title, :possible_score] },
+            score_card_fields: { only: [:id, :score_card_id, :title, :possible_score] },
           },
         },
       }

@@ -45,8 +45,8 @@ export class ScoreCard extends Component {
   render() {
     const { header } = this.props
     const { scholarship } = this.state
-    const scoreCard = (scholarship && scholarship.score_card) || {}
-    const scoreCardFields = (scoreCard && scoreCard.score_card_fields) || []
+    scholarship.score_card = scholarship.score_card || { scholarship_id: scholarship.id, score_card_fields: [] }
+    scholarship.score_card.score_card_fields = scholarship.score_card.score_card_fields || []
 
     return (
       <div className={css.card}>
@@ -69,12 +69,12 @@ export class ScoreCard extends Component {
           <input type="hidden" name="authenticity_token" value={ReactOnRails.authenticityToken()} />
 
           {
-            scoreCard.id
+            scholarship.score_card.id
               ?
                 <input
                   required="required"
                   type="hidden"
-                  value={scoreCard.id}
+                  value={scholarship.score_card.id}
                   name="scholarship[score_card_attributes][id]"
                   id="scholarship_score_card_attributes_id"
                 />
@@ -90,7 +90,7 @@ export class ScoreCard extends Component {
           />
           <div className={css.fields}>
             {
-              scoreCardFields.map((scoreCardField, i) => {
+              scholarship.score_card.score_card_fields.map((scoreCardField, i) => {
                 return (
                   <div className={css.field} key={i}>
                     <div className={css.cardrow}>

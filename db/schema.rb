@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170602190943) do
+ActiveRecord::Schema.define(version: 20170606010413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,7 +95,6 @@ ActiveRecord::Schema.define(version: 20170602190943) do
   create_table "scholarships", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "award_amount"
     t.decimal  "gpa"
     t.integer  "minimum_sat_score"
     t.integer  "minimum_act_score"
@@ -117,7 +116,6 @@ ActiveRecord::Schema.define(version: 20170602190943) do
     t.boolean  "requires_community_service"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.integer  "number_of_awards"
     t.integer  "minimum_age"
     t.boolean  "flexible_scores"
     t.text     "eligibility"

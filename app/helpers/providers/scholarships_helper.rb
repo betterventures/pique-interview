@@ -68,6 +68,7 @@ module Providers
                           :score_card_id,
                           :title,
                           :possible_score,
+                          :_destroy,
                         ],
                       ],
                     )

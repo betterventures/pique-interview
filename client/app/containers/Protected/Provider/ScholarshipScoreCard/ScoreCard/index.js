@@ -26,14 +26,11 @@ export class ScoreCard extends Component {
 
   removeScoreCardField(i) {
     let modifiedScholarship = this.state.scholarship
-    modifiedScholarship.score_card.score_card_fields.splice(i,1)
+    modifiedScholarship.score_card.score_card_fields[i].deleted = true
 
     this.setState({
       scholarship: modifiedScholarship
     })
-
-    console.log("STATE")
-    console.log(this.state)
   }
 
   toggleEditing() {
@@ -108,31 +105,44 @@ export class ScoreCard extends Component {
             }
             {
               scholarship.score_card.score_card_fields.map((scoreCardField, i) => {
-                return (
-                  <div className={css.field} key={i}>
-                    <div className={css.cardrow}>
-                      <div className={css.cardleft}>
-                        { scoreCardField.title }
+                {
+                  let field = scoreCardField.deleted
+                    ?
+                      <input
+                        type="hidden"
+                        name={`scholarship[score_card_attributes][score_card_fields_attributes][${i}][_destroy]`}
+                        id={`scholarship_score_card_attributes_score_card_fields_attributes_${i}__destroy`}
+                        value='1'
+                      />
+                    :
+                      <div className={css.field}>
+                        <div className={css.cardrow}>
+                          <div className={css.cardleft}>
+                            { scoreCardField.title }
+                          </div>
+                          <div className={css.cardright}>
+                            <input className={css.xsinput} type="text" />
+                            <span className={css.score}>/ { scoreCardField.possible_score }</span>
+                          </div>
+                        </div>
+                        <div className={css.shortrow}>
+                          {
+                            this.state.editing
+                              ?
+                                <div className={css.cardleft}>
+                                  <span className={css.remove} onClick={_ => this.removeScoreCardField(i)}>
+                                    <i>Remove Criteria</i>
+                                  </span>
+                                </div>
+                              :
+                                ''
+                          }
+                        </div>
                       </div>
-                      <div className={css.cardright}>
-                        <input className={css.xsinput} type="text" />
-                        <span className={css.score}>/ { scoreCardField.possible_score }</span>
-                      </div>
-                    </div>
-                    <div className={css.shortrow}>
-                      {
-                        this.state.editing
-                          ?
-                            <div className={css.cardleft}>
-                              <span className={css.remove} onClick={i => this.removeScoreCardField(i)}>
-                                <i>Remove Criteria</i>
-                              </span>
-                            </div>
-                          :
-                            ''
-                      }
-                    </div>
-                    <div className='formFields'>
+
+                  return (
+                    <div className='formFields' key={i}>
+                      {field}
                       <input
                         required="required"
                         type="hidden"
@@ -160,8 +170,8 @@ export class ScoreCard extends Component {
                             ''
                       }
                     </div>
-                  </div>
-                )
+                  )
+                }
               })
             }
           </div>
@@ -180,7 +190,10 @@ export class ScoreCard extends Component {
               </div>
             </div>
             <div className={css.cardright}>
-              { // <button className={css.btn} onClick={this.saveScholarship}>Save</button>
+              {
+                // <button className={css.btn} onClick={this.saveScholarship}>Save</button>
+                // TODO: Refactor to submit Async on button click.
+                // Can possibly use update_scholarship, and include _destroy as a param if :deleted is set
               }
               <input
                 className={css.btn}

@@ -90,6 +90,23 @@ export class ScoreCard extends Component {
           />
           <div className={css.fields}>
             {
+              scholarship.score_card.score_card_fields.length < 1
+                ?
+                  <div className={css.field}>
+                    <div className={css.cardrow}>
+                      <div className={css.cardleft}>
+                        Sample Criterion
+                      </div>
+                      <div className={css.cardright}>
+                        <input className={css.xsinput} type="text" />
+                        <span className={css.score}>/ 100</span>
+                      </div>
+                    </div>
+                  </div>
+                :
+                  ''
+            }
+            {
               scholarship.score_card.score_card_fields.map((scoreCardField, i) => {
                 return (
                   <div className={css.field} key={i}>

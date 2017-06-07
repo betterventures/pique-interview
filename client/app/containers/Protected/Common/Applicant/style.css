@@ -22,8 +22,15 @@
 @media (min-width: 1024px) {
   .board {
     float: right;
-    width: 380px;
+    width: 340px;
   }
+}
+
+@media (min-width: 1210px) {
+  .profile {
+    max-width: 1168px;
+  }
+
 }
 
 .header {

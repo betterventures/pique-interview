@@ -9,7 +9,7 @@
   background-color: #fff;
   box-shadow: 0px 2px 7px #d9d9da;
   border-radius: 5px;
-  padding: 0px 25px 20px;
+  padding: 0;
   text-align: center;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -18,29 +18,9 @@
   composes: header from '../style.css';
 }
 
-.rating {
-  color: #4abced;
-  font-size: 26px;
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 20px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #dde2e7;
-}
-
 .target {
   display: inline-block;
   cursor: pointer;
-}
-
-.star {
-  height: 26px;
-  width: 26px;
-}
-
-.inputs {
-  text-align: center;
-  margin: 20px auto;
 }
 
 .label {
@@ -55,13 +35,108 @@
   color: #333;
 }
 
-.radio {
-  margin-right: 10px;
+.input {
+  border: 1px solid #B2BCD4;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  padding: 0 10px;
 }
 
-.question {
-  padding-top: 35px;
-  font-size: 18px;
-  font-weight: 200;
-  color: #020f3c;
+.xsinput {
+  composes: input;
+  display: inline-block;
+  height: 28px;
+  margin-right: 10px;
+  vertical-align: top;
+  width: 45px;
+}
+
+.largetext {
+  composes: input;
+  display: inline-block;
+  height: 112px;
+  padding-top: 6px;
+  resize: none;
+  vertical-align: top;
+  width: 100%;
+}
+
+.input::placeholder,
+.xsinput::placeholder,
+.largetext::placeholder {
+  color: #a8a8a8;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-style: italic;
+}
+
+.fields {
+  padding: 0;
+}
+
+.field {
+  margin: 21px 28px;
+}
+
+.cardrow {
+  display: block;
+  color: #000;
+  font-weight: 500;
+  height: 28px;
+  line-height: 28px;
+  vertical-align: middle;
+}
+
+.shortrow {
+  composes: cardrow;
+  height: 28px;
+  font-size: 11px;
+  line-height: 28px;
+}
+
+.cardfooter {
+  composes: cardrow;
+  height: 51px;
+  margin-top: 11px;
+  margin-left: 28px;
+  margin-right: 28px;
+  margin-bottom: 18px;
+}
+
+.cardleft {
+  display: inline-block;
+  float: left;
+  text-align: left;
+  width: 40%
+}
+
+.cardright {
+  display: inline-block;
+  float: right;
+  text-align: right;
+  width: 60%;
+}
+
+.score {
+  display: inline-block;
+  overflow-x: hidden;
+  text-align: right;
+  text-overflow: ellipsis;
+  width: 38px;
+  white-space: nowrap;
+}
+
+.btn {
+  background-color: #31D26C;
+  border: 0px solid #979797;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 13px;
+  font-family: 'HelveticaNeue', Helvetica, sans-serif;
+  font-weight: 100;
+  line-height: 27px;
+  padding: 10px 30px;
+  text-decoration: none;
+  width: 144px;
 }

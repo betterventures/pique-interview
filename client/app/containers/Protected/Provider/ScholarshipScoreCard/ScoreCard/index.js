@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { saveAndUpdateScholarship } from 'api/actions'
 import css from './style.css'
-import ReactOnRails from 'react-on-rails'
 
 export class ScoreCard extends Component {
   constructor(props) {

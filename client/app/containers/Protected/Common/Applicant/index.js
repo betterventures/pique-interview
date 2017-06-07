@@ -21,7 +21,6 @@ export const Applicant = props => {
           <ApplicantComments />
         </div>
       </div>
-      <ApplicantCommentInput />
     </div>
   )
 }

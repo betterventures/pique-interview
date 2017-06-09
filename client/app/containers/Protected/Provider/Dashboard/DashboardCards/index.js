@@ -40,9 +40,13 @@ const DashboardCards = ({ items }) => {
               <div className={css.info}>
                 <div className={css.title}>Activities</div>
                 <div className={css.val}>
-                  {x.activities.map((x, i) =>
-                    <div key={i} className={css.activity}><strong>{x.position_held}</strong> at {x.title}</div>
-                  )}
+                  {
+                    x.activities
+                      .map((x, _) => JSON.parse(x))
+                      .map((x, i) =>
+                        <div key={i} className={css.activity}><strong>{x.position_held}</strong> at {x.title}</div>
+                      )
+                  }
                 </div>
               </div>
             </div>

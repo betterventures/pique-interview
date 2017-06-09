@@ -40,7 +40,7 @@
 
 @media (min-width: 1024px) {
   .prompt {
-    width: 60%;
+    width: 50%;
     float: left;
   }
 }
@@ -58,7 +58,7 @@
   display: none;
   float: right;
   padding-top: 74px;
-  width: 40%;
+  width: 45%;
 }
 
 @media (min-width: 1024px) {

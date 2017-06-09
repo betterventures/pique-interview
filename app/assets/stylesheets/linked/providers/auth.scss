@@ -22,9 +22,16 @@
   position: absolute;
   right: 0;
   text-align: center;
-  top: 120px;
   transition: all 0.2s ease-in-out;
   z-index: 2001;
+}
+
+.signin-root {
+  top: 188px;
+}
+
+.signup-root {
+  top: 135px;
 }
 
 .signup-root,

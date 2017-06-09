@@ -10,8 +10,6 @@ export class ApplicantQuestionnaire extends Component {
     this.setScoreForRatingField = ::this.setScoreForRatingField
     this.setCommentForRating = ::this.setCommentForRating
     this.getApplicationForStudent = getApplicationForStudent
-    this.getRatingForRater = getRatingForRater
-    this.getRatingForApplicantAndProvider = getRatingForApplicantAndProvider
 
     this.state = {
       scholarship: this.props.scholarship,
@@ -144,16 +142,26 @@ function getRatingForApplicantAndProvider(scholarship, applicantId, user) {
   ) || {}
 
   // fill in ID values for current rating if not populated
-  currentProviderRating.scholarship_application_id = currentProviderRating.scholarship_application_id ||
+  currentProviderRating.scholarship_application_id =
+    currentProviderRating.scholarship_application_id ||
     appForStudent.id
   currentProviderRating.rater_id = currentProviderRating.rater_id || user.id
-  currentProviderRating.fields = currentProviderRating.fields ||
-    scholarship.score_card.score_card_fields.map(scoreCardField => {
-      return {
-        application_rating_id: currentProviderRating.id,
-        score_card_field_id: scoreCardField.id,
-      }
-    })
+  currentProviderRating.fields = currentProviderRating.fields || []
+
+  // Need a RatingField for each ScoreCardField:
+  // Obtain this by getting the ScoreCardField Ids,
+  // then adding Rating Fields for any Score Card Fields that do not yet have a Rating Field.
+  let desiredScoreCardFieldIds  = scholarship.score_card.score_card_fields.map(scf => scf.id)
+  let existingScoreCardFieldIds = currentProviderRating.fields.map(rf => rf.score_card_field_id)
+  let neededScoreCardFieldIds = desiredScoreCardFieldIds.filter(field => existingScoreCardFieldIds.indexOf(field) < 0)
+
+  let neededScoreCardFields = neededScoreCardFieldIds.map(scoreCardFieldId => {
+    return {
+      application_rating_id: currentProviderRating.id,
+      score_card_field_id: scoreCardFieldId,
+    }
+  })
+  currentProviderRating.fields = currentProviderRating.fields.concat(neededScoreCardFields)
 
   return currentProviderRating
 }

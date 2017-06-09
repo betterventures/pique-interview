@@ -80,25 +80,11 @@
 </div>
 
 <script type="text/javascript">
-  // Make Filepicker widget play nice with Turbolinks
-  function setupFilepicker() {
-    var $uploadBtns = $('button.upload-btn');
-    if ($uploadBtns.length < 1) {
-      var $filepickerInputs = $('#filepicker-input');
-      for (var i = 0; i < $filepickerInputs.length; i++) {
-        filepicker.constructWidget($filepickerInputs[i]);
-      }
-    }
-  }
-
   function insertFilepickerImg(event) {
     var $filepickerImg = $('#filepicker-img-preview');
     $filepickerImg.toggleClass('fade');
     $filepickerImg.attr('src', event.fpfile.url);
     $filepickerImg.toggleClass('fade');
   }
-
-  $(document).on('page:change', setupFilepicker);
-  $(document).on('turbolinks:load', setupFilepicker);
 </script>
 

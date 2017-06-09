@@ -7,6 +7,7 @@ export class ApplicantQuestionnaire extends Component {
   constructor(props) {
     super(props)
     this.saveScholarship = ::this.saveScholarship
+    this.ratingPctForRatingCard = ::this.ratingPctForRatingCard
     this.setScoreForRatingField = ::this.setScoreForRatingField
     this.setCommentForRating = ::this.setCommentForRating
     this.getApplicationForStudent = getApplicationForStudent
@@ -66,14 +67,27 @@ export class ApplicantQuestionnaire extends Component {
     })
   }
 
+  ratingPctForRatingCard(rating, scholarship) {
+    const totalPossiblePts =
+      scholarship.score_card.score_card_fields
+      .map(scf => parseInt(scf.possible_score,10))
+      .reduce((total, pts) => (total + pts), 0)
+    const currentPts = rating.fields
+      .map(rf => parseInt(rf.score, 10))
+      .reduce((total, pts) => (total + pts), 0)
+
+    return parseInt(currentPts / totalPossiblePts * 100, 10)
+  }
+
   render() {
     const { header, applicantId, user } = this.props
     const { scholarship, rating } = this.state
+    const currentRatingPct = this.ratingPctForRatingCard(rating, scholarship)
 
     return (
       <div className={css.root}>
         <div className={css.header}>
-          { header }
+          { header }: { parseInt(currentRatingPct, 10) > 0 ? `${currentRatingPct}%` : '' }
         </div>
         <div className={css.card}>
           <div className={css.fields}>

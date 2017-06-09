@@ -12,7 +12,7 @@ export class ApplicantComments extends Component {
   render() {
     return (
       <div className={css.root}>
-        <div className={css.header}>Committee Review: Interview Review</div>
+        <div className={css.header}>Committee Review</div>
         <div className={css.comments}>
         {comments.map((x, i) =>
           <div key={i} className={css.comment}>

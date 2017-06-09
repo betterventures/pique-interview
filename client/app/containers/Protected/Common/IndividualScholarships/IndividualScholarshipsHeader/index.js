@@ -7,6 +7,18 @@ import css from './style.css'
 export class IndividualScholarshipsHeader extends Component {
   constructor(props) {
     super(props)
+    this.expandHeaderText = ::this.expandHeaderText
+
+    this.state = {
+      expandHeader: this.props.scholarship.description &&
+                    this.props.scholarship.description.length <= 100
+    }
+  }
+
+  expandHeaderText() {
+    this.setState({
+      expandHeader: true
+    })
   }
 
   render() {
@@ -15,7 +27,19 @@ export class IndividualScholarshipsHeader extends Component {
       <div className={css.root}>
         <div className={css.header}>{scholarship.title}</div>
         <div className={css.copy}>
-          {scholarship.description} <span className={css.more}>Read More</span>
+          {
+            this.state.expandHeader
+              ?
+                scholarship.description
+              :
+                scholarship.description.substr(0, 100)
+          }
+          <span
+            className={this.state.expandHeader ? css.hidden : css.more}
+            onClick={this.expandHeaderText}
+          >
+            Read More
+          </span>
         </div>
 
         <div className={css.btns}>

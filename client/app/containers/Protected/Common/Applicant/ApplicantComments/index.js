@@ -1,28 +1,41 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Rating from 'components/Rating'
+import { saveAndUpdateScholarship } from 'api/actions'
 import css from './style.css'
 
-export const ApplicantComments = props => {
-  return (
-    <div className={css.root}>
-      <div className={css.header}>Committee Review: Interview Review</div>
-      <div className={css.comments}>
-      {comments.map((x, i) =>
-        <div key={i} className={css.comment}>
-          <div className={css.image} style={{backgroundImage: `url(${x.image})`}} />
-          <div className={css.info}>
-            <div className={css.name}>{x.name}</div>
-            <Rating
-              className={css.rating}
-              style={{width: '14px', height: '14px'}}
-              value={x.rating} />
+export class ApplicantComments extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    return (
+      <div className={css.root}>
+        <div className={css.header}>Committee Review: Interview Review</div>
+        <div className={css.comments}>
+        {comments.map((x, i) =>
+          <div key={i} className={css.comment}>
+            <div className={css.image} style={{backgroundImage: `url(${x.image})`}} />
+            <div className={css.info}>
+              <div className={css.name}>{x.name}</div>
+            </div>
+            <div className={css.message}>{x.message}</div>
           </div>
-          <div className={css.message}>{x.message}</div>
+        )}
+        {this.props.ratings.map((x, i) =>
+          <div key={i} className={css.comment}>
+            <div className={css.image} style={{backgroundImage: `url(${x.rater.photo_url || '/assets/blank_figure.png'})`}} />
+            <div className={css.info}>
+              <div className={css.name}>{x.rater.first_name} {x.rater.last_name}</div>
+            </div>
+            <div className={css.message}>{x.comment}</div>
+          </div>
+        )}
         </div>
-      )}
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 const comments = [
@@ -49,4 +62,23 @@ const comments = [
   }
 ]
 
-export default ApplicantComments
+function getApplicationForStudent(applications, studentId) {
+  return applications.filter(app => (app.student_id && app.student_id.toString()) === studentId.toString())[0]
+}
+
+export default connect(
+  (state, ownProps) => {
+    const scholarship = (state.app && state.app.scholarships['all'][0]) || {}
+    let application = getApplicationForStudent(
+      scholarship.scholarship_applications,
+      ownProps.params.id
+    )
+    return {
+      applicantId: ownProps.params.id,
+      scholarship: scholarship,
+      ratings: application.ratings,
+      user: state.user,
+    }
+  },
+  { saveAndUpdateScholarship }
+)(ApplicantComments)

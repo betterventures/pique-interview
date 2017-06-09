@@ -185,12 +185,11 @@ const appReducer = (state={ applicants, scholarships }, action) => {
     // Update the specified scholarship with the specified payload
     // TODO: Modify `scholarships` to be an Object, not array, and pass scholarship.id instead of scholarshipIdx
     case 'UPDATE_SCHOLARSHIP':
-      let updatedScholarshipState = Object.assign({}, state)
       // default to idx 0 for now; implement API for extensibility to multiple Scholarships later
-      let scholarshipIdx = payload.scholarshipIdx || 0
-      let updatedSchol = updatedScholarshipState = updatedScholarshipState.scholarships['all'][scholarshipIdx]
-      updatedSchol = payload.scholarship
-      return updatedScholarshipState
+      let newState = Object.assign({}, state)
+      const scholarshipIdx = action.payload.scholarshipIdx || 0
+      newState.scholarships['all'][scholarshipIdx] = JSON.parse(action.payload.scholarship)
+      return newState
 
     default:
       return state

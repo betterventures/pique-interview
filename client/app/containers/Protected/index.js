@@ -11,10 +11,6 @@ export class MembersRoutes extends Component {
   componentDidMount() {
     const { fetchSuccess, fetchError, clearState } = this.props
     clearState()
-    API.fetchData({
-      next: fetchSuccess,
-      error: error => fetchError({ error }),
-    })
   }
 
   render() {

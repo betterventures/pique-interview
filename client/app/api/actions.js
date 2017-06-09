@@ -86,11 +86,11 @@ export const saveAndUpdateScholarship = payload => {
   return (dispatch) => {
     API.updateScholarship(
       payload
-    ).then((status, body) => {
-      return updateScholarship(
-        // or {body.scholarship, scholarshipIdx} if want to use returned value
-        payload
-      )
+    ).then(res => {
+      return dispatch(updateScholarship(
+        // or {res.data.scholarship, scholarshipIdx} if want to use returned value
+        res.data
+      ))
     }).catch((err) => {
       // return null so as not to update Store;
       // perhaps also fire an error message/flash of some sort? (Reducer)

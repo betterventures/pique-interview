@@ -18,7 +18,7 @@ export const Applicant = props => {
         <ApplicantUploads {...props} />
         <div className={css.board}>
           <ApplicantQuestionnaire {...props} />
-          <ApplicantComments />
+          <ApplicantComments {...props} />
         </div>
       </div>
     </div>

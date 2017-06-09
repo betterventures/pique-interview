@@ -60,6 +60,27 @@ module Providers
                         title
                         _destroy
                       ],
+                      scholarship_applications_attributes: [
+                        :id,
+                        :scholarship_id,
+                        :student_id,
+                        :stage,
+                        :_destroy,
+                        ratings_attributes: [
+                          :id,
+                          :rater_id,
+                          :scholarship_application_id,
+                          :comment,
+                          :_destroy,
+                          fields_attributes: [
+                            :id,
+                            :application_rating_id,
+                            :score_card_field_id,
+                            :score,
+                            :_destroy,
+                          ],
+                        ],
+                      ],
                       score_card_attributes: [
                         :id,
                         :scholarship_id,

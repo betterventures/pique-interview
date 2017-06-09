@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606010413) do
+ActiveRecord::Schema.define(version: 20170607143024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,26 @@ ActiveRecord::Schema.define(version: 20170606010413) do
     t.string  "end_date"
     t.text    "description"
     t.index ["student_id"], name: "index_activities_on_student_id", using: :btree
+  end
+
+  create_table "application_rating_fields", force: :cascade do |t|
+    t.integer  "score"
+    t.integer  "score_card_field_id"
+    t.integer  "application_rating_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["application_rating_id"], name: "index_application_rating_fields_on_application_rating_id", using: :btree
+    t.index ["score_card_field_id"], name: "index_application_rating_fields_on_score_card_field_id", using: :btree
+  end
+
+  create_table "application_ratings", force: :cascade do |t|
+    t.integer  "scholarship_application_id"
+    t.integer  "rater_id"
+    t.text     "comment"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["rater_id"], name: "index_application_ratings_on_rater_id", using: :btree
+    t.index ["scholarship_application_id"], name: "index_application_ratings_on_scholarship_application_id", using: :btree
   end
 
   create_table "area_of_study_requirements", force: :cascade do |t|
@@ -183,6 +203,10 @@ ActiveRecord::Schema.define(version: 20170606010413) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "application_rating_fields", "application_ratings"
+  add_foreign_key "application_rating_fields", "score_card_fields"
+  add_foreign_key "application_ratings", "scholarship_applications"
+  add_foreign_key "application_ratings", "users", column: "rater_id"
   add_foreign_key "area_of_study_requirements", "scholarships"
   add_foreign_key "essay_prompts", "essay_requirements"
   add_foreign_key "essay_requirements", "scholarships"

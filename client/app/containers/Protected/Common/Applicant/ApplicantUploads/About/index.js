@@ -4,7 +4,9 @@ import img1 from './intro.png'
 import img2 from './activities.png'
 import css from './style.css'
 
-export const ApplicantAbout = ({ intro, description, activities={} }) => {
+export const ApplicantAbout = ({ intro, description, activities=[] }) => {
+  let applicantActivities = activities.map(act => JSON.parse(act))
+
   return (
     <div className={css.root}>
       <div className={css.header}>About</div>
@@ -24,7 +26,7 @@ export const ApplicantAbout = ({ intro, description, activities={} }) => {
             <img className={css.icon} src={img2} />
             <span className={css.text}>Activities</span>
           </div>
-          {activities.map((x, i) =>
+          {applicantActivities.map((x, i) =>
             <div className={css.activity} key={i}>
               <div className={css.position}>
                 <div className={css.strong}>{x.position_held}</div>
@@ -34,7 +36,7 @@ export const ApplicantAbout = ({ intro, description, activities={} }) => {
               <div className={css.copy}>{x.description}</div>
             </div>
           )}
-          {activities.length
+          {applicantActivities.length
             ? <div className={css.placeholder}>Add Another Activity</div>
             : <div className={css.placeholder}>{activitiesPlaceholder}</div>}
         </div>
@@ -48,6 +50,6 @@ const introPlaceholder = `Tell us about yourself. Who are you? What makes you ti
 const activitiesPlaceholder = `What extra-curricular activities are you a part of? What type of community service do you participate in during your free time? Scholarship providers want to know who you are outside the classroom, be sure to let them know!`
 export default connect(
   state => ({
-    user: state.auth.user
+    user: state.user,
   })
 )(ApplicantAbout)

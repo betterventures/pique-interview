@@ -61,6 +61,9 @@ class Scholarship < ApplicationRecord
                                   attrs['scholarship_id'].nil?
                                 },
                                 allow_destroy: true
+  accepts_nested_attributes_for :scholarship_applications,
+                                reject_if: :all_blank,
+                                allow_destroy: true
 
   enum faith_requirement: {
     no_requirement: 0,
@@ -99,6 +102,18 @@ class Scholarship < ApplicationRecord
           only: [:id, :scholarship_id],
           include: {
             score_card_fields: { only: [:id, :score_card_id, :title, :possible_score] },
+          },
+        },
+        scholarship_applications: {
+          only: [:id, :scholarship_id, :student_id, :stage],
+          include: {
+            ratings: {
+              only: [:id, :scholarship_application_id, :rater_id, :comment],
+              include: {
+                fields: { only: [:id, :application_rating_id, :score_card_field_id, :score] },
+                rater:  { only: [:id, :first_name, :last_name, :photo_url] },
+              },
+            },
           },
         },
       }

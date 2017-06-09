@@ -81,34 +81,6 @@ export const updateUserProfile = data => {
     .updateProfile({...data})
 }
 
-function fetchApplicants() {
-  return firebase
-    .database()
-    .ref('test')
-    .child('applicants')
-    .once('value')
-    .then(x => x.val())
-    .then(convertMapToList)
-}
-
-function fetchScholarships() {
-  return firebase
-    .database()
-    .ref('test')
-    .child('scholarships')
-    .once('value')
-    .then(x => x.val())
-    .then(convertMapToList)
-}
-
-export const fetchData = observer => {
-  return Promise.all([fetchApplicants(), fetchScholarships()])
-    .then(([applicants, scholarships]) => ({ applicants, scholarships }))
-    .then(createTestData)
-    .then(x => observer.next(x))
-    .catch(e => observer.error(e.message))
-}
-
 function convertMapToList(data) {
   return Object.keys(data)
     .reduce((acc, x) => acc.concat(data[x]), [])

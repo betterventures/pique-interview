@@ -10,6 +10,7 @@ class Provider < User
 
   def to_json
     {
+      id: id,
       displayName: name,
       photoURL: photo_url || DEFAULT_PHOTO_URL,
       type: role,

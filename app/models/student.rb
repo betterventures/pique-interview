@@ -31,7 +31,7 @@ class Student < User
       gpa: gpa_string,
       image: photo_url,
       type: role,
-      activities: activities.to_a,
+      activities: activities.map(&:to_json),
     }
   end
 

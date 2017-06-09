@@ -41,4 +41,5 @@
 
 .add {
   cursor: pointer;
+  display: none;
 }

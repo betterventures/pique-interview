@@ -30,6 +30,9 @@ class Student < User
       description: tagline,
       gpa: gpa_string,
       image: photo_url,
+      city: 'Washington',
+      state: 'D.C.',
+      highSchool: 'Benjamin Banneker HS',
       type: role,
       activities: activities.map(&:to_json),
     }

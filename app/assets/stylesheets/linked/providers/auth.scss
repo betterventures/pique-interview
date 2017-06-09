@@ -7,8 +7,10 @@
   width: 100%;
 }
 
+// Container config
 .signup-root,
-.signin-root {
+.signin-root,
+.password-root {
   background-color: $white;
   border-radius: 0;
   box-shadow: 0 5px 33px rgba(39, 39, 39, 0.5);
@@ -34,8 +36,15 @@
   top: 135px;
 }
 
+.password-root {
+  max-width: 525px;
+  top: 188px;
+}
+
+// Form element config
 .signup-root,
-.signin-root {
+.signin-root,
+.password-root {
   .header {
     border-bottom: 1px solid $pastel-blue;
     color: $pastel-blue;
@@ -186,6 +195,48 @@
   }
 }
 
+.password-root {
+  padding: 30px 39px 6px;
+
+  .btns {
+    display: block;
+    line-height: 75px;
+    margin-top: 18px;
+    text-align: center;
+  }
+
+  .row {
+    display: inline-block;
+    height: 51px;
+    line-height: 51px;
+    margin: 0;
+    padding-left: 1px;
+    text-align: left;
+    width: 100%;
+  }
+
+  .row input {
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .row .full {
+    width: 100%;
+  }
+
+  .comment {
+    color: $lavender;
+    font-size: $font-size-md + 2px;
+    padding-top: 1px;
+    padding-left: 0;
+  }
+
+  .notify {
+    margin-bottom: 0;
+  }
+
+}
+
 .signup-root {
   .header:after {
     content: 'Sign Up for Pique!';
@@ -205,3 +256,11 @@
   }
 }
 
+.password-root {
+  .header:after {
+    content: 'Forgot Your Password?';
+  }
+
+  .caption:after {
+  }
+}

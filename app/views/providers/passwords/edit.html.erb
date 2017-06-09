@@ -1,25 +1,40 @@
-<h2>Change your password</h2>
+<% content_for :navbar, render('shared/auth_navbar') %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+<div class="auth-root">
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+  <div class="password-root">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <div class="header">
+      </div>
+
+      <div class="notify">
+        <%= devise_error_messages? ? devise_error_flash : alert %>
+      </div>
+
+      <%= f.hidden_field :reset_password_token %>
+
+      <div class="row">
+        <div class="field">
+          <%= f.password_field :password, autofocus: true, autocomplete: "off", placeholder: "Password #{@minimum_password_length ? '(' + @minimum_password_length.to_s + ' character minimum)' : ''}", class: "full" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm password", class: "full" %>
+        </div>
+      </div>
+
+      <%= f.hidden_field :role, value: :provider %>
+
+      <div class="caption">
+      </div>
+
+      <div class="btns">
+        <%= f.submit "Change Password!", class: "btn submit" %>
+      </div>
+
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "providers/shared/links" %>
+</div>

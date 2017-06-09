@@ -15,9 +15,11 @@ export class IndividualScholarshipsOverview extends Component {
     return (
       <div className={css.root}>
         <div className={css.row}>
-          <div className={css.title}>Eligibility Requirements</div>
-          <div className={css.copy}>
-            <div className={css.text}>{scholarship.eligibility}</div>
+          <div className={css.rowcontent}>
+            <div className={css.title}>Eligibility Requirements</div>
+            <div className={css.copy}>
+              <div className={css.text}>{scholarship.eligibility}</div>
+            </div>
           </div>
         </div>
         <div>
@@ -28,14 +30,16 @@ export class IndividualScholarshipsOverview extends Component {
                   return (
                     <div className={css.row} key={essayRequirement.id}>
                       <div className={css.border} />
-                      <div className={css.prompt}>
-                        <div key={essayRequirement.id}>
-                          <div className={css.title}>Scholarship Essay #{i+1}</div>
-                          <IndividualScholarshipsPrompt essayRequirement={essayRequirement} />
+                      <div className={css.rowcontent}>
+                        <div className={css.prompt}>
+                          <div key={essayRequirement.id}>
+                            <div className={css.title}>Scholarship Essay #{i+1}</div>
+                            <IndividualScholarshipsPrompt essayRequirement={essayRequirement} />
+                          </div>
                         </div>
-                      </div>
-                      <div className={css.details}>
-                        <IndividualScholarshipsDetails essayRequirementIdx={i} />
+                        <div className={css.details}>
+                          <IndividualScholarshipsDetails essayRequirementIdx={i} />
+                        </div>
                       </div>
                     </div>
                   )
@@ -44,6 +48,7 @@ export class IndividualScholarshipsOverview extends Component {
                 ''
           }
         </div>
+        <div className={css.border} />
       </div>
     )
   }

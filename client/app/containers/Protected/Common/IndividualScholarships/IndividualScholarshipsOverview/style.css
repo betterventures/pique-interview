@@ -1,9 +1,6 @@
 .root {
   position: relative;
   width: 100%;
-  max-width: 1050px;
-  margin: 0 auto;
-  padding: 50px 15px;
 }
 
 .root:after {
@@ -28,6 +25,12 @@
 .row {
   display: inline-block;
   width: 100%;
+}
+
+.rowcontent {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 50px 15px;
 }
 
 .prompt {

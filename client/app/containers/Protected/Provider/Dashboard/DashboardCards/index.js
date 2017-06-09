@@ -18,7 +18,6 @@ const DashboardCards = ({ items }) => {
                   className={css.rating}
                   style={{height: '28px', 'fontWeight': 400}}
                   value={x.rating}>
-                  (( Score here ))
                 </div>
               </div>
             </Link>

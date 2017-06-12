@@ -51,8 +51,15 @@ module Providers
                       ],
                       location_limitations_attributes: %i[
                         id
+                        scholarship_id
                         city
                         state
+                        _destroy
+                      ],
+                      application_questions_attributes: %i[
+                        id
+                        scholarship_id
+                        prompt
                         _destroy
                       ],
                       supplemental_requirements_attributes: %i[

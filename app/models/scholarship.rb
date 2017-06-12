@@ -26,6 +26,7 @@ class Scholarship < ApplicationRecord
   has_many :area_of_study_requirements, inverse_of: :scholarship, dependent: :destroy
   has_many :essay_requirements, inverse_of: :scholarship, dependent: :destroy
   has_many :location_limitations, inverse_of: :scholarship, dependent: :destroy
+  has_many :application_questions, inverse_of: :scholarship, dependent: :destroy
   has_many :supplemental_requirements, inverse_of: :scholarship, dependent: :destroy
 
   accepts_nested_attributes_for :awards,
@@ -48,6 +49,12 @@ class Scholarship < ApplicationRecord
                                 reject_if: ->(attrs) {
                                   attrs['state'].nil? ||
                                   attrs['state'].empty?
+                                },
+                                allow_destroy: true
+  accepts_nested_attributes_for :application_questions,
+                                reject_if: ->(attrs) {
+                                  attrs['prompt'].nil? ||
+                                  attrs['prompt'].empty?
                                 },
                                 allow_destroy: true
   accepts_nested_attributes_for :supplemental_requirements,

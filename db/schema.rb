@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607143024) do
+ActiveRecord::Schema.define(version: 20170612083041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 20170607143024) do
     t.string  "end_date"
     t.text    "description"
     t.index ["student_id"], name: "index_activities_on_student_id", using: :btree
+  end
+
+  create_table "application_questions", force: :cascade do |t|
+    t.integer  "scholarship_id"
+    t.text     "prompt"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["scholarship_id"], name: "index_application_questions_on_scholarship_id", using: :btree
   end
 
   create_table "application_rating_fields", force: :cascade do |t|
@@ -203,6 +211,7 @@ ActiveRecord::Schema.define(version: 20170607143024) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "application_questions", "scholarships"
   add_foreign_key "application_rating_fields", "application_ratings"
   add_foreign_key "application_rating_fields", "score_card_fields"
   add_foreign_key "application_ratings", "scholarship_applications"

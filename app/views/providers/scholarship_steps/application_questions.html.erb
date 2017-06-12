@@ -1,0 +1,66 @@
+<% content_for :form_header do %>
+  <p class="form-title">Application Questions</p>
+  <p class="form-subtitle">Please list any additional questions you would like students to answer</p>
+<% end %>
+
+<%= render layout: 'form' do |f| %>
+  <div id="application-questions">
+    <% if @scholarship.application_questions.count > 0 %>
+      <% @scholarship.application_questions.each.with_index do |application_question, i| %>
+        <%= f.fields_for :application_questions, application_question do |application_question_fields| %>
+          <%= render 'application_question_fields', f: application_question_fields, i: i %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%= f.fields_for :application_questions, @scholarship.application_questions.build do |application_question_fields| %>
+        <%= render 'application_question_fields', f: application_question_fields %>
+      <% end %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add Another Question',
+                                  f,
+                                  :application_questions,
+                                  {
+                                    data: {
+                                      'association-insertion-method' => 'before'
+                                    },
+                                    id: 'add-application-question-link'
+                                  }
+      %>
+    </div>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  /*
+   * Set the essay number for each EssayReq label.
+   * Gross javascript but there is no way to do this on server-side with added associations.
+   * Currently uses callback hooks for before/after insertion provided by Cocoon gem.
+   * Feel free to refactor :/.
+   * Comment Author: FK
+   */
+  function replaceIndices() {
+    var elsToMod = $('.nested-fields .application-question');
+
+    $(elsToMod).each(function (i, essayReq) {
+      // Replace the string `Question #_` within all `label` and `a` tags.
+      $(essayReq).find('label, a').each(function (_j, el) {
+        var currentText = $(el).html();
+        $(el).html(
+          // start indices at 1.
+          currentText.replace(/Question #\d/g, "Question #" + (i + 1))
+        );
+      });
+    });
+  }
+
+  $(document).ready(function () {
+    $('#application-questions')
+      .on('cocoon:after-insert', function (_e, _el) {
+        replaceIndices();
+      })
+      .on('cocoon:after-remove', function (_e, _el) {
+        replaceIndices();
+      });
+  });
+</script>

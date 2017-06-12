@@ -1,7 +1,7 @@
 class Providers::ScholarshipStepsController < ApplicationController
   include Providers::ScholarshipsHelper
   include Wicked::Wizard
-  steps :general, :essay, :audience, :supplemental
+  steps :general, :essay, :audience, :application_questions, :supplemental
 
   def show
     @scholarship = Scholarship.find(params[:scholarship_id])

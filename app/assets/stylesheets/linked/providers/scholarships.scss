@@ -324,5 +324,18 @@ $row-height: 30px;
       width: 105%;
     }
   }
+
+  #application-questions {
+    textarea.full {
+      width: 105%;
+    }
+
+    .links {
+      position: relative;
+      margin-left: 1.3 * $col-width;
+      margin-top: 2em;
+      width: $col-container-width;
+    }
+  }
 }
 

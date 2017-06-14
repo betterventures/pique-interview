@@ -40,7 +40,7 @@
    * Comment Author: FK
    */
   function replaceIndices() {
-    var elsToMod = $('.nested-fields .application-question');
+    var elsToMod = $('.nested-fields .application-question:visible');
 
     $(elsToMod).each(function (i, essayReq) {
       // Replace the string `Question #_` within all `label` and `a` tags.

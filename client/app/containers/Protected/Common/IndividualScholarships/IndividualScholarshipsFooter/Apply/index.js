@@ -19,16 +19,37 @@ export class IndividualScholarshipsApply extends Component {
       while (++i <= scholarship.essay_requirements.length) essayRequirements.push(i)
     }
 
+    let applicationQuestions = (scholarship && scholarship.application_questions) || []
 
     return (
       <div className={css.root}>
-        <div className={css.copy}>{`Select the items from your Pique Proflie you would like to use to apply to the ${scholarship.title} Scholarship. Your ‘cover letter’ and ‘official transcript’ will automatically be sent with your application.`}</div>
+        <div className={css.copy}>
+          {`Answer the following questions and select the items from your Pique Profile you would like to use to apply to the ${scholarship.title} Scholarship. Your ‘cover letter’ and ‘official transcript’ will automatically be sent with your application.`}
+        </div>
+        {
+          applicationQuestions.map((question, i) => (
+            <div key={i}>
+              <div className={css.tallrow}>
+                <div className={css.label}>
+                  {question.prompt}
+                </div>
+                <div className={css.widefield}>
+                  <textarea
+                    className={css.textarea}
+                    placeholder='Enter your answer to this question here'
+                  >
+                  </textarea>
+                </div>
+              </div>
+            </div>
+          ))
+        }
         {
           recommendations.map(i => (
             <div className={css.row} key={i}>
               <div className={css.label}>Recommendation #{i}</div>
               <div className={css.field}>
-                <select className={css.input}type="text"/>
+                <select className={css.input} type="text"/>
               </div>
             </div>
           ))
@@ -38,7 +59,7 @@ export class IndividualScholarshipsApply extends Component {
             <div className={css.row} key={i}>
               <div className={css.label}>Scholarship Essay #{i}</div>
               <div className={css.field}>
-                <select className={css.input}type="text"/>
+                <select className={css.input} type="text"/>
               </div>
             </div>
           ))

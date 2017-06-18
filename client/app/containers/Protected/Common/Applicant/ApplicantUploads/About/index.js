@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import img1 from './intro.png'
-import img2 from './activities.png'
+import Page from 'components/Icons/Page'
+import activityImg from './activities.png'
 import css from './style.css'
 
 export const ApplicantAbout = ({ intro, description, activities=[] }) => {
@@ -13,7 +13,7 @@ export const ApplicantAbout = ({ intro, description, activities=[] }) => {
       <div className={css.box}>
         <div className={css.section}>
           <div className={css.title}>
-            <img className={css.icon} src={img1} />
+            <Page className={css.icon} />
             <span className={css.text}>Intro</span>
           </div>
           {intro
@@ -23,7 +23,7 @@ export const ApplicantAbout = ({ intro, description, activities=[] }) => {
 
         <div className={css.section}>
           <div className={css.title}>
-            <img className={css.icon} src={img2} />
+            <img className={css.icon} src={activityImg} />
             <span className={css.text}>Activities</span>
           </div>
           {applicantActivities.map((x, i) =>

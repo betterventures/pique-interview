@@ -2,6 +2,7 @@ import React from 'react'
 import Apple from 'components/Icons/Apple'
 import Book from 'components/Icons/Book'
 import ApplicantAbout from './About'
+import ApplicantQuestions from './Questions'
 import ApplicantDocuments from './Documents'
 import css from './style.css'
 
@@ -9,6 +10,7 @@ export const ApplicantUploads = props => {
   return (
     <div className={css.root}>
       <ApplicantAbout {...props} />
+      <ApplicantQuestions {...props} />
       <ApplicantDocuments
         {...props}
         essays={essays}

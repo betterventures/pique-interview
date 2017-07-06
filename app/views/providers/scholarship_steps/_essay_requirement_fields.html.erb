@@ -39,7 +39,7 @@
       <%= f.label "Essay ##{i} Word Limit" %>
       <div class="col-container">
         <div class="col">
-          <%= f.number_field :word_limit, required: true, placeholder: "e.g., 100" %>
+          <%= f.text_field :word_limit, required: true, placeholder: "e.g., 100; 100 - 500" %>
         </div>
         <div class="col-x2 comment">
           Keep in mind that ~250 words is equivalent to one typed page, double spaced.

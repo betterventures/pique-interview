@@ -55,6 +55,7 @@
   font-size: 15px;
   line-height: 23px;
   color: #777777;
+  white-space: pre-line;
 }
 
 .details {

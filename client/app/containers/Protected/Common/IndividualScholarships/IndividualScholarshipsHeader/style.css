@@ -21,6 +21,7 @@
   margin-bottom: 40px;
   padding: 0 15px;
   max-width: 600px;
+  white-space: pre-line;
 }
 
 .btn {

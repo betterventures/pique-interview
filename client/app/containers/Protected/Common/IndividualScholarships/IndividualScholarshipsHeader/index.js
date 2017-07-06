@@ -4,14 +4,17 @@ import { ButtonFill } from '../IndividualScholarshipsBtns'
 import * as Actions from 'api/actions'
 import css from './style.css'
 
+const SHORT_HEADER_LENGTH = 60
+
 export class IndividualScholarshipsHeader extends Component {
+
   constructor(props) {
     super(props)
     this.expandHeaderText = ::this.expandHeaderText
 
     this.state = {
       expandHeader: this.props.scholarship.description &&
-                    this.props.scholarship.description.length <= 100
+                    this.props.scholarship.description.length <= SHORT_HEADER_LENGTH
     }
   }
 
@@ -32,7 +35,7 @@ export class IndividualScholarshipsHeader extends Component {
               ?
                 scholarship.description
               :
-                scholarship.description.substr(0, 100)
+                scholarship.description.substr(0, SHORT_HEADER_LENGTH)
           }
           <span
             className={this.state.expandHeader ? css.hidden : css.more}

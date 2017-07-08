@@ -36,12 +36,12 @@ $row-height: 30px;
   }
 
   .form-title {
+    font-weight: $font-weight-bold;
     margin-bottom: 0;
   }
 
   .form-subtitle {
-    font-size: $font-size-sm;
-    font-weight: $font-weight-normal;
+    font-weight: $font-weight-bold;
   }
 
   .form-legend {
@@ -322,6 +322,57 @@ $row-height: 30px;
   .essay-requirements {
     .row .field textarea.full {
       width: 105%;
+    }
+  }
+
+  /*************************/
+  /* Application Questions */
+  /*************************/
+
+  .flex {
+    display: flex;
+  }
+
+  .flex.flex-column {
+    flex-direction: column;
+  }
+
+  .flex.flex-row {
+    flex-direction: row;
+  }
+
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .flex.flex-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  .form-header.in-form-header {
+    margin: 0;
+  }
+
+  #general-application-questions {
+    display: flex;
+    height: 50%;
+    margin-bottom: 72px;
+
+    .inline-label {
+      font-size: 12px;
+    }
+
+    .label {
+      width: 30%;
+    }
+
+    .col-container {
+      width: 70%;
+    }
+
+    .col-container > .col-item {
+      line-height: 1.5em;
+      width: 50%;
     }
   }
 

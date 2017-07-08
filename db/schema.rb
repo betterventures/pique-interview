@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170706223302) do
+ActiveRecord::Schema.define(version: 20170707000007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -156,6 +156,11 @@ ActiveRecord::Schema.define(version: 20170706223302) do
     t.date     "cycle_end"
     t.string   "photo_url"
     t.integer  "organization_id"
+    t.boolean  "app_ques_college"
+    t.boolean  "app_ques_birthplace"
+    t.boolean  "app_ques_parent_occupation"
+    t.boolean  "app_ques_accepted_college"
+    t.boolean  "app_ques_hs_ceremony_date"
     t.index ["organization_id"], name: "index_scholarships_on_organization_id", using: :btree
   end
 

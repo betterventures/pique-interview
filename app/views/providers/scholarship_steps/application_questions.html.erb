@@ -1,32 +1,43 @@
 <% content_for :form_header do %>
-  <p class="form-title">Application Questions</p>
-  <p class="form-subtitle">Please list any additional questions you would like students to answer</p>
+  <p class="form-title">General Application Questions:</p>
+  <p class="form-subtitle">Please select all Additional Requirements you want students to include in their application. Please keep in mind that all Pique Profiles include a student's: Name, Age, Date of Birth, Address, City & State, Graduation Date, Cover Letter, Activities and Employment, Honors & Awards, Recommendations, Official Transcript, Area of Study, HS Info (Name, Number, Address), Counselor Info (Name, Email, Fax Number), Parent(s)/Guardian's Info (Name, Email, Phone Number). <a>See Sample Pique Profile</a></p>
 <% end %>
 
 <%= render layout: 'form' do |f| %>
-  <div id="application-questions">
-    <% if @scholarship.application_questions.count > 0 %>
-      <% @scholarship.application_questions.each.with_index do |application_question, i| %>
-        <%= f.fields_for :application_questions, application_question do |application_question_fields| %>
-          <%= render 'application_question_fields', f: application_question_fields, i: i %>
+  <div class="flex flex-column">
+    <div id="general-application-questions">
+      <%= render partial: 'general_application_questions', locals: { f: f } %>
+    </div>
+
+    <div id="application-questions">
+      <div class="form-header in-form-header">
+        <p class="form-title">General Application Questions Cont'd:</p>
+        <p class="form-subtitle">Please include any Additional Questions that are a part of your application that are not included on above or on a student's Pique Profile.</p>
+      </div>
+
+      <% if @scholarship.application_questions.count > 0 %>
+        <% @scholarship.application_questions.each.with_index do |application_question, i| %>
+          <%= f.fields_for :application_questions, application_question do |application_question_fields| %>
+            <%= render 'application_question_fields', f: application_question_fields, i: i %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= f.fields_for :application_questions, @scholarship.application_questions.build do |application_question_fields| %>
+          <%= render 'application_question_fields', f: application_question_fields %>
         <% end %>
       <% end %>
-    <% else %>
-      <%= f.fields_for :application_questions, @scholarship.application_questions.build do |application_question_fields| %>
-        <%= render 'application_question_fields', f: application_question_fields %>
-      <% end %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association 'Add Another Question',
-                                  f,
-                                  :application_questions,
-                                  {
-                                    data: {
-                                      'association-insertion-method' => 'before'
-                                    },
-                                    id: 'add-application-question-link'
-                                  }
-      %>
+      <div class="links">
+        <%= link_to_add_association 'Add Another Question',
+                                    f,
+                                    :application_questions,
+                                    {
+                                      data: {
+                                        'association-insertion-method' => 'before'
+                                      },
+                                      id: 'add-application-question-link'
+                                    }
+        %>
+      </div>
     </div>
   </div>
 <% end %>

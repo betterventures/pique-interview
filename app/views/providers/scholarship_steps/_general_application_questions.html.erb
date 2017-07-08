@@ -1,0 +1,27 @@
+<div class="field required flex flex-row">
+  <div class="label">
+    <%= f.label :additional_application_requirements, 'Additional Application Requirements' %>
+  </div>
+  <div class="col-container flex flex-row flex-wrap">
+    <div class="col-item">
+      <%= f.check_box :app_ques_college %>
+      <%= f.label :app_ques_college, 'List of Colleges Student Intends to Apply to', class: 'inline-label' %>
+    </div>
+    <div class="col-item">
+      <%= f.check_box :app_ques_accepted_college %>
+      <%= f.label :app_ques_accepted_college, 'Name of College Student Was Accepted to And Will Attend', class: 'inline-label' %>
+    </div>
+    <div class="col-item">
+      <%= f.check_box :app_ques_birthplace %>
+      <%= f.label :app_ques_birthplace, 'City & State of Birth', class: 'inline-label' %>
+    </div>
+    <div class="col-item">
+      <%= f.check_box :app_ques_parent_occupation %>
+      <%= f.label :app_ques_parent_occupation, "Parent(s)/Guardian's Occupation & Name of Employer", class: 'inline-label' %>
+    </div>
+    <div class="col-item">
+      <%= f.check_box :app_ques_hs_ceremony_date %>
+      <%= f.label :app_ques_hs_ceremony_date, 'High School Scholarship Award Ceremony Date', class: 'inline-label' %>
+    </div>
+  </div>
+</div>

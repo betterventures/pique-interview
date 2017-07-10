@@ -106,6 +106,10 @@ textarea:-ms-input-placeholder {
   color: $lavender;
 }
 
+textarea {
+  resize: none;
+}
+
 .comment {
   color: $light-grey;
   display: inline-block;

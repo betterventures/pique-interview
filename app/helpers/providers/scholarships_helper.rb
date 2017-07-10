@@ -25,6 +25,11 @@ module Providers
                       :requires_community_service, :minimum_community_service,
                       :faith_requirement,
                       :organization_id,
+                      :app_ques_college,
+                      :app_ques_birthplace,
+                      :app_ques_parent_occupation,
+                      :app_ques_accepted_college,
+                      :app_ques_hs_ceremony_date,
                       awards_attributes: %i[
                         id
                         amount

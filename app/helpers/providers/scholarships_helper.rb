@@ -65,6 +65,7 @@ module Providers
                         id
                         scholarship_id
                         prompt
+                        answer_type
                         _destroy
                       ],
                       supplemental_requirements_attributes: %i[

@@ -3,10 +3,27 @@
 <div class="nested-fields">
   <div class="row">
     <div class="application-question field">
-      <%= f.label "Question ##{i}" %>
+      <%= f.label :application_question_number, "Application Question ##{i}" %>
       <div class="col-container">
         <div class="col-x3">
-          <%= f.text_area :prompt, required: true, class: "full", placeholder: 'Enter your question for students here (for example, "Explain your financial need.")' %>
+          <%= f.text_area :prompt,
+            required: true,
+            class: "full",
+            placeholder: 'Enter your question for students here (for example, "Explain your financial need.")' %>
+        </div>
+        <div class="col-x15">
+          <%= f.label :answer_type,
+            "This is a 'Short Answer' question",
+            value: :short
+          %>
+        <%= f.radio_button :answer_type,
+          :short,
+          checked: true
+        %>
+        </div>
+        <div class="col-x15">
+          <%= f.label :answer_type, "This is a 'Long Answer' question", value: :long %>
+          <%= f.radio_button :answer_type, :long %>
         </div>
         <div class="comment col">
           <%= link_to_remove_association "Delete", f %>

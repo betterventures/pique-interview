@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170707000007) do
+ActiveRecord::Schema.define(version: 20170710220046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170707000007) do
     t.text     "prompt"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "answer_type"
     t.index ["scholarship_id"], name: "index_application_questions_on_scholarship_id", using: :btree
   end
 

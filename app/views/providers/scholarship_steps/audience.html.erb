@@ -101,25 +101,38 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="field">
-      <%= f.label 'Gender Requirement' %>
+
+  <div class="row grow">
+    <div class="field required">
+      <%= f.label :gender, 'Gender' %>
       <div class="col-container">
         <div class="col-x15">
-          <%= f.label 'Male', class: 'inline-label' %>
-          <%= f.check_box :for_male %>
+          <%= f.label :for_female, 'Female', class: 'inline-label' %>
+          <%= f.check_box :for_female %>
+          <br>
+          <%= f.label :for_gender_trans, 'Transgender', class: 'inline-label' %>
+          <%= f.check_box :for_gender_trans %>
+          <br>
+          <%= f.label :for_gender_none, 'No Gender Requirement', class: 'inline-label' %>
+          <%= f.check_box :for_gender_none %>
         </div>
         <div class="col-x15">
-          <%= f.label 'Female', class: 'inline-label' %>
-          <%= f.check_box :for_female %>
+          <%= f.label :for_male, 'Male', class: 'inline-label' %>
+          <%= f.check_box :for_male %>
+          <br>
+          <%= f.label :for_gender_nonbinary, 'Nonbinary/3rd Gender', class: 'inline-label' %>
+          <%= f.check_box :for_gender_nonbinary %>
+          <br>
+          <%= f.label :for_gender_collect, 'No Gender Requirement, but I want to students to indicate gender for the purpose of data collection', class: 'inline-label' %>
+          <%= f.check_box :for_gender_collect %>
         </div>
       </div>
     </div>
   </div>
 
   <div class="row grow">
-    <div class="field">
-      <%= f.label 'Race/Ethnicity Requirements' %>
+    <div class="field required">
+      <%= f.label :ethnicity, 'Race/Ethnicity' %>
       <div class="col-container">
         <div class="col-x15">
           <%= f.label :for_black_people, 'Black/African-American', class: 'inline-label' %>
@@ -130,13 +143,22 @@
           <br>
           <%= f.label :for_native_people, 'Native American', class: 'inline-label' %>
           <%= f.check_box :for_native_people %>
+          <br>
+          <%= f.label :for_people_none, 'No Race Requirement', class: 'inline-label' %>
+          <%= f.check_box :for_people_none %>
         </div>
-        <div class="col-x15" id="race-ethnicity-requirements">
+        <div class="col-x15">
           <%= f.label :for_asian_people, 'Asian/Pacific Islander', class: 'inline-label' %>
           <%= f.check_box :for_asian_people %>
           <br>
           <%= f.label :for_hispanic_people, 'Hispanic/Latino', class: 'inline-label' %>
           <%= f.check_box :for_hispanic_people %>
+          <br>
+          <%= f.label :for_people_middle_eastern, 'Middle Eastern', class: 'inline-label' %>
+          <%= f.check_box :for_people_middle_eastern %>
+          <br>
+          <%= f.label :for_people_collect, 'No Race Requirement, but I want students to indicate for the purpose of data collection', class: 'inline-label' %>
+          <%= f.check_box :for_people_collect %>
         </div>
       </div>
     </div>

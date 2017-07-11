@@ -13,30 +13,42 @@ module Providers
                       :cycle_start, :cycle_end,
                       :title, :description,
                       :eligibility, :note_from_provider,
+
+                      :organization_id,
+
                       :gpa, :minimum_sat_score, :minimum_act_score, :flexible_scores,
                       :minimum_recommendations, :generic_recommendation,
+
                       :for_hs_freshman, :for_hs_sophomore,
                       :for_hs_junior, :for_hs_senior,
                       :for_hs_none, :for_hs_collect,
                       :for_two_year_program, :for_four_year_program,
+
                       :for_us_citizen, :for_us_permanent, :for_us_other, :for_us_collect,
                       :for_us_undocumented, :for_us_refugee, :for_us_none,
+
                       :for_male, :for_female,
+                      :for_gender_trans, :for_gender_nonbinary, :for_gender_none, :for_gender_collect,
+
                       :for_black_people, :for_white_people, :for_hispanic_people,
-                      :for_asian_people, :for_native_people,
+                      :for_asian_people, :for_native_people, :for_people_middle_eastern,
+                      :for_people_none, :for_people_collect,
+
                       :for_financial_need,
                       :financial_acceptable_fafsa,
                       :financial_acceptable_sar,
                       :financial_acceptable_tax,
                       :financial_acceptable_w2,
+
                       :requires_community_service, :minimum_community_service,
                       :faith_requirement,
-                      :organization_id,
+
                       :app_ques_college,
                       :app_ques_birthplace,
                       :app_ques_parent_occupation,
                       :app_ques_accepted_college,
                       :app_ques_hs_ceremony_date,
+
                       awards_attributes: %i[
                         id
                         amount

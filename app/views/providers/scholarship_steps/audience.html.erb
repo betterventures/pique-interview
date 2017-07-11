@@ -164,17 +164,23 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="field">
-      <%= f.label 'Degree/Program Type Sought' %>
+  <div class="row grow">
+    <div class="field required">
+      <%= f.label :degree_reqs, 'Degree/Program Type Sought' %>
       <div class="col-container">
         <div class="col-x15">
           <%= f.label :for_two_year_program, '2 Year Program', class: 'inline-label' %>
           <%= f.check_box :for_two_year_program %>
+          <br>
+          <%= f.label :for_program_none, 'No Degree Type Requirement', class: 'inline-label' %>
+          <%= f.check_box :for_program_none %>
         </div>
         <div class="col-x15">
           <%= f.label :for_four_year_program, '4 Year Program', class: 'inline-label' %>
           <%= f.check_box :for_four_year_program %>
+          <br>
+          <%= f.label :for_program_collect, 'No Degree Type Requirement, but I want students to indicate for the purpose of data collection', class: 'inline-label' %>
+          <%= f.check_box :for_program_collect %>
         </div>
       </div>
     </div>

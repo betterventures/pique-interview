@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170711225338) do
+ActiveRecord::Schema.define(version: 20170711230210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -183,6 +183,8 @@ ActiveRecord::Schema.define(version: 20170711225338) do
     t.boolean  "for_people_middle_eastern"
     t.boolean  "for_people_none"
     t.boolean  "for_people_collect"
+    t.boolean  "for_program_none"
+    t.boolean  "for_program_collect"
     t.index ["organization_id"], name: "index_scholarships_on_organization_id", using: :btree
   end
 

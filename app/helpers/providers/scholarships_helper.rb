@@ -22,7 +22,9 @@ module Providers
                       :for_hs_freshman, :for_hs_sophomore,
                       :for_hs_junior, :for_hs_senior,
                       :for_hs_none, :for_hs_collect,
+
                       :for_two_year_program, :for_four_year_program,
+                      :for_program_none, :for_program_collect,
 
                       :for_us_citizen, :for_us_permanent, :for_us_other, :for_us_collect,
                       :for_us_undocumented, :for_us_refugee, :for_us_none,

@@ -5,7 +5,7 @@
 <% end %>
 
 <%= render layout: 'form' do |f| %>
-  <div class="row">
+  <div class="row grow">
     <div class="field required">
       <%= f.label :school_year, 'School Year' %>
       <div class="col-container" id="sy-requirement">
@@ -15,6 +15,9 @@
           <br>
           <%= f.label :for_hs_junior, 'High School Junior', class: 'inline-label' %>
           <%= f.check_box :for_hs_junior %>
+          <br>
+          <%= f.label :for_hs_none, 'No School Year Requirement', class: 'inline-label' %>
+          <%= f.check_box :for_hs_none %>
         </div>
         <div class="col-x15">
           <%= f.label :for_hs_sophomore, 'High School Sophomore', class: 'inline-label' %>
@@ -22,10 +25,6 @@
           <br>
           <%= f.label :for_hs_senior, 'High School Senior', class: 'inline-label' %>
           <%= f.check_box :for_hs_senior %>
-        </div>
-        <div class="col-x15">
-          <%= f.label :for_hs_none, 'No School Year Requirement', class: 'inline-label' %>
-          <%= f.check_box :for_hs_none %>
           <br>
           <%= f.label :for_hs_collect, 'No School Year Requirement, but I want students to indicate for the purpose of data collection', class: 'inline-label' %>
           <%= f.check_box :for_hs_collect %>
@@ -34,19 +33,32 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row grow">
     <div class="field required">
-      <%= f.label :for_us_citizen, 'U.S. Citizenship Status' %>
+      <%= f.label :citizenship, 'U.S. Citizenship Status' %>
       <div class="col-container">
-        <div class="col">
-          <div class="half-col">
-            <%= f.label 'Yes', class: 'inline-label' %>
-            <%= f.radio_button :for_us_citizen, true %>
-          </div>
-          <div class="half-col">
-            <%= f.label 'No', class: 'inline-label' %>
-            <%= f.radio_button :for_us_citizen, false %>
-          </div>
+        <div class="col-x15">
+          <%= f.label :for_us_citizen, 'U.S. Citizen or U.S. National', class: 'inline-label' %>
+          <%= f.check_box :for_us_citizen %>
+          <br>
+          <%= f.label :for_us_permanent, 'U.S. Permanent Resident', class: 'inline-label' %>
+          <%= f.check_box :for_us_permanent %>
+          <br>
+          <%= f.label :for_us_other, 'Other (Non-US)', class: 'inline-label' %>
+          <%= f.check_box :for_us_other %>
+          <br>
+          <%= f.label :for_us_collect, 'No Citizenship Requirement, but I want students to indicate for the purpose of data collection', class: 'inline-label' %>
+          <%= f.check_box :for_us_collect %>
+        </div>
+        <div class="col-x15">
+          <%= f.label :for_us_undocumented, 'Undocumented Students', class: 'inline-label' %>
+          <%= f.check_box :for_us_undocumented %>
+          <br>
+          <%= f.label :for_us_refugee, 'U.S. Refugee or Asylee', class: 'inline-label' %>
+          <%= f.check_box :for_us_refugee %>
+          <br>
+          <%= f.label :for_us_none, 'No Citizenship Requirement', class: 'inline-label' %>
+          <%= f.check_box :for_us_none %>
         </div>
       </div>
     </div>
@@ -79,7 +91,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row grow">
     <div class="field">
       <%= f.label 'Race/Ethnicity Requirements' %>
       <div class="col-container">

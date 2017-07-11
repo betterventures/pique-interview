@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170711201555) do
+ActiveRecord::Schema.define(version: 20170711203304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -165,6 +165,12 @@ ActiveRecord::Schema.define(version: 20170711201555) do
     t.text     "note_from_provider"
     t.boolean  "for_hs_none"
     t.boolean  "for_hs_collect"
+    t.boolean  "for_us_refugee"
+    t.boolean  "for_us_permanent"
+    t.boolean  "for_us_undocumented"
+    t.boolean  "for_us_other"
+    t.boolean  "for_us_none"
+    t.boolean  "for_us_collect"
     t.index ["organization_id"], name: "index_scholarships_on_organization_id", using: :btree
   end
 

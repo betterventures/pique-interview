@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170711203304) do
+ActiveRecord::Schema.define(version: 20170711223342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -171,6 +171,11 @@ ActiveRecord::Schema.define(version: 20170711203304) do
     t.boolean  "for_us_other"
     t.boolean  "for_us_none"
     t.boolean  "for_us_collect"
+    t.boolean  "for_financial_need"
+    t.boolean  "financial_acceptable_fafsa"
+    t.boolean  "financial_acceptable_sar"
+    t.boolean  "financial_acceptable_tax"
+    t.boolean  "financial_acceptable_w2"
     t.index ["organization_id"], name: "index_scholarships_on_organization_id", using: :btree
   end
 

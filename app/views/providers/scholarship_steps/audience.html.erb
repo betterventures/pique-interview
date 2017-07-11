@@ -65,16 +65,42 @@
   </div>
 
   <div class="row">
-    <div class="field">
-      <%= f.label 'Maximum Family Income' %>
+    <div class="field required">
+      <%= f.label :for_financial_need, 'Limited to Students w/ Financial Need' %>
       <div class="col-container">
-        <div class="col">
-          <%= f.number_field :maximum_family_income, placeholder: "$ " %>
+        <div class="col-x15">
+          <%= f.label 'Yes', class: 'inline-label' %>
+          <%= f.radio_button :for_financial_need, true %>
+        </div>
+        <div class="col-x15">
+          <%= f.label 'No', class: 'inline-label' %>
+          <%= f.radio_button :for_financial_need, false %>
         </div>
       </div>
     </div>
   </div>
 
+  <div class="row grow">
+    <div class="field">
+      <%= f.label :financial_options, 'If Yes, Which Documents Are Acceptable Forms of Proof of Financial Need' %>
+      <div class="col-container">
+        <div class="col-x15">
+          <%= f.label :financial_acceptable_fafsa, 'FAFSA', class: 'inline-label' %>
+          <%= f.check_box :financial_acceptable_fafsa %>
+          <br>
+          <%= f.label :financial_acceptable_tax, 'Tax Forms', class: 'inline-label' %>
+          <%= f.check_box :financial_acceptable_tax %>
+        </div>
+        <div class="col-x15">
+          <%= f.label :financial_acceptable_sar, 'SAR Report', class: 'inline-label' %>
+          <%= f.check_box :financial_acceptable_sar %>
+          <br>
+          <%= f.label :financial_acceptable_w2, "Parent(s)' W-2 Form", class: 'inline-label' %>
+          <%= f.check_box :financial_acceptable_w2 %>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="field">
       <%= f.label 'Gender Requirement' %>

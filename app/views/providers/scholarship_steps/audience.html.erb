@@ -190,4 +190,19 @@
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="field required">
+      <%= f.label :eligibility %>
+      <div class="col-container">
+        <div class="row">
+          <%= f.text_area :eligibility, required: true, class: "full", placeholder: 'Please enter your scholarship eligibility in written form.' %>
+        </div>
+        <div class="row">
+          <a href="">See Sample Eligibility Section</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <% end %>

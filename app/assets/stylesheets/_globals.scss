@@ -60,7 +60,8 @@ body {
 
 .row input,
 .row textarea,
-.row select {
+.row select,
+.input {
   border: 1px solid $light-grey;
   border-radius: 5px;
   box-shadow: none;
@@ -82,32 +83,37 @@ body {
 
 .row input:focus,
 .row textarea:focus,
-.row select:focus {
+.row select:focus,
+.input:focus {
   border: 1px solid $royal-blue;
   box-shadow: none;
 }
 
+.input::-webkit-input-placeholder,
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
   color: $lavender;
 }
+.input:-moz-placeholder,
 input:-moz-placeholder,
 textarea:-moz-placeholder {
   color: $lavender;
   opacity: 1;
 }
+.input::-moz-placeholder,
 input::-moz-placeholder,
 textarea::-moz-placeholder {
   color: $lavender;
   opacity:  1;
 }
+.input:-ms-input-placeholder,
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
   color: $lavender;
 }
 
 textarea {
-  resize: none;
+  resize: none !important;
 }
 
 .comment {

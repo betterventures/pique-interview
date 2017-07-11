@@ -26,17 +26,19 @@
           <%= render 'application_question_fields', f: application_question_fields %>
         <% end %>
       <% end %>
-      <div class="links">
-        <%= link_to_add_association 'Add Another Question',
+      <div class="links flex flex-row flex-wrap flex-start">
+        <%= link_to_add_association 'Add Another Application Question',
                                     f,
                                     :application_questions,
                                     {
                                       data: {
                                         'association-insertion-method' => 'before'
                                       },
-                                      id: 'add-application-question-link'
+                                      id: 'add-application-question-link',
+                                      class: 'flexed flex-1',
                                     }
         %>
+        <a href="" class="flexed flex-1">See Sample 'Application Question Section'</a>
       </div>
     </div>
   </div>

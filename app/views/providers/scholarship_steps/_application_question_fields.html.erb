@@ -1,32 +1,37 @@
 <% i ||= 0; i += 1   # define index for label; start at 1 %>
 
 <div class="nested-fields">
-  <div class="row">
-    <div class="application-question field">
+  <div class="application-question field flex flex-row">
+    <div class="label">
       <%= f.label :application_question_number, "Application Question ##{i}" %>
-      <div class="col-container">
-        <div class="col-x3">
-          <%= f.text_area :prompt,
+    </div>
+    <div class="col-container flex flex-column">
+      <div class="flexed flex-1">
+        <div class="flex flex-row">
+          <%= f.text_field :prompt,
             required: true,
-            class: "full",
-            placeholder: 'Enter your question for students here (for example, "Explain your financial need.")' %>
+            class: "input full",
+            placeholder: 'Enter your application question here (for example, "Explain your financial need.")' %>
         </div>
-        <div class="col-x15">
+      </div>
+      <div class="flexed flex-1">
+        <div class="flex flex-row flex-start flex-nowrap">
+          <%= f.radio_button :answer_type,
+            :short,
+            checked: true,
+            class: 'flexed flex-1'
+          %>
           <%= f.label :answer_type,
             "This is a 'Short Answer' question",
-            value: :short
+            value: :short,
+            class: 'flexed flex-6'
           %>
-        <%= f.radio_button :answer_type,
-          :short,
-          checked: true
-        %>
-        </div>
-        <div class="col-x15">
-          <%= f.label :answer_type, "This is a 'Long Answer' question", value: :long %>
-          <%= f.radio_button :answer_type, :long %>
-        </div>
-        <div class="comment col">
-          <%= link_to_remove_association "Delete", f %>
+          <%= f.radio_button :answer_type, :long,
+              class: 'flexed flex-1' %>
+          <%= f.label :answer_type, "This is a 'Long Answer' question",
+              value: :long, class: 'flexed flex-6' %>
+          <%#= link_to_remove_association "Delete", f,
+              class: "flexed flex-2" %>
         </div>
       </div>
     </div>

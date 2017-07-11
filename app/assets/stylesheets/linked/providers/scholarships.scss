@@ -338,6 +338,7 @@ $row-height: 30px;
   }
 
   .flex.flex-row {
+    align-items: baseline;
     flex-direction: row;
   }
 
@@ -349,42 +350,81 @@ $row-height: 30px;
     flex-wrap: nowrap;
   }
 
+  .flex.flex-start {
+    justify-content: flex-start;
+  }
+
+  .flex.flex-center {
+    justify-content: center;
+  }
+
+  .flex.flex-space-between {
+    justify-content: space-between;
+  }
+
+  .flex.flex-space-around {
+    justify-content: space-around;
+  }
+
   .form-header.in-form-header {
-    margin: 0;
+    margin: 0 0 20px;
+  }
+
+  .flexed.flex-1 {
+    flex: 1;
+  }
+
+  .flexed.flex-2 {
+    flex: 2;
+  }
+
+  .flexed.flex-6 {
+    flex: 6;
   }
 
   #general-application-questions {
     display: flex;
     height: 50%;
     margin-bottom: 72px;
+  }
 
+  // Flex modifiers - eventually refactor out
+  #general-application-questions,
+  #application-questions {
     .inline-label {
       font-size: 12px;
     }
 
     .label {
+      font-weight: $font-weight-bold;
       width: 30%;
     }
 
+    .input {
+      font-size: $font-size-md;
+      height: $row-height;
+    }
+
     .col-container {
+      height: 3 * $row-height;
       width: 70%;
     }
 
-    .col-container > .col-item {
+    .col-container .col-item {
       line-height: 1.5em;
       width: 50%;
     }
+
   }
 
   #application-questions {
-    textarea.full {
-      width: 105%;
+    .full {
+      width: 100%;
     }
 
     .links {
       position: relative;
-      margin-left: 1.3 * $col-width;
-      margin-top: 2em;
+      left: 100% - $col-container-width;
       width: $col-container-width;
     }
   }

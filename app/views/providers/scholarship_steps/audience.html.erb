@@ -1,13 +1,13 @@
 <% content_for :form_header do %>
   <p class="form-title">Who is this scholarship intended for?</p>
-  <p class="form-subtitle">This helps us determine which students see your scholarship</p>
+  <p class="form-subtitle">This helps us determine which students see your scholarship.</p>
   <p class="form-legend">* Required</p>
 <% end %>
 
 <%= render layout: 'form' do |f| %>
   <div class="row">
     <div class="field required">
-      <%= f.label 'School Year Requirement' %>
+      <%= f.label :school_year, 'School Year' %>
       <div class="col-container" id="sy-requirement">
         <div class="col-x15">
           <%= f.label :for_hs_freshman, 'High School Freshman', class: 'inline-label' %>
@@ -29,7 +29,7 @@
 
   <div class="row">
     <div class="field required">
-      <%= f.label :for_us_citizen, 'U.S. Citizenship Requirement' %>
+      <%= f.label :for_us_citizen, 'U.S. Citizenship Status' %>
       <div class="col-container">
         <div class="col">
           <div class="half-col">

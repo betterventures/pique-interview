@@ -82,11 +82,11 @@
       <div class="col-container">
         <div class="col-x15">
           <%= f.label 'Yes', class: 'inline-label' %>
-          <%= f.radio_button :for_financial_need, true %>
+          <%= f.radio_button :for_financial_need, true, required: true %>
         </div>
         <div class="col-x15">
           <%= f.label 'No', class: 'inline-label' %>
-          <%= f.radio_button :for_financial_need, false %>
+          <%= f.radio_button :for_financial_need, false, required: true %>
         </div>
       </div>
     </div>
@@ -232,11 +232,11 @@
       <div class="col-container">
         <div class="col-x15">
           <%= f.label 'Yes', class: 'inline-label' %>
-          <%= f.radio_button :requires_community_service, true %>
+          <%= f.radio_button :requires_community_service, true, required: true %>
         </div>
         <div class="col-x15">
           <%= f.label 'No', class: 'inline-label' %>
-          <%= f.radio_button :requires_community_service, false %>
+          <%= f.radio_button :requires_community_service, false, required: true %>
         </div>
       </div>
     </div>
@@ -269,7 +269,9 @@
       <%= f.label :faith_requirement, 'Religion' %>
       <div class="col-container">
         <div class="col-x15">
-          <%= f.select :faith_requirement, Scholarship.faith_requirements.map { |k,v| [k.humanize, k] } %>
+          <%= f.select :faith_requirement,
+            Scholarship.faith_requirements.map { |k,v| [k.humanize, k] },
+            required: true %>
         </div>
       </div>
     </div>

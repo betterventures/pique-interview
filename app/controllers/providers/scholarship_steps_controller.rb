@@ -18,7 +18,7 @@ class Providers::ScholarshipStepsController < ApplicationController
 
   def finish_wizard_path
     if @scholarship && @scholarship.id
-      new_providers_scholarship_payment_path(@scholarship.id)
+      providers_scholarship_dashboard_path
     else
       root_url
     end

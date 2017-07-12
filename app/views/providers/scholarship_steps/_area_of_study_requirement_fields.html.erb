@@ -4,27 +4,15 @@
       <%= f.select :aos_type, AreaOfStudyRequirement.aos_types.map { |k,v| [k.humanize, k] } %>
     </div>
 
-    <% if defined?(is_first_association) && is_first_association %>
-    <div class="col-x15">
-      <div id="add-area-of-study" class="comment">
-        <%= link_to_add_association 'Add another Area of Study Requirement',
-                                    scholarship_form,
-                                    :area_of_study_requirements,
-                                    {
-                                      data: {
-                                        'association-insertion-node' => '.areas-of-study',
-                                        'association-insertion-traversal' => 'closest',
-                                        'association-insertion-method' => 'after'
-                                      }
-                                    }
-        %>
+    <% if defined?(i) && i == 0 %>
+      <div class="col-x15">
+        <%= scholarship_form.check_box :collect_aos %>
+        <%= scholarship_form.label :collect_aos, 'No Area of Study Requirement, but I want students to indicate for the purpose of data collection', class: 'inline-label' %>
       </div>
-    </div>
-  </div>
     <% else %>
-    <div class="comment">
-      <%= link_to_remove_association "X", f, class: 'delete-association-btn' %>
-    </div>
-  </div>
+      <div class="comment">
+        <%= link_to_remove_association "X", f, class: 'delete-association-btn' %>
+      </div>
     <% end %>
+    </div>
 </div>

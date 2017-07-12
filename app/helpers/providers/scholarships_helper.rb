@@ -51,6 +51,8 @@ module Providers
                       :app_ques_accepted_college,
                       :app_ques_hs_ceremony_date,
 
+                      :collect_aos,
+
                       awards_attributes: %i[
                         id
                         amount

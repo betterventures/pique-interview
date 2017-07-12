@@ -197,19 +197,29 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row grow">
     <div class="field">
       <%= f.label :area_of_study_requirements, 'Area of Study Requirements' %>
       <div class="col-container">
         <div class="areas-of-study">
-          <%= f.fields_for :area_of_study_requirements, AreaOfStudyRequirement.new do |area_of_study_requirement| %>
-              <%= render 'area_of_study_requirement_fields', f: area_of_study_requirement, scholarship_form: f, is_first_association: true %>
-          <% end %>
-          <% @scholarship.area_of_study_requirements.each do |aos| %>
-            <%= f.fields_for :area_of_study_requirements, aos do |area_of_study_requirement| %>
-              <%= render 'area_of_study_requirement_fields', f: area_of_study_requirement, scholarship_form: f %>
+          <% if @scholarship.area_of_study_requirements.empty? %>
+            <%= f.fields_for :area_of_study_requirements, AreaOfStudyRequirement.new do |area_of_study_requirement| %>
+                <%= render 'area_of_study_requirement_fields', f: area_of_study_requirement, scholarship_form: f, i: 0 %>
             <% end %>
           <% end %>
+          <% @scholarship.area_of_study_requirements.each.with_index do |aos, i| %>
+            <%= f.fields_for :area_of_study_requirements, aos do |area_of_study_requirement| %>
+              <%= render 'area_of_study_requirement_fields', f: area_of_study_requirement, scholarship_form: f, i: i %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="links">
+          <div id="add-area-of-study" class="">
+            <%= link_to_add_association 'Add another Area of Study Requirement',
+                                        f,
+                                        :area_of_study_requirements
+            %>
+          </div>
         </div>
       </div>
     </div>

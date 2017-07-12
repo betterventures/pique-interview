@@ -73,7 +73,7 @@ class Scholarship < ApplicationRecord
                                 allow_destroy: true
 
   enum faith_requirement: {
-    no_requirement: 0,
+    no_preference: 0,
     arab: 1,
     muslim: 2,
     jewish: 3,

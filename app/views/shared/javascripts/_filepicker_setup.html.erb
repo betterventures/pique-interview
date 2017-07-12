@@ -1,0 +1,55 @@
+<script type="text/javascript">
+  // Make Filepicker widget play nice with Turbolinks
+  function setupFilepicker() {
+    var filepickerWrappers = $('.filepicker-wrapper');
+    for (var i = 0; i < filepickerWrappers.length; i++) {
+      // Check if button has already been initialized for this wrapper (ie widget has been initialized)
+      var $uploadBtnsForWrapper = $(filepickerWrappers[i]).find('button.upload-btn')
+      // If not, widgetize last input in that wrapper
+      if ($uploadBtnsForWrapper.length <= 0) {
+        var $filepickerInputsForWrapper = $(filepickerWrappers[i]).find('input.upload-btn')
+        filepicker.constructWidget(
+          $filepickerInputsForWrapper.last()
+        );
+      }
+    }
+  }
+
+  function insertFilepickerImg(event) {
+    var $filepickerImg = $('#filepicker-img-preview');
+    $filepickerImg.toggleClass('fade');
+    $filepickerImg.attr('src', event.fpfile.url);
+    $filepickerImg.toggleClass('fade');
+  }
+
+  // TODO: Improve. Original filepicker widget needs to initialize before we can check
+  //       for presence, so use a timeout. Manage the widget initialization differently
+  //       so we can control mounting, then remount for turbolinks.
+  //  The correct way to solve this may be to remove turbolinks, or initialize the widget manually,
+  //  so we can trigger it and not deal with two. Look into that.
+  // Try: https://www.filepicker.com/docs/file-ingestion/javascript-api/pick?v=v2.
+  // See: filepicker.pickAndStore()
+
+  // NB: Turbolinks:load fires on page load as well.
+  // The line below will duplicate any widgets already on the page at timeout execution.
+  // If no widgets are yet loaded onto the page, it will populate them.
+  //$(document).on('turbolinks:load', function () { setTimeout(setupFilepicker, 5000) });
+
+  /*
+   *  Enable adding an association after a certain period of time, so the widgets can be initialized.
+   *  Prevents a bug where adding an association causes all widgets to be duplicated.
+   */
+  setTimeout(function () {
+    $('.add-association-btn').toggleClass('hidden')
+  }, 5000);
+
+  /*
+   *  Populate new Filepicker widgets as they are inserted onto the page.
+   *  Happily also solves the turbolinks problem for us when used with associations
+   *  (turbolinks problem: accessing a page via turbolinks does not load DOM and so does not trigger widget construction).
+   */
+  $(document).on('cocoon:after-insert', function () {
+    setupFilepicker();
+  });
+
+</script>

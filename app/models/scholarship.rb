@@ -28,6 +28,7 @@ class Scholarship < ApplicationRecord
   has_many :location_limitations, inverse_of: :scholarship, dependent: :destroy
   has_many :application_questions, inverse_of: :scholarship, dependent: :destroy
   has_many :supplemental_requirements, inverse_of: :scholarship, dependent: :destroy
+  has_many :org_provided_documents, inverse_of: :scholarship, dependent: :destroy
 
   accepts_nested_attributes_for :awards,
                                 reject_if: ->(attrs) {
@@ -58,6 +59,12 @@ class Scholarship < ApplicationRecord
                                 },
                                 allow_destroy: true
   accepts_nested_attributes_for :supplemental_requirements,
+                                reject_if: ->(attrs) {
+                                  attrs['title'].nil? ||
+                                  attrs['title'].empty?
+                                },
+                                allow_destroy: true
+  accepts_nested_attributes_for :org_provided_documents,
                                 reject_if: ->(attrs) {
                                   attrs['title'].nil? ||
                                   attrs['title'].empty?
@@ -100,6 +107,7 @@ class Scholarship < ApplicationRecord
         organization: { only: [:id, :name, :address, :city, :state], },
         application_questions: { only: [:id, :scholarship_id, :prompt, :answer_type], },
         supplemental_requirements: { only: [:id, :title], },
+        org_provided_documents: { only: [:id, :title, :filepicker_url], },
         essay_requirements: {
           only: [:id, :scholarship_id, :word_limit],
           include: {

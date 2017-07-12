@@ -47,7 +47,38 @@
         <p class="form-title">Documents Provided By Your Organization</p>
         <p class="form-subtitle">Please upload any documents you wish for students to have access to while applying to your scholarship.</p>
       </div>
+
+      <div class="flex flex-column flex-nowrap grow">
+        <% if @scholarship.org_provided_documents.count > 0 %>
+          <% @scholarship.org_provided_documents.each.with_index do |org_document, i| %>
+            <%= f.fields_for :org_provided_documents, org_document do |org_document_fields| %>
+              <%= render 'org_provided_document_fields', f: org_document_fields %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <% @scholarship.org_provided_documents.build.tap do |org_document| %>
+            <%= f.fields_for :org_provided_documents, org_document do |org_document_fields| %>
+              <%= render 'org_provided_document_fields', f: org_document_fields %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <div class="flexed flex-1">
+          <%= link_to_add_association 'Add Another Document',
+                                      f,
+                                      :org_provided_documents,
+                                      {
+                                        data: {
+                                          'association-insertion-method' => 'before'
+                                        },
+                                        class: 'add-association-btn hidden',
+                                        id: 'add-org-provided-documents-link'
+                                      }
+          %>
+        </div>
+      </div>
     </div>
 
   </div>
+
+  <%= render 'shared/javascripts/filepicker_setup' %>
 <% end %>

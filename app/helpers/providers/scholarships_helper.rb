@@ -98,7 +98,15 @@ module Providers
                       ],
                       supplemental_requirements_attributes: %i[
                         id
+                        scholarship_id
                         title
+                        _destroy
+                      ],
+                      org_provided_documents_attributes: %i[
+                        id
+                        scholarship_id
+                        title
+                        filepicker_url
                         _destroy
                       ],
                       scholarship_applications_attributes: [

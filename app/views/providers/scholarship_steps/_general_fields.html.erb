@@ -257,8 +257,8 @@
   // TODO: Improve. Original filepicker widget needs to initialize before we can check
   //       for presence, so use a timeout. Manage the widget initialization differently
   //       so we can control mounting, then remount for turbolinks.
-  //  The correct way to solve this may be to remove turbolinks, or initialize the widget manually,
-  //  so we can trigger it and not deal with two. Look into that.
+  //  The correct way to solve this may be to remove turbolinks, or initialize the widget
+  //  manually, so we can trigger it and not deal with two. Look into that.
   // Try: https://www.filepicker.com/docs/file-ingestion/javascript-api/pick?v=v2.
   // See: filepicker.pickAndStore()
   $(document).on('turbolinks:load', function () { setTimeout(setupFilepicker, 5000) });

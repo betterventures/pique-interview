@@ -7,6 +7,18 @@
   display: none;
 }
 
+.success {
+  color: $emerald !important;
+}
+
+.error {
+  color: $strong-red !important;
+}
+
+.break-word {
+  word-break: break-word;
+}
+
 /*
  * Global Element Styles
  */

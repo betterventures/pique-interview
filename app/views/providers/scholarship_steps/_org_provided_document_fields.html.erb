@@ -1,0 +1,31 @@
+<div class="nested-fields org-provided-document flex flex-row full">
+  <div class="left-bar label">
+    <%= f.text_field :title, placeholder: 'Document Title', class: 'input' %>
+  </div>
+  <div class="main">
+    <div class="flex flex-row flex-nowrap flex-center">
+      <div class="comment flexed flex-4">
+        <div class="filepicker-wrapper">
+          <input id="filepicker-input"
+                class="upload-btn"
+                data-fp-button-text="Choose Document (PDF)"
+                data-fp-apikey="Aw4WfTTq8QxmplkGIzrYgz"
+                data-fp-openTo="COMPUTER"
+                data-fp-multiple="false"
+                data-fp-extension="pdf"
+                type="filepicker"
+                name="<%= f.object_name %>[filepicker_url]"
+                value="<%= f.object.try(:filepicker_url) %>"
+                >
+        </div>
+      </div>
+      <div class="comment flexed flex-4 flex-center-item">
+        Add supplemental required documents not included above
+      </div>
+      <div class="comment flexed flex-2">
+        <%= link_to_remove_association "X", f, class: 'delete-association-btn' %>
+      </div>
+    </div>
+  </div>
+</div>
+

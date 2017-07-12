@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170712002318) do
+ActiveRecord::Schema.define(version: 20170712082555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,15 @@ ActiveRecord::Schema.define(version: 20170712002318) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["scholarship_id"], name: "index_location_limitations_on_scholarship_id", using: :btree
+  end
+
+  create_table "org_provided_documents", force: :cascade do |t|
+    t.integer  "scholarship_id"
+    t.string   "title",          null: false
+    t.string   "filepicker_url"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["scholarship_id"], name: "index_org_provided_documents_on_scholarship_id", using: :btree
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -253,6 +262,7 @@ ActiveRecord::Schema.define(version: 20170712002318) do
   add_foreign_key "essay_prompts", "essay_requirements"
   add_foreign_key "essay_requirements", "scholarships"
   add_foreign_key "location_limitations", "scholarships"
+  add_foreign_key "org_provided_documents", "scholarships"
   add_foreign_key "scholarship_applications", "scholarships"
   add_foreign_key "scholarship_applications", "users", column: "student_id"
   add_foreign_key "scholarships", "organizations"

@@ -16,6 +16,18 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="field">
+    <%= f.label :note_from_provider, 'Note to Your Applicants' %>
+    <div class="col-container">
+      <%= f.text_area :note_from_provider, class: "full", placeholder: 'Optionally, enter a personalized note to your applicants. Some providers cover the application process, ideal candidates, or add a simple note of encouragement.' %>
+      <div class="row">
+        <a href="">See Sample Note to Applicants</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="row" id="photo-row">
   <div class="field">
     <%= f.label :photo_url, 'Scholarship Banner Image' %>

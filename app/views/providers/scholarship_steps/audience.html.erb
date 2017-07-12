@@ -186,17 +186,6 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="field">
-      <%= f.label :faith_requirement, 'If Faith-Based Scholarship, Which Faith?' %>
-      <div class="col-container">
-        <div class="col-x15">
-          <%= f.select :faith_requirement, Scholarship.faith_requirements.map { |k,v| [k.humanize, k] } %>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="row grow">
     <div class="field">
       <%= f.label :area_of_study_requirements, 'Area of Study Requirements' %>
@@ -226,18 +215,16 @@
   </div>
 
   <div class="row">
-    <div class="field">
+    <div class="field required">
       <%= f.label 'Community Service Requirement' %>
       <div class="col-container">
-        <div class="col">
-          <div class="half-col">
-            <%= f.label 'Yes', class: 'inline-label' %>
-            <%= f.radio_button :requires_community_service, true %>
-          </div>
-          <div class="half-col">
-            <%= f.label 'No', class: 'inline-label' %>
-            <%= f.radio_button :requires_community_service, false %>
-          </div>
+        <div class="col-x15">
+          <%= f.label 'Yes', class: 'inline-label' %>
+          <%= f.radio_button :requires_community_service, true %>
+        </div>
+        <div class="col-x15">
+          <%= f.label 'No', class: 'inline-label' %>
+          <%= f.radio_button :requires_community_service, false %>
         </div>
       </div>
     </div>
@@ -245,16 +232,7 @@
 
   <div class="row">
     <div class="field">
-      <%= f.label :minimum_community_service, "Minimum Service Hours" %>
-      <div class="col-container">
-        <%= f.number_field :minimum_community_service, placeholder: 'e.g., 100' %>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="field">
-      <%= f.label :location_limitations, 'Locations Scholarship is Limited To?' %>
+      <%= f.label :location_limitations, 'If Scholarship is Limited to Students from a Specific Location' %>
       <div class="col-container">
         <% if @scholarship.location_limitations.count > 0 %>
           <% @scholarship.location_limitations.each do |location_limitation| %>
@@ -269,6 +247,17 @@
         <% end %>
         <div class="links">
           <%= link_to_add_association 'Add another location', f, :location_limitations %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= f.label :faith_requirement, 'Religion' %>
+      <div class="col-container">
+        <div class="col-x15">
+          <%= f.select :faith_requirement, Scholarship.faith_requirements.map { |k,v| [k.humanize, k] } %>
         </div>
       </div>
     </div>

@@ -42,7 +42,8 @@ module Providers
                       :financial_acceptable_tax,
                       :financial_acceptable_w2,
 
-                      :requires_community_service, :minimum_community_service,
+                      :requires_community_service,
+
                       :faith_requirement,
 
                       :app_ques_college,

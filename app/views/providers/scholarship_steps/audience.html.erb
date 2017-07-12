@@ -5,6 +5,18 @@
 <% end %>
 
 <%= render layout: 'form' do |f| %>
+  <div class="row">
+    <div class="field required">
+      <%= f.label :eligibility %>
+      <div class="col-container">
+        <%= f.text_area :eligibility, required: true, class: "full", placeholder: 'Please enter your scholarship eligibility in written form.' %>
+        <div class="row">
+          <a href="">See Sample Eligibility Section</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="row grow">
     <div class="field required">
       <%= f.label :school_year, 'School Year' %>
@@ -258,18 +270,6 @@
       <div class="col-container">
         <div class="col-x15">
           <%= f.select :faith_requirement, Scholarship.faith_requirements.map { |k,v| [k.humanize, k] } %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="field required">
-      <%= f.label :eligibility %>
-      <div class="col-container">
-        <%= f.text_area :eligibility, required: true, class: "full", placeholder: 'Please enter your scholarship eligibility in written form.' %>
-        <div class="row">
-          <a href="">See Sample Eligibility Section</a>
         </div>
       </div>
     </div>

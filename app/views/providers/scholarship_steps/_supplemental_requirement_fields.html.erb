@@ -1,15 +1,13 @@
 <div class="nested-fields supplemental-requirement">
-  <div class="row">
-    <div class="col-container full">
-      <div class="col">
-        <%= f.text_field :title, placeholder: 'Document Title' %>
-      </div>
-      <div class="col comment">
-        Add supplemental required documents<br>i.e. "Parents' W-2 Form"
-      </div>
-      <div class="col-x05">
-        <%= link_to_remove_association "X", f, class: 'delete-association-btn' %>
-      </div>
+  <div class="flex flex-row flex-wrap">
+    <div class="flexed flex-4">
+      <%= f.text_field :title, placeholder: 'Document Title', class: 'input' %>
+    </div>
+    <div class="comment flexed flex-4">
+      Add supplemental required documents not included above
+    </div>
+    <div class="comment flexed flex-2">
+      <%= link_to_remove_association "X", f, class: 'delete-association-btn' %>
     </div>
   </div>
 </div>

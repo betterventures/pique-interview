@@ -10,34 +10,44 @@
     </div>
 
     <div id="supplemental-requirements">
+      <div class="flex flex-row full">
+        <div class="label">
+          <%= f.label :additional_application_requirements_custom, 'Additional Application Documents Not Listed Above' %>
+        </div>
+        <div class="col-container flex flex-column grow">
+          <% if @scholarship.supplemental_requirements.count > 0 %>
+            <% @scholarship.supplemental_requirements.each do |supplemental_requirement| %>
+              <%= f.fields_for :supplemental_requirements, supplemental_requirement do |supplemental_requirement_fields| %>
+                <%= render 'supplemental_requirement_fields', f: supplemental_requirement_fields %>
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= f.fields_for :supplemental_requirements, @scholarship.supplemental_requirements.build do |supplemental_requirement_fields| %>
+              <%= render 'supplemental_requirement_fields', f: supplemental_requirement_fields %>
+            <% end %>
+          <% end %>
+          <div class="flexed flex-1">
+            <%= link_to_add_association 'Add another required document',
+                                        f,
+                                        :supplemental_requirements,
+                                        {
+                                          data: {
+                                            'association-insertion-method' => 'before'
+                                          },
+                                          id: 'add-supplemental-requirement-link'
+                                        }
+            %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="org-provided-documents">
       <div class="form-header in-form-header">
         <p class="form-title">Documents Provided By Your Organization</p>
         <p class="form-subtitle">Please upload any documents you wish for students to have access to while applying to your scholarship.</p>
       </div>
-
-      <% if @scholarship.supplemental_requirements.count > 0 %>
-        <% @scholarship.supplemental_requirements.each do |supplemental_requirement| %>
-          <%= f.fields_for :supplemental_requirements, supplemental_requirement do |supplemental_requirement_fields| %>
-            <%= render 'supplemental_requirement_fields', f: supplemental_requirement_fields %>
-          <% end %>
-        <% end %>
-      <% else %>
-        <%= f.fields_for :supplemental_requirements, @scholarship.supplemental_requirements.build do |supplemental_requirement_fields| %>
-          <%= render 'supplemental_requirement_fields', f: supplemental_requirement_fields %>
-        <% end %>
-      <% end %>
-      <div class="links">
-        <%= link_to_add_association 'Add another required document',
-                                    f,
-                                    :supplemental_requirements,
-                                    {
-                                      data: {
-                                        'association-insertion-method' => 'before'
-                                      },
-                                      id: 'add-supplemental-requirement-link'
-                                    }
-        %>
-      </div>
     </div>
+
   </div>
 <% end %>

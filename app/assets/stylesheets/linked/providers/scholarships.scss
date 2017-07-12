@@ -310,20 +310,6 @@ $row-height: 30px;
     }
   }
 
-  #supplemental-requirements {
-    .col-x05 {
-      display: inline-block;
-      margin: 0 5% 0 0;
-      position: relative;
-      width: $col-width / 2;
-    }
-
-    #add-supplemental-requirement-link {
-      display: inline-block;
-      margin: 8px 32px;
-    }
-  }
-
   .essay-requirements {
     .row .field textarea.full {
       width: 105%;
@@ -383,12 +369,21 @@ $row-height: 30px;
     flex: 2;
   }
 
+  .flexed.flex-4 {
+    flex: 4;
+  }
+
   .flexed.flex-6 {
     flex: 6;
   }
 
+  .flex.grow {
+    height: 100%;
+  }
+
   #general-application-questions,
-  #general-supplemental-requirements {
+  #general-supplemental-requirements,
+  #supplemental-requirements {
     display: flex;
     height: 50%;
     margin-bottom: 72px;
@@ -419,14 +414,23 @@ $row-height: 30px;
       width: 70%;
     }
 
-    .col-container .col-item {
-      line-height: 1.5em;
-      width: 50%;
+    .col-container.grow {
+      height: 100%;
     }
 
+    .col-container .col-item {
+      line-height: 1.5em;
+      width: 40%;
+    }
+
+    .comment {
+      color: $light-grey;
+    }
   }
 
-  #application-questions {
+  #application-questions,
+  #supplemental-requirements,
+  #general-supplemental-requirements {
     .full {
       width: 100%;
     }
@@ -435,6 +439,10 @@ $row-height: 30px;
       position: relative;
       left: 100% - $col-container-width;
       width: $col-container-width;
+    }
+
+    .supplemental-requirement {
+      height: 3em;
     }
   }
 }

@@ -46,13 +46,17 @@ module Providers
 
                       :faith_requirement,
 
+                      :collect_aos,
+
                       :app_ques_college,
                       :app_ques_birthplace,
                       :app_ques_parent_occupation,
                       :app_ques_accepted_college,
                       :app_ques_hs_ceremony_date,
 
-                      :collect_aos,
+                      :supp_doc_birth,
+                      :supp_doc_acceptance,
+                      :supp_doc_consent,
 
                       awards_attributes: %i[
                         id

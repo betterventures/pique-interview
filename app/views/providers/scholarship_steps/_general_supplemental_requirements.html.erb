@@ -1,0 +1,19 @@
+<div class="field required flex flex-row">
+  <div class="label">
+    <%= f.label :additional_application_requirements, 'Additional Application Documents' %>
+  </div>
+  <div class="col-container flex flex-row flex-wrap">
+    <div class="col-item">
+      <%= f.check_box :supp_doc_birth %>
+      <%= f.label :supp_doc_birth, 'Copy of Birth Certificate', class: 'inline-label' %>
+    </div>
+    <div class="col-item">
+      <%= f.check_box :supp_doc_acceptance %>
+      <%= f.label :supp_doc_acceptance, 'College Acceptance Letter', class: 'inline-label' %>
+    </div>
+    <div class="col-item">
+      <%= f.check_box :supp_doc_consent %>
+      <%= f.label :supp_doc_consent, 'Scholarship Consent Form', class: 'inline-label' %>
+    </div>
+  </div>
+</div>

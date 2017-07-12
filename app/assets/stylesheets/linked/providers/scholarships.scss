@@ -387,7 +387,8 @@ $row-height: 30px;
     flex: 6;
   }
 
-  #general-application-questions {
+  #general-application-questions,
+  #general-supplemental-requirements {
     display: flex;
     height: 50%;
     margin-bottom: 72px;
@@ -395,9 +396,12 @@ $row-height: 30px;
 
   // Flex modifiers - eventually refactor out
   #general-application-questions,
-  #application-questions {
+  #application-questions,
+  #general-supplemental-requirements,
+  #supplemental-requirements {
     .inline-label {
       font-size: 12px;
+      margin-left: 2em;
     }
 
     .label {

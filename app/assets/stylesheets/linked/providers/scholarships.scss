@@ -389,11 +389,14 @@ $row-height: 30px;
     height: 100%;
   }
 
+  #general-application-questions {
+    height: 50%;
+  }
+
   #general-application-questions,
   #general-supplemental-requirements,
   #supplemental-requirements {
     display: flex;
-    height: 50%;
     margin-bottom: 72px;
   }
 
@@ -457,16 +460,42 @@ $row-height: 30px;
 
   #application-questions,
   #supplemental-requirements,
-  #general-supplemental-requirements {
+  #general-supplemental-requirements,
+  #org-provided-documents {
     .links {
       position: relative;
       left: 100% - $col-container-width;
       width: $col-container-width;
     }
 
+    .org-provided-document {
+      height: 3em;
+    }
+
     .supplemental-requirement {
       height: 3em;
     }
+
+    .add-association-btn {
+      height: 36px;
+      padding-left: 4px;
+      vertical-align: middle;
+    }
+  }
+
+  #general-supplemental-requirements {
+    min-height: 10vh;
+    height: 100%;
+  }
+
+  #supplemental-requirements {
+    min-height: 10vh;
+    height: 100%;
+  }
+
+  #org-provided-documents {
+    min-height: 10vh;
+    height: 100%;
   }
 }
 

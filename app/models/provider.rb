@@ -8,6 +8,17 @@ class Provider < User
   belongs_to :organization, optional: true
   has_many :scholarships, through: :organization
 
+  def primary_scholarship
+    scholarships.first
+  end
+
+  def has_saved_scholarship?
+    scholarships.count > 0
+  end
+
+  def has_completed_scholarship?
+  end
+
   def to_json
     {
       id: id,

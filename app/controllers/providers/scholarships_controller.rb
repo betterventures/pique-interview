@@ -1,6 +1,7 @@
 class Providers::ScholarshipsController < ApplicationController
   include Providers::ScholarshipsHelper
   before_action :authenticate_provider!
+  before_action :redirect_if_has_saved_scholarship, only: [:new]
 
   def new
     @scholarship = Scholarship.new
@@ -27,4 +28,13 @@ class Providers::ScholarshipsController < ApplicationController
     @scholarship.update_attributes!(scholarship_params)
     render status: 200, :json => { scholarship: @scholarship.to_json }
   end
+
+  private
+
+  def redirect_if_has_saved_scholarship
+    if current_provider.has_saved_scholarship?
+      redirect_to providers_scholarship_dashboard_path(current_provider.primary_scholarship)
+    end
+  end
+
 end

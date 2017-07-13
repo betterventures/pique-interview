@@ -6,6 +6,8 @@ class Providers::ScholarshipDashboardController < ApplicationController
 
   # ensure logged in
   before_action :authenticate_provider!
+  # ensure provider owns this scholarship
+  before_action -> { authorize_provider_access_to_scholarship!(params[:scholarship_id]) }
   # populate data for the store
   before_action :populate_redux_data
   # initialize the shared Redux store

@@ -216,6 +216,7 @@ class Scholarship < ApplicationRecord
     cycle_end
   end
 
+
   private
 
   def time_to_date(time_obj)

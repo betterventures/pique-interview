@@ -10,8 +10,6 @@ Rails.application.routes.draw do
     resources :scholarships, only: [:new, :create] do
       resources :payments, only: [:new, :create]
       resources :steps, only: [:show, :update], controller: 'scholarship_steps'
-
-      resource :score_card, only: [:new]
     end
 
     # schol dash route

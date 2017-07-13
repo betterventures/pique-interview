@@ -1,5 +1,8 @@
 class Providers::PaymentsController < ApplicationController
+  include Providers::ScholarshipsHelper
+
   before_action :authenticate_provider!
+  before_action -> { authorize_provider_access_to_scholarship!(params[:scholarship_id]) }
 
   def new
     @scholarship = Scholarship.find(params[:scholarship_id])

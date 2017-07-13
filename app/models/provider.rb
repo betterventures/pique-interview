@@ -16,6 +16,10 @@ class Provider < User
     scholarships.count > 0
   end
 
+  def administers?(scholarship_id)
+    scholarship_ids.include?(scholarship_id)
+  end
+
   def has_completed_scholarship?
   end
 

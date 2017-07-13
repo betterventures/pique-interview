@@ -3,6 +3,9 @@ class Providers::ScholarshipStepsController < ApplicationController
   include Wicked::Wizard
   steps :general, :essay, :audience, :application_questions, :supplemental
 
+  before_action :authenticate_provider!
+  before_action -> { authorize_provider_access_to_scholarship!(params[:scholarship_id]) }
+
   def show
     @scholarship = Scholarship.find(params[:scholarship_id])
     render_wizard

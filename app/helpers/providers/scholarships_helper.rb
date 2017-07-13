@@ -3,6 +3,12 @@ module Providers
 
     private
 
+    def authorize_provider_access_to_scholarship!(scholarship_id)
+      unless current_provider.administers?(scholarship_id.to_i)
+        redirect_to providers_scholarship_dashboard_path(current_provider.primary_scholarship)
+      end
+    end
+
     def scholarship_params
       if params[:scholarship]
         params.require(:scholarship)

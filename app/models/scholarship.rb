@@ -90,7 +90,6 @@ class Scholarship < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
-  validates :eligibility, presence: true
   validates :cycle_start, presence: true
   validates :cycle_end, presence: true
   validates :minimum_recommendations, presence: true

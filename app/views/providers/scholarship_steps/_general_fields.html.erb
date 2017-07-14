@@ -119,10 +119,17 @@
 
 <div class="row">
   <div class="field">
-    <%= f.label 'Renewable Scholarship?' %>
+    <%= f.label :renewable, 'Renewable Scholarship?' %>
     <div class="col-container">
       <div class="col">
-        <%= f.check_box :renewable %>
+        <div class="half-col">
+          <%= f.radio_button :renewable, true %>
+          <%= f.label 'Yes', class: "inline-label" %>
+        </div>
+        <div class="half-col">
+          <%= f.radio_button :renewable, false %>
+          <%= f.label 'No', class: "inline-label" %>
+        </div>
       </div>
     </div>
   </div>

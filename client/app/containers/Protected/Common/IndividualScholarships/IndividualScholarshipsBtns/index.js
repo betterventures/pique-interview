@@ -2,10 +2,13 @@ import React from 'react'
 import { Link } from 'react-router'
 import css from './style.css'
 
-export const ButtonFill = ({ text, to, className }) => {
+export const ButtonFill = ({ text, to, onClick, className }) => {
   return (
     <div className={css.root}>
-      <div className={`${css.fill} ${className ? className : ''}`}>
+      <div
+        className={`${css.fill} ${className ? className : ''}`}
+        onClick={onClick}
+      >
       {to
         ? <Link to={to} className={css.link}>{text}</Link>
         : <a className={css.link}>{text}</a>}

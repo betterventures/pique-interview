@@ -4,6 +4,15 @@
   max-width: 1050px;
 }
 
+.sectionanchor {
+  /*
+   * Move this invisible element up effectively the height of the navbar,
+   * plus some spacing, to make the top of the section visible after scrolling.
+   */
+  position: relative;
+  top: -85px;
+}
+
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -109,3 +118,4 @@
   composes: field;
   width: 100%;
 }
+

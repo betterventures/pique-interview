@@ -5,6 +5,9 @@ import IndividualScholarshipsOverview from './IndividualScholarshipsOverview'
 import IndividualScholarshipsFooter from './IndividualScholarshipsFooter'
 import css from './style.css'
 
+// ID reference allowing href scrolling to the Footer section
+const FOOTER_ANCHOR = 'footer'
+
 export class IndividualScholarships extends Component {
   constructor(props) {
     super(props)
@@ -15,8 +18,8 @@ export class IndividualScholarships extends Component {
       <div className={css.root}>
         <IndividualScholarshipsBanner />
         <IndividualScholarshipsHeader />
-        <IndividualScholarshipsOverview />
-        <IndividualScholarshipsFooter />
+        <IndividualScholarshipsOverview footerAnchor={FOOTER_ANCHOR} />
+        <IndividualScholarshipsFooter footerAnchor={FOOTER_ANCHOR} />
       </div>
 
     )

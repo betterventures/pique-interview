@@ -11,7 +11,7 @@ export class IndividualScholarshipsOverview extends Component {
   }
 
   render() {
-    const { scholarship } = this.props
+    const { scholarship, footerAnchor } = this.props
     return (
       <div className={css.root}>
         <div className={css.row}>
@@ -34,11 +34,16 @@ export class IndividualScholarshipsOverview extends Component {
                         <div className={css.prompt}>
                           <div key={essayRequirement.id}>
                             <div className={css.title}>Scholarship Essay #{i+1}</div>
-                            <IndividualScholarshipsPrompt essayRequirement={essayRequirement} />
+                            <IndividualScholarshipsPrompt
+                              footerAnchor={footerAnchor}
+                              essayRequirement={essayRequirement}
+                            />
                           </div>
                         </div>
                         <div className={css.details}>
-                          <IndividualScholarshipsDetails essayRequirementIdx={i} />
+                          <IndividualScholarshipsDetails
+                            essayRequirementIdx={i}
+                          />
                         </div>
                       </div>
                     </div>
@@ -55,9 +60,10 @@ export class IndividualScholarshipsOverview extends Component {
 }
 
 export default connect(
-  state => {
+  (state, ownProps) => {
     return {
       scholarship: (state.app && state.app.scholarships['all'][0]) || {},
+      footerAnchor: ownProps.footerAnchor,
     }
   },
   Actions

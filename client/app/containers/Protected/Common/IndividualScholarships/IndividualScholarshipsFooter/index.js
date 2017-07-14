@@ -7,9 +7,17 @@ import IndividualScholarshipsMailingAddress from './MailingAddress'
 import css from './style.css'
 
 export class IndividualScholarshipsFooter extends Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
+    const { footerAnchor } = this.props
+
     return (
       <div className={css.root}>
+        <div className={css.sectionanchor} name={footerAnchor}>
+        </div>
         <div className={css.grid}>
           <div className={css.section}>
             <div className={css.title}>Apply!</div>
@@ -41,8 +49,4 @@ export class IndividualScholarshipsFooter extends Component {
   }
 }
 
-export default connect(
-  state => ({
-    ...state
-  })
-)(IndividualScholarshipsFooter)
+export default IndividualScholarshipsFooter

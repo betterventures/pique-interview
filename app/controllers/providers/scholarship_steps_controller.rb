@@ -1,7 +1,7 @@
 class Providers::ScholarshipStepsController < ApplicationController
   include Providers::ScholarshipsHelper
   include Wicked::Wizard
-  steps :general, :essay, :audience, :application_questions, :supplemental
+  steps(*Scholarship.form_steps) # destructure these to mimic `:step_1, :step_2, :step_3, ...` syntax
 
   before_action :authenticate_provider!
   before_action -> { authorize_provider_access_to_scholarship!(params[:scholarship_id]) }

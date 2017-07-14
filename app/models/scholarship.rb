@@ -1,6 +1,32 @@
 class Scholarship < ApplicationRecord
   EXPECTED_DATE_FORMAT = "%m/%d/%Y"
 
+  # this hash maps the names of steps as displayed in the URL bar to
+  # the name of the DB attribute that tracks if that step has been completed
+  # for this scholarship.
+  #
+  # This allows us to change the public-facing name of a step
+  # while maintaining knowledge of if that step was completed.
+  #
+  # NB: An alternative to this entire approach would be to forego DB attrs and
+  #     infer whether a step was completed by which attrs are complete.
+  #     This would likely involve a 'defining attr' for each step that is then
+  #     checked by the `completed_step_` method.
+  #
+  # Usage:
+  # PUBLIC-FACING NAME          =>    STATIC DB ATTR
+  # *CHANGE ME*                 =>    *DO NOT CHANGE ME*
+  # (and remember to change           (unless you want to
+  #  names of partials)                migrate the database)
+
+  FORM_STEPS_TO_DB_ATTRS = {
+    :general                    =>    :general,
+    :essay                      =>    :essay,
+    :audience                   =>    :audience,
+    :application_questions      =>    :application_questions,
+    :supplemental               =>    :supplemental,
+  }
+
   # org
   belongs_to :organization, optional: true
 
@@ -85,7 +111,7 @@ class Scholarship < ApplicationRecord
     muslim: 2,
     jewish: 3,
     christian: 4,
-    catholic: 5
+    catholic: 5,
   }
 
   validates :title, presence: true
@@ -145,6 +171,10 @@ class Scholarship < ApplicationRecord
       nested_options
         .merge(options)
     )
+  end
+
+  def self.form_steps
+    FORM_STEPS_TO_DB_ATTRS.keys
   end
 
   # provide the keys expected by the frontend, for now
@@ -214,6 +244,21 @@ class Scholarship < ApplicationRecord
 
   def cycle_end_str
     cycle_end
+  end
+
+  # Relies on the ordering of FORM_STEPS_TO_DB_ATTRS and the `completed_step_x`
+  # naming convention to determine which steps have been completed.
+  # Returns the first step for which the value of `completed_step_x` is false.
+  def next_incomplete_step
+    FORM_STEPS_TO_DB_ATTRS.each do |step, db_attr|
+      return step unless self.send("completed_step_#{db_attr}".to_sym)
+    end
+
+    return nil
+  end
+
+  def completed?
+    !next_incomplete_step
   end
 
 

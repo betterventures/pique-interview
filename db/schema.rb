@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170712082555) do
+ActiveRecord::Schema.define(version: 20170713234457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -152,8 +152,8 @@ ActiveRecord::Schema.define(version: 20170712082555) do
     t.boolean  "for_native_people"
     t.decimal  "maximum_family_income"
     t.boolean  "requires_community_service"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
     t.integer  "minimum_age"
     t.boolean  "flexible_scores"
     t.text     "eligibility"
@@ -161,7 +161,7 @@ ActiveRecord::Schema.define(version: 20170712082555) do
     t.integer  "minimum_community_service"
     t.boolean  "for_two_year_program"
     t.boolean  "for_four_year_program"
-    t.integer  "faith_requirement",          default: 0
+    t.integer  "faith_requirement",                    default: 0
     t.date     "cycle_start"
     t.date     "cycle_end"
     t.string   "photo_url"
@@ -198,6 +198,11 @@ ActiveRecord::Schema.define(version: 20170712082555) do
     t.boolean  "supp_doc_birth"
     t.boolean  "supp_doc_acceptance"
     t.boolean  "supp_doc_consent"
+    t.boolean  "completed_step_general"
+    t.boolean  "completed_step_essay"
+    t.boolean  "completed_step_audience"
+    t.boolean  "completed_step_application_questions"
+    t.boolean  "completed_step_supplemental"
     t.index ["organization_id"], name: "index_scholarships_on_organization_id", using: :btree
   end
 

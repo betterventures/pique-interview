@@ -16,11 +16,13 @@ class Provider < User
     scholarships.count > 0
   end
 
-  def administers?(scholarship_id)
-    scholarship_ids.include?(scholarship_id)
+  def has_completed_scholarship?
+    has_saved_scholarship? &&
+      primary_scholarship.completed?
   end
 
-  def has_completed_scholarship?
+  def administers?(scholarship_id)
+    scholarship_ids.include?(scholarship_id)
   end
 
   def to_json

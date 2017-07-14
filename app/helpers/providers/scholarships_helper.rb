@@ -64,6 +64,12 @@ module Providers
                       :supp_doc_acceptance,
                       :supp_doc_consent,
 
+                      :completed_step_general,
+                      :completed_step_essay,
+                      :completed_step_audience,
+                      :completed_step_application_questions,
+                      :completed_step_supplemental,
+
                       awards_attributes: %i[
                         id
                         amount

@@ -8,7 +8,7 @@ class Providers::ScholarshipsController < ApplicationController
   end
 
   def create
-    @scholarship = Scholarship.create(scholarship_params)
+    @scholarship = Scholarship.create!(scholarship_params)
 
     # seed the scholarship with applicants on create
     Providers::SeedApplicantsHelper.seed_dummy_users!

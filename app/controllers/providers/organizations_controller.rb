@@ -9,8 +9,7 @@ class Providers::OrganizationsController < ApplicationController
     current_provider.organization = @organization
     current_provider.save
 
-    # eventually this should redirect to dashboard
-    # if user has already created a scholarship
+    # continue sign-in flow: redirect to account_info after organization
     redirect_to providers_account_info_path
   end
 

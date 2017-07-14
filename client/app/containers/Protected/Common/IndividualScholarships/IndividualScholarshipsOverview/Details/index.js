@@ -37,7 +37,7 @@ export class IndividualScholarshipsDetails extends Component {
           component: Reward,
           color: '#44D378',
           text: 'Reward',
-          accent: `$ ${scholarship.awards[0].amount}`,
+          accent: `$ ${scholarship.awards[0].amount.toLocaleString()}`,
         }
       )
     }

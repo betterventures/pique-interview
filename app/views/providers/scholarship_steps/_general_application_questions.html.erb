@@ -5,23 +5,38 @@
   <div class="col-container flex flex-row flex-wrap">
     <div class="col-item">
       <%= f.check_box :app_ques_college %>
-      <%= f.label :app_ques_college, 'List of Colleges Student Intends to Apply to', class: 'inline-label' %>
+      <%= f.label :app_ques_college,
+        Scholarship::DEFAULT_APPLICATION_QUESTIONS[:college],
+        class: 'inline-label'
+        %>
     </div>
     <div class="col-item">
       <%= f.check_box :app_ques_accepted_college %>
-      <%= f.label :app_ques_accepted_college, 'Name of College Student Was Accepted to And Will Attend', class: 'inline-label' %>
+      <%= f.label :app_ques_accepted_college,
+        Scholarship::DEFAULT_APPLICATION_QUESTIONS[:accepted_college],
+        class: 'inline-label'
+      %>
     </div>
     <div class="col-item">
       <%= f.check_box :app_ques_birthplace %>
-      <%= f.label :app_ques_birthplace, 'City & State of Birth', class: 'inline-label' %>
+      <%= f.label :app_ques_birthplace,
+        Scholarship::DEFAULT_APPLICATION_QUESTIONS[:birthplace],
+        class: 'inline-label'
+      %>
     </div>
     <div class="col-item">
       <%= f.check_box :app_ques_parent_occupation %>
-      <%= f.label :app_ques_parent_occupation, "Parent(s)/Guardian's Occupation & Name of Employer", class: 'inline-label' %>
+      <%= f.label :app_ques_parent_occupation,
+        Scholarship::DEFAULT_APPLICATION_QUESTIONS[:parent_occupation],
+        class: 'inline-label'
+      %>
     </div>
     <div class="col-item">
       <%= f.check_box :app_ques_hs_ceremony_date %>
-      <%= f.label :app_ques_hs_ceremony_date, 'High School Scholarship Award Ceremony Date', class: 'inline-label' %>
+      <%= f.label :app_ques_hs_ceremony_date,
+        Scholarship::DEFAULT_APPLICATION_QUESTIONS[:hs_ceremony_date],
+        class: 'inline-label'
+      %>
     </div>
   </div>
 </div>

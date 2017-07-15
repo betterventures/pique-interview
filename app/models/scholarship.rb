@@ -27,6 +27,14 @@ class Scholarship < ApplicationRecord
     :supplemental               =>    :supplemental,
   }
 
+  GENERAL_APPLICATION_QUESTIONS = {
+    :college            =>    "List of Colleges Student Intends to Apply To",
+    :accepted_college   =>    "Name of College Student Was Accepted To And Will Attend",
+    :birthplace         =>    "City & State of Birth",
+    :parent_occupation  =>    "Parent(s)/Guardian's Occupation & Name of Employer",
+    :hs_ceremony_date   =>    "High School Scholarship Award Ceremony Date",
+  }
+
   # org
   belongs_to :organization, optional: true
 
@@ -160,17 +168,38 @@ class Scholarship < ApplicationRecord
       }
     }
   end
+  # convert flags (eg general app questions), into JSON.
+  # for the purposes for providing text on the server-side,
+  # rather than maintain text translation on the client side.
+  def boolean_options_to_json
+    # translate each app question flag into JSON
+    general_application_questions = GENERAL_APPLICATION_QUESTIONS.reduce([]) do |arr, app_question|
+      db_attr, prompt = app_question
+      if self.send("app_ques_#{db_attr}".to_sym)
+        arr << { prompt: prompt + ':' }
+      end
+
+      arr
+    end
+
+    # return a hash with the JSON under a corresponding key
+    {
+      general_application_questions: general_application_questions
+    }
+  end
   def to_json(options={})
     super(
       nested_options
         .merge(options)
     )
+    .merge(boolean_options_to_json)
   end
   def as_json(options={})
     super(
       nested_options
         .merge(options)
     )
+    .merge(boolean_options_to_json)
   end
 
   def self.form_steps

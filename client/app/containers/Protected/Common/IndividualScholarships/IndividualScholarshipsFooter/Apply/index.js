@@ -19,7 +19,10 @@ export class IndividualScholarshipsApply extends Component {
       while (++i <= scholarship.essay_requirements.length) essayRequirements.push(i)
     }
 
+    let generalApplicationQuestions = (scholarship && scholarship.general_application_questions) || []
     let applicationQuestions = (scholarship && scholarship.application_questions) || []
+
+    let allAppQuestions = generalApplicationQuestions.concat(applicationQuestions)
 
     return (
       <div className={css.root}>
@@ -27,7 +30,7 @@ export class IndividualScholarshipsApply extends Component {
           {`Answer the following questions and select the items from your Pique Profile you would like to use to apply to the ${scholarship.title} Scholarship. Your ‘cover letter’ and ‘official transcript’ will automatically be sent with your application.`}
         </div>
         {
-          applicationQuestions.map((question, i) => (
+          allAppQuestions.map((question, i) => (
             <div key={i}>
               <div className={css.tallrow}>
                 <div className={css.label}>

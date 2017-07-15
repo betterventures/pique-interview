@@ -22,7 +22,7 @@ export class IndividualScholarshipsApply extends Component {
             <div key={i}>
               <div className={ question.answer_type === 'long' ? css.tallrow : css.medrow }>
                 <div className={css.label}>
-                  {question.prompt}
+                  {i+1}. {question.prompt}
                 </div>
                 <div className={css.widefield}>
                   {

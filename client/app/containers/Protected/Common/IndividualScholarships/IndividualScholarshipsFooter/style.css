@@ -95,6 +95,18 @@
   max-width: 520px;
 }
 
+.tallrow {
+  display: block;
+  width: 100%;
+  height: 120px;
+  margin-bottom: 18px;
+}
+
+.medrow {
+  composes: row;
+  height: 80px;
+}
+
 .textarea {
   border: 1px solid #BFBFBF;
   border-radius: 3px;
@@ -107,15 +119,15 @@
   width: 100%;
 }
 
-.tallrow {
-  display: block;
-  width: 100%;
-  height: 120px;
-  margin-bottom: 18px;
-}
-
 .widefield {
   composes: field;
   width: 100%;
 }
 
+.wideinput {
+  composes: input;
+  font-size: 13px;
+  margin: 13px 0;
+  padding: 13px 13px;
+  width: 100%;
+}

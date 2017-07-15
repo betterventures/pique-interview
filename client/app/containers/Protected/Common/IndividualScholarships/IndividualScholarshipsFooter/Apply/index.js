@@ -32,16 +32,24 @@ export class IndividualScholarshipsApply extends Component {
         {
           allAppQuestions.map((question, i) => (
             <div key={i}>
-              <div className={css.tallrow}>
+              <div className={ question.answer_type === 'long' ? css.tallrow : css.medrow }>
                 <div className={css.label}>
                   {question.prompt}
                 </div>
                 <div className={css.widefield}>
-                  <textarea
-                    className={css.textarea}
-                    placeholder='Enter your answer to this question here'
-                  >
-                  </textarea>
+                  {
+                    question.answer_type === 'long'
+                      ?
+                        <textarea
+                          className={css.textarea}
+                          placeholder='Enter your answer to this question here'
+                        />
+                      :
+                        <input
+                          className={css.wideinput}
+                          placeholder='Enter your answer to this question here'
+                        />
+                  }
                 </div>
               </div>
             </div>

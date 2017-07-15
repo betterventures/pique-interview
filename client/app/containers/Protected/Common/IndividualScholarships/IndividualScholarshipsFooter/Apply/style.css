@@ -22,16 +22,24 @@
   composes: copy from '../style.css';
 }
 
-.textarea {
-  composes: textarea from '../style.css';
-}
-
 .tallrow {
   composes: tallrow from '../style.css';
 }
 
+.medrow {
+  composes: medrow from '../style.css';
+}
+
+.textarea {
+  composes: textarea from '../style.css';
+}
+
 .widefield {
   composes: widefield from '../style.css';
+}
+
+.wideinput {
+  composes: wideinput from '../style.css';
 }
 
 .row + .tallrow {

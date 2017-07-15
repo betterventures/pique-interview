@@ -27,12 +27,20 @@ class Scholarship < ApplicationRecord
     :supplemental               =>    :supplemental,
   }
 
+  # db_attr_suffix      =>    Question Text
   GENERAL_APPLICATION_QUESTIONS = {
     :college            =>    "List of Colleges Student Intends to Apply To",
     :accepted_college   =>    "Name of College Student Was Accepted To And Will Attend",
     :birthplace         =>    "City & State of Birth",
     :parent_occupation  =>    "Parent(s)/Guardian's Occupation & Name of Employer",
     :hs_ceremony_date   =>    "High School Scholarship Award Ceremony Date",
+  }
+
+  # db_attr_suffix    =>    Name of Document
+  GENERAL_SUPPLEMENTAL_DOCUMENTS = {
+    :birth              =>    "Copy of Birth Certificate",
+    :acceptance         =>    "College Acceptance Letter",
+    :consent            =>    "Signed Scholarship Consent Form",
   }
 
   # org
@@ -168,12 +176,8 @@ class Scholarship < ApplicationRecord
       }
     }
   end
-  # convert flags (eg general app questions), into JSON.
-  # for the purposes for providing text on the server-side,
-  # rather than maintain text translation on the client side.
-  def boolean_options_to_json
-    # translate each app question flag into JSON
-    general_application_questions = GENERAL_APPLICATION_QUESTIONS.reduce([]) do |arr, app_question|
+  def general_app_question_json
+    GENERAL_APPLICATION_QUESTIONS.reduce([]) do |arr, app_question|
       db_attr, prompt = app_question
       if self.send("app_ques_#{db_attr}".to_sym)
         arr << { prompt: prompt + ':' }
@@ -181,10 +185,25 @@ class Scholarship < ApplicationRecord
 
       arr
     end
+  end
+  def general_supp_document_json
+    GENERAL_SUPPLEMENTAL_DOCUMENTS.reduce([]) do |arr, supp_doc|
+      db_attr, document_title = supp_doc
+      if self.send("supp_doc_#{db_attr}".to_sym)
+        arr << { title: document_title }
+      end
 
+      arr
+    end
+  end
+  # convert flags (eg general app questions), into JSON.
+  # for the purposes for standardizing text on the server-side,
+  # rather than having to maintain text translation on the client side.
+  def boolean_document_flags_to_json
     # return a hash with the JSON under a corresponding key
     {
-      general_application_questions: general_application_questions
+      general_application_questions: general_app_question_json,
+      general_supplemental_documents: general_supp_document_json,
     }
   end
   def to_json(options={})
@@ -192,14 +211,14 @@ class Scholarship < ApplicationRecord
       nested_options
         .merge(options)
     )
-    .merge(boolean_options_to_json)
+    .merge(boolean_document_flags_to_json)
   end
   def as_json(options={})
     super(
       nested_options
         .merge(options)
     )
-    .merge(boolean_options_to_json)
+    .merge(boolean_document_flags_to_json)
   end
 
   def self.form_steps

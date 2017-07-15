@@ -24,6 +24,10 @@ export class IndividualScholarshipsDocuments extends Component {
       while (++i <= scholarship.essay_requirements.length) essayRequirements.push(i)
     }
 
+    let supplementalRequirements      = (scholarship && scholarship.supplemental_requirements) || []
+    let generalSupplementalDocuments  = (scholarship && scholarship.general_supplemental_documents) || []
+    let allSuppRequirements           = supplementalRequirements.concat(generalSupplementalDocuments)
+
     return (
       <div className={css.root}>
         <div className={css.fields}>
@@ -48,19 +52,14 @@ export class IndividualScholarshipsDocuments extends Component {
             ))
           }
           {
-            scholarship.supplemental_requirements && scholarship.supplemental_requirements.length > 0
-              ?
-                scholarship.supplemental_requirements.map((suppRec, i) => (
-                  <div className={css.row} key={suppRec.id}>
-                    <div className={css.inlinelabel}>{suppRec.title}</div>
-                    <div className={css.field}>
-                      <select className={css.input} type="text"/>
-                    </div>
-                  </div>
-                  )
-                )
-              :
-                ''
+            allSuppRequirements.map((suppReq, i) => (
+              <div className={css.row} key={i}>
+                <div className={css.inlinelabel}>{suppReq.title}</div>
+                <div className={css.field}>
+                  <select className={css.input} type="text"/>
+                </div>
+              </div>
+            ))
           }
           {scholarship.minimum_sat_score
               ?

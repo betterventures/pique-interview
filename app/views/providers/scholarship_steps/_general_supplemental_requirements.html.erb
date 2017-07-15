@@ -5,15 +5,24 @@
   <div class="col-container flex flex-row flex-wrap">
     <div class="col-item">
       <%= f.check_box :supp_doc_birth %>
-      <%= f.label :supp_doc_birth, 'Copy of Birth Certificate', class: 'inline-label' %>
+      <%= f.label :supp_doc_birth,
+        Scholarship::GENERAL_SUPPLEMENTAL_DOCUMENTS[:birth],
+        class: 'inline-label'
+      %>
     </div>
     <div class="col-item">
       <%= f.check_box :supp_doc_acceptance %>
-      <%= f.label :supp_doc_acceptance, 'College Acceptance Letter', class: 'inline-label' %>
+      <%= f.label :supp_doc_acceptance,
+        Scholarship::GENERAL_SUPPLEMENTAL_DOCUMENTS[:acceptance],
+        class: 'inline-label'
+      %>
     </div>
     <div class="col-item">
       <%= f.check_box :supp_doc_consent %>
-      <%= f.label :supp_doc_consent, 'Scholarship Consent Form', class: 'inline-label' %>
+      <%= f.label :supp_doc_consent,
+        Scholarship::GENERAL_SUPPLEMENTAL_DOCUMENTS[:consent],
+        class: 'inline-label'
+      %>
     </div>
   </div>
 </div>

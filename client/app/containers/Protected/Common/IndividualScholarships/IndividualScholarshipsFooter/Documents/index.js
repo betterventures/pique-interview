@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { ButtonFill } from '../../IndividualScholarshipsBtns'
+import IndividualScholarshipsOrgProvidedDocuments from '../OrgProvidedDocuments'
 import * as Actions from 'api/actions'
 import css from './style.css'
 
@@ -61,7 +62,8 @@ export class IndividualScholarshipsDocuments extends Component {
               </div>
             ))
           }
-          {scholarship.minimum_sat_score
+          {
+            scholarship.minimum_sat_score
               ?
                 <div className={css.row}>
                   <div className={css.inlinelabel}>SAT Test Scores*</div>
@@ -79,9 +81,10 @@ export class IndividualScholarshipsDocuments extends Component {
                 ''
           }
         </div>
-          <ButtonFill
-            className={css.btn}
-            text='Submit Application!' />
+          <div className={css.title}>{scholarship.title} Docs:</div>
+          <div className={css.body}>
+            <IndividualScholarshipsOrgProvidedDocuments />
+          </div>
       </div>
     )
   }

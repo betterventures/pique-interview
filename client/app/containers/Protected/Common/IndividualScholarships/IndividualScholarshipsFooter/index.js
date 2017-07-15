@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import IndividualScholarshipsApply from './Apply'
 import IndividualScholarshipsWord from './Word'
 import IndividualScholarshipsDocuments from './Documents'
-import IndividualScholarshipsMailingAddress from './MailingAddress'
 import * as Actions from 'api/actions'
 import css from './style.css'
 

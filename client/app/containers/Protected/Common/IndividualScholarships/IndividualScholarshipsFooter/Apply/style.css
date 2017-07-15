@@ -8,6 +8,7 @@
 
 .label {
   composes: label from '../style.css';
+  width: 100%;
 }
 
 .field {

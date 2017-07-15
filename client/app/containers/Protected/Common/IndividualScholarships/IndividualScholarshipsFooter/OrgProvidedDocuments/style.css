@@ -34,13 +34,6 @@
   composes: btn from '../../style.css';
 }
 
-/* Dirtily cheat another section in here,
- * as it conflicts with the section ordering and height.
- */
-.body {
-  composes: body from '../style.css';
-}
-
-.title {
-  composes: title from '../style.css';
+.link {
+  font-size: 16px;
 }

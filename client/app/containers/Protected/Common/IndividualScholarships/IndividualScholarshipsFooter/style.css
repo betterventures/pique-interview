@@ -45,6 +45,12 @@
   vertical-align: top;
 }
 
+.inlinelabel {
+  composes: label;
+  vertical-align: baseline;
+  width: 50%;
+}
+
 .field {
   display: inline-block;
   float: right;

@@ -14,6 +14,10 @@
   composes: label from '../style.css';
 }
 
+.inlinelabel {
+  composes: inlinelabel from '../style.css';
+}
+
 .copy {
   composes: copy from '../style.css';
 }

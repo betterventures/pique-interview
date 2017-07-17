@@ -28,7 +28,8 @@
   composes: btn from 'containers/Protected/Common/IndividualScholarships/style.css';
 }
 
-.more {
+.more,
+.less {
   color: #599CD9;
   cursor: pointer;
 }

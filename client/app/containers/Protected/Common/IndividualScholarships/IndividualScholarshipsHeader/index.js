@@ -10,17 +10,17 @@ export class IndividualScholarshipsHeader extends Component {
 
   constructor(props) {
     super(props)
-    this.expandHeaderText = ::this.expandHeaderText
+    this.toggleHeaderExpansion = ::this.toggleHeaderExpansion
 
     this.state = {
-      expandHeader: this.props.scholarship.description &&
+      headerExpanded: this.props.scholarship.description &&
                     this.props.scholarship.description.length <= SHORT_HEADER_LENGTH
     }
   }
 
-  expandHeaderText() {
+  toggleHeaderExpansion() {
     this.setState({
-      expandHeader: true
+      headerExpanded: !this.state.headerExpanded
     })
   }
 
@@ -31,18 +31,29 @@ export class IndividualScholarshipsHeader extends Component {
         <div className={css.header}>{scholarship.title}</div>
         <div className={css.copy}>
           {
-            this.state.expandHeader
+            this.state.headerExpanded
               ?
                 scholarship.description
               :
                 scholarship.description.substr(0, SHORT_HEADER_LENGTH)
           }
-          <span
-            className={this.state.expandHeader ? css.hidden : css.more}
-            onClick={this.expandHeaderText}
-          >
-            Read More
-          </span>
+          {
+            this.state.headerExpanded
+              ?
+                <span
+                  className={css.less}
+                  onClick={this.toggleHeaderExpansion}
+                >
+                  Read Less
+                </span>
+              :
+                <span
+                  className={css.more}
+                  onClick={this.toggleHeaderExpansion}
+                >
+                  Read More
+                </span>
+          }
         </div>
 
         <div className={css.btns}>

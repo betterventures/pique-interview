@@ -76,6 +76,15 @@ export class IndividualScholarshipsHeader extends Component {
     return (
       <div className={css.root}>
         <div className={css.header}>{scholarship.title}</div>
+        {
+          scholarship.organization && scholarship.organization.name
+            ?
+              <div className={css.subtitle}>
+                Provided By: { scholarship.organization.name }
+              </div>
+            :
+              ''
+        }
         <div className={css.copy}>
           {
             /* Slightly unnecessary but we need this to rerender

@@ -25,6 +25,14 @@ export class IndividualScholarshipsDocuments extends Component {
       while (++i <= scholarship.essay_requirements.length) essayRequirements.push(i)
     }
 
+    let finAidRequirements            = (scholarship && scholarship.acceptable_proof_of_financial_need) || []
+    let finAidReqsStr = `Proof of Financial Need (` +
+                        `${finAidRequirements.slice(0,-1).join(', ')}` +
+                        `${ finAidRequirements.length > 2 ? ', ' : ''}` +
+                        `${ finAidRequirements.length > 1 ? ' or ' : ''}` +
+                        `${finAidRequirements[finAidRequirements.length-1]}` +
+      `)`
+
     let supplementalRequirements      = (scholarship && scholarship.supplemental_requirements) || []
     let generalSupplementalDocuments  = (scholarship && scholarship.general_supplemental_documents) || []
     let allSuppRequirements           = supplementalRequirements.concat(generalSupplementalDocuments)
@@ -51,6 +59,18 @@ export class IndividualScholarshipsDocuments extends Component {
                 </div>
               </div>
             ))
+          }
+          {
+            finAidRequirements.length > 0
+              ?
+                <div className={css.row}>
+                  <div className={css.inlinelabel}>{ finAidReqsStr }</div>
+                  <div className={css.field}>
+                    <select className={css.input} type="text"/>
+                  </div>
+                </div>
+              :
+                ''
           }
           {
             allSuppRequirements.map((suppReq, i) => (

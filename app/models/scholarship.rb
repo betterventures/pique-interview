@@ -36,11 +36,19 @@ class Scholarship < ApplicationRecord
     :hs_ceremony_date   =>    "High School Scholarship Award Ceremony Date",
   }
 
-  # db_attr_suffix    =>    Name of Document
+  # db_attr_suffix      =>    Name of Document
   GENERAL_SUPPLEMENTAL_DOCUMENTS = {
     :birth              =>    "Copy of Birth Certificate",
     :acceptance         =>    "College Acceptance Letter",
     :consent            =>    "Signed Scholarship Consent Form",
+  }
+
+  # db_attr_suffix      =>  Name of Financial Document
+  ACCEPTABLE_PROOF_OF_FINANCIAL_NEED = {
+    :fafsa              => 'FAFSA',
+    :sar                => 'SAR Report',
+    :tax                => 'Tax Forms',
+    :w2                 => 'W-2',
   }
 
   # org
@@ -179,7 +187,6 @@ class Scholarship < ApplicationRecord
       if self.send("app_ques_#{db_attr}".to_sym)
         arr << { prompt: prompt + ':' }
       end
-
       arr
     end
   end
@@ -189,7 +196,16 @@ class Scholarship < ApplicationRecord
       if self.send("supp_doc_#{db_attr}".to_sym)
         arr << { title: document_title }
       end
+      arr
+    end
+  end
+  def acceptable_financial_need_json
+    # no documents needed if proof of need is not required
+    return [] unless for_financial_need
 
+    ACCEPTABLE_PROOF_OF_FINANCIAL_NEED.reduce([]) do |arr, financial_doc|
+      db_attr, doc_name = financial_doc
+      arr << doc_name if self.send("financial_acceptable_#{db_attr}".to_sym)
       arr
     end
   end
@@ -201,6 +217,7 @@ class Scholarship < ApplicationRecord
     {
       general_application_questions: general_app_question_json,
       general_supplemental_documents: general_supp_document_json,
+      acceptable_proof_of_financial_need: acceptable_financial_need_json,
     }
   end
   def to_json(options={})

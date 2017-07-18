@@ -6,6 +6,7 @@ import Heart from './Heart'
 import Timer from './Timer'
 import PaperPlane from './PaperPlane'
 import Reward from './Reward'
+import Book from 'components/Icons/Book'
 import * as Actions from 'api/actions'
 import css from './style.css'
 import moment from 'moment'
@@ -19,6 +20,19 @@ export class IndividualScholarshipsDetails extends Component {
   detailsFor(scholarship, essayRequirementIdx) {
     let details = []
 
+    // Minimum GPA
+    if (scholarship.gpa) {
+      details.push(
+        {
+          component: Book,
+          color: 'blue',
+          text: 'Minimum GPA',
+          accent: `${scholarship.gpa} Unweighted`,
+          componentStyle: {height: '22px',},
+          componentColor: 'blue',
+        }
+      )
+    }
     // Scholarship Due Date
     if (scholarship.cycle_end) {
       details.push(
@@ -26,7 +40,7 @@ export class IndividualScholarshipsDetails extends Component {
           component: Timer,
           color: '#F69423',
           text: 'Due',
-          accent: moment(scholarship.cycle_end).format('dddd, MMMM D, Y')
+          accent: moment(scholarship.cycle_end).format('dddd, MMMM D, Y'),
         }
       )
     }
@@ -123,9 +137,9 @@ export class IndividualScholarshipsDetails extends Component {
 
     return (
       <div className={css.root}>
-        {details.map(({ component:Component, text, color, accent }, i) =>
+        {details.map(({ component:Component, text, color, accent, componentStyle, componentColor }, i) =>
           <div key={i} className={css.line}>
-            <span className={css.icon}>{Component ? <Component /> : null}</span>
+            <span className={css.icon}>{Component ? <Component style={componentStyle} color={componentColor} /> : null}</span>
             <span className={css.small}>{text}</span>
             <span className={css.accent} style={{ color }}>{accent}</span>
           </div>

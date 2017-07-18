@@ -17,7 +17,7 @@
 
         <div class="actions">
           <% if !defined?(wizard_path) || (defined?(next_wizard_path) && step != wizard_steps.last) %>
-            <%= f.submit "Next", class: "btn submit-btn" %>
+            <%= f.submit "Save & Continue", class: "btn submit-btn" %>
           <% elsif defined?(next_wizard_path) && step == wizard_steps.last %>
             <%= f.submit "Finish", class: "btn submit-btn" %>
           <% end %>

@@ -291,13 +291,16 @@ $row-height: 30px;
   .actions {
     padding: 56px 0 28px;
 
+    .btn {
+      width: 148px;
+    }
+
     .submit-btn {
       background-color: $pastel-blue;
       border-radius: 2px;
       color: $white;
       height: 46px;
       margin-left: 20px;
-      width: 120px;
     }
 
     .submit-btn-inverse {
@@ -306,7 +309,6 @@ $row-height: 30px;
       border: 1px solid $pastel-blue;
       color: $pastel-blue;
       margin-left: 20px;
-      width: 120px;
     }
   }
 

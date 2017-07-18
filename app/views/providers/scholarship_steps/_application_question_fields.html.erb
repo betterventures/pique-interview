@@ -7,10 +7,12 @@
     </div>
     <div class="col-container flex flex-column">
       <div class="flexed flex-1">
-        <div class="flex flex-row">
+        <div class="flex flex-row flex-space-between">
           <%= f.text_field :prompt,
-            class: "input full",
+            class: "input flexed flex-8",
             placeholder: 'Enter your application question here (for example, "Explain your financial need.")' %>
+          <%= link_to_remove_association "X", f,
+            class: "flexed flex-1 comment" %>
         </div>
       </div>
       <div class="flexed flex-1">
@@ -29,8 +31,6 @@
               class: 'flexed flex-1' %>
           <%= f.label :answer_type, "This is a 'Long Answer' question",
               value: :long, class: 'flexed flex-6' %>
-          <%#= link_to_remove_association "Delete", f,
-              class: "flexed flex-2" %>
         </div>
       </div>
     </div>

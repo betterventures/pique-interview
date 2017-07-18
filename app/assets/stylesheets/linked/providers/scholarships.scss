@@ -383,6 +383,14 @@ $row-height: 30px;
     flex: 6;
   }
 
+  .flexed.flex-8 {
+    flex: 10;
+  }
+
+  .flexed.flex-10 {
+    flex: 10;
+  }
+
   .flexed.flex-center-item {
     align-self: center;
   }
@@ -498,6 +506,12 @@ $row-height: 30px;
   #org-provided-documents {
     min-height: 10vh;
     height: 100%;
+  }
+
+  #application-questions {
+    .comment {
+      text-align: center;
+    }
   }
 }
 

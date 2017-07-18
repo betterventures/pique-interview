@@ -1,5 +1,5 @@
 .root {
-  background-color: blue;
+  background-image: linear-gradient(229deg, #44BCEF 1%, #3FB2EE 11%, #195AE1 100%);
   color: #fff;
   height: 100%;
   margin: 0 auto;
@@ -40,5 +40,9 @@
 .btnnofill {
   composes: btn;
   color: #fff;
+}
+
+div.btnnofill {
+  border: 1px solid #fff;
 }
 

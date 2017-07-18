@@ -13,7 +13,6 @@ export class IndividualScholarshipsBanner extends Component {
     const { scholarship } = this.props
     return (
       <div
-        style={{backgroundImage: `url(${scholarship.photo_url})`}}
         className={css.root}>
         <div className={css.logo}>
           <div className={css.text}></div>

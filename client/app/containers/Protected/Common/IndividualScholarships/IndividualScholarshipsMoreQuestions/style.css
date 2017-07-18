@@ -46,3 +46,7 @@ div.btnnofill {
   border: 1px solid #fff;
 }
 
+.btnnofill > a {
+  color: #fff !important;
+}
+

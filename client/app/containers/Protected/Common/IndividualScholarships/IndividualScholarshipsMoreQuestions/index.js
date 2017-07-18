@@ -7,11 +7,23 @@ import css from './style.css'
 export class IndividualScholarshipsMoreQuestions extends Component {
   constructor(props) {
     super(props)
+    this.formatWebsite = ::this.formatWebsite
+  }
+
+  formatWebsite(url) {
+    return (
+      /https?:\/\//.test(url)
+        ?
+          url
+        :
+          `http://${url}`
+    )
   }
 
   render() {
     const { scholarship } = this.props
     const { organization } = scholarship
+    let websiteUrl = organization.website && this.formatWebsite(organization.website)
 
     return (
       <div className={css.root}>
@@ -25,12 +37,12 @@ export class IndividualScholarshipsMoreQuestions extends Component {
                 <div className={css.btns}>
                   <ButtonFill
                     text='Visit Website'
-                    to={organization.website}
+                    externalHref={websiteUrl}
                     className={css.btnfill}
                   />
                   <ButtonNoFill
                     text='Send Email'
-                    to={ `mailto:${organization.support_email}` }
+                    externalHref={ `mailto:${organization.support_email}` }
                     className={css.btnnofill}
                   />
                 </div>

@@ -28,10 +28,14 @@
   composes: btn from 'containers/Protected/Common/IndividualScholarships/style.css';
 }
 
-.more,
-.less {
+.toggle {
   color: #599CD9;
   cursor: pointer;
+}
+
+.clampabletext {
+  cursor: pointer;
+  width: inherit; /* expect to be set by another class */
 }
 
 .btns {

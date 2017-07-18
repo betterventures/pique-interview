@@ -84,15 +84,10 @@ module Providers
                       ],
                       essay_requirements_attributes: [
                         :id,
+                        :prompt,
                         :word_limit,
                         :scholarship_id,
                         :_destroy,
-                        essay_prompts_attributes: [
-                          :id,
-                          :prompt,
-                          :essay_requirement_id,
-                          :_destroy
-                        ]
                       ],
                       location_limitations_attributes: %i[
                         id

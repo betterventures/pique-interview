@@ -3,31 +3,13 @@
 <div class="nested-fields essay-requirement-container">
   <div class="row">
     <div class="field required">
-      <%= f.label "Essay ##{i} Prompt" %>
+      <%= f.label :prompt, "Essay ##{i} Prompt" %>
       <div class="col-container">
-        <div class="essay-prompts">
-          <% if essay_req.essay_prompts.count > 0 %>
-            <% essay_req.essay_prompts.each do |essay_prompt| %>
-              <%= f.fields_for :essay_prompts, essay_prompt do |essay_prompt_fields| %>
-                <%= render 'essay_prompt_fields', f: essay_prompt_fields %>
-              <% end %>
-            <% end %>
-          <% else %>
-            <%= f.fields_for :essay_prompts, essay_req.essay_prompts.build do |essay_prompt_fields| %>
-              <%= render 'essay_prompt_fields', f: essay_prompt_fields %>
-            <% end %>
-          <% end %>
-        </div>
-        <div id="add-essay-prompt" class="comment">
-          <%= link_to_add_association "Add another Prompt for Essay ##{i}",
-                                      f,
-                                      :essay_prompts,
-                                      {
-                                        data: {
-                                          'association-insertion-method' => 'after'
-                                        },
-                                        id: 'add-essay-prompt-link'
-                                      }
+        <div class="col-x3">
+          <%= f.text_area :prompt,
+            required: true,
+            class: "full",
+            placeholder: "Enter your scholarship's prompt here"
           %>
         </div>
       </div>
@@ -36,10 +18,13 @@
 
   <div class="row">
     <div class="field required">
-      <%= f.label "Essay ##{i} Word Limit" %>
+      <%= f.label :word_limit, "Essay ##{i} Word Limit" %>
       <div class="col-container">
         <div class="col">
-          <%= f.text_field :word_limit, required: true, placeholder: "e.g., 100; 100 - 500" %>
+          <%= f.text_field :word_limit,
+            required: true,
+            placeholder: "e.g., 100; 100 - 500"
+          %>
         </div>
         <div class="col-x2 comment">
           Keep in mind that ~250 words is equivalent to one typed page, double spaced.
@@ -52,19 +37,4 @@
     <%= link_to_remove_association "Delete", f, class: 'delete-req-btn' %>
   </div>
 </div>
-
-
-<script type="text/javascript">
-  /*
-   * Set up data-association-insertion-node as a function for .essay-prompts
-   * See: https://github.com/nathanvda/cocoon#control-the-insertion-behaviour
-   */
-  $(document).ready(function () {
-    $('#add-essay-prompt-link')
-      .data('association-insertion-node', function ($node) {
-        return $node.parents('.col-container').children('.essay-prompts').children('.nested-fields').last();
-      });
-  });
-</script>
-
 

@@ -150,10 +150,7 @@ class Scholarship < ApplicationRecord
         supplemental_requirements: { only: [:id, :title], },
         org_provided_documents: { only: [:id, :title, :filepicker_url], },
         essay_requirements: {
-          only: [:id, :scholarship_id, :word_limit],
-          include: {
-            essay_prompts: { only: [:id, :essay_requirement_id, :prompt], },
-          },
+          only: [:id, :prompt, :scholarship_id, :word_limit],
         },
         score_card: {
           only: [:id, :scholarship_id],

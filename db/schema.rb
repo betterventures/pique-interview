@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170713234457) do
+ActiveRecord::Schema.define(version: 20170718051827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,12 +66,6 @@ ActiveRecord::Schema.define(version: 20170713234457) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["scholarship_id"], name: "index_awards_on_scholarship_id", using: :btree
-  end
-
-  create_table "essay_prompts", force: :cascade do |t|
-    t.text    "prompt"
-    t.integer "essay_requirement_id"
-    t.index ["essay_requirement_id"], name: "index_essay_prompts_on_essay_requirement_id", using: :btree
   end
 
   create_table "essay_requirements", force: :cascade do |t|
@@ -264,7 +258,6 @@ ActiveRecord::Schema.define(version: 20170713234457) do
   add_foreign_key "application_ratings", "scholarship_applications"
   add_foreign_key "application_ratings", "users", column: "rater_id"
   add_foreign_key "area_of_study_requirements", "scholarships"
-  add_foreign_key "essay_prompts", "essay_requirements"
   add_foreign_key "essay_requirements", "scholarships"
   add_foreign_key "location_limitations", "scholarships"
   add_foreign_key "org_provided_documents", "scholarships"

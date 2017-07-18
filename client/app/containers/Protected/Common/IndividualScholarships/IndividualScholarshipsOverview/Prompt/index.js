@@ -18,21 +18,9 @@ export class IndividualScholarshipsPrompt extends Component {
     const { essayRequirement, essayRequirementIdx, footerAnchor } = this.props
     return (
       <div className={css.root}>
-        <div className={css.subtitle}>Choose 1 of the following Prompts:</div>
-
-        {
-          essayRequirement.essay_prompts && essayRequirement.essay_prompts.length > 0
-            ?
-              essayRequirement.essay_prompts.map(function(essayPrompt, i) {
-                return (
-                  <div className={css.copy} key={essayPrompt.id}>
-                    <div className={css.text}>{essayPrompt.prompt}</div>
-                  </div>
-                )
-              })
-            :
-              ''
-        }
+        <div className={css.copy}>
+          <div className={css.text}>{essayRequirement.prompt}</div>
+        </div>
 
         <div className={css.btns}>
           <ButtonNoFill

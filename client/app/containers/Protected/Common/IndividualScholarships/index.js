@@ -3,6 +3,7 @@ import IndividualScholarshipsBanner from './IndividualScholarshipsBanner'
 import IndividualScholarshipsHeader from './IndividualScholarshipsHeader'
 import IndividualScholarshipsOverview from './IndividualScholarshipsOverview'
 import IndividualScholarshipsFooter from './IndividualScholarshipsFooter'
+import IndividualScholarshipsMoreQuestions from './IndividualScholarshipsMoreQuestions'
 import css from './style.css'
 
 // ID reference allowing href scrolling to the Footer section
@@ -20,6 +21,7 @@ export class IndividualScholarships extends Component {
         <IndividualScholarshipsHeader />
         <IndividualScholarshipsOverview footerAnchor={FOOTER_ANCHOR} />
         <IndividualScholarshipsFooter footerAnchor={FOOTER_ANCHOR} />
+        <IndividualScholarshipsMoreQuestions />
       </div>
 
     )

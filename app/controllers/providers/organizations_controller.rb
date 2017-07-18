@@ -23,6 +23,14 @@ class Providers::OrganizationsController < ApplicationController
 
   def organization_params
     params.require(:organization)
-          .permit(:name, :phone, :email, :website, :address, :city, :state)
+          .permit(
+            :name,
+            :phone,
+            :website,
+            :support_email,
+            :address,
+            :city,
+            :state,
+          )
   end
 end

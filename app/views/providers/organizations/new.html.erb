@@ -13,35 +13,42 @@
       <%= form_for :organization, url: providers_organizations_path do |f| %>
         <div class="row">
           <div class="field required">
-            <%= f.label 'Name of Scholarship Organization' %>
+            <%= f.label :name, 'Name of Scholarship Organization' %>
             <%= f.text_field :name, required: true, class: "full" %>
           </div>
         </div>
 
         <div class="row">
           <div class="field required">
-            <%= f.label 'Phone Number' %>
+            <%= f.label :phone, 'Phone Number' %>
             <%= f.telephone_field :phone, required: true, class: "word" %>
           </div>
         </div>
 
         <div class="row">
           <div class="field required">
-            <%= f.label 'Website' %>
+            <%= f.label :website, 'Website' %>
             <%= f.text_field :website, required: true, class: "word" %>
           </div>
         </div>
 
         <div class="row">
           <div class="field required">
-            <%= f.label 'Address' %>
+            <%= f.label :support_email, 'Email for Applicant Questions' %>
+            <%= f.text_field :support_email, required: true, class: "word" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field required">
+            <%= f.label :address, 'Address' %>
             <%= f.text_field :address, required: true, class: "word" %>
           </div>
         </div>
 
         <div class="row">
           <div class="field required">
-            <%= f.label 'Organization Location' %>
+            <%= f.label :location, 'Organization Location' %>
             <%= f.text_field :city, placeholder: "City", required: true, class: "word" %>
             <%= f.text_field :state, placeholder: "State", required: true, class: "word" %>
           </div>

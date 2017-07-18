@@ -1,0 +1,40 @@
+.root {
+  background-color: blue;
+  color: #fff;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+}
+
+.title {
+  color: #fff;
+  font-size: 36px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  line-height: 36px;
+  margin: 0 auto;
+  padding: 40px 0 24px;
+  text-align: center;
+}
+
+.btns {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.btn {
+  composes: btn from 'containers/Protected/Common/IndividualScholarships/style.css';
+  margin: 16px 16px;
+}
+
+.btnfill {
+  composes: btn;
+  color: blue;
+}
+
+.btnnofill {
+  composes: btn;
+  color: #fff;
+}
+

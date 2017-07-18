@@ -30,7 +30,11 @@
 
 .btnfill {
   composes: btn;
-  color: blue;
+  background-color: #fff;
+}
+
+.btnfill > a {
+  color: blue !important;
 }
 
 .btnnofill {

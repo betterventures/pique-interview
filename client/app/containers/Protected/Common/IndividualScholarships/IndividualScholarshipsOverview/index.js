@@ -16,9 +16,17 @@ export class IndividualScholarshipsOverview extends Component {
       <div className={css.root}>
         <div className={css.row}>
           <div className={css.rowcontent}>
-            <div className={css.title}>Eligibility Requirements</div>
-            <div className={css.copy}>
-              <div className={css.text}>{scholarship.eligibility}</div>
+            <div className={css.eligibility}>
+              <div className={css.title}>Eligibility Requirements</div>
+              <div className={css.copy}>
+                <div className={css.text}>{scholarship.eligibility}</div>
+              </div>
+            </div>
+            <div className={css.providernote}>
+              <div className={css.title}>A Note from {( scholarship.organization && scholarship.organization.name ) || 'the Provider' }</div>
+              <div className={css.copy}>
+                <div className={css.text}>{scholarship.note_from_provider}</div>
+              </div>
             </div>
           </div>
         </div>

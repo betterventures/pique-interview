@@ -39,13 +39,11 @@
 
 .eligibility {
   margin-bottom: 50px;
+  width: 100%;
 }
 
-@media (min-width: 1024px) {
-  .prompt {
-    width: 50%;
-    float: left;
-  }
+.providernote {
+  width: 100%;
 }
 
 .copy {
@@ -65,7 +63,20 @@
   width: 45%;
 }
 
+/* Turn row-wide elements
+ * into cols at 1024px */
 @media (min-width: 1024px) {
+  .prompt,
+  .eligibility {
+    float: left;
+    width: 50%;
+  }
+
+  .providernote {
+    float: right;
+    width: 45%;
+  }
+
   .details {
     display: block;
   }

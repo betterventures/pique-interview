@@ -15,15 +15,26 @@ export class HeaderMenu extends Component {
         <ul className={css.tooltip}>
           <li
             onClick={onClick}
-            className={css.li}>
-              <a href={`/providers/scholarships/${scholarship.id}/#/preview`}>
-                View Scholarship</a>
-            </li>
+            className={css.li}
+          >
+            <a href={`/providers/scholarships/${scholarship.id}/#/dashboard`}>
+              My Dashboard
+            </a>
+          </li>
+          <li
+            onClick={onClick}
+            className={css.li}
+          >
+            <a href={`/providers/scholarships/${scholarship.id}/#/preview`}>
+              View Scholarship
+            </a>
+          </li>
           <li
             onClick={onClick}
             className={css.li}>
               <a href={`/providers/scholarships/${scholarship.id}/steps/general`}>
-                Edit Scholarship</a>
+                Edit Scholarship
+              </a>
             </li>
           <li
             onClick={onClick}

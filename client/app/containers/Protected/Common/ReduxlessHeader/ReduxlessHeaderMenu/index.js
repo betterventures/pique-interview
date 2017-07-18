@@ -10,6 +10,20 @@ export default class ReduxlessHeaderMenu extends Component {
         <div className={css.point} />
         <div className={css.nub} />
         <ul className={css.tooltip}>
+          {
+            scholarship.id
+              ?
+                <li
+                  onClick={onClick}
+                  className={css.li}
+                >
+                  <a href={`/providers/scholarships/${scholarship.id}/#/dashboard`}>
+                    My Dashboard
+                  </a>
+                </li>
+              :
+                ''
+          }
           <li
             onClick={onClick}
             className={css.li}>

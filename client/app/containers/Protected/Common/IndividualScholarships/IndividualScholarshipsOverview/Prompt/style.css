@@ -15,6 +15,10 @@
   color: #777777;
 }
 
+.btns {
+  margin-bottom: 20px;
+}
+
 .btn {
   composes: btn from 'containers/Protected/Common/IndividualScholarships/style.css';
 }

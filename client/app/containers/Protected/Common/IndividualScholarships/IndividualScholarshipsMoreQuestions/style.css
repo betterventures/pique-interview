@@ -20,12 +20,12 @@
 
 .btns {
   margin: 0 auto;
+  margin-bottom: 20px;
   text-align: center;
 }
 
 .btn {
   composes: btn from 'containers/Protected/Common/IndividualScholarships/style.css';
-  margin: 16px 16px;
 }
 
 .btnfill {

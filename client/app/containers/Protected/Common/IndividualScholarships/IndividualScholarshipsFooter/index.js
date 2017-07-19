@@ -20,7 +20,7 @@ export class IndividualScholarshipsFooter extends Component {
         </div>
         <div className={css.grid}>
           <div className={css.section}>
-            <div className={css.title}>{scholarship.title} Scholarship Application Questions!</div>
+            <div className={css.title}>{scholarship.title} Application Questions!</div>
             <div className={css.body}>
               <IndividualScholarshipsApply />
             </div>

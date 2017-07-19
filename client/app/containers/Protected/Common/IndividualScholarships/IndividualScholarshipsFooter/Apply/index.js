@@ -15,7 +15,7 @@ export class IndividualScholarshipsApply extends Component {
     return (
       <div className={css.root}>
         <div className={css.copy}>
-          {`Answer the following questions and select the items from your Pique Profile you would like to use to apply to the ${scholarship.title} Scholarship. Your ‘cover letter’ and ‘official transcript’ will automatically be sent with your application.`}
+          {`Answer the following questions and select the items from your Pique Profile you would like to use to apply to the ${scholarship.title}. Your ‘cover letter’ and ‘official transcript’ will automatically be sent with your application.`}
         </div>
         {
           allAppQuestions.map((question, i) => (

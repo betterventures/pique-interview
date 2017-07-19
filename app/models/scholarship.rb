@@ -220,12 +220,19 @@ class Scholarship < ApplicationRecord
       acceptable_proof_of_financial_need: acceptable_financial_need_json,
     }
   end
+  # custom override some attrs, like title, for display reasons
+  def overridden_attrs_json
+    {
+      title: display_title
+    }
+  end
   def to_json(options={})
     super(
       nested_options
         .merge(options)
     )
     .merge(boolean_document_flags_to_json)
+    .merge(overridden_attrs_json)
   end
   def as_json(options={})
     super(
@@ -233,6 +240,7 @@ class Scholarship < ApplicationRecord
         .merge(options)
     )
     .merge(boolean_document_flags_to_json)
+    .merge(overridden_attrs_json)
   end
 
   def self.form_steps
@@ -321,6 +329,16 @@ class Scholarship < ApplicationRecord
 
   def completed?
     !next_incomplete_step
+  end
+
+  def display_title
+    # check if last word is Scholarship; if not insert it
+    last_word = title.split(' ').last
+    if last_word.downcase == 'scholarship'
+      title
+    else
+      title + ' Scholarship'
+    end
   end
 
 

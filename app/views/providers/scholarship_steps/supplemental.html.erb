@@ -85,4 +85,9 @@
   </div>
 
   <%= render 'shared/javascripts/filepicker_setup' %>
+  <script type="text/javascript">
+    function replaceOrgProvidedDocText(event) {
+      $(event.target.nextSibling).text('Document Uploaded');
+    }
+  </script>
 <% end %>

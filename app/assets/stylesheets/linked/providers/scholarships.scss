@@ -466,6 +466,11 @@ $row-height: 30px;
       top: 0px;
       width: 172px;
     }
+
+    button.filepicker-input.upload-btn {
+      cursor: pointer;
+      overflow-x: hidden;
+    }
   }
 
   #application-questions,

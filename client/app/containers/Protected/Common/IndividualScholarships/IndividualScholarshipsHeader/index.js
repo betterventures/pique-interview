@@ -75,7 +75,7 @@ export class IndividualScholarshipsHeader extends Component {
     const { scholarship } = this.props
     return (
       <div className={css.root}>
-        <div className={css.header}>{scholarship.title}</div>
+        <div className={css.header}>{scholarship.display_title}</div>
         {
           scholarship.organization && scholarship.organization.name
             ?

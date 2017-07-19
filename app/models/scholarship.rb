@@ -178,10 +178,20 @@ class Scholarship < ApplicationRecord
             },
           },
         },
-      }
+      },
+      methods: [
+        :general_application_questions,
+        :general_supplemental_documents,
+        :acceptable_proof_of_financial_need,
+        :display_title,
+      ],
     }
   end
-  def general_app_question_json
+  # convert flags (eg general app questions), into JSON.
+  # for the purposes for standardizing text on the server-side,
+  # rather than having to maintain text translation on the client side.
+  # custom override some attrs, like title, for display reasons
+  def general_application_questions
     GENERAL_APPLICATION_QUESTIONS.reduce([]) do |arr, app_question|
       db_attr, prompt = app_question
       if self.send("app_ques_#{db_attr}".to_sym)
@@ -190,7 +200,7 @@ class Scholarship < ApplicationRecord
       arr
     end
   end
-  def general_supp_document_json
+  def general_supplemental_documents
     GENERAL_SUPPLEMENTAL_DOCUMENTS.reduce([]) do |arr, supp_doc|
       db_attr, document_title = supp_doc
       if self.send("supp_doc_#{db_attr}".to_sym)
@@ -199,7 +209,7 @@ class Scholarship < ApplicationRecord
       arr
     end
   end
-  def acceptable_financial_need_json
+  def acceptable_proof_of_financial_need
     # no documents needed if proof of need is not required
     return [] unless for_financial_need
 
@@ -209,38 +219,17 @@ class Scholarship < ApplicationRecord
       arr
     end
   end
-  # convert flags (eg general app questions), into JSON.
-  # for the purposes for standardizing text on the server-side,
-  # rather than having to maintain text translation on the client side.
-  def boolean_document_flags_to_json
-    # return a hash with the JSON under a corresponding key
-    {
-      general_application_questions: general_app_question_json,
-      general_supplemental_documents: general_supp_document_json,
-      acceptable_proof_of_financial_need: acceptable_financial_need_json,
-    }
-  end
-  # custom override some attrs, like title, for display reasons
-  def overridden_attrs_json
-    {
-      title: display_title
-    }
-  end
   def to_json(options={})
     super(
       nested_options
         .merge(options)
     )
-    .merge(boolean_document_flags_to_json)
-    .merge(overridden_attrs_json)
   end
   def as_json(options={})
     super(
       nested_options
         .merge(options)
     )
-    .merge(boolean_document_flags_to_json)
-    .merge(overridden_attrs_json)
   end
 
   def self.form_steps

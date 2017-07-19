@@ -101,7 +101,7 @@ export class IndividualScholarshipsDocuments extends Component {
                 ''
           }
         </div>
-          <div className={css.title}>{scholarship.title} Docs:</div>
+          <div className={css.title}>{scholarship.display_title} Docs:</div>
           <div className={css.body}>
             <IndividualScholarshipsOrgProvidedDocuments />
           </div>

@@ -51,22 +51,37 @@ export class Dashboard extends Component {
     const { links, routes } = this.state
     return (
       <div className={css.root}>
-        <Match pattern='/dashboard' exactly render={props =>
-          <Redirect to='/dashboard/unscored' />
-        } />
+        <Match pattern='/dashboard'
+          exactly
+          render={props =>
+            <Redirect to='/dashboard/unscored' />
+          }
+        />
+        <Match pattern='/dashboard/'
+          exactly
+          render={props =>
+            <Redirect to='/dashboard/unscored' />
+          }
+        />
         <div className='wrap'>
           <Match
             pattern='/dashboard'
-            render={props => <DashboardNav {...props} links={links} />} />
+            render={props => <DashboardNav {...props} links={links} />}
+          />
 
           <Match pattern='/dashboard/awarded' component={DashboardSortBy} />
 
-          {routes.map(x =>
-            <Match
-              pattern={x.pattern}
-              key={x.key}
-              render={props =>
-                <DashboardCards {...props} items={x.items} />} />)}
+          {
+            routes.map(x =>
+              <Match
+                pattern={x.pattern}
+                key={x.key}
+                render={props =>
+                  <DashboardCards {...props} items={x.items} />
+                }
+              />
+            )
+          }
         </div>
       </div>
     )

@@ -2,8 +2,12 @@
 # - eventually will belong_to a :school
 class Student < User
 
-  default_scope { where(role: :student) }
+  default_scope {
+    where(role: :student)
+  }
 
+  has_many :parent_or_guardian_relationships, class_name: 'UserToStudentRelationship'
+  has_many :parent_or_guardians, through: :parent_or_guardian_relationships
   has_many :activities, inverse_of: :student, dependent: :destroy
   has_many :scholarship_applications, inverse_of: :student, dependent: :destroy
   has_many :applied_scholarships, through: :scholarship_applications, source: :scholarship
@@ -14,13 +18,27 @@ class Student < User
                                   attrs['title'].nil?
                                 },
                                 allow_destroy: true
+  accepts_nested_attributes_for :parent_or_guardian_relationships,
+                                reject_if: ->(attrs) {
+                                  attrs['parent_or_guardian']['first_name'].nil ||
+                                  attrs['parent_or_guardian']['first_name'].empty? ||
+                                  attrs['parent_or_guardian']['last_name'].nil ||
+                                  attrs['parent_or_guardian']['last_name'].empty? ||
+                                  attrs['parent_or_guardian']['email'].nil? ||
+                                  attrs['parent_or_guardian']['email'].empty?
+                                },
+                                allow_destroy: true
 
   def gpa_string
     sprintf('%.2f', gpa.round(2))
   end
 
   def apply!(scholarship, stage=ScholarshipApplication.stages[:unscored])
-    scholarship_applications.create!(scholarship_id: scholarship.id, student_id: id, stage: stage)
+    scholarship_applications.create!(
+      scholarship_id: scholarship.id,
+      student_id: id,
+      stage: stage
+    )
   end
 
   def to_json

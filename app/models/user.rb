@@ -10,9 +10,10 @@ class User < ApplicationRecord
   # please note if you change the key name, to keep the int the same
   # (for backwards compatibility)
   enum role: {
-    provider: 0,  # providers (admin) and reviewers
-    educator: 1,  # counselors (admin) and recommenders
-    student: 2    # applicants
+    provider:             0,   # providers (admin) and reviewers
+    educator:             1,   # counselors (admin) and recommenders
+    student:              2,   # applicants
+    parent_or_guardian:   3,   # parents_and_guardians
   }
 
   DEFAULT_PHOTO_URL = '/assets/blank_figure.png'

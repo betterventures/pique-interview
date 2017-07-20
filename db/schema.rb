@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170718065704) do
+ActiveRecord::Schema.define(version: 20170720042020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -225,6 +225,19 @@ ActiveRecord::Schema.define(version: 20170718065704) do
     t.index ["scholarship_id"], name: "index_supplemental_requirements_on_scholarship_id", using: :btree
   end
 
+  create_table "user_to_student_relationships", force: :cascade do |t|
+    t.integer  "student_id",            null: false
+    t.integer  "parent_or_guardian_id"
+    t.integer  "counselor_id"
+    t.integer  "relationship_type"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["counselor_id"], name: "index_user_to_student_relationships_on_counselor_id", using: :btree
+    t.index ["parent_or_guardian_id"], name: "index_user_to_student_relationships_on_parent_or_guardian_id", using: :btree
+    t.index ["relationship_type"], name: "index_user_to_student_relationships_on_relationship_type", using: :btree
+    t.index ["student_id"], name: "index_user_to_student_relationships_on_student_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -248,6 +261,7 @@ ActiveRecord::Schema.define(version: 20170718065704) do
     t.text     "description"
     t.string   "tagline"
     t.float    "gpa"
+    t.string   "phone"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["organization_id"], name: "index_users_on_organization_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

@@ -90,8 +90,18 @@ export class ScholarshipScoreCard extends Component {
                   ''
             }
             <div className={css.borderrow}>
-              <input className={css.lginput} type="text" placeholder="Add Criteria" onChange={this.setNextFieldTitle} value={this.state.title} />
-              <input className={css.sminput} type="text" placeholder="Total Possible Score" onChange={this.setNextFieldScore} value={this.state.possible_score} />
+              <input className={css.lginput}
+                type="text"
+                placeholder="Add Criteria"
+                onChange={this.setNextFieldTitle}
+                value={this.state.title}
+              />
+              <input className={css.sminput}
+                type="text"
+                placeholder="Total Possible Score"
+                onChange={this.setNextFieldScore}
+                value={this.state.possible_score}
+              />
               <button className={css.btn} onClick={this.addScoreCardField}>Add Criteria</button>
             </div>
 

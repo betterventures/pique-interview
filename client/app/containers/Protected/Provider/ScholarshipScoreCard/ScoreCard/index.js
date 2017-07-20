@@ -65,7 +65,7 @@ export class ScoreCard extends Component {
                       Sample Criterion
                     </div>
                     <div className={css.cardright}>
-                      <input className={css.xsinput} type="text" />
+                      <input className={css.xsinput} type="text" disabled="disabled" />
                       <span className={css.score}>/ 100</span>
                     </div>
                   </div>

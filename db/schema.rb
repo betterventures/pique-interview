@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170720042020) do
+ActiveRecord::Schema.define(version: 20170720200145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -201,6 +201,16 @@ ActiveRecord::Schema.define(version: 20170720042020) do
     t.index ["organization_id"], name: "index_scholarships_on_organization_id", using: :btree
   end
 
+  create_table "schools", force: :cascade do |t|
+    t.string "name",   null: false
+    t.string "phone"
+    t.string "fax"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+  end
+
   create_table "score_card_fields", force: :cascade do |t|
     t.integer  "score_card_id"
     t.string   "title",          null: false
@@ -262,9 +272,11 @@ ActiveRecord::Schema.define(version: 20170720042020) do
     t.string   "tagline"
     t.float    "gpa"
     t.string   "phone"
+    t.integer  "school_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["organization_id"], name: "index_users_on_organization_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["school_id"], name: "index_users_on_school_id", using: :btree
   end
 
   add_foreign_key "application_questions", "scholarships"
@@ -283,4 +295,5 @@ ActiveRecord::Schema.define(version: 20170720042020) do
   add_foreign_key "score_cards", "scholarships"
   add_foreign_key "supplemental_requirements", "scholarships"
   add_foreign_key "users", "organizations"
+  add_foreign_key "users", "schools"
 end

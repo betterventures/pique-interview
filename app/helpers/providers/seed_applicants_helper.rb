@@ -1,6 +1,8 @@
 module Providers
   module SeedApplicantsHelper
 
+    BANNEKER_HIGH = 'Benjamin Banneker Academic HS'
+
     BRUCKER_EMAIL = 'brucker@email.com'
     ZGIBBONS_EMAIL = 'zgibbons@email.com'
     SSTEVENS_EMAIL = 'sstevens@email.com'
@@ -12,7 +14,7 @@ module Providers
     def self.apply_to_scholarships!(scholarships)
       schols_arr = Array(scholarships)
 
-      applicants = dummy_users
+      applicants = dummy_students
       unscored_applicants = applicants[0..2]
       scored_applicants = applicants[3..3]
       awarded_applicants = applicants[4..4]
@@ -24,8 +26,17 @@ module Providers
       end
     end
 
-    # list of dummy emails; can be used to identify and delete seed data from Org accounts
-    def self.dummy_emails
+    # list of dummy School names;
+    # Must be updated when legitimate School database is introduced
+    def self.dummy_school_names
+      [
+        BANNEKER_HIGH
+      ]
+    end
+
+    # list of dummy emails;
+    # can be used to identify and delete seed data from Org accounts
+    def self.dummy_student_emails
       [
         BRUCKER_EMAIL,
         ZGIBBONS_EMAIL,
@@ -35,20 +46,49 @@ module Providers
       ]
     end
 
-    def self.dummy_users
-      Student.where(email: dummy_emails)
+    def self.dummy_schools
+      School.where(name: dummy_school_names)
     end
 
-    def self.seed_dummy_users!
-      if (dummy_users.count == dummy_emails.length)
-        dummy_users.reload
+    def self.dummy_students
+      Student.where(email: dummy_student_emails)
+    end
+
+    def self.seed_dummy_schools!
+      if (dummy_schools.count == dummy_school_names.length)
+        dummy_schools.reload
       else
-        Student.create!(dummy_data)
+        School.create!(dummy_school_json)
       end
     end
 
+    def self.seed_dummy_users!
+      if (dummy_students.count == dummy_student_emails.length)
+        dummy_students.reload
+      else
+        Student.create!(dummy_student_json)
+      end
+    end
+
+    def self.seed_dummy_models!
+      seed_dummy_schools!
+      seed_dummy_users!
+    end
+
+    def self.dummy_school_json
+      [
+        {
+          name: BANNEKER_HIGH,
+          phone: '(202) 258-7168',
+          fax: '(202) 258-6230',
+        }
+      ]
+    end
+
     # provide array of standardized Student data to seed new Provider accounts with
-    def self.dummy_data
+    # @param takes optional ID of school to provide to dummy students
+    # HACK: insert the school ID at this level instead of passing it all the way down the chain for now
+    def self.dummy_student_json(school_id: dummy_schools.first.id)
       [
         {
           first_name: 'Brian',
@@ -60,6 +100,7 @@ module Providers
           password: SecureRandom.hex,
           role: :student,
           photo_url: '/assets/brucker.png',
+          school_id: school_id,
           activities_attributes: [
             {
               title: 'Debate Team',
@@ -116,6 +157,7 @@ module Providers
           password: SecureRandom.hex,
           role: :student,
           photo_url: '/assets/zgibbons.png',
+          school_id: school_id,
           activities_attributes: [
             {
               title: 'Student Newspaper',
@@ -150,6 +192,7 @@ module Providers
           password: SecureRandom.hex,
           role: :student,
           photo_url: '/assets/sstevens.png',
+          school_id: school_id,
           activities_attributes: [
             {
               title: 'Dance Club',
@@ -184,6 +227,7 @@ module Providers
           password: SecureRandom.hex,
           role: :student,
           photo_url: '/assets/drucker.png',
+          school_id: school_id,
           activities_attributes: [
             {
               title: 'Debate Team',
@@ -218,6 +262,7 @@ module Providers
           password: SecureRandom.hex,
           role: :student,
           photo_url: '/assets/cpiedra.png',
+          school_id: school_id,
           activities_attributes: [
             {
               title: 'International Club',
@@ -253,7 +298,7 @@ module Providers
 
     def self.update_dummy_users_in_db!
       Rails.logger.info("Updating dummy students!")
-      dummy_data.each do |dummy_json|
+      dummy_student_json.each do |dummy_json|
         Rails.logger.info("About to update dummy data for #{dummy_json[:email]}.")
         dummy_student = Student.find_by(email: dummy_json[:email])
 

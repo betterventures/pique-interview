@@ -11,7 +11,7 @@ class Providers::ScholarshipsController < ApplicationController
     @scholarship = Scholarship.create!(scholarship_params)
 
     # seed the scholarship with applicants on create
-    Providers::SeedApplicantsHelper.seed_dummy_users!
+    Providers::SeedApplicantsHelper.seed_dummy_models!
     Providers::SeedApplicantsHelper.apply_to_scholarships!(@scholarship)
 
     # redirect to the essay path after creating the general instructions

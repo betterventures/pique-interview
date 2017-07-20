@@ -6,6 +6,7 @@ class Student < User
     where(role: :student)
   }
 
+  belongs_to :school, optional: true
   has_many :parent_or_guardian_relationships,
             class_name: 'UserToStudentRelationship',
             dependent: :destroy,

@@ -10,7 +10,7 @@
 }
 
 .inner {
-  background: #fff;
+  background-color: #FAFAFA;
   border-radius: 7px;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
   height: 95%;
@@ -51,7 +51,12 @@
   composes: row;
   border: 1px solid #ECECEC;
   border-radius: 3px;
-  padding: 7px 28px;
+  height: 75px;
+}
+
+.innerrow {
+  margin: -2px 20px;
+  line-height: 75px;
 }
 
 .input {
@@ -66,7 +71,8 @@
 .sminput {
   composes: input;
   display: inline-block;
-  height: 35px;
+  font-size: 14px;
+  height: 40px;
   margin: 0 21px 0 14px;
   width: 18%;
 }
@@ -74,7 +80,8 @@
 .lginput {
   composes: input;
   display: inline-block;
-  height: 35px;
+  font-size: 14px;
+  height: 40px;
   margin: 0 21px 0 14px;
   width: 55%;
 }
@@ -91,13 +98,13 @@
   border: 0px solid #979797;
   border-radius: 5px;
   color: #fff;
-  font-size: 13px;
+  font-size: 14px;
   font-family: 'HelveticaNeue', Helvetica, sans-serif;
   font-weight: 100;
-  line-height: 27px;
+  height: 40px;
+  line-height: 37px;
   margin-left: 20px;
   margin-right: 4px;
-  padding: 10px 30px;
   text-decoration: none;
   width: 144px;
 }

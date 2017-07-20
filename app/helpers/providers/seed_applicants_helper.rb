@@ -83,6 +83,28 @@ module Providers
               description: 'I was elected Student Body President of the Class of 2017 by my peers!',
             },
           ],
+          parent_or_guardian_relationships_attributes: [
+            {
+              relationship_type: :mother,
+              parent_or_guardian_attributes: {
+                first_name: 'Tanya',
+                last_name: 'Rucker',
+                phone: '(202) 258-7563',
+                email: 'Tanya.Rucker@gmail.com',
+                password: SecureRandom.hex,
+              },
+            },
+            {
+              relationship_type: :father,
+              parent_or_guardian_attributes: {
+                first_name: 'Gregory',
+                last_name: 'Rucker',
+                phone: '(202) 635-2631',
+                email: 'Gregory.Rucker@gmail.com',
+                password: SecureRandom.hex,
+              },
+            },
+          ],
         },
         {
           first_name: 'Zakiya',
@@ -227,6 +249,23 @@ module Providers
 
     def random_email_for(name)
       "#{name}+#{SecureRandom.hex}@email.com"
+    end
+
+    def self.update_dummy_users_in_db!
+      Rails.logger.info("Updating dummy students!")
+      dummy_data.each do |dummy_json|
+        Rails.logger.info("About to update dummy data for #{dummy_json[:email]}.")
+        dummy_student = Student.find_by(email: dummy_json[:email])
+
+        if !dummy_student
+          Rails.logger.error("Unable to find dummy student #{dummy_json[:email]} to update!")
+          next
+        end
+
+        Rails.logger.info("About to update dummy student with email #{dummy_student.email}")
+        dummy_student.update_attributes!(dummy_json)
+        Rails.logger.info("Updated dummy student #{dummy_student.email}")
+      end
     end
   end
 end

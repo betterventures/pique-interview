@@ -10,7 +10,7 @@
 }
 
 .inner {
-  background-color: #FAFAFA;
+  background-color: #fff;
   border-radius: 7px;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
   height: 95%;
@@ -49,8 +49,8 @@
 
 .borderrow {
   composes: row;
-  background-image: radial-gradient(50% 0%, #FAFAFA 0%, #EDEFF9 100%);
-  border: 1px solid #d3d3d3;
+  background-color: #FAFAFA;
+  border: 1px solid #ececec;
   border-radius: 3px;
   height: 75px;
 }
@@ -61,8 +61,8 @@
 }
 
 .input {
-  background-color: #FAFAFA;
-  border: 1px solid #d3d3d3;
+  background-color: #fff;
+  border: 1px solid #ece;
   border-radius: 3px;
   box-sizing: border-box;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;

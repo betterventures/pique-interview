@@ -54,6 +54,18 @@ module Providers
       Student.where(email: dummy_student_emails)
     end
 
+    # entry point - called publicly
+    # composite methods return early - we only want to validate that the records exist -
+    # we do not want to update them every time we check for seeds
+    # (eg, currently, when an application is created)
+    # @return {Array} list of the dummy Students
+    def self.seed_dummy_models!
+      seed_dummy_schools!
+      seed_dummy_users!
+    end
+
+    private
+
     def self.seed_dummy_schools!
       if (dummy_schools.count == dummy_school_names.length)
         dummy_schools.reload
@@ -68,11 +80,6 @@ module Providers
       else
         Student.create!(dummy_student_json)
       end
-    end
-
-    def self.seed_dummy_models!
-      seed_dummy_schools!
-      seed_dummy_users!
     end
 
     def self.dummy_school_json
@@ -344,8 +351,6 @@ module Providers
         },
       ]
     end
-
-    private
 
     def random_email_for(name)
       "#{name}+#{SecureRandom.hex}@email.com"

@@ -31,9 +31,7 @@ class Student < User
 
   # student nested attrs - eg Activities
   accepts_nested_attributes_for :activities,
-                                reject_if: ->(attrs) {
-                                  attrs['title'].nil?
-                                },
+                                reject_if: :validate_and_fire_activities_update_hook!,
                                 allow_destroy: true
   accepts_nested_attributes_for :parent_or_guardian_relationships,
                                 reject_if: :validate_and_fire_parent_or_guardian_update_hook!,
@@ -91,12 +89,12 @@ class Student < User
     !UserToStudentRelationship.relationship_types.keys.include?(
       attrs['relationship_type'].to_s
     ) ||
-    update_parent_or_guardian_if_exists?(attrs)
+    update_parent_or_guardian_if_exists?(attrs['parent_or_guardian_attributes'])
   end
 
   def update_parent_or_guardian_if_exists?(attrs)
     desired_parent_or_guardian = ParentOrGuardian.find_by(
-      email: attrs['parent_or_guardian_attributes']['email'].downcase
+      email: attrs['email'].downcase
     )
 
     # proceed with creation via nested_attrs if parent_or_guardian does not yet exist
@@ -108,7 +106,7 @@ class Student < User
     end
 
     # updated and save any new relations if exists
-    desired_parent_or_guardian.update_attributes!(attrs['parent_or_guardian_attributes'])
+    desired_parent_or_guardian.update_attributes!(attrs)
   end
 
   def validate_and_fire_counselor_update_hook!(attrs)
@@ -117,12 +115,12 @@ class Student < User
     !UserToStudentRelationship.relationship_types.keys.include?(
       attrs['relationship_type'].to_s
     ) ||
-    update_counselor_if_exists?(attrs)
+    update_counselor_if_exists?(attrs['counselor_attributes'])
   end
 
   def update_counselor_if_exists?(attrs)
     desired_counselor = Counselor.find_by(
-      email: attrs['counselor_attributes']['email'].downcase
+      email: attrs['email'].downcase
     )
 
     # proceed with creation via nested_attrs if counselor does not yet exist
@@ -134,6 +132,29 @@ class Student < User
     end
 
     # updated and save any new relations if exists
-    desired_counselor.update_attributes!(attrs['counselor_attributes'])
+    desired_counselor.update_attributes!(attrs)
   end
+
+  # it occurs that an alternative way to update these nested models for the dummy students
+  # - for now - is to trash the relations before regenerating them.
+  # Of course this would not work for eg assigning a counselor to multiple students
+  # (since we still want to search the global namespace for the right counselor),
+  # but it would work for Activities. Ah well. This is probably better.
+  def validate_and_fire_activities_update_hook!(attrs)
+    attrs['title'].nil? ||
+    attrs['title'].empty? ||
+    update_activity_if_exists_on_student?(attrs)
+  end
+
+  # match any existing activities the student has
+  def update_activity_if_exists_on_student?(attrs)
+    desired_activity = self.activities.find_by(title: attrs['title'])
+
+    # proceed with creation if activity does not yet exist on student
+    return false if !desired_activity
+
+    # update the activity if it exists on the student
+    desired_activity.update_attributes!(attrs)
+  end
+
 end

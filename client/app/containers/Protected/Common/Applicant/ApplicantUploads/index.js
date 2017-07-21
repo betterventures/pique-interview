@@ -4,6 +4,7 @@ import Book from 'components/Icons/Book'
 import ApplicantAbout from './About'
 import ApplicantQuestions from './Questions'
 import ApplicantDocuments from './Documents'
+import ApplicantContact from './Contact'
 import css from './style.css'
 
 export const ApplicantUploads = props => {
@@ -16,6 +17,7 @@ export const ApplicantUploads = props => {
         essays={essays}
         recommendations={recommendations}
         documents={transcripts} />
+      <ApplicantContact {...props} />
     </div>
   )
 }

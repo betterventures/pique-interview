@@ -1,0 +1,76 @@
+.root {
+
+}
+
+.header {
+  composes: header from '../../style.css';
+}
+
+.box {
+  composes: box from '../../style.css';
+  padding: 0 50px;
+}
+
+
+.copy {
+  composes: copy from '../../style.css';
+}
+
+.placeholder {
+  composes: placeholder from '../../style.css';
+}
+
+.section {
+  padding: 40px 0 40px;
+  border-bottom: 1px solid #EFEFEF;
+}
+
+.title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 19px;
+  color: #2B2A2A;
+  margin-bottom: 20px;
+}
+
+.icon {
+  margin-right: 20px;
+}
+
+.add {
+  cursor: pointer;
+  display: none;
+}
+
+.flexrow {
+  display: flex;
+  flex-flow: row wrap;
+  height: 24px;
+  line-height: 36px;
+}
+
+.flexcolwrapper {
+  display: flex;
+  flex-flow: row wrap;
+  height: 100%;
+}
+
+.flexcol {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 41%;
+  height: 100%;
+  line-height: 36px;
+}
+
+.flexitem {
+  display: flex;
+  flex: 0 0 33%;
+}
+
+.lineitem {
+  font-size: 13px;
+}
+

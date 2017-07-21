@@ -58,12 +58,18 @@ class Student < User
       name: name,
       description: tagline,
       gpa: gpa_string,
+      email: email,
+      phone: phone,
       image: photo_url,
+      street: '646 Franklin St. NE',
       city: 'Washington',
       state: 'D.C.',
       highSchool: 'Benjamin Banneker HS',
       type: role,
       activities: activities.map(&:to_json),
+      parent_or_guardian_relationships: parent_or_guardian_relationships.map(&:to_json),
+      counselor_relationships: counselor_relationships.map(&:to_json),
+      school: school,
     }
   end
 

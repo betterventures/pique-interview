@@ -32,7 +32,35 @@ class UserToStudentRelationship < ApplicationRecord
                                 },
                                 allow_destroy: true
 
+  def to_json(options={})
+    super(
+      nested_options
+        .merge(options)
+    )
+  end
+  def as_json(options={})
+    super(
+      nested_options
+        .merge(options)
+    )
+  end
+
   private
+
+  def nested_options
+    {
+      only: [:id, :student_id, :relationship_type],
+      include: {
+        parent_or_guardian: {
+          only: [:id, :first_name, :last_name, :phone, :email],
+        },
+        counselor: {
+          only: [:id, :first_name, :last_name, :email],
+        }
+      },
+      methods: {},
+    }
+  end
 
   def expect_either_parent_or_counselor!
     unless parent_or_guardian.present? || counselor.present?

@@ -146,6 +146,17 @@ module Providers
               },
             },
           ],
+          counselor_relationships_attributes: [
+            {
+              relationship_type: :counselor,
+              counselor_attributes: {
+                first_name: 'Anthony',
+                last_name: 'Romero',
+                email: 'Anthony.Romero@gmail.com',
+                password: SecureRandom.hex,
+              },
+            },
+          ],
         },
         {
           first_name: 'Zakiya',
@@ -179,6 +190,17 @@ module Providers
               start_date: '06/2016',
               end_date: '09/2017',
               description: 'I was one of three students in the DC Metro area to be selected for a prestigious internship at the national newspaper, the Washington Post.',
+            },
+          ],
+          counselor_relationships_attributes: [
+            {
+              relationship_type: :counselor,
+              counselor_attributes: {
+                first_name: 'Anthony',
+                last_name: 'Romero',
+                email: 'Anthony.Romero@gmail.com',
+                password: SecureRandom.hex,
+              },
             },
           ],
         },
@@ -216,6 +238,17 @@ module Providers
               description: 'I was one of three students in the DC Metro area to be selected for a prestigious internship at the national newspaper, the Washington Post.',
             },
           ],
+          counselor_relationships_attributes: [
+            {
+              relationship_type: :counselor,
+              counselor_attributes: {
+                first_name: 'Anthony',
+                last_name: 'Romero',
+                email: 'Anthony.Romero@gmail.com',
+                password: SecureRandom.hex,
+              },
+            },
+          ],
         },
         {
           first_name: "D'Angelo",
@@ -251,6 +284,17 @@ module Providers
               description: 'As President of the Student Government, I focused on fundraising and community service, donating over $10,000 to effective charities by the end of the year.',
             },
           ],
+          counselor_relationships_attributes: [
+            {
+              relationship_type: :counselor,
+              counselor_attributes: {
+                first_name: 'Anthony',
+                last_name: 'Romero',
+                email: 'Anthony.Romero@gmail.com',
+                password: SecureRandom.hex,
+              },
+            },
+          ],
         },
         {
           first_name: "Carla",
@@ -284,6 +328,17 @@ module Providers
               start_date: '06/2016',
               end_date: '09/2017',
               description: 'As Treasurer for the Student Government, I reduced cost for our annual Formal and Prom by $5000 for the previous year, while accomodating 200 more students and securing a newer, larger venue for the Class of 2017.',
+            },
+          ],
+          counselor_relationships_attributes: [
+            {
+              relationship_type: :counselor,
+              counselor_attributes: {
+                first_name: 'Anthony',
+                last_name: 'Romero',
+                email: 'Anthony.Romero@gmail.com',
+                password: SecureRandom.hex,
+              },
             },
           ],
         },

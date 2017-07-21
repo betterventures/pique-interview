@@ -3,7 +3,10 @@ class UserToStudentRelationship < ApplicationRecord
   # we allow this class to belong to both :parent_or_guardian and :counselor,
   # allow optionality, and back ourselves up with a custom validation
   belongs_to :student, inverse_of: :parent_or_guardian_relationships
-  belongs_to :counselor, optional: true
+
+  # can use the same inverse_of :name,
+  # as the method is looked for on the referenced class
+  belongs_to :counselor, optional: true, inverse_of: :student_relationships
   belongs_to :parent_or_guardian, optional: true, inverse_of: :student_relationships
 
   validate :expect_either_parent_or_counselor!, on: :create
@@ -17,6 +20,12 @@ class UserToStudentRelationship < ApplicationRecord
   }
 
   accepts_nested_attributes_for :parent_or_guardian,
+                                reject_if: ->(attrs) {
+                                  attrs['email'].nil? ||
+                                  attrs['email'].empty?
+                                },
+                                allow_destroy: true
+  accepts_nested_attributes_for :counselor,
                                 reject_if: ->(attrs) {
                                   attrs['email'].nil? ||
                                   attrs['email'].empty?

@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import DocumentPiqueTags from 'components/Icons/DocumentPiqueTags'
 import Fax from 'components/Icons/Fax'
 import GradCap from 'components/Icons/GradCap'
 import Home from 'components/Icons/Home'
 import Mail from 'components/Icons/Mail'
 import Phone from 'components/Icons/Phone'
+import PriceTag from 'components/Icons/PriceTag'
 import User from 'components/Icons/User'
 import Users from 'components/Icons/Users'
 import css from './style.css'
@@ -34,12 +34,12 @@ export const ApplicantContact = ({ email, phone, street, city, state, parent_or_
 
   return (
     <div className={css.root}>
-      <div className={css.header}>Application Documents</div>
+      <div className={css.header}>Contact Info</div>
       <div className={css.box}>
 
         <div className={css.section}>
           <div className={css.title}>
-            <DocumentPiqueTags className={css.icon} />
+            <PriceTag className={css.icon} />
             <span className={css.text}>Applicant's Contact Info</span>
           </div>
           <div className={css.flexrow}>
@@ -67,7 +67,7 @@ export const ApplicantContact = ({ email, phone, street, city, state, parent_or_
 
         <div className={css.section}>
           <div className={css.title}>
-            <DocumentPiqueTags className={css.icon} />
+            <PriceTag className={css.icon} />
             <span className={css.text}>Parent(s)'/Guardian's Contact Info</span>
           </div>
           <div className={css.flexcolwrapper}>
@@ -106,7 +106,7 @@ export const ApplicantContact = ({ email, phone, street, city, state, parent_or_
 
         <div className={css.section}>
           <div className={css.title}>
-            <DocumentPiqueTags className={css.icon} />
+            <PriceTag className={css.icon} />
             <span className={css.text}>High School Contact Info</span>
           </div>
           <div className={css.flexcolwrapper}>

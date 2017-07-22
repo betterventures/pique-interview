@@ -95,6 +95,6 @@ ReactOnRails.configure do |config|
   # And you will use a setting like this.
   #
   # Symlink all image files, and *-bundle.js files
-  config.symlink_non_digested_assets_regex = /\d+-bundle\.js|\.(png|jpg|jpeg|gif|tiff|woff|ttf|eot|svg|map)/
+  config.symlink_non_digested_assets_regex = /\d+-bundle\.js|.*\.(png|jpg|jpeg|gif|tiff|woff|ttf|eot|svg|map)/
 
 end

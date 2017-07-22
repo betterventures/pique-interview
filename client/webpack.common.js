@@ -6,7 +6,26 @@ const assetLoaderRules = [
     use: 'file-loader',
   },
   {
-    test: /(bg_|bg-).*\.(jpe?g|png|gif|ico)$/,
+    test: /(bg_|bg-).*\.(ttf|eot)$/,
+    use: {
+      loader: 'file-loader',
+      options: {
+        name: 'images/[hash].[ext]',
+      }
+    },
+  },
+  {
+    test: /^((?!(bg_|bg-)).)*\.(ttf|eot)$/,
+    use: {
+      loader: 'file-loader',
+      options: {
+        publicPath: 'assets/',
+        name: 'images/[hash].[ext]',
+      }
+    },
+  },
+  {
+    test: /(bg_|bg-).*\.(jpe?g|png|gif|ico|svg)$/,
     use: {
       loader: 'url-loader',
       options: {
@@ -16,7 +35,7 @@ const assetLoaderRules = [
     },
   },
   {
-    test: /^((?!(bg_|bg-)).)*\.(jpe?g|png|gif|ico|woff)$/,
+    test: /^((?!(bg_|bg-)).)*\.(jpe?g|png|gif|ico|woff|svg)$/,
     use: {
       loader: 'url-loader',
       options: {
@@ -24,25 +43,6 @@ const assetLoaderRules = [
         publicPath: 'assets/',
         name: 'images/[hash].[ext]',
       },
-    },
-  },
-  {
-    test: /(bg_|bg-).*\.(ttf|eot|svg)$/,
-    use: {
-      loader: 'file-loader',
-      options: {
-        name: 'images/[hash].[ext]',
-      }
-    },
-  },
-  {
-    test: /^((?!(bg_|bg-)).)*\.(ttf|eot|svg)$/,
-    use: {
-      loader: 'file-loader',
-      options: {
-        publicPath: 'assets/',
-        name: 'images/[hash].[ext]',
-      }
     },
   },
 ];

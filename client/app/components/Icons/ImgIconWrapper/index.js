@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import css from './style.css'
 
 export class ImgIconWrapper extends Component {
   constructor(props) {
@@ -18,12 +19,14 @@ export class ImgIconWrapper extends Component {
   render() {
     const { className, style, src, fallbackSrc } = this.props
     return (
-      <img
-        className={className}
-        style={style}
-        src={this.state.src}
-        onError={ this.replaceWithFallbackSrc }
-      />
+      <span className={css.wrapper}>
+        <img
+          className={className}
+          style={style}
+          src={this.state.src}
+          onError={ this.replaceWithFallbackSrc }
+        />
+      </span>
     )
   }
 }

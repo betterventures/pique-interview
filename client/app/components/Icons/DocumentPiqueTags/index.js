@@ -8,8 +8,8 @@ export const PiqueTagsDocument = ({ className, style }) => {
     <ImgIconWrapper
       className={className}
       style={style}
-      src={svg}
-      fallbackSrc={png}
+      src={png}
+      fallbackSrc={svg}
     />
   )
 }

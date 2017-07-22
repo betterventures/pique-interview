@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="20px" viewBox="0 0 21 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>graduation-cap</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Student-Profile" transform="translate(-426.000000, -318.000000)">
+            <g id="Group-9" transform="translate(0.000000, 60.000000)">
+                <g id="Group-28" transform="translate(426.000000, 252.000000)">
+                    <image id="graduation-cap" x="0" y="6.25" width="21" height="18.375" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAA4CAYAAABNGP5yAAAABGdBTUEAA1teXP8meAAABkdJREFUaAXtm9tP3EUUx3e5FqRNCJcmBIhKBRIIFNqUtlTRmvSppkkfjPqmvhhj6kOrf4U+SLTxRR+1Gn2yT01bJWGhNC03IQJtYwSElAVptOV+8fNd99fM/rq7/PbXXRaXneR0Zs5czjnfOTM7c/jV69nGVF9fX5GRkdHq9XpbyY8j+gC0Cd3Z2NjoWl9f9z148MA3OTn553ap5U2goMzGxsYG5m8VBQ2vcCJvc3PzD8gHKL6lpSXf2NjYr4zbcDI21j5xA6CmpmZvfn5+C6soY0+gSAv53lgVCtcfIP6B3y1QVldXfX6/vwd6GK5vrDzXAJjuLJeGGqDMWBVw0x8g1hk3IA8h9wmYwcHBSTdzOQXAtTubSqHwMvVbUlrKLywsdKsdzzmmLUJRdJhyrvixJEAYFxA6RzIzM339/f3aNgIqagoLQBzdeRaluqQQWvhukcgFQrSUe5hEh1ZtJ7xKh2VxtAHh2oLb5oaAlnzA7hkdHdVWCkkmADkcWq8j8D3oqBt3Rtgo4x4fXggcDZHmssKC1OzZsydwkAKo8ppYp2LcOnQD+nJgYOB7xq9ojgAAtbW1RXl5eT+h/DGnE2NsiDvPzs52TU1NzTod/zT9ysrKiknH3W4bQOheXFx8bWRkZE4AZDQ1Nd3E+ENbKOXGnbeYMm7NMW8bQLjd19d3xIvbv80e+dquSqLc2S4nUXUn24Yz5h3vwYMHr+NKr1iKYHjH2trau0NDQ/csXirk/GxXZWVlfYWtbZY92PpzBpV6i6F8eXn5g1QzXnbJJtmmspHqBcCuTgJgyEQgNzf3c7mLyUuFsmySbTZbhtKHIIjs7p9BucRuvwhZ22L3XoUtBKxcjyHu3roWn+CGKGqB8q32GHI3t8eYb3Xh9OGmtwD1QJ20dxJY6d7qMRRuHouX1dzcvGpV3Ob290M8n8N2nXp7e7Phrdn59nqWnRGh/sREKysrlXqM4BkWbRkQob/e+VaIzLNv374I4qKzWVW97AahQDAEYH05OTnjtlEhOtfV1Z3gJvip+nDTPT88PCzP8DgFQH1DEjerCRiXguQpKSkpKC8vPxoMicnIoxgcz5BYD4Z2Rnrb46Eh+tkrMp6xR4J8AdGismsAghM9zhSjg67CECll8M5oECAItryk8r+m6P+yshNaVXoFiPf7IOUtozvRZjWM95jluAEQRvgGYal++KIv1N7Q0FCuLUNRb3lFel6A9CS/i8FdcmkZHvQu2IlPiQTgCe2DgcvvaBDtiJR+DO2IZUiiEmkPSCL4O0J02gN2xDIkUYm0ByQR/B0hOu0BO2IZkqhE2gOcgs8j5S+zL39SO23Wk1m262LXNZpujj2Al9pdcyJedZ/xV1o3YTJzmqcuSwfpYk5k19Vss5cdA4CQH8zBPGefLy0tHQb9syZ/O8uSLR2kiynXrqvZZi87BmB6evoirjVjToDgZwku/Mif16+hTJPZlsiyZEmmZEsHU5Z0lK4mL1rZcTzg/v37j/bv33+Gya4i9BlzUhA/iTK9KKVIzhWiQFeIu13TBwhmP7dl/d2CkNaryDiF7FPIqwg3F7IfQWekq70dnW4yPhASU9lqD3whYlWc5AQXT2ZnZ19CkZJo/VFkA0V76XMbgbPkfsYoTC7yizc/Py++p7CwsBjliulfAhUzVN8ElYhHfoj+zYyN6q2M8fMJ3RsEO69rTnuKFBSNGQBNrE9U2Hvt6PSmXVAy6hj/7czMzDk3n+i4AsAykhhfMyv2PkC8RZ5n8bcjxysWMfwb8ouE2uRprtJTAWBJrKysLCwqKjqNQm2A0QYYB6y2eOYYq+BpBzI65ubmLo+Pj887nZ/Feo5x7erPHOcA7XeV4wKAJjJTRUVFGfu6SvsZ0lkR2NPK7fXguMAZQTlwPiiH/FYdw3Ve3JuYmJiC5yblcEAPWwsDAHcIWNcx0WpCAHCjYSLHYPx5jP/ElAGoH/KVWHvUk9Uc8H8uY+xHYfS/IF7Ke0B1dXVtQUHBb2EA8PCzWZXyHsCH2C+FM148DsWXUx4A7HwxEgCcC20pDwBGRvSAXQEAq68PJSKlnJT3AF2cIlnPr8MvKQ8Aj66PASEkmiVA4Pm5TV7Ylv/jE2kFtoPPI+lvHm56M5Sx54uQ+ZDyZYw/q5vlv4mabYm/ZDtiAAAAAElFTkSuQmCC"></image>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

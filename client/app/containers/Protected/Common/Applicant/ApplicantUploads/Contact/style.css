@@ -47,8 +47,6 @@
 .flexrow {
   display: flex;
   flex-flow: row wrap;
-  height: 24px;
-  line-height: 36px;
 }
 
 .flexcolwrapper {
@@ -62,15 +60,17 @@
   flex-flow: column nowrap;
   flex: 1 1 41%;
   height: 100%;
-  line-height: 36px;
 }
 
 .flexitem {
   display: flex;
   flex: 0 0 33%;
+  line-height: 36px;
+  align-items: center;
 }
 
 .lineitem {
   font-size: 13px;
+  height: 32px;
 }
 

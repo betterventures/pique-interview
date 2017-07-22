@@ -1,5 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import DocumentPiqueTags from 'components/Icons/DocumentPiqueTags'
+import Fax from 'components/Icons/Fax'
+import GradCap from 'components/Icons/GradCap'
+import Home from 'components/Icons/Home'
+import Mail from 'components/Icons/Mail'
+import Phone from 'components/Icons/Phone'
+import User from 'components/Icons/User'
+import Users from 'components/Icons/Users'
 import css from './style.css'
 
 function capitalize(word) {
@@ -31,30 +39,24 @@ export const ApplicantContact = ({ email, phone, street, city, state, parent_or_
 
         <div className={css.section}>
           <div className={css.title}>
-            <img className={css.icon} src="" />
+            <DocumentPiqueTags className={css.icon} />
             <span className={css.text}>Applicant's Contact Info</span>
           </div>
           <div className={css.flexrow}>
             <div className={css.flexitem}>
-              <span className={css.icon}>
-                A
-              </span>
+              <Mail className={css.icon} />
               <span className={css.lineitem}>
                 { capitalizeEmail(email) }
               </span>
             </div>
             <div className={css.flexitem}>
-              <span className={css.icon}>
-                B
-              </span>
+              <Phone className={css.icon} />
               <span className={css.lineitem}>
                 { phone }
               </span>
             </div>
             <div className={css.flexitem}>
-              <span className={css.icon}>
-                C
-              </span>
+              <Home className={css.icon} />
               <span className={css.lineitem}>
                 { street }
               </span>
@@ -65,7 +67,7 @@ export const ApplicantContact = ({ email, phone, street, city, state, parent_or_
 
         <div className={css.section}>
           <div className={css.title}>
-            <img className={css.icon} src="" />
+            <DocumentPiqueTags className={css.icon} />
             <span className={css.text}>Parent(s)'/Guardian's Contact Info</span>
           </div>
           <div className={css.flexcolwrapper}>
@@ -73,33 +75,25 @@ export const ApplicantContact = ({ email, phone, street, city, state, parent_or_
               parentOrGuardianRelationships.map((rel, i) =>
                 <div className={css.flexcol} key={i}>
                   <div className={css.flexitem}>
-                    <span className={css.icon}>
-                      { rel.id }
-                    </span>
+                    <User className={css.icon} />
                     <span className={css.lineitem}>
                       { rel.parent_or_guardian && (rel.parent_or_guardian.first_name + ' ' + rel.parent_or_guardian.last_name) }
                     </span>
                   </div>
                   <div className={css.flexitem}>
-                    <span className={css.icon}>
-                      { rel.id }
-                    </span>
+                    <Users className={css.icon} />
                     <span className={css.lineitem}>
                       { capitalize(rel.relationship_type) }
                     </span>
                   </div>
                   <div className={css.flexitem}>
-                    <span className={css.icon}>
-                      { rel.id }
-                    </span>
+                    <Phone className={css.icon} />
                     <span className={css.lineitem}>
                       { rel.parent_or_guardian && rel.parent_or_guardian.phone }
                     </span>
                   </div>
                   <div className={css.flexitem}>
-                    <span className={css.icon}>
-                      { rel.id }
-                    </span>
+                    <Mail className={css.icon} />
                     <span className={css.lineitem}>
                       { capitalizeEmail(rel.parent_or_guardian && rel.parent_or_guardian.email) }
                     </span>
@@ -112,7 +106,7 @@ export const ApplicantContact = ({ email, phone, street, city, state, parent_or_
 
         <div className={css.section}>
           <div className={css.title}>
-            <img className={css.icon} src="" />
+            <DocumentPiqueTags className={css.icon} />
             <span className={css.text}>High School Contact Info</span>
           </div>
           <div className={css.flexcolwrapper}>
@@ -120,25 +114,19 @@ export const ApplicantContact = ({ email, phone, street, city, state, parent_or_
                 ?
                   <div className={css.flexcol}>
                     <div className={css.flexitem}>
-                      <span className={css.icon}>
-                        { school.id }
-                      </span>
+                      <GradCap className={css.icon} />
                       <span className={css.lineitem}>
                         { school.name }
                       </span>
                     </div>
                     <div className={css.flexitem}>
-                      <span className={css.icon}>
-                        { school.id }
-                      </span>
+                      <Phone className={css.icon} />
                       <span className={css.lineitem}>
                         { school.phone }
                       </span>
                     </div>
                     <div className={css.flexitem}>
-                      <span className={css.icon}>
-                        { school.id }
-                      </span>
+                      <Fax className={css.icon} />
                       <span className={css.lineitem}>
                         { school.fax }
                       </span>
@@ -157,25 +145,19 @@ export const ApplicantContact = ({ email, phone, street, city, state, parent_or_
               counselorRelationships.map((rel, i) =>
                 <div className={css.flexcol} key={i}>
                   <div className={css.flexitem}>
-                    <span className={css.icon}>
-                      { rel.id }
-                    </span>
+                    <User className={css.icon} />
                     <span className={css.lineitem}>
                       { rel.counselor && (rel.counselor.first_name + ' ' + rel.counselor.last_name) }
                     </span>
                   </div>
                   <div className={css.flexitem}>
-                    <span className={css.icon}>
-                      { rel.id }
-                    </span>
+                    <Users className={css.icon} />
                     <span className={css.lineitem}>
                       { capitalize(rel.relationship_type) }
                     </span>
                   </div>
                   <div className={css.flexitem}>
-                    <span className={css.icon}>
-                      { rel.id }
-                    </span>
+                    <Mail className={css.icon} />
                     <span className={css.lineitem}>
                       { capitalizeEmail(rel.counselor && rel.counselor.email) }
                     </span>

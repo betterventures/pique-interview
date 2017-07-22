@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="38px" viewBox="0 0 32 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 50</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="91.276538%" y1="22.65744%" x2="4.09348047%" y2="98.164334%" id="linearGradient-1">
+            <stop stop-color="#1780FF" stop-opacity="0.8" offset="0%"></stop>
+            <stop stop-color="#12A0C7" stop-opacity="0.8" offset="26.0342285%"></stop>
+            <stop stop-color="#05FA28" stop-opacity="0.8" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Student-Profile" transform="translate(-145.000000, -646.000000)">
+            <g id="Group-5" transform="translate(97.000000, 387.000000)">
+                <g id="Group-6">
+                    <g id="Group-4-Copy-2">
+                        <g id="Group-37">
+                            <g id="Group-7">
+                                <g id="Group-12">
+                                    <g id="Group-10">
+                                        <g id="Group-49" transform="translate(48.574969, 259.000000)">
+                                            <g id="Group-50">
+                                                <g id="Group-47">
+                                                    <g id="Group-48">
+                                                        <g id="Group-45">
+                                                            <g id="Group-46">
+                                                                <polygon id="Rectangle-6" fill="#EFEBDE" points="0 0 30 0 30 38 0 38"></polygon>
+                                                                <rect id="Rectangle-8" fill="#FFFFFF" x="20.3548387" y="0" width="10.6451613" height="10"></rect>
+                                                            </g>
+                                                        </g>
+                                                        <polygon id="Rectangle-9" fill="#CEC9AE" points="20 0 25.5 5 31 10 20 10"></polygon>
+                                                    </g>
+                                                </g>
+                                                <g id="Group-44" transform="translate(1.000000, 10.000000)">
+                                                    <path d="M11.125,3 L16.0239379,3 L22,3 L22,3 C22.5522847,3 23,3.44771525 23,4 L23,4.25 L23,4.25 C23,4.80228475 22.5522847,5.25 22,5.25 L11,5.25 L11,5.25 C10.4477153,5.25 10,4.80228475 10,4.25 L10,4.125 L10,4.125 C10,3.50367966 10.5036797,3 11.125,3 Z" id="Rectangle-3" fill="url(#linearGradient-1)"></path>
+                                                    <image id="favorite" x="0" y="0" width="8" height="8" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAA1teXP8meAAAAWBJREFUOBGFUz1LA0EQfXsmQuwtEos0CpJKUQKm9eOE/IDEJhz4B/IjAqnttfYfKIhglyJR7JSkClhcETuDhV4c3+1lTdbcXRaGmZ335u0wuwsRQaK9uHl5RD4RZ20GaSvz04ajCV4SLYLj0P7JPiANCBp4VozjV7KAwgVLlDbRcaxCvMDgqA4llbmKCruoz+3/QhUOCK+neWQnZbZchih6hMVrmvVxb8ifDDq0LufSxYS2J76S/vElTzs3rAU/E1iAOJ8rB8F3k0hvEV2a6SGHpoPSwxgqW+W4BktLDEHIVaiiJONoiJs3IwQZl7hvOCnexwpc7Moo5MxuYft2yH07TKYuRc6ODA1nJqAzat0AKd7i/BOQjZTCCBJYHPsvCAr67UXULz7Ea70XnDG1OhUvTL12dgeOVn8n0kI2KGLrzuOwPD6aIu+8xXyIWR3YX7l/WJO3g1zi9+0gJ0+ozeO/K5anmucRSIQAAAAASUVORK5CYII="></image>
+                                                </g>
+                                                <g id="Group-44" transform="translate(1.000000, 19.000000)">
+                                                    <path d="M11.125,3 L16.0239379,3 L22,3 L22,3 C22.5522847,3 23,3.44771525 23,4 L23,4.25 L23,4.25 C23,4.80228475 22.5522847,5.25 22,5.25 L11,5.25 L11,5.25 C10.4477153,5.25 10,4.80228475 10,4.25 L10,4.125 L10,4.125 C10,3.50367966 10.5036797,3 11.125,3 Z" id="Rectangle-3" fill="url(#linearGradient-1)"></path>
+                                                    <image id="favorite" x="0" y="0" width="8" height="8" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAA1teXP8meAAAAWBJREFUOBGFUz1LA0EQfXsmQuwtEos0CpJKUQKm9eOE/IDEJhz4B/IjAqnttfYfKIhglyJR7JSkClhcETuDhV4c3+1lTdbcXRaGmZ335u0wuwsRQaK9uHl5RD4RZ20GaSvz04ajCV4SLYLj0P7JPiANCBp4VozjV7KAwgVLlDbRcaxCvMDgqA4llbmKCruoz+3/QhUOCK+neWQnZbZchih6hMVrmvVxb8ifDDq0LufSxYS2J76S/vElTzs3rAU/E1iAOJ8rB8F3k0hvEV2a6SGHpoPSwxgqW+W4BktLDEHIVaiiJONoiJs3IwQZl7hvOCnexwpc7Moo5MxuYft2yH07TKYuRc6ODA1nJqAzat0AKd7i/BOQjZTCCBJYHPsvCAr67UXULz7Ea70XnDG1OhUvTL12dgeOVn8n0kI2KGLrzuOwPD6aIu+8xXyIWR3YX7l/WJO3g1zi9+0gJ0+ozeO/K5anmucRSIQAAAAASUVORK5CYII="></image>
+                                                </g>
+                                                <g id="Group-44" transform="translate(1.000000, 28.000000)">
+                                                    <path d="M11.125,3 L16.0239379,3 L22,3 L22,3 C22.5522847,3 23,3.44771525 23,4 L23,4.25 L23,4.25 C23,4.80228475 22.5522847,5.25 22,5.25 L11,5.25 L11,5.25 C10.4477153,5.25 10,4.80228475 10,4.25 L10,4.125 L10,4.125 C10,3.50367966 10.5036797,3 11.125,3 Z" id="Rectangle-3" fill="url(#linearGradient-1)"></path>
+                                                    <image id="favorite" x="0" y="0" width="8" height="8" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAA1teXP8meAAAAWBJREFUOBGFUz1LA0EQfXsmQuwtEos0CpJKUQKm9eOE/IDEJhz4B/IjAqnttfYfKIhglyJR7JSkClhcETuDhV4c3+1lTdbcXRaGmZ335u0wuwsRQaK9uHl5RD4RZ20GaSvz04ajCV4SLYLj0P7JPiANCBp4VozjV7KAwgVLlDbRcaxCvMDgqA4llbmKCruoz+3/QhUOCK+neWQnZbZchih6hMVrmvVxb8ifDDq0LufSxYS2J76S/vElTzs3rAU/E1iAOJ8rB8F3k0hvEV2a6SGHpoPSwxgqW+W4BktLDEHIVaiiJONoiJs3IwQZl7hvOCnexwpc7Moo5MxuYft2yH07TKYuRc6ODA1nJqAzat0AKd7i/BOQjZTCCBJYHPsvCAr67UXULz7Ea70XnDG1OhUvTL12dgeOVn8n0kI2KGLrzuOwPD6aIu+8xXyIWR3YX7l/WJO3g1zi9+0gJ0+ozeO/K5anmucRSIQAAAAASUVORK5CYII="></image>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

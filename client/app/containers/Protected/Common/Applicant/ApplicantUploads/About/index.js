@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Page from 'components/Icons/Page'
-import activityImg from './activities.png'
+import StarredLinedDocument from 'components/Icons/StarredLinedDocument'
 import css from './style.css'
 
 export const ApplicantAbout = ({ intro, description, activities=[] }) => {
@@ -23,7 +23,7 @@ export const ApplicantAbout = ({ intro, description, activities=[] }) => {
 
         <div className={css.section}>
           <div className={css.title}>
-            <img className={css.icon} src={activityImg} />
+            <StarredLinedDocument className={css.icon} />
             <span className={css.text}>Activities</span>
           </div>
           {applicantActivities.map((x, i) =>

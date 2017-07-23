@@ -178,8 +178,10 @@ const appReducer = (state={ applicants, scholarships }, action) => {
                             newAddScoreCardFieldState.scholarships['all'][0].score_card.score_card_fields)
       addScoreCardFields = addScoreCardFields || []
       addScoreCardFields.push({
-      ...action.payload
+        ...action.payload
       })
+
+      // Return the full Scholarship with the new ScoreCard
       return newAddScoreCardFieldState
 
     // Update the specified scholarship with the specified payload

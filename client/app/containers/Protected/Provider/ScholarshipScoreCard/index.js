@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ScoreCard from './ScoreCard'
-import { addScoreCardField } from 'api/actions'
+import { saveNewFieldToScoreCard, saveAndUpdateScholarship } from 'api/actions'
 import css from './style.css'
 
 export class ScholarshipScoreCard extends Component {
@@ -44,9 +44,6 @@ export class ScholarshipScoreCard extends Component {
       failedValidation.push('a number for Possible Score')
     }
 
-    console.log("VALIDATING")
-    console.log(this.state.invalidAttrs)
-
     this.setState({
       invalidAttrs: failedValidation
     })
@@ -57,8 +54,10 @@ export class ScholarshipScoreCard extends Component {
     }
 
     // Validation passed
-    // Call into reducer - Reducer modifies global state, triggers rerender
-    this.props.addScoreCardField({
+    // Dispatch global state Action to reducer:
+    // Reducer adds field to global state (and saves),
+    // which triggers rerender in child component
+    this.props.saveNewFieldToScoreCard({
       title: this.state.title,
       possible_score: this.state.possible_score,
     })
@@ -129,5 +128,9 @@ export default connect(
   state => ({
     scholarship: state.app.scholarships['all'][0],
   }),
-  { addScoreCardField }
+  // Actions
+  {
+    saveNewFieldToScoreCard,
+    saveAndUpdateScholarship
+  }
 )(ScholarshipScoreCard)

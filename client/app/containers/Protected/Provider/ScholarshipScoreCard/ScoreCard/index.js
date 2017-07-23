@@ -8,10 +8,8 @@ export class ScoreCard extends Component {
     super(props)
     this.saveScholarship = ::this.saveScholarship
     this.removeScoreCardField = ::this.removeScoreCardField
-    this.toggleEditing = ::this.toggleEditing
 
     this.state = {
-      editing: false,
       scholarship: this.props.scholarship,
     }
   }
@@ -21,11 +19,6 @@ export class ScoreCard extends Component {
       scholarship: this.state.scholarship,
       scholarshipIdx: 0,
     })
-
-    // reset non-scholarship state
-    this.setState({
-      editing: false
-    })
   }
 
   removeScoreCardField(i) {
@@ -34,13 +27,12 @@ export class ScoreCard extends Component {
 
     this.setState({
       scholarship: modifiedScholarship
-    })
-  }
-
-  toggleEditing() {
-    this.setState({
-      editing: !this.state.editing
-    })
+    },
+      // Callback: Save Scholarship once state is updated
+      () => {
+        this.saveScholarship()
+      }
+    )
   }
 
   render() {
@@ -93,17 +85,11 @@ export class ScoreCard extends Component {
                       </div>
                     </div>
                     <div className={css.shortrow}>
-                      {
-                        this.state.editing
-                          ?
-                            <div className={css.cardleft}>
-                              <span className={css.remove} onClick={_ => this.removeScoreCardField(i)}>
-                                <i>Remove Criteria</i>
-                              </span>
-                            </div>
-                          :
-                            ''
-                      }
+                      <div className={css.cardleft}>
+                        <span className={css.remove} onClick={_ => this.removeScoreCardField(i)}>
+                          <i>Remove Criterion</i>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 )
@@ -112,22 +98,6 @@ export class ScoreCard extends Component {
           }
         </div>
         <div className={css.cardfooter}>
-          <div className={css.cardleft}>
-            <div className={css.comment}>
-              <span className={css.a} onClick={this.toggleEditing}>
-                {
-                  this.state.editing
-                    ?
-                      <i>Done Editing</i>
-                    :
-                      <i>Edit Score Card</i>
-                }
-              </span>
-            </div>
-          </div>
-          <div className={css.cardright}>
-            <button className={css.btn} onClick={this.saveScholarship}>Save</button>
-          </div>
         </div>
       </div>
     )

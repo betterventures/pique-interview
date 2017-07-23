@@ -87,10 +87,12 @@ export const saveAndUpdateScholarship = payload => {
     API.updateScholarship(
       payload
     ).then(res => {
-      return dispatch(updateScholarship(
-        // or {res.data.scholarship, scholarshipIdx} if want to use returned value
-        res.data
-      ))
+      return dispatch(
+        updateScholarship(
+          // or {res.data.scholarship, scholarshipIdx} if want to use returned value
+          res.data
+        )
+      )
     }).catch((err) => {
       // return null so as not to update Store;
       // perhaps also fire an error message/flash of some sort? (Reducer)
@@ -103,4 +105,21 @@ export const saveAndUpdateScholarship = payload => {
 // Score Card
 export const addScoreCardField = payload => {
   return {type: 'ADD_SCORE_CARD_FIELD', payload}
+}
+
+export const saveNewFieldToScoreCard = payload => {
+  return (dispatch, getState) => {
+    // Dispatches are synchronous because Actions are synchronous:
+    // we can expect the state added by addScoreCardField
+    // to be resolved by the time saveAndUpdateScholarship is performed
+    dispatch(
+      addScoreCardField(payload)
+    )
+    dispatch(
+      saveAndUpdateScholarship({
+        scholarship: getState().app.scholarships.all[0],
+        scholarshipIdx: 0
+      })
+    )
+  }
 }

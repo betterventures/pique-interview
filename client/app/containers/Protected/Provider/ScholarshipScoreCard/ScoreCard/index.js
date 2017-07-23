@@ -88,7 +88,7 @@ export class ScoreCard extends Component {
                         { scoreCardField.title }
                       </div>
                       <div className={css.cardright}>
-                        <input className={css.xsinput} type="text" />
+                        <input className={css.xsinput} type="text" disabled="disabled" />
                         <span className={css.score}>/ { scoreCardField.possible_score }</span>
                       </div>
                     </div>

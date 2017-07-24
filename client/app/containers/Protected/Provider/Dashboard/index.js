@@ -18,8 +18,8 @@ export class Dashboard extends Component {
       {pattern: '/dashboard/awarded',    key: 'awarded'},
     ],
     links: [
-      {to: '/dashboard/unscored',   key: 'unscored',  text: 'Unscored'},
-      {to: '/dashboard/scored',     key: 'scored',    text: 'Scored'},
+      {to: '/dashboard/unscored',   key: 'unscored',  text: 'Unscored By Me'},
+      {to: '/dashboard/scored',     key: 'scored',    text: 'Scored By Me'},
       {to: '/dashboard/awarded',    key: 'awarded',   text: 'Award Recipients'},
     ]
   }

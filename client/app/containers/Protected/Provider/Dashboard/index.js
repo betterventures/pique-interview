@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Match, Redirect } from 'react-router'
 import DashboardNav from './DashboardNav'
 import DashboardCards from './DashboardCards'
-import DashboardSortBy from './DashboardSortBy'
 import css from './style.css'
 
 export class Dashboard extends Component {
@@ -68,8 +67,6 @@ export class Dashboard extends Component {
             pattern='/dashboard'
             render={props => <DashboardNav {...props} links={links} />}
           />
-
-          <Match pattern='/dashboard/awarded' component={DashboardSortBy} />
 
           {
             routes.map(x =>

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import SidebarDropdown from './SidebarDropdown'
 import css from './style.css'
 
-const AppSidebar = ({ user }) => {
+const AppSidebar = ({ user, scholarship }) => {
   return (
     <div className={css.root}>
       <div className={css.backdrop} />
@@ -14,29 +14,44 @@ const AppSidebar = ({ user }) => {
         <div className={css.name}>{user.displayName}</div>
       </div>
 
-      {links.map((x, i) => <SidebarDropdown key={i} {...x} />)}
+      {
+        links(scholarship)
+          .map((x, i) => <SidebarDropdown key={i} {...x} />)
+      }
 
     </div>
   )
 }
 
-const links = [{
-  title: 'Applications',
-  links: [
-    {to: '/dashboard/unscored', text: 'Unscored'},
-    {to: '/dashboard/scored',   text: 'Scored'},
-    {to: '/dashboard/awarded',  text: 'Award Recipients'},
-  ],
-},{
-  title: 'Scholarship Review',
-  links: [
-    {to: '/committee',  text: 'Selection Committee'},
-    {to: '/scorecard', text: 'Score Card'},
-  ],
-}]
+function links(scholarship) {
+  return [
+    {
+      title: 'Set Up Scholarship',
+      links: [
+        {
+          to: `/providers/scholarships/${scholarship.id}/steps/general`,
+          text: 'Edit Scholarship',
+          external: true
+        },
+        {to: '/preview', text: 'Preview Scholarship'},
+        {to: '/scorecard', text: 'Score Card'},
+        {to: '/committee',  text: 'Selection Committee'},
+      ],
+    },
+    {
+      title: 'Applications',
+      links: [
+        {to: '/dashboard/unscored', text: 'Unscored By Me'},
+        {to: '/dashboard/scored',   text: 'Scored By Me'},
+        {to: '/dashboard/awarded',  text: 'Award Recipients'},
+      ],
+    },
+  ]
+}
 
 export default connect(
   state => ({
-    user: state.user
+    user: state.user,
+    scholarship: state.app.scholarships && state.app.scholarships.all[0]
   })
 )(AppSidebar)

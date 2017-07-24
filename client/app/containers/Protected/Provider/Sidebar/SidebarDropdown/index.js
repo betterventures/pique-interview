@@ -19,6 +19,7 @@ export class SidebarDropdown extends Component {
   render() {
     const { open } = this.state
     const { links, title, launchModal } = this.props
+
     return (
       <div className={`${css.root} ${open ? css.open : ''}`}>
         <div className={css.dropdown} onClick={this.changeVisibility}>
@@ -29,19 +30,33 @@ export class SidebarDropdown extends Component {
           <ul className={css.ul}>
             {links.map((x, i) =>
               <li key={i} className={css.li}>
-                {x.to
+                {x.to && x.external
+                  ?
+                    <a
+                      href={x.to}
+                      className={css.link}
+                    >
+                      <div className={css.caption}>{x.text}</div>
+                    </a>
+                  :
+                    ''
+                }
+                {x.to && !x.external
                   ? <Link
                       className={css.link}
                       to={x.to}
                       activeClassName={css.active}
-                      activeOnlyWhenExact={x.activeOnlyWhenExact}>
+                      activeOnlyWhenExact={x.activeOnlyWhenExact}
+                    >
                       <div className={css.caption}>{x.text}</div>
                     </Link>
                   : <div
                       className={css.link}
-                      onClick={launchModal}>
+                      onClick={launchModal}
+                    >
                       <div className={css.caption}>{x.text}</div>
-                    </div>}
+                    </div>
+                }
               </li>
             )}
           </ul>

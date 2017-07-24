@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 import { saveAndUpdateScholarship } from 'api/actions'
 import css from './style.css'
 
@@ -83,6 +84,7 @@ export class ApplicantQuestionnaire extends Component {
     const { header, applicantId, user } = this.props
     const { scholarship, rating } = this.state
     const currentRatingPct = this.ratingPctForRatingCard(rating, scholarship)
+    const hasScoreCardFields = scholarship.score_card.score_card_fields.length > 0
 
     return (
       <div className={css.root}>
@@ -92,46 +94,66 @@ export class ApplicantQuestionnaire extends Component {
         <div className={css.card}>
           <div className={css.fields}>
             {
-              scholarship.score_card.score_card_fields.map((scoreCardField, i) => {
-                {
-                  return (
-                    <div className={css.field} key={i}>
-                      <div className={css.cardrow}>
-                        <div className={css.cardleft}>
-                          { scoreCardField.title }
+              hasScoreCardFields
+                ?
+                  scholarship.score_card.score_card_fields.map((scoreCardField, i) => {
+                    {
+                      return (
+                        <div className={css.field} key={i}>
+                          <div className={css.cardrow}>
+                            <div className={css.cardleft}>
+                              { scoreCardField.title }
+                            </div>
+                            <div className={css.cardright}>
+                              <input
+                                className={css.xsinput}
+                                type="text"
+                                value={rating.fields[i].score}
+                                onChange={e => this.setScoreForRatingField(e, scoreCardField.id)}
+                              />
+                              <span className={css.score}>/ { scoreCardField.possible_score }</span>
+                            </div>
+                          </div>
                         </div>
-                        <div className={css.cardright}>
-                          <input
-                            className={css.xsinput}
-                            type="text"
-                            value={rating.fields[i].score}
-                            onChange={e => this.setScoreForRatingField(e, scoreCardField.id)}
-                          />
-                          <span className={css.score}>/ { scoreCardField.possible_score }</span>
-                        </div>
-                      </div>
-                    </div>
-                  )
-                }
-              })
+                      )
+                    }
+                  })
+                :
+                  <div className={css.field}>
+                    <i>
+                      Create a <Link to='/scorecard'>Score Card</Link> to rate your applicants!
+                    </i>
+                  </div>
             }
-            <div className={css.field}>
-              <div className={css.cardRow}>
-                <textarea
-                  className={css.largetext}
-                  placeholder="Add a comment!"
-                  value={this.state.rating.comment}
-                  onChange={this.setCommentForRating}>
-                </textarea>
-              </div>
-            </div>
+            {
+              hasScoreCardFields
+                ?
+                  <div className={css.field}>
+                    <div className={css.cardRow}>
+                      <textarea
+                        className={css.largetext}
+                        placeholder="Add a comment!"
+                        value={this.state.rating.comment}
+                        onChange={this.setCommentForRating}>
+                      </textarea>
+                    </div>
+                  </div>
+                :
+                  ''
+            }
           </div>
 
-          <div className={css.cardfooter}>
-            <div className={css.cardright}>
-              <button className={ this.state.disabled ? css.disabledBtn : css.btn } onClick={this.saveScholarship} disabled={this.state.disabled}>Save</button>
-            </div>
-          </div>
+          {
+            hasScoreCardFields
+              ?
+                <div className={css.cardfooter}>
+                  <div className={css.cardright}>
+                    <button className={ this.state.disabled ? css.disabledBtn : css.btn } onClick={this.saveScholarship} disabled={this.state.disabled}>Save</button>
+                  </div>
+                </div>
+              :
+                ''
+          }
         </div>
       </div>
     )

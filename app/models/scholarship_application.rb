@@ -15,12 +15,11 @@ class ScholarshipApplication < ApplicationRecord
   scope :for_scholarship, -> (scholarship_id) {
     where(scholarship_id: scholarship_id)
   }
-  scope :scored_by, -> (scholarship_id, user_id) {
+  scope :scored_by, -> (user_id) {
     # overarching `where` clause goes last: https://stackoverflow.com/questions/32753168/rails-5-activerecord-or-query
     includes(:ratings)
       .references(:ratings)
       .where(application_ratings: { rater_id: user_id })
-      .where({ scholarship_id: scholarship_id })
   }
   scope :awarded, -> {
     # getting count of Awards: https://stackoverflow.com/questions/20183710/find-all-records-which-have-a-count-of-an-association-greater-than-zero

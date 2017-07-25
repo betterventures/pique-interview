@@ -243,8 +243,11 @@ class Scholarship < ApplicationRecord
     }
   end
 
+  #
+  # APPLICATION SCORING
+  #
   def applications_unscored_by(user_id)
-    scored_applications = scholarship_applications.scored_by(id, user_id)
+    scored_applications = scholarship_applications.scored_by(user_id)
     if scored_applications.count > 0
       scholarship_applications - scored_applications
     else
@@ -253,7 +256,7 @@ class Scholarship < ApplicationRecord
   end
 
   def applications_scored_by(user_id)
-    scholarship_applications.scored_by(id, user_id)
+    scholarship_applications.scored_by(user_id)
   end
 
   def applications_awarded
@@ -271,6 +274,9 @@ class Scholarship < ApplicationRecord
     }
   end
 
+  #
+  # APPLICANT SCORING
+  #
   def applicants_unscored_by(user_id)
     scored_applicants = applicants_scored_by(user_id)
     if scored_applicants.count > 0
@@ -316,7 +322,7 @@ class Scholarship < ApplicationRecord
       all: applicants,
       unscored: unscored_less_awarded(user_id),
       scored: scored_less_awarded(user_id),
-      awarded: awarded_applicants,
+      awarded: applicants_awarded,
     }
   end
 

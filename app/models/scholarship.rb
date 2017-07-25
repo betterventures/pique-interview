@@ -263,29 +263,44 @@ class Scholarship < ApplicationRecord
   end
 
   # provide the keys expected by the frontend, for now
-  def applications_by_stage
+  def applications_by_stage_for_rater(user_id)
     {
       all: scholarship_applications,
-      unscored: unscored_applications,
-      scored: scored_applications,
+      unscored: applications_unscored_by(user_id),
+      scored: applications_scored_by(user_id),
       awarded: awarded_applications,
     }
   end
 
+  def applicants_unscored_by(user_id)
+    scored_applicants = applicants_scored_by(user_id)
+    if scored_applicants.count > 0
+      applicants - scored_applicants
+    else
+      applicants
+    end
+  end
+
+  def applicants_scored_by(user_id)
+    scored_applicant_ids = applications_scored_by(user_id).pluck(:student_id)
+    Student.where(id: scored_applicant_ids)
+  end
+
+
   # not derived from `applications_by_stage` in order to reduce query count
   # - `map` would execute n={collection_size} queries
-  def applicants_by_stage
+  def applicants_by_stage_for_rater(user_id)
     {
       all: applicants,
-      unscored: unscored_applicants,
-      scored: scored_applicants,
+      unscored: applicants_unscored_by(user_id),
+      scored: applicants_scored_by(user_id),
       awarded: awarded_applicants,
     }
   end
 
   # applicants in json format
-  def applicants_by_stage_json
-    applicants_by_stage.reduce({}) do |acc, el|
+  def applicants_by_stage_json(user_id)
+    applicants_by_stage_for_rater(user_id).reduce({}) do |acc, el|
       key, applicants = el
       acc[key] = applicants.map(&:to_json)
       acc

@@ -249,6 +249,19 @@ class Scholarship < ApplicationRecord
     }
   end
 
+  def applications_unscored_by(user_id)
+    scored_applications = scholarship_applications.scored_by(id, user_id)
+    if scored_applications.count > 0
+      scholarship_applications - scored_applications
+    else
+      scholarship_applications
+    end
+  end
+
+  def applications_scored_by(user_id)
+    scholarship_applications.scored_by(id, user_id)
+  end
+
   # provide the keys expected by the frontend, for now
   def applications_by_stage
     {

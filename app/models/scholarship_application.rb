@@ -21,6 +21,14 @@ class ScholarshipApplication < ApplicationRecord
     awarded: 100,
   }
 
+  scope :scored_by, -> (scholarship_id, user_id) {
+    # overarching `where` clause goes last: https://stackoverflow.com/questions/32753168/rails-5-activerecord-or-query
+    includes(:ratings)
+      .references(:ratings)
+      .where(application_ratings: { rater_id: user_id })
+      .where({ scholarship_id: scholarship_id })
+  }
+
   private
 
   def set_initial_stage

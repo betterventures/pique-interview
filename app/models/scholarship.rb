@@ -290,12 +290,32 @@ class Scholarship < ApplicationRecord
     Student.where(id: awarded_applicant_ids)
   end
 
+  # the users unscored by the user, less the awarded users
+  def unscored_less_awarded(user_id)
+    awarded_applicants = applicants_awarded
+    if awarded_applicants.count > 0
+      applicants_unscored_by(user_id) - awarded_applicants
+    else
+      applicants_unscored_by(user_id)
+    end
+  end
+
+  # the users scored by the user, less the awarded users
+  def scored_less_awarded(user_id)
+    awarded_applicants = applicants_awarded
+    if awarded_applicants.count > 0
+      applicants_scored_by(user_id) - awarded_applicants
+    else
+      applicants_scored_by(user_id)
+    end
+  end
+
   # not derived from `applications_by_stage` in order to reduce query count
   def applicants_by_stage_for_rater(user_id)
     {
       all: applicants,
-      unscored: applicants_unscored_by(user_id),
-      scored: applicants_scored_by(user_id),
+      unscored: unscored_less_awarded(user_id),
+      scored: scored_less_awarded(user_id),
       awarded: awarded_applicants,
     }
   end

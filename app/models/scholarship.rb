@@ -56,15 +56,9 @@ class Scholarship < ApplicationRecord
 
   # applications
   has_many :scholarship_applications, inverse_of: :scholarship
-  has_many :unscored_applications, -> { unscored }, inverse_of: :scholarship, class_name: 'ScholarshipApplication'
-  has_many :scored_applications, -> { scored }, inverse_of: :scholarship, class_name: 'ScholarshipApplication'
-  has_many :awarded_applications, -> { awarded }, inverse_of: :scholarship, class_name: 'ScholarshipApplication'
 
   # applicants
   has_many :applicants, through: :scholarship_applications, source: :student
-  has_many :unscored_applicants, through: :unscored_applications, source: :student
-  has_many :scored_applicants, through: :scored_applications, source: :student
-  has_many :awarded_applicants, through: :awarded_applications, source: :student
 
   # score_cards
   has_one :score_card, inverse_of: :scholarship, dependent: :destroy
@@ -262,13 +256,18 @@ class Scholarship < ApplicationRecord
     scholarship_applications.scored_by(id, user_id)
   end
 
+  def applications_awarded
+    # chain for_scholarship first to reduce query scope
+    scholarship_applications.for_scholarship(self.id).awarded
+  end
+
   # provide the keys expected by the frontend, for now
   def applications_by_stage_for_rater(user_id)
     {
       all: scholarship_applications,
       unscored: applications_unscored_by(user_id),
       scored: applications_scored_by(user_id),
-      awarded: awarded_applications,
+      awarded: applications_awarded(self.id),
     }
   end
 
@@ -286,9 +285,12 @@ class Scholarship < ApplicationRecord
     Student.where(id: scored_applicant_ids)
   end
 
+  def applicants_awarded
+    awarded_applicant_ids = applications_awarded.pluck(:student_id)
+    Student.where(id: awarded_applicant_ids)
+  end
 
   # not derived from `applications_by_stage` in order to reduce query count
-  # - `map` would execute n={collection_size} queries
   def applicants_by_stage_for_rater(user_id)
     {
       all: applicants,

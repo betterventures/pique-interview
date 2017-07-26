@@ -146,7 +146,7 @@ class Scholarship < ApplicationRecord
   def nested_options
     {
       include: {
-        awards: { only: [:id, :amount], },
+        awards: { only: [:id, :scholarship_application_id, :amount], },
         organization: { only: [:id, :name, :website, :support_email, :address, :city, :state], },
         application_questions: { only: [:id, :scholarship_id, :prompt, :answer_type], },
         supplemental_requirements: { only: [:id, :title], },

@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Match, Link } from 'react-router'
 import Rating from 'components/Rating'
+import AwardRibbon from 'components/Icons/AwardRibbon'
 import css from './style.css'
 
 const DashboardCards = ({ items }) => {
@@ -32,6 +33,10 @@ const DashboardCards = ({ items }) => {
                 </div>
               </div>
             </Link>
+            <Match
+              pattern='/dashboard/scored'
+              render={() => <AwardRibbon className={css.awardicon} />}
+            />
             <div className={css.details}>
               <div className={css.info}>
                 <div className={css.title}>GPA</div>

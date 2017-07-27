@@ -14,6 +14,7 @@ export class DashboardCards extends Component {
     this.selectAwardIndex = ::this.selectAwardIndex
     this.saveAwardToApplication = ::this.saveAwardToApplication
     this.state = {
+      awarding: false,
       showAwardModal: false,
       student: null,
       selectedAwardIndex: null
@@ -59,6 +60,11 @@ export class DashboardCards extends Component {
       return false
     }
 
+    // setState to signal change to the user
+    this.setState({
+      awarding: true
+    })
+
     // update the Award with that ID;
     // Award is still bound to the Scholarship by reference,
     // and so will be updated
@@ -86,7 +92,7 @@ export class DashboardCards extends Component {
                 <div className={css.awardmodal}>
                   <div className={css.awardmodalcontent}>
                     <div className={css.header}>
-                      Award {studentFirstName || this.state.student.name}!
+                      { this.state.awarding ? 'Congratulations' : 'Award' } {studentFirstName || this.state.student.name}!
                     </div>
                     <div className={css.underline}>
                     </div>
@@ -103,7 +109,7 @@ export class DashboardCards extends Component {
                                   return (!a.scholarship_application_id
                                     ?
                                       <li
-                                        className={`${css.award} ${ i === this.state.selectedAwardIndex ? css.selectedaward : '' }`}
+                                        className={ (i === this.state.selectedAwardIndex) ? css.selectedaward : (this.state.awarding ? `${css.award} ${css.fade}` : css.award) }
                                         key={i}
                                         onClick={() => this.selectAwardIndex(i)}
                                       >
@@ -119,16 +125,26 @@ export class DashboardCards extends Component {
                       :
                         `No awards found for ${scholarship.title}!`
                     }
-                    <button
-                      className={css.awardbtn}
-                      onClick={ () => this.saveAwardToApplication(
-                        scholarship,
-                        student,
-                        awards[this.state.selectedAwardIndex]
-                      )}
-                    >
-                      Award!
-                    </button>
+                    {
+                      this.state.awarding
+                        ?
+                          <button
+                            className={css.disabledbtn}
+                          >
+                            Awarding...
+                          </button>
+                        :
+                          <button
+                            className={css.awardbtn}
+                            onClick={ () => this.saveAwardToApplication(
+                              scholarship,
+                              student,
+                              awards[this.state.selectedAwardIndex]
+                            )}
+                          >
+                            Award!
+                          </button>
+                    }
                   </div>
                 </div>
               </div>

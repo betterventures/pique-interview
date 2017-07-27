@@ -21,10 +21,18 @@ export class ApplicantQuestionnaire extends Component {
   }
 
   saveScholarship() {
+    // do not allow save on disable
     if (this.state.disabled) {
       return
     }
 
+    // do not allow save if all Score Card Fields are not populated
+    if (!this.allScoreCardFieldsPopulated()) {
+      // possibly turn on a flash message here
+      return
+    }
+
+    // Commence save:
     // Debounce; component will be rerendered in enabled state
     this.setState({
       disabled: true,
@@ -44,6 +52,16 @@ export class ApplicantQuestionnaire extends Component {
       scholarship: this.state.scholarship,
       scholarshipIdx: 0,
     })
+  }
+
+  allScoreCardFieldsPopulated() {
+    return (
+      this.state.rating
+        .fields
+        .filter((f) => (!f.score || f.score.length === 0))
+        .length
+        === 0
+    )
   }
 
   // Set the Score for the appropriate RatingField
@@ -148,7 +166,12 @@ export class ApplicantQuestionnaire extends Component {
               ?
                 <div className={css.cardfooter}>
                   <div className={css.cardright}>
-                    <button className={ this.state.disabled ? css.disabledBtn : css.btn } onClick={this.saveScholarship} disabled={this.state.disabled}>Save</button>
+                    <button
+                      className={ this.state.disabled ? css.disabledBtn : css.btn }
+                      onClick={this.saveScholarship}
+                      disabled={this.state.disabled}>
+                      Save
+                    </button>
                   </div>
                 </div>
               :

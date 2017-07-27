@@ -14,6 +14,15 @@ export class ApplicantComments extends Component {
       <div className={css.root}>
         <div className={css.header}>Committee Review</div>
         <div className={css.comments}>
+        {this.props.ratings.reverse().map((x, i) =>
+          <div key={i} className={css.comment}>
+            <div className={css.image} style={{backgroundImage: `url(${x.rater.photo_url || '/assets/blank_figure.png'})`}} />
+            <div className={css.info}>
+              <div className={css.name}>{x.rater.first_name} {x.rater.last_name}</div>
+            </div>
+            <div className={css.message}>{x.comment}</div>
+          </div>
+        )}
         {comments.map((x, i) =>
           <div key={i} className={css.comment}>
             <div className={css.image} style={{backgroundImage: `url(${x.image})`}} />
@@ -21,15 +30,6 @@ export class ApplicantComments extends Component {
               <div className={css.name}>{x.name}</div>
             </div>
             <div className={css.message}>{x.message}</div>
-          </div>
-        )}
-        {this.props.ratings.map((x, i) =>
-          <div key={i} className={css.comment}>
-            <div className={css.image} style={{backgroundImage: `url(${x.rater.photo_url || '/assets/blank_figure.png'})`}} />
-            <div className={css.info}>
-              <div className={css.name}>{x.rater.first_name} {x.rater.last_name}</div>
-            </div>
-            <div className={css.message}>{x.comment}</div>
           </div>
         )}
         </div>

@@ -34,14 +34,14 @@
 }
 
 .header {
-  height: 45px;
+  height: 40px;
   position: relative;
   border-radius: 3px;
   width: 100%;
   font-size: 18px;
   color: #fff;
   padding-left: 30px;
-  line-height: 45px;
+  line-height: 40px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-image: linear-gradient(229deg, #44BCEF 1%, #3FB2EE 11%, #195AE1 100%);
 }

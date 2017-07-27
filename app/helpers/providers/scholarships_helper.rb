@@ -73,6 +73,7 @@ module Providers
                       awards_attributes: %i[
                         id
                         amount
+                        scholarship_application_id
                         scholarship_id
                         _destroy
                       ],

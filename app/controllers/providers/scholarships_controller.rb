@@ -26,7 +26,15 @@ class Providers::ScholarshipsController < ApplicationController
   def update_json
     @scholarship = Scholarship.find(params[:scholarship_id])
     @scholarship.update_attributes!(scholarship_params)
-    render status: 200, :json => { scholarship: @scholarship.to_json }
+
+    # in order to update applicant state when an Application is Awarded,
+    # we can either return the applicants here,
+    # or include them in Scholarship,
+    # OR base applicants in the app on the applica*tions*
+    render status: 200, :json => {
+      scholarship: @scholarship,
+      applicants: @scholarship.applicants_by_stage_json(current_provider.id),
+    }
   end
 
   private

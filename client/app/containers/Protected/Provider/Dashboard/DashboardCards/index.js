@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Match, Link } from 'react-router'
 import Rating from 'components/Rating'
 import AwardRibbon from 'components/Icons/AwardRibbon'
+import { saveAndUpdateScholarship } from 'api/actions'
 import css from './style.css'
 
 export class DashboardCards extends Component {
@@ -11,6 +12,7 @@ export class DashboardCards extends Component {
     this.showAwardModal = ::this.showAwardModal
     this.closeAwardModal = ::this.closeAwardModal
     this.selectAwardIndex = ::this.selectAwardIndex
+    this.saveAwardToApplication = ::this.saveAwardToApplication
     this.state = {
       showAwardModal: false,
       student: null,
@@ -38,9 +40,41 @@ export class DashboardCards extends Component {
     })
   }
 
+  applicationForStudent(scholarship, student) {
+    let applications = scholarship.scholarship_applications
+    let appsForStudent = applications.filter((app) => app.student_id === student.id)
+    return (appsForStudent.length > 0 ? appsForStudent[0] : {})
+  }
+
+  remainingAwards(scholarship) {
+    return scholarship
+      .awards
+      .filter((a) => !a.scholarship_application_id)
+      .sort((a,b) => b.amount - a.amount)
+  }
+
+  saveAwardToApplication(scholarship, student, award) {
+    const scholarshipApplicationId = this.applicationForStudent(scholarship, student).id
+    if (!scholarshipApplicationId) {
+      return false
+    }
+
+    // update the Award with that ID;
+    // Award is still bound to the Scholarship by reference,
+    // and so will be updated
+    award.scholarship_application_id = scholarshipApplicationId
+
+    this.props.saveAndUpdateScholarship({
+      scholarship: scholarship,
+      scholarshipIdx: 0,
+    })
+  }
+
   render() {
     const { items, scholarship } = this.props
-    let studentFirstName = this.state.student && this.state.student.name.split(' ')[0]
+    const { student } = this.state
+    const awards = this.remainingAwards(scholarship)
+    const studentFirstName = student && student.name.split(' ')[0]
 
     return (
       <div className={css.root}>
@@ -57,7 +91,7 @@ export class DashboardCards extends Component {
                     <div className={css.underline}>
                     </div>
                     {
-                      scholarship && scholarship.awards
+                      awards
                         ?
                           <div>
                             <div className={css.subheader}>
@@ -65,7 +99,7 @@ export class DashboardCards extends Component {
                             </div>
                             <ul className={css.awarddropdown}>
                               {
-                                scholarship.awards.map((a, i) => {
+                                awards.map((a, i) => {
                                   return (!a.scholarship_application_id
                                     ?
                                       <li
@@ -83,9 +117,16 @@ export class DashboardCards extends Component {
                             </ul>
                           </div>
                       :
-                        ''
+                        `No awards found for ${scholarship.title}!`
                     }
-                    <button className={css.awardbtn}>
+                    <button
+                      className={css.awardbtn}
+                      onClick={ () => this.saveAwardToApplication(
+                        scholarship,
+                        student,
+                        awards[this.state.selectedAwardIndex]
+                      )}
+                    >
                       Award!
                     </button>
                   </div>
@@ -163,5 +204,6 @@ export class DashboardCards extends Component {
 export default connect(
   state => ({
     scholarship: state.app.scholarships.all[0]
-  })
+  }),
+  { saveAndUpdateScholarship }
 )(DashboardCards)

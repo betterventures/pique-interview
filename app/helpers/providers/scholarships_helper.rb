@@ -121,7 +121,6 @@ module Providers
                         :id,
                         :scholarship_id,
                         :student_id,
-                        :stage,
                         :_destroy,
                         ratings_attributes: [
                           :id,

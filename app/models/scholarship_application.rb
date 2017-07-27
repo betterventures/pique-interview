@@ -3,7 +3,7 @@ class ScholarshipApplication < ApplicationRecord
   belongs_to :scholarship, inverse_of: :scholarship_applications
 
   has_many :ratings, class_name: 'ApplicationRating', inverse_of: :scholarship_application, dependent: :destroy
-  has_one :award
+  has_one :award, dependent: :nullify
 
   # validate that student cannot apply to the same scholarship more than once
   validates :scholarship_id, uniqueness: { scope: :student_id }
@@ -29,9 +29,4 @@ class ScholarshipApplication < ApplicationRecord
       .having('count(awards.id) > 0')
   }
 
-  private
-
-  def set_initial_stage
-    self.stage ||= self.class.stages[:unscored]
-  end
 end

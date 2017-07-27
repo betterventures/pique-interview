@@ -44,11 +44,10 @@ class Student < User
     sprintf('%.2f', gpa.round(2))
   end
 
-  def apply!(scholarship, stage=ScholarshipApplication.stages[:unscored])
+  def apply!(scholarship)
     scholarship_applications.create!(
       scholarship_id: scholarship.id,
       student_id: id,
-      stage: stage
     )
   end
 

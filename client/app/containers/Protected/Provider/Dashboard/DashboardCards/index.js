@@ -200,6 +200,7 @@ export class DashboardCards extends Component {
                     <div className={css.val}>
                       {
                         x.activities
+                          .slice(0,3)
                           .map((x, _) => JSON.parse(x))
                           .map((x, i) =>
                             <div key={i} className={css.activity}><strong>{x.position_held}</strong> at {x.title}</div>

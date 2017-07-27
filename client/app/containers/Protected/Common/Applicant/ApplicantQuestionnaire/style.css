@@ -7,7 +7,6 @@
   height: auto;
   width: 100%;
   background-color: #fff;
-  box-shadow: 0px 2px 7px #d9d9da;
   border-radius: 5px;
   padding: 0;
   text-align: center;
@@ -81,7 +80,7 @@
 
 .cardrow {
   display: block;
-  color: #000;
+  color: #333;
   font-weight: 500;
   height: 28px;
   line-height: 28px;

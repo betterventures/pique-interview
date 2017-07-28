@@ -12,15 +12,19 @@ export class ApplicantQuestions extends Component {
   render() {
     const { scholarship } = this.props
 
+    let generalApplicationQuestions = (scholarship && scholarship.general_application_questions) || []
+    let applicationQuestions = (scholarship && scholarship.application_questions) || []
+    let allAppQuestions = generalApplicationQuestions.concat(applicationQuestions)
+
     return (
       <div className={css.root}>
         <div className={css.header}>Application Questions</div>
         <div className={css.box}>
 
         {
-          scholarship.application_questions && scholarship.application_questions.length > 0
+          allAppQuestions.length > 0
             ?
-              scholarship.application_questions.map((applicationQuestion, i) => {
+              allAppQuestions.map((applicationQuestion, i) => {
                 return (
                   <div className={css.section} key={i}>
                     <div className={css.title}>

@@ -119,7 +119,7 @@ module Providers
           phone: '(202) 615-8353',
           password: SecureRandom.hex,
           role: :student,
-          photo_url: '/assets/brucker.png',
+          photo_url: '/assets/iwilliams.png',
           school_id: School.find_by(name: MCKINLEY_HIGH).id,
           activities_attributes: [
             {

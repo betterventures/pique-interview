@@ -58,6 +58,7 @@
   color: #2B2A2A;
   line-height: 23px;
   font-size: 14px;
+  white-space: pre-line;
 }
 
 .placeholder {

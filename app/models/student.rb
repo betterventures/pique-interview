@@ -56,6 +56,7 @@ class Student < User
       id: id,
       name: name,
       description: tagline,
+      intro: description,
       gpa: gpa_string,
       email: email,
       phone: phone,

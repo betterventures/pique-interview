@@ -8,7 +8,6 @@ module Providers
 
     IWILLIAMS_EMAIL = 'iwilliams@email.com'
     LNGUYEN_EMAIL = 'lnguyen@email.com'
-    SSTEVENS_EMAIL = 'sstevens@email.com'
     CMENDOZA_EMAIL = 'cmendoza@email.com'
     DCOATES_EMAIL = 'dcoates@email.com'
 
@@ -39,7 +38,6 @@ module Providers
       [
         IWILLIAMS_EMAIL,
         LNGUYEN_EMAIL,
-        SSTEVENS_EMAIL,
         CMENDOZA_EMAIL,
         DCOATES_EMAIL,
       ]
@@ -66,7 +64,7 @@ module Providers
     private
 
     def self.seed_dummy_schools!
-      if (dummy_schools.pluck(:name) == dummy_school_names)
+      if (dummy_school_names - dummy_schools.pluck(:name)).blank?
         dummy_schools.reload
       else
         School.create!(dummy_school_json)
@@ -74,7 +72,7 @@ module Providers
     end
 
     def self.seed_dummy_users!
-      if (dummy_students.pluck(:email) == dummy_student_emails)
+      if (dummy_student_emails - dummy_students.pluck(:email)).blank?
         dummy_students.reload
       else
         Student.create!(dummy_student_json)

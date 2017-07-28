@@ -8,13 +8,11 @@ class Student < User
 
   belongs_to :school, optional: true
   has_many :parent_or_guardian_relationships,
-            -> { where('relationship_type IN (?)',
-              [
+            -> { where(relationship_type: [
                 UserToStudentRelationship.relationship_types[:mother],
                 UserToStudentRelationship.relationship_types[:father],
                 UserToStudentRelationship.relationship_types[:guardian],
-              ]
-            ) },
+            ])},
             class_name: 'UserToStudentRelationship',
             dependent: :destroy,
             inverse_of: :student
@@ -95,10 +93,13 @@ class Student < User
     !UserToStudentRelationship.relationship_types.keys.include?(
       attrs['relationship_type'].to_s
     ) ||
-    update_parent_or_guardian_if_exists?(attrs['parent_or_guardian_attributes'])
+    update_parent_or_guardian_if_exists?(
+      attrs['parent_or_guardian_attributes'],
+      attrs['relationship_type'],
+    )
   end
 
-  def update_parent_or_guardian_if_exists?(attrs)
+  def update_parent_or_guardian_if_exists?(attrs, relationship_type)
     desired_parent_or_guardian = ParentOrGuardian.find_by(
       email: attrs['email'].downcase
     )
@@ -108,7 +109,10 @@ class Student < User
 
     # assign if exists and not already related
     if !self.parent_or_guardians.include?(desired_parent_or_guardian)
-      self.parent_or_guardians.push(desired_parent_or_guardian)
+      self.parent_or_guardian_relationships.build(
+        parent_or_guardian: desired_parent_or_guardian,
+        relationship_type: relationship_type,
+      )
     end
 
     # updated and save any new relations if exists

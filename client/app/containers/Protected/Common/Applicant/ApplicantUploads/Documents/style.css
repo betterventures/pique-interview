@@ -11,6 +11,11 @@
   padding: 0 50px;
 }
 
+.grids {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
 
 .copy {
   composes: copy from '../../style.css';

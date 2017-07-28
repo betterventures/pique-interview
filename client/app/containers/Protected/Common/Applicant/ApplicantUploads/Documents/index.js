@@ -21,7 +21,7 @@ export const ApplicantDocuments = ({ description, essays, recommendations, docum
           {essays
             ? <div className={css.grids}>
                 {essays.map((x, i) =>
-                  <ApplicantPreview key={i} image={x.image} caption={x.caption} />
+                  <ApplicantPreview key={i} image={x.image} caption={x.caption} href={x.link} />
                 )}
               </div>
             : null}
@@ -37,7 +37,7 @@ export const ApplicantDocuments = ({ description, essays, recommendations, docum
           {recommendations
             ? <div className={css.grids}>
                 {recommendations.map((x, i) =>
-                  <ApplicantPreview key={i} image={x.image} caption={x.caption} />
+                  <ApplicantPreview key={i} image={x.image} caption={x.caption} href={x.link} />
                 )}
               </div>
             : <div className={css.placeholder}>Request a Recommendation</div>}
@@ -51,7 +51,7 @@ export const ApplicantDocuments = ({ description, essays, recommendations, docum
           {documents
             ? <div className={css.grids}>
                 {documents.map((x, i) =>
-                  <ApplicantPreview key={i} image={x.image} caption={x.caption} />
+                  <ApplicantPreview key={i} image={x.image} caption={x.caption} href={x.link} />
                 )}
               </div>
             : null}

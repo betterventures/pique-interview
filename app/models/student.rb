@@ -56,6 +56,7 @@ class Student < User
       description: tagline,
       intro: description,
       gpa: gpa_string,
+      birthdate: birthdate,
       email: email,
       phone: phone,
       image: photo_url,

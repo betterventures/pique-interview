@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725225612) do
+ActiveRecord::Schema.define(version: 20170728175117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -274,6 +274,7 @@ ActiveRecord::Schema.define(version: 20170725225612) do
     t.float    "gpa"
     t.string   "phone"
     t.integer  "school_id"
+    t.date     "birthdate"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["organization_id"], name: "index_users_on_organization_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

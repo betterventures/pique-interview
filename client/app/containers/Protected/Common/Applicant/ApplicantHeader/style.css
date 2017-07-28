@@ -48,7 +48,8 @@
 
 .location,
 .highschool,
-.gpa {
+.gpa,
+.birthdate {
   color: #a0a0a0;
   font-weight: 300;
   font-size: 14px;
@@ -77,4 +78,12 @@
   height: 15px;
   width: 13px;
   margin: 0 6px 0 1px;
+}
+
+.calendar {
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+  margin: 0 6px 0 0;
+  opacity: 0.56;
 }

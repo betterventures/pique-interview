@@ -124,31 +124,53 @@ module Providers
             {
               title: 'Level Up (McKinley Technology High School)',
               position_held: 'Mentor',
-              start_date: '09/2016',
-              end_date: '05/2017',
+              start_date: Date.new(2016, 9),
+              end_date: Date.new(2017, 5),
               description: 'As a McKinley Senior, I mentor our high school Freshmen one-on-one, three times per week.',
             },
             {
               title: 'Code Whisperers',
               position_held: 'App Developer',
-              start_date: '09/2015',
-              end_date: '05/2016',
+              start_date: Date.new(2015, 9),
+              end_date: Date.new(2016, 5),
               description: 'As an app developer on McKinley’s Code Whisperers team, I worked with a team of three developers, eight hours a week, to build an web app that allows parents of DCPS students to see what their children’s curricula are across subjects. My work with the Code Whispers resulted in my team winning DCPS’s App Challenge Competition and receiving a $5,000 grant to prepare for the launch of our beta version.',
             },
             {
               title: 'Commerce Department',
               position_held: 'Incoming IT Intern',
-              start_date: '06/2017',
-              end_date: '08/2017',
+              start_date: Date.new(2017, 6),
+              end_date: Date.new(2017, 8),
               description: 'This upcoming summer I will be working with a newly established architecture strategy and design department at the International Trade Agency (ITA), an agency within the Commerce Department. As an intern I will support the ITA’s staff with any IT issues they may encounter. I will also work alongside two other interns to give a presentation to explain the new Architecture Strategy and Design Department division.',
             },
             {
               title: 'Debate Team',
               position_held: 'Captain',
-              start_date: '09/2015',
-              end_date: '05/2017',
+              start_date: Date.new(2015, 9),
+              end_date: Date.new(2017, 5),
               description: 'As Captain of the Debate Team I set and led weekly debate team meetings, trained new members on the principles of debating and led my team to the DC City Wide Debate Tournament in November.',
             },
+          ],
+          honors_and_awards_attributes: [
+            {
+              title: 'DCPS App Challenge Winner',
+              provider_name: 'District of Columbia Public Schools',
+              awarded_at: Date.new(2017, 01)
+            },
+            {
+              title: 'Mentor of the Month',
+              provider_name: 'McKinley Technology High School',
+              awarded_at: Date.new(2016, 12)
+            },
+            {
+              title: '"5" on the AP Computer Science Exam',
+              provider_name: 'College Board',
+              awarded_at: Date.new(2015, 04)
+            },
+            {
+              title: '$10,000 Scholarship Recipient',
+              provider_name: 'Jon A. Wilson Scholarship Foundation',
+              awarded_at: Date.new(2017, 05)
+            }
           ],
           parent_or_guardian_relationships_attributes: [
             {
@@ -201,23 +223,35 @@ module Providers
             {
               title: 'Asian American Lead',
               position_held: 'College Prep Mentee',
-              start_date: '09/2014',
-              end_date: '05/2017',
+              start_date: Date.new(2014, 9),
+              end_date: Date.new(2017, 5),
               description: "AALead is a nonprofit organization in Washington, DC, that supports low-income and underserved Asian Pacific American with educational empowerment and leadership development. As an after school participant in the program I received one-on-one college prep mentorship from the AALead and also helped with programming to provide mentorship to elementary and middle school students.",
             },
             {
               title: 'Tennis Team',
               position_held: 'Member',
-              start_date: '09/2015',
-              end_date: '05/2017',
+              start_date: Date.new(2015, 9),
+              end_date: Date.new(2017, 5),
               description: 'I love to stay active, and as a member of my high school’s tennis team, I practice 4 days per week for two hours each day. Fun note: I have a pretty impressive serve.',
             },
             {
               title: 'Model U.N.',
               position_held: 'President',
-              start_date: '09/2014',
-              end_date: '05/2016',
+              start_date: Date.new(2014, 9),
+              end_date: Date.new(2016, 5),
               description: 'As the lead organizer of my high school’s Model UN Team, I host my high school’s annual Model UN conference where high school students across Washington, DC (and sometimes Maryland) come to debate and reach consensus on approaches to protecting the environment, human rights of groups and of sovereign nations.',
+            },
+          ],
+          honors_and_awards_attributes: [
+            {
+              title: '"5" on the AP Language & Composition Exam',
+              provider_name: 'College Board',
+              awarded_at: Date.new(2016, 04)
+            },
+            {
+              title: '"5" on the AP Literature & Composition Exam',
+              provider_name: 'College Board',
+              awarded_at: Date.new(2016, 04)
             },
           ],
           parent_or_guardian_relationships_attributes: [
@@ -271,23 +305,30 @@ module Providers
             {
               title: 'LearnServe International',
               position_held: 'Fellow',
-              start_date: '09/2014',
-              end_date: '05/2015',
+              start_date: Date.new(2014, 9),
+              end_date: Date.new(2015, 5),
               description: "LearnServe International’s Fellow Program brings together high school students from across the Washington, DC, area to learn how to bring sustainable social change to their communities. As a fellow I spent a full academic year designing and launching my social venture, Aprindizaje Experimental. I also learned the basics of  operating a company, including budgeting, strategic planning, and team-building. I ultimately pitched my venture to community leaders and was awarded a $10,000 grant to make my ideas reality.",
             },
             {
               title: 'District of Columbia Public Schools',
               position_held: 'High School/College Internship Program (HISCIP) Scholar',
-              start_date: '01/2017',
-              end_date: '05/2017',
+              start_date: Date.new(2017, 1),
+              end_date: Date.new(2017, 5),
               description: "As a HISCIP scholar, I was one of a few high school seniors selected from throughout DCPS to take college-level courses at George Washington University. HISCIP is a competitive program requiring SAT scores, a 3.0 GPA above 3.0, and two page-long personal statements.",
             },
             {
               title: 'Aprindizaje Experimental (Experiential Learning)',
               position_held: 'Nonprofit Founder',
-              start_date: '09/2014',
-              end_date: '05/2017',
+              start_date: Date.new(2014, 9),
+              end_date: Date.new(2017, 5),
               description: 'Aprindizaje Experimental is a social venture I created and run that works to ease the English-language acquisition process for English Language Learners (ELLs) of Latin descent in Washington, DC. We provide programming and activities for our participants that allow them to practice and learn English in a controlled environment while still employing the best practices of experiential learning, a learning technique my team and I believe is the most effective way to acquire a new language.',
+            },
+          ],
+          honors_and_awards_attributes: [
+            {
+              title: '$10,000 Grant Recipient',
+              provider_name: 'LearnServe International',
+              awarded_at: Date.new(2016, 12)
             },
           ],
           parent_or_guardian_relationships_attributes: [
@@ -341,23 +382,35 @@ module Providers
             {
               title: "WPFW's 2k Nation",
               position_held: 'Student Assistant Producer',
-              start_date: '09/2016',
-              end_date: '05/2017',
+              start_date: Date.new(2016, 9),
+              end_date: Date.new(2017, 5),
               description: "As a Student Assistant Producer at WPFW’s 2k Nation, I spend 8 hours a week working with the segment’s lead student producer and student radio hosts to pitch topics, do research, and prep radio hosts for our weekly 1-hour segment.",
             },
             {
               title: 'CHEC School Newspaper',
               position_held: 'Editor-In-Chief',
-              start_date: '09/2015',
-              end_date: '05/2017',
+              start_date: Date.new(2015, 9),
+              end_date: Date.new(2017, 5),
               description: "As Editor-In-Chief at CHEC’s school paper, I was responsible for managing the paper’s editorial policies and content production. I often reviewed and proof-read articles before release and ensured that journalists used ethical journalism practices before releasing articles.",
             },
             {
               title: 'Student Government',
               position_held: 'Vice President',
-              start_date: '09/2014',
-              end_date: '05/2015',
+              start_date: Date.new(2014, 9),
+              end_date: Date.new(2015, 5),
               description: 'As the Vice President of my high school during my freshman year, I worked alongside my class President to accomplish a few goals including: learning more about the needs of our freshman class, successfully executing a $2,000 fundraising effort, and organizing the Freshman Winter Ball dance.',
+            },
+          ],
+          honors_and_awards_attributes: [
+            {
+              title: 'National Merit Scholarship Recipient',
+              provider_name: 'The College Board',
+              awarded_at: Date.new(2016, 12)
+            },
+            {
+              title: 'Poetry Out Loud First Place Winner',
+              provider_name: 'Poetry Out Loud Organization',
+              awarded_at: Date.new(2017, 03)
             },
           ],
           parent_or_guardian_relationships_attributes: [

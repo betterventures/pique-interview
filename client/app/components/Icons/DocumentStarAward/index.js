@@ -8,8 +8,7 @@ export const AwardDocument = ({ className, style }) => {
     <ImgIconWrapper
       className={className}
       style={style}
-      src={svg}
-      fallbackSrc={png}
+      src={png}
     />
   )
 }

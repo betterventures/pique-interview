@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170728175117) do
+ActiveRecord::Schema.define(version: 20170728235024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20170728175117) do
     t.integer "student_id",    null: false
     t.string  "title",         null: false
     t.string  "position_held"
-    t.string  "start_date"
-    t.string  "end_date"
     t.text    "description"
+    t.date    "start_date"
+    t.date    "end_date"
     t.index ["student_id"], name: "index_activities_on_student_id", using: :btree
   end
 
@@ -75,6 +75,14 @@ ActiveRecord::Schema.define(version: 20170728175117) do
     t.string  "word_limit"
     t.integer "scholarship_id"
     t.index ["scholarship_id"], name: "index_essay_requirements_on_scholarship_id", using: :btree
+  end
+
+  create_table "honor_or_awards", force: :cascade do |t|
+    t.integer "student_id",    null: false
+    t.string  "title"
+    t.string  "provider_name"
+    t.date    "awarded_at"
+    t.index ["student_id"], name: "index_honor_or_awards_on_student_id", using: :btree
   end
 
   create_table "location_limitations", force: :cascade do |t|

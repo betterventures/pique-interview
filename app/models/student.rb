@@ -24,12 +24,16 @@ class Student < User
             inverse_of: :student
   has_many :counselors, through: :counselor_relationships
   has_many :activities, inverse_of: :student, dependent: :destroy
+  has_many :honors_and_awards, inverse_of: :student, dependent: :destroy, class_name: 'HonorOrAward'
   has_many :scholarship_applications, inverse_of: :student, dependent: :destroy
   has_many :applied_scholarships, through: :scholarship_applications, source: :scholarship
 
   # student nested attrs - eg Activities
   accepts_nested_attributes_for :activities,
                                 reject_if: :validate_and_fire_activities_update_hook!,
+                                allow_destroy: true
+  accepts_nested_attributes_for :honors_and_awards,
+                                reject_if: :validate_and_fire_honors_and_awards_update_hook!,
                                 allow_destroy: true
   accepts_nested_attributes_for :parent_or_guardian_relationships,
                                 reject_if: :validate_and_fire_parent_or_guardian_update_hook!,
@@ -66,6 +70,7 @@ class Student < User
       highSchool: 'Benjamin Banneker HS',
       type: role,
       activities: activities.map(&:to_json),
+      honors_and_awards: honors_and_awards.map(&:to_json),
       parent_or_guardian_relationships: parent_or_guardian_relationships.map(&:to_json),
       counselor_relationships: counselor_relationships.map(&:to_json),
       school: school,
@@ -166,6 +171,24 @@ class Student < User
 
     # update the activity if it exists on the student
     desired_activity.update_attributes!(attrs)
+  end
+
+  def validate_and_fire_honors_and_awards_update_hook!(attrs)
+    attrs['title'].nil? ||
+    attrs['title'].empty? ||
+    attrs['provider_name'].nil? ||
+    attrs['provider_name'].empty? ||
+    update_honor_or_award_if_exists_on_student?(attrs)
+  end
+
+  # for this, may be better to just trash the Honors,
+  # as we may not have a reliable identifier
+  def update_honor_or_award_if_exists_on_student?(attrs)
+    desired_honor = self.honors_and_awards.find_by(title: attrs['title'])
+
+    return false if !desired_honor
+
+    desired_honor.update_attributes!(attrs)
   end
 
 end

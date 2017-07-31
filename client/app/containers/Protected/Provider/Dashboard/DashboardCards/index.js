@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Match, Link } from 'react-router'
 import Rating from 'components/Rating'
 import AwardRibbon from 'components/Icons/AwardRibbon'
+import Fireworks from 'components/Icons/Fireworks'
 import { saveAndUpdateScholarship } from 'api/actions'
 import css from './style.css'
 
@@ -14,6 +15,7 @@ export class DashboardCards extends Component {
     this.selectAwardIndex = ::this.selectAwardIndex
     this.saveAwardToApplication = ::this.saveAwardToApplication
     this.state = {
+      award: null,
       awarding: false,
       showAwardModal: false,
       student: null,
@@ -62,7 +64,8 @@ export class DashboardCards extends Component {
 
     // setState to signal change to the user
     this.setState({
-      awarding: true
+      awarding: true,
+      award: award,
     })
 
     // update the Award with that ID;
@@ -70,10 +73,12 @@ export class DashboardCards extends Component {
     // and so will be updated
     award.scholarship_application_id = scholarshipApplicationId
 
-    this.props.saveAndUpdateScholarship({
-      scholarship: scholarship,
-      scholarshipIdx: 0,
-    })
+    setTimeout(function() {
+      this.props.saveAndUpdateScholarship({
+        scholarship: scholarship,
+        scholarshipIdx: 0,
+      })
+    }.bind(this), 2000)
   }
 
   render() {
@@ -87,67 +92,84 @@ export class DashboardCards extends Component {
         {
           this.state.showAwardModal
             ?
-              <div>
-                <div className={css.overlay} onClick={() => this.closeAwardModal()}></div>
-                <div className={css.awardmodal}>
-                  <div className={css.awardmodalcontent}>
-                    <div className={css.header}>
-                      { this.state.awarding ? 'Congratulations' : 'Award' } {studentFirstName || this.state.student.name}!
+              this.state.awarding && this.state.award
+                ?
+                  <div>
+                    <div className={css.overlay} onClick={() => this.closeAwardModal()}></div>
+                    <div className={css.awardmodal}>
+                      <div className={css.awardmodalcontent}>
+                        <Fireworks className={css.icon} />
+                        <div className={css.header}>
+                          CONGRATULATIONS!
+                        </div>
+                        <div className={css.awardtext}>
+                          You have just awarded {studentFirstName} an Award for ${this.state.award.amount.toLocaleString()}! {studentFirstName} will receive a congratulatory email notification from our team! Thank you for choosing Pique.
+                        </div>
+                      </div>
                     </div>
-                    <div className={css.underline}>
-                    </div>
-                    {
-                      awards
-                        ?
-                          <div>
-                            <div className={css.subheader}>
-                              Select the scholarship award you wish for this student to receive.
-                            </div>
-                            <ul className={css.awarddropdown}>
-                              {
-                                awards.map((a, i) => {
-                                  return (!a.scholarship_application_id
-                                    ?
-                                      <li
-                                        className={ (i === this.state.selectedAwardIndex) ? css.selectedaward : (this.state.awarding ? `${css.award} ${css.fade}` : css.award) }
-                                        key={i}
-                                        onClick={() => this.selectAwardIndex(i)}
-                                      >
-                                        Award #{i+1} - ${a.amount.toLocaleString()}
-                                      </li>
-                                    :
-                                      ''
-                                  )
-                                })
-                              }
-                            </ul>
-                          </div>
-                      :
-                        `No awards found for ${scholarship.title}!`
-                    }
-                    {
-                      this.state.awarding
-                        ?
-                          <button
-                            className={css.disabledbtn}
-                          >
-                            Awarding...
-                          </button>
-                        :
-                          <button
-                            className={css.awardbtn}
-                            onClick={ () => this.saveAwardToApplication(
-                              scholarship,
-                              student,
-                              awards[this.state.selectedAwardIndex]
-                            )}
-                          >
-                            Award!
-                          </button>
-                    }
                   </div>
-                </div>
-              </div>
+                :
+                  <div>
+                    <div className={css.overlay} onClick={() => this.closeAwardModal()}></div>
+                    <div className={css.awardmodal}>
+                      <div className={css.awardmodalcontent}>
+                        <div className={css.header}>
+                          { this.state.awarding ? 'Congratulations' : 'Award' } {studentFirstName || this.state.student.name}!
+                        </div>
+                        <div className={css.underline}>
+                        </div>
+                        {
+                          awards
+                            ?
+                              <div>
+                                <div className={css.subheader}>
+                                  Select the scholarship award you wish for this student to receive.
+                                </div>
+                                <ul className={css.awarddropdown}>
+                                  {
+                                    awards.map((a, i) => {
+                                      return (!a.scholarship_application_id
+                                        ?
+                                          <li
+                                            className={ (i === this.state.selectedAwardIndex) ? css.selectedaward : (this.state.awarding ? `${css.award} ${css.fade}` : css.award) }
+                                            key={i}
+                                            onClick={() => this.selectAwardIndex(i)}
+                                          >
+                                            Award #{i+1} - ${a.amount.toLocaleString()}
+                                          </li>
+                                        :
+                                          ''
+                                      )
+                                    })
+                                  }
+                                </ul>
+                              </div>
+                          :
+                            `No awards found for ${scholarship.title}!`
+                        }
+                        {
+                          this.state.awarding
+                            ?
+                              <button
+                                className={css.disabledbtn}
+                              >
+                                Awarding...
+                              </button>
+                            :
+                              <button
+                                className={css.awardbtn}
+                                onClick={ () => this.saveAwardToApplication(
+                                  scholarship,
+                                  student,
+                                  awards[this.state.selectedAwardIndex]
+                                )}
+                              >
+                                Award!
+                              </button>
+                        }
+                      </div>
+                    </div>
+                  </div>
             :
               ''
         }

@@ -209,12 +209,32 @@
   width: 90%;
 }
 
+.icon {
+  display: block;
+  height: 109px;
+  width: 109px;
+  margin: 0 auto 16px;
+}
+
+.awardtext {
+  color: #44BCEF;
+  display: block;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 30px;
+  padding: 0 14px;
+  text-align: center;
+  max-width: 350px;
+}
+
 .header {
   color: #44BCEF;
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: .5px;
+  line-height: 36px;
   padding: 0;
 }
 
@@ -282,3 +302,4 @@
   margin-top: 3%;
   text-align: center;
 }
+

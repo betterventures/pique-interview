@@ -207,6 +207,16 @@ export class DashboardCards extends Component {
                           )
                       }
                     </div>
+                    <Match
+                      pattern='/dashboard/awarded'
+                      render={() =>
+                        <div
+                          className={css.awardedtag}
+                        >
+                          Awarded!
+                        </div>
+                      }
+                    />
                   </div>
                 </div>
               </div>

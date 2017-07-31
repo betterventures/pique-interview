@@ -269,3 +269,16 @@
   opacity: 0;
   transition: visibility 0s linear 0.5s, opacity 1s linear;
 }
+
+.awardedtag {
+  float: left;
+  height: 36px;
+  width: 26%;
+  background-image: linear-gradient(225deg, #44BCEF 0%, #3FB2EE 11%, #195AE1 100%);
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 0.7px;
+  line-height: 36px;
+  margin-top: 3%;
+  text-align: center;
+}

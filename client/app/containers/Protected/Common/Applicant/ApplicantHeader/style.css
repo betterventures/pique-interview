@@ -15,11 +15,12 @@
   border-radius: 8px;
   background-position-y: 50%;
   background-position-x: 50%;
-  height: 160px;
-  width: 160px;
+  height: 190px;
+  width: 190px;
+  margin-bottom: -60px;
   margin-right: 10px;
   top: -60px;
-  border: 6px solid #FFFBFB;
+  border: 8px solid #fff;
 }
 
 .info {

@@ -80,3 +80,21 @@
   color: #444343;
   font-size: 14px;
 }
+
+.tags {
+  display: flex;
+  flex-flow: row wrap;
+  height: 100%;
+}
+
+.tag {
+  border: 1px solid #444343;
+  border-radius: 8px;
+  height: 36px;
+  font-size: 14px;
+  color: #444343;
+  margin: 0 7px 27px;
+  padding: 0 12px;
+  line-height: 36px;
+
+}

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Page from 'components/Icons/Page'
 import DocumentStarLines from 'components/Icons/DocumentStarLines'
 import DocumentStarAward from 'components/Icons/DocumentStarAward'
+import DocumentPiqueTags from 'components/Icons/DocumentPiqueTags'
 import moment from 'moment'
 import css from './style.css'
 
@@ -37,9 +38,11 @@ export class ApplicantAbout extends Component {
   }
 
   render() {
-    const { intro, description, activities=[], honors_and_awards=[] } = this.props
+    const { intro, description, activities=[], honors_and_awards=[], gender, major, citizenship, race, degree_type, grad_year  } = this.props
     let applicantActivities = activities.map(act => JSON.parse(act))
     let applicantHonorsAndAwards = honors_and_awards.map(honor => JSON.parse(honor))
+    let [us, citizen] = citizenship.split(' ')
+    let capitalizedCitizenship = `${us.toUpperCase()} ${citizen}`
 
     if (this.state.activitiesClosed) {
       applicantActivities = applicantActivities.slice(0,3)
@@ -124,6 +127,53 @@ export class ApplicantAbout extends Component {
             {applicantHonorsAndAwards.length
               ? ''
               : <div className={css.placeholder}>{honorsAndAwardsPlaceholder}</div>}
+          </div>
+
+          <div className={css.section}>
+            <div className={css.title}>
+              <DocumentPiqueTags className={css.icon} />
+              <span className={css.text}>Pique Tags</span>
+            </div>
+            <div className={css.tags}>
+              <div className={css.tag}>
+                Area of Study: { major }
+              </div>
+              <div className={css.tag}>
+                Graduation Year: { grad_year }
+              </div>
+              { degree_type
+                  ?
+                    <div className={css.tag}>
+                      Degree Type: { degree_type }
+                    </div>
+                  :
+                    ''
+              }
+              { gender
+                  ?
+                    <div className={css.tag}>
+                      Gender: { gender }
+                    </div>
+                  :
+                    ''
+              }
+              { race
+                  ?
+                    <div className={css.tag}>
+                      Race: { race }
+                    </div>
+                  :
+                    ''
+              }
+              {citizenship
+                  ?
+                    <div className={css.tag}>
+                      { capitalizedCitizenship }
+                    </div>
+                  :
+                    ''
+              }
+            </div>
           </div>
         </div>
 

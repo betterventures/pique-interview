@@ -17,6 +17,27 @@ class User < ApplicationRecord
     educator:             4,   # other educator
   }
 
+  enum gender: {
+    female: 0,
+    male: 1,
+  }
+
+  enum race: {
+    african_american: 0,
+    asian_american: 1,
+    latino: 2,
+    white: 3,
+  }
+
+  enum citizenship: {
+    us_citizen: 0,
+  }
+
+  enum degree_type: {
+    four_year: 0,
+    two_year: 1,
+  }
+
   DEFAULT_PHOTO_URL = '/assets/blank_figure.png'
 
   def name

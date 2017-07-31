@@ -120,6 +120,12 @@ module Providers
           role: :student,
           photo_url: '/assets/iwilliams.png',
           school_id: School.find_by(name: MCKINLEY_HIGH).id,
+          gender: :male,
+          major: 'Computer Science',
+          citizenship: :us_citizen,
+          race: :african_american,
+          degree_type: :four_year,
+          grad_year: 2021,
           activities_attributes: [
             {
               title: 'Level Up (McKinley Technology High School)',
@@ -219,6 +225,12 @@ module Providers
           role: :student,
           photo_url: '/assets/lnguyen.png',
           school_id: School.find_by(name: BANNEKER_HIGH).id,
+          gender: :female,
+          major: 'International Development',
+          citizenship: :us_citizen,
+          race: :asian_american,
+          degree_type: :four_year,
+          grad_year: 2021,
           activities_attributes: [
             {
               title: 'Asian American Lead',
@@ -300,6 +312,12 @@ module Providers
           password: SecureRandom.hex,
           role: :student,
           photo_url: '/assets/cmendoza.png',
+          gender: :female,
+          major: 'Economics & Political Science',
+          citizenship: :us_citizen,
+          race: :latino,
+          degree_type: :four_year,
+          grad_year: 2021,
           school_id: School.find_by(name: WILSON_HIGH).id,
           activities_attributes: [
             {
@@ -314,7 +332,7 @@ module Providers
               position_held: 'High School/College Internship Program (HISCIP) Scholar',
               start_date: Date.new(2017, 1),
               end_date: Date.new(2017, 5),
-              description: "As a HISCIP scholar, I was one of a few high school seniors selected from throughout DCPS to take college-level courses at George Washington University. HISCIP is a competitive program requiring SAT scores, a 3.0 GPA above 3.0, and two page-long personal statements.",
+              description: "As a HISCIP scholar, I was one of a few high school seniors selected from throughout DCPS to take college-level courses at George Washington University. HISCIP is a competitive program requiring SAT scores, a GPA above 3.0, and two page-long personal statements.",
             },
             {
               title: 'Aprindizaje Experimental (Experiential Learning)',
@@ -377,6 +395,12 @@ module Providers
           password: SecureRandom.hex,
           role: :student,
           photo_url: '/assets/dcoates.png',
+          gender: :male,
+          major: 'Journalism & Media Studies',
+          citizenship: :us_citizen,
+          race: :white,
+          degree_type: :four_year,
+          grad_year: 2021,
           school_id: School.find_by(name: COLUMBIA_EC).id,
           activities_attributes: [
             {

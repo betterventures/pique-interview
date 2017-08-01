@@ -36,7 +36,7 @@ export class SidebarDropdown extends Component {
                       href={x.to}
                       className={css.link}
                     >
-                      <div className={css.caption}>{x.text}</div>
+                      <div className={css.caption}>{i+1}. {x.text}</div>
                     </a>
                   :
                     ''
@@ -48,7 +48,7 @@ export class SidebarDropdown extends Component {
                       activeClassName={css.active}
                       activeOnlyWhenExact={x.activeOnlyWhenExact}
                     >
-                      <div className={css.caption}>{x.text}</div>
+                      <div className={css.caption}>{i+1}. {x.text}</div>
                     </Link>
                   : <div
                       className={css.link}

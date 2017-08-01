@@ -294,7 +294,8 @@
   float: left;
   height: 36px;
   width: 26%;
-  background-image: linear-gradient(225deg, #44BCEF 0%, #3FB2EE 11%, #195AE1 100%);
+  background-image: linear-gradient(255deg, #1780ff, #05fa28);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   color: #fff;
   font-size: 14px;
   letter-spacing: 0.7px;

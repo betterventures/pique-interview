@@ -11,10 +11,19 @@ export class IndividualScholarshipsBanner extends Component {
 
   render() {
     const { scholarship } = this.props
+    let logoStyles = scholarship.organization && scholarship.organization.logo_url
+      ?
+        {
+          'backgroundImage': `url(${scholarship.organization.logo_url})`,
+          'backgroundSize': 'contain',
+        }
+      :
+        {}
+
     return (
       <div
         className={css.root}>
-        <div className={css.logo}>
+        <div className={css.logo} style={logoStyles}>
           <div className={css.text}></div>
         </div>
       </div>

@@ -520,3 +520,26 @@ $row-height: 30px;
   }
 }
 
+/*
+ *  ORG CREATION PAGE
+ */
+.create-org-page {
+  .photo-row {
+    height: 88px;
+  }
+
+  #filepicker-img-overlay {
+    left: 35px;
+    height: 100px;
+    width: 100px;
+  }
+
+  .filepicker-wrapper > .upload-btn {
+    top: -6px;
+  }
+
+  button.filepicker-input.upload-btn {
+    cursor: pointer;
+    overflow-x: hidden;
+  }
+}

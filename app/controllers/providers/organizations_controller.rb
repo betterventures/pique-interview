@@ -31,6 +31,7 @@ class Providers::OrganizationsController < ApplicationController
             :address,
             :city,
             :state,
+            :logo_url,
           )
   end
 end

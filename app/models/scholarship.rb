@@ -147,7 +147,7 @@ class Scholarship < ApplicationRecord
     {
       include: {
         awards: { only: [:id, :scholarship_application_id, :amount], },
-        organization: { only: [:id, :name, :website, :support_email, :address, :city, :state], },
+        organization: { only: [:id, :name, :website, :support_email, :address, :city, :state, :logo_url], },
         application_questions: { only: [:id, :scholarship_id, :prompt, :answer_type], },
         supplemental_requirements: { only: [:id, :title], },
         org_provided_documents: { only: [:id, :title, :filepicker_url], },

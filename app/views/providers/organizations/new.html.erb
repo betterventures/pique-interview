@@ -18,6 +18,43 @@
           </div>
         </div>
 
+        <div class="row" id="photo-row">
+          <div class="field">
+            <%= f.label :logo_url, 'Scholarship Logo' %>
+            <div class="col-container">
+              <div class="col">
+                <div class="filepicker-wrapper">
+                  <input id="filepicker-input"
+                        class="upload-btn"
+                        data-fp-button-text="Choose File"
+                        data-fp-apikey="Aw4WfTTq8QxmplkGIzrYgz"
+                        data-fp-crop-ratio="1/1"
+                        data-fp-crop-force="true"
+                        data-fp-openTo="COMPUTER"
+                        data-fp-multiple="false"
+                        mimetype="image/*"
+                        type="filepicker"
+                        name="organization[logo_url]"
+                        value="<%= @organization.try(:logo_url) %>"
+                        onchange="insertFilepickerImg(event)"
+                        style="display: none;"
+                        >
+                </div>
+              </div>
+              <div class="col">
+                <div id="filepicker-img-overlay">
+                  <img
+                    id="filepicker-img-preview"
+                    src="<%= @organizations.try(:logo_url) %>"
+                    height="100"
+                    width="100"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="row">
           <div class="field required">
             <%= f.label :phone, 'Phone Number' %>
@@ -62,3 +99,32 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  // Make Filepicker widget play nice with Turbolinks
+  function setupFilepicker() {
+    var $filepickerInputs = $('#filepicker-input');
+    for (var i = 0; i < $filepickerInputs.length; i++) {
+      var $uploadBtns = $('button.upload-btn');
+      if ($uploadBtns.length <= i) {
+        filepicker.constructWidget($filepickerInputs[i]);
+      }
+    }
+  }
+
+  function insertFilepickerImg(event) {
+    var $filepickerImg = $('#filepicker-img-preview');
+    $filepickerImg.toggleClass('fade');
+    $filepickerImg.attr('src', event.fpfile.url);
+    $filepickerImg.toggleClass('fade');
+  }
+
+  // TODO: Improve. Original filepicker widget needs to initialize before we can check
+  //       for presence, so use a timeout. Manage the widget initialization differently
+  //       so we can control mounting, then remount for turbolinks.
+  //  The correct way to solve this may be to remove turbolinks, or initialize the widget
+  //  manually, so we can trigger it and not deal with two. Look into that.
+  // Try: https://www.filepicker.com/docs/file-ingestion/javascript-api/pick?v=v2.
+  // See: filepicker.pickAndStore()
+  $(document).on('turbolinks:load', function () { setTimeout(setupFilepicker, 5000) });
+</script>

@@ -8,26 +8,63 @@ import css from './style.css'
 export const Committee = ({ launchModal }) => {
   return (
     <div className={css.root}>
-      <div className={`wrap ${css.inner}`}>
-        <div className={css.header} />
+      <div className={css.inner}>
+        <div className={css.header}>
+          Scholarship Selection Committee
+        </div>
         <div className={css.divider} />
+
+        <div className={css.row}>
+          <div className={css.comment}>
+            Add a New Reviewer to Your Selection Committee
+          </div>
+        </div>
+        <div className={css.borderrow}>
+          <div className={css.innerrow}>
+            <input className={css.sminput}
+              type="text"
+              placeholder="Email Address"
+              onChange=''
+            />
+            <input className={css.sminput}
+              type="text"
+              placeholder="First Name"
+              onChange=''
+            />
+            <input className={css.sminput}
+              type="text"
+              placeholder="Last Name"
+              onChange=''
+            />
+            <Button
+              className={css.btn}
+              onClick=''
+            >
+              Send Invite!
+            </Button>
+          </div>
+        </div>
+
+        <div className={css.row}>
+          <div className={css.comment}>
+            Current Selection Committee
+          </div>
+        </div>
         <ul className={css.ul}>
         {team.map((x, i) =>
           <li key={i} className={css.li}>
-            <img className={css.img} src={x.img} />
+            <div className={css.imgwrapper}>
+              <img className={css.img} src={x.img} />
+            </div>
             <div className={css.details}>
               <div className={css.name}>{x.name}</div>
               <div className={css.info}>{x.position}</div>
               <div className={css.info}>{x.company}</div>
+              <div className={css.remove}>Remove Reviewer</div>
             </div>
           </li>
         )}
         </ul>
-        <div className={css.invite}>
-          <Button
-            className={css.btn}
-            onClick={launchModal}>Invite More Reviewers</Button>
-        </div>
       </div>
     </div>
   )

@@ -34,10 +34,30 @@ export const Committee = ({ launchModal }) => {
 }
 
 const team = [
-  {name: 'Carla Piedra', position: 'College Access Director', company: 'College Up', img: img},
-  {name: 'Nnamdi Nwaezeapu', position: 'Parallegal ', company: 'The Smith Group', img: img},
-  {name: 'Kevin Iraheta', position: 'Pipeline Developer', company: 'Civic Accelerator', img: img},
-  {name: 'Laura Middleton', position: 'Academic Counselor', company: 'College Prep', img: img}
+  {
+    name: 'Craig Kilborn',
+    position: 'College Access Director',
+    company: 'College Up',
+    img: `http://img3.bdbphotos.com/images/130x130/c/b/cbq0cn4s1z9f0z4.jpg?skj2io4l`,
+  },
+  {
+    name: 'Doug Douglas',
+    position: 'Parallegal',
+    company: 'The Smith Group',
+    img: `https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAMxAAAAJDJlNTgzNjQxLTY0NDItNDY3My04ZWNmLTQ0NWRhZWVlN2ZkOA.jpg`,
+  },
+  {
+    name: 'Jackie Jackson',
+    position: 'Pipeline Developer',
+    company: 'Civic Accelerator',
+    img: `http://cdn.goodgallery.com/c0fc0cd1-dcb8-4c11-84f0-7536ee031d43/s/0200/21n3q0eg/wilmington-professional-headshot-photographer.jpg`,
+  },
+  {
+    name: 'Quentin Richardson',
+    position: 'Academic Counselor',
+    company: 'College Prep',
+    img: img
+  },
 ]
 
 export default connect(null, Actions)(Committee)

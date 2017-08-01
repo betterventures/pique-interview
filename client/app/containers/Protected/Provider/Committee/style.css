@@ -78,6 +78,7 @@
 
 .img {
   display: inline-block;
+  height: 65px;
   margin-right: 20px;
   vertical-align: top;
 }

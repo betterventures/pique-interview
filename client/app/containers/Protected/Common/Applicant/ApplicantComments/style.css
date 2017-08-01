@@ -57,6 +57,7 @@
 }
 
 .score {
+  color: #44BCEF;
   font-size: 14px;
-  color: #444343
+  font-weight: 500;
 }

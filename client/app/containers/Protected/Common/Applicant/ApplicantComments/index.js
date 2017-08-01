@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Rating from 'components/Rating'
 import { saveAndUpdateScholarship } from 'api/actions'
+import raterImg from './901-av.png'
 import css from './style.css'
 
 export class ApplicantComments extends Component {
@@ -70,7 +71,7 @@ const comments = [
   }, {
     name: `Quentin Richarson`,
     rating: 93,
-    image: `http://static.hsw.com.br/gif/jogador-new-york-kinicks-quentin-richardson.jpg`,
+    image: raterImg,
     message: `Overall, she's a bright student with all of determination and direction. I wish she had talked about Santa a bit more in her second essay. `
   }
 ]

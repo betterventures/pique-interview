@@ -14,6 +14,13 @@ class Providers::OrganizationsController < ApplicationController
   end
 
   def edit
+    @organization = Organization.find(params[:id])
+  end
+
+  def update
+    @organization = Organization.find(params[:id])
+    @organization.update_attributes!(organization_params)
+    redirect_to edit_providers_organization_path(@organization)
   end
 
   def show

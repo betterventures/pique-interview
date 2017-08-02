@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     registrations: 'providers/registrations'
   }
   namespace :providers do
-    resources :organizations, only: [:new, :create, :edit, :show]
+    resources :organizations, only: [:new, :create, :edit, :update, :show]
 
     # nest payments under scholarships
     resources :scholarships, only: [:new, :create] do

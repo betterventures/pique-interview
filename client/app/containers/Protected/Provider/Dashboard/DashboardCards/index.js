@@ -99,12 +99,10 @@ export class DashboardCards extends Component {
 
   cumulativeScoreForStudent(scholarship, student) {
     let application = this.getApplicationForStudent(scholarship.scholarship_applications, student.id)
-    if (application.ratings.length < 1) {
-      return NOT_YET_RATED
-    }
-
-    let scores = application.ratings.map((r,i) => this.scoreForSingleRating(r, scholarship.score_card.score_card_fields))
+    let ratings = application.ratings || []
+    let scores = ratings.map((r,i) => this.scoreForSingleRating(r, scholarship.score_card.score_card_fields))
     scores = scores.concat(DUMMY_SCORES)
+
     return Math.round(scores.reduce((sum, s) => (sum + s), 0) / scores.length)
   }
 
@@ -220,26 +218,11 @@ export class DashboardCards extends Component {
                             x.description
                       }
                     </div>
-                    <Match
-                      pattern='/dashboard/unscored'
-                      render={() =>
-                        <div
-                          className={css.rating}
-                        >
-                          Total Score: {NOT_YET_RATED}%
-                        </div>
-                      }
-                    />
-                    <Match
-                      pattern='/dashboard/(scored|awarded)'
-                      render={() =>
-                        <div
-                          className={css.rating}
-                        >
-                          Total Score: {this.cumulativeScoreForStudent(scholarship, x)}%
-                        </div>
-                      }
-                    />
+                    <div
+                      className={css.rating}
+                    >
+                      Total Score: {this.cumulativeScoreForStudent(scholarship, x)}%
+                    </div>
                   </div>
                 </Link>
                 <Match

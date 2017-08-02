@@ -10,7 +10,7 @@
     </div>
 
     <div class="form-body">
-      <%= form_for @user, as: :user, url: providers_account_info_path, method: :put do |f| %>
+      <%= form_for @user, as: :user, url: providers_account_info_path, method: :patch do |f| %>
         <div class="row">
           <div class="field required">
             <%= f.label :first_name, 'First Name' %>

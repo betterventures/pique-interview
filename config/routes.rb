@@ -18,8 +18,11 @@ Rails.application.routes.draw do
     put '/scholarships/:scholarship_id/', to: 'scholarships#update_json', as: 'scholarship_update_json'
 
     # user account info routes
+    get 'setup_account', to: 'account_info#initial'
     get 'account_info', to: 'account_info#edit'
-    put 'account_info', to: 'account_info#update'
+    get 'account_password', to: 'account_info#edit'
+    patch 'account_info', to: 'account_info#update'
+    patch 'account_password', to: 'account_info#update_password'
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

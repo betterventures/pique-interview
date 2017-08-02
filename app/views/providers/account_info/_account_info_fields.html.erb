@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="field required">
+    <%= f.label :job_title, 'Job Title' %>
+    <div class="col-container">
+      <%= f.text_field :job_title, required: true, class: "full" %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="field required">
+    <%= f.label 'Name of Employer/Organization' %>
+    <div class="col-container">
+      <%= f.text_field :employer_name, required: true, class: "full" %>
+    </div>
+  </div>
+</div>
+
+<div class="row" id="profile-picture">
+  <div class="field required">
+    <%= f.label :photo_url, 'Profile Picture' %>
+    <div class="col-container">
+      <div class="col">
+        <div class="filepicker-wrapper">
+          <div class="comment inline-comment">
+            This profile picture is only for your scholarship review team.<br><br>Students will not be able to see your picture.
+          </div>
+          <input id="filepicker-input"
+                class="upload-btn"
+                data-fp-button-text="Choose File"
+                data-fp-apikey="Aw4WfTTq8QxmplkGIzrYgz"
+                data-fp-crop-min="120, 120"
+                data-fp-crop-ratio="1/1"
+                data-fp-crop-force="true"
+                data-fp-openTo="COMPUTER"
+                data-fp-multiple="false"
+                mimetype="image/*"
+                required
+                type="filepicker"
+                name="user[photo_url]"
+                value="<%= @user.try(:photo_url) %>"
+                onchange="insertFilepickerImg(event)"
+                style="display: none;"
+          />
+        </div>
+      </div>
+
+      <div class="col">
+        <div id="filepicker-img-overlay">
+          <img id="filepicker-img-preview"
+               src="<%= @user.try(:photo_url) %>"
+               height="120"
+               width="120"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function insertFilepickerImg(event) {
+    var $filepickerImg = $('#filepicker-img-preview');
+    $filepickerImg.toggleClass('fade');
+    $filepickerImg.attr('src', event.fpfile.url);
+    $filepickerImg.toggleClass('fade');
+  }
+</script>
+

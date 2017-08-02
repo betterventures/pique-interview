@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     return new_providers_organization_path if !current_provider.organization
 
     # account_info if no account_info (job_title, profile pic, etc)
-    return providers_account_info_path if (!current_provider.job_title ||
+    return providers_setup_account_path if (!current_provider.job_title ||
                                            !current_provider.photo_url)
 
     # new_scholarship if none has been saved
@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_update_path_for(resource)
-    new_providers_scholarship_path
+    providers_account_info_path
   end
 
   def after_resetting_password_path_for(resource)

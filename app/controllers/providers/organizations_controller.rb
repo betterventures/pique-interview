@@ -9,8 +9,8 @@ class Providers::OrganizationsController < ApplicationController
     current_provider.organization = @organization
     current_provider.save
 
-    # continue sign-in flow: redirect to account_info after organization
-    redirect_to providers_account_info_path
+    # continue sign-in flow: redirect to initial_account_info after organization
+    redirect_to providers_setup_account_path
   end
 
   def edit

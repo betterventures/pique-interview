@@ -54,7 +54,7 @@ export default class ReduxlessHeaderMenu extends Component {
           <li
             onClick={onClick}
             className={css.li}>
-              <a href="/providers/edit">Settings</a>
+              <a href="/providers/account_info">My Account</a>
             </li>
           <li
             onClick={signOut}

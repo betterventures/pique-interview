@@ -1,4 +1,4 @@
-<div id="account-info" class="page-container">
+<div id="edit-account-info" class="page-container">
   <p class="header">
     Account Info
   </p>
@@ -13,68 +13,70 @@
       <%= form_for @user, as: :user, url: providers_account_info_path, method: :put do |f| %>
         <div class="row">
           <div class="field required">
-            <%= f.label :job_title, 'Job Title' %>
+            <%= f.label :first_name, 'First Name' %>
             <div class="col-container">
-              <%= f.text_field :job_title, required: true, class: "full" %>
+              <%= f.text_field :first_name, required: true, class: "" %>
             </div>
           </div>
         </div>
 
         <div class="row">
           <div class="field required">
-            <%= f.label 'Name of Employer/Organization' %>
+            <%= f.label :last_name, 'Last Name' %>
             <div class="col-container">
-              <%= f.text_field :employer_name, required: true, class: "full" %>
+              <%= f.text_field :last_name, required: true, class: "" %>
             </div>
           </div>
         </div>
 
-        <div class="row" id="profile-picture">
-          <div class="field required">
-            <%= f.label :photo_url, 'Profile Picture' %>
-            <div class="col-container">
-              <div class="col">
-                <div class="filepicker-wrapper">
-                  <div class="comment inline-comment">
-                    This profile picture is only for your scholarship review team.<br><br>Students will not be able to see your picture.
-                  </div>
-                  <input id="filepicker-input"
-                        class="upload-btn"
-                        data-fp-button-text="Choose File"
-                        data-fp-apikey="Aw4WfTTq8QxmplkGIzrYgz"
-                        data-fp-crop-min="120, 120"
-                        data-fp-crop-ratio="1/1"
-                        data-fp-crop-force="true"
-                        data-fp-openTo="COMPUTER"
-                        data-fp-multiple="false"
-                        mimetype="image/*"
-                        required
-                        type="filepicker"
-                        name="user[photo_url]"
-                        value="<%= @user.try(:photo_url) %>"
-                        onchange="insertFilepickerImg(event)"
-                        style="display: none;"
-                  />
-                </div>
-              </div>
+        <%= render partial: 'account_info_fields', locals: { f: f } %>
 
-              <div class="col">
-                <div id="filepicker-img-overlay">
-                  <img id="filepicker-img-preview"
-                       src="<%= @user.try(:photo_url) %>"
-                       height="120"
-                       width="120"
-                  />
-                </div>
-              </div>
-            </div>
+        <div class="actions">
+          <%= f.submit "Update Account Info", class: "btn submit-btn" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="form-header">
+      <p class="form-title">Update Password?</p>
+      <p class="form-legend">* Required</p>
+    </div>
+      <%= form_for(@user, as: :user, url: providers_account_password_path, html: { method: :patch }) do |f| %>
+        <% if flash[:password_success] %>
+          <div class="flash notice">
+            <%= flash[:password_success] %>
+          </div>
+        <% elsif flash[:password_error] %>
+          <div class="flash alert">
+            <%= flash[:password_error] %>
+          </div>
+        <% end %>
+        <div class="row">
+          <div class="field required">
+            <%= f.label :current_password, 'Current Password' %>
+            <%= f.password_field :current_password, autocomplete: "off" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field required">
+            <%= f.label :password, 'Enter New Password' %>
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field required">
+            <%= f.label :password_confirmation, 'Confirm New Password' %>
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
           </div>
         </div>
 
         <div class="actions">
-          <%= f.submit "Get Started!", class: "btn submit-btn" %>
+          <%= f.submit "Update Password", class: "btn submit-btn" %>
         </div>
       <% end %>
+
     </div>
   </div>
 </div>

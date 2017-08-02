@@ -1,0 +1,41 @@
+<div id="account-info" class="page-container">
+  <p class="header">
+    Account Info
+  </p>
+
+  <div class="form-container">
+    <div class="form-header">
+      <p class="form-title">Tell Us About You!</p>
+      <p class="form-legend">* Required</p>
+    </div>
+
+    <div class="form-body">
+      <%= form_for @user, as: :user, url: providers_account_info_path, method: :put do |f| %>
+        <div class="row">
+          <div class="field required">
+            <%= f.label :first_name, 'First Name' %>
+            <div class="col-container">
+              <%= f.text_field :first_name, required: true, class: "" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field required">
+            <%= f.label :last_name, 'Last Name' %>
+            <div class="col-container">
+              <%= f.text_field :last_name, required: true, class: "" %>
+            </div>
+          </div>
+        </div>
+
+        <%= render partial: 'account_info_fields', locals: { f: f } %>
+
+        <div class="actions">
+          <%= f.submit "Get Started!", class: "btn submit-btn" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

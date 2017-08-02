@@ -8,6 +8,7 @@ import { saveAndUpdateScholarship } from 'api/actions'
 import css from './style.css'
 
 const NOT_YET_RATED = ' - '
+const DUMMY_SCORES = [96, 82, 89, 93]
 
 export class DashboardCards extends Component {
   constructor(props) {
@@ -103,7 +104,8 @@ export class DashboardCards extends Component {
     }
 
     let scores = application.ratings.map((r,i) => this.scoreForSingleRating(r, scholarship.score_card.score_card_fields))
-    return (scores.reduce((sum, s) => (sum + s), 0) / scores.length)
+    scores = scores.concat(DUMMY_SCORES)
+    return Math.round(scores.reduce((sum, s) => (sum + s), 0) / scores.length)
   }
 
   render() {

@@ -55,9 +55,12 @@
 
 .rating {
   position: absolute;
-  z-index: 1;
   left: 130px;
-  top: 40px
+  top: 40px;
+  font-weight: 300;
+  height: 28px;
+  line-height: 28px;
+  z-index: 1;
 }
 
 .awardicon {

@@ -7,6 +7,8 @@ import Fireworks from 'components/Icons/Fireworks'
 import { saveAndUpdateScholarship } from 'api/actions'
 import css from './style.css'
 
+const NOT_YET_RATED = ' - '
+
 export class DashboardCards extends Component {
   constructor(props) {
     super(props)
@@ -14,6 +16,9 @@ export class DashboardCards extends Component {
     this.closeAwardModal = ::this.closeAwardModal
     this.selectAwardIndex = ::this.selectAwardIndex
     this.saveAwardToApplication = ::this.saveAwardToApplication
+    this.getApplicationForStudent = ::this.getApplicationForStudent
+    this.scoreForSingleRating = ::this.scoreForSingleRating
+    this.cumulativeScoreForStudent = ::this.cumulativeScoreForStudent
     this.state = {
       award: null,
       awarding: false,
@@ -79,6 +84,26 @@ export class DashboardCards extends Component {
         scholarshipIdx: 0,
       })
     }.bind(this), 2000)
+  }
+
+  scoreForSingleRating(rating, scoreCardFields) {
+    let totalScore = rating.fields.reduce((sum, f) => (sum + f.score), 0)
+    let totalPossible = scoreCardFields.reduce((sum, f) => (sum + f.possible_score), 0)
+    return Math.round(totalScore / totalPossible * 100)
+  }
+
+  getApplicationForStudent(applications, studentId) {
+    return applications.filter(app => (app.student_id && app.student_id.toString()) === studentId.toString())[0]
+  }
+
+  cumulativeScoreForStudent(scholarship, student) {
+    let application = this.getApplicationForStudent(scholarship.scholarship_applications, student.id)
+    if (application.ratings.length < 1) {
+      return NOT_YET_RATED
+    }
+
+    let scores = application.ratings.map((r,i) => this.scoreForSingleRating(r, scholarship.score_card.score_card_fields))
+    return (scores.reduce((sum, s) => (sum + s), 0) / scores.length)
   }
 
   render() {
@@ -193,11 +218,26 @@ export class DashboardCards extends Component {
                             x.description
                       }
                     </div>
-                    <div
-                      className={css.rating}
-                      style={{height: '28px', 'fontWeight': 400}}
-                      value={x.rating}>
-                    </div>
+                    <Match
+                      pattern='/dashboard/unscored'
+                      render={() =>
+                        <div
+                          className={css.rating}
+                        >
+                          Total Score: {NOT_YET_RATED}%
+                        </div>
+                      }
+                    />
+                    <Match
+                      pattern='/dashboard/(scored|awarded)'
+                      render={() =>
+                        <div
+                          className={css.rating}
+                        >
+                          Total Score: {this.cumulativeScoreForStudent(scholarship, x)}%
+                        </div>
+                      }
+                    />
                   </div>
                 </Link>
                 <Match

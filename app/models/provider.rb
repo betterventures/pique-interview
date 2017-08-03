@@ -8,6 +8,9 @@ class Provider < User
   belongs_to :organization, optional: true
   has_many :scholarships, through: :organization
 
+  scope :admin,    -> { where(admin: true) }
+  scope :reviewer, -> { where(reviewer: true) }
+
   def primary_scholarship
     scholarships.first
   end
@@ -31,6 +34,7 @@ class Provider < User
       displayName: name,
       photoURL: photo_url || DEFAULT_PHOTO_URL,
       type: role,
+      reviewer: reviewer,
     }
   end
 

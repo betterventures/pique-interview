@@ -12,7 +12,7 @@ class Providers::AccountInfoController < ApplicationController
   def update
     @user = current_provider
     @user.update_attributes!(user_params)
-    redirect_to new_providers_scholarship_path
+    redirect_to after_sign_in_path_for(@user)
   end
 
   def update_password

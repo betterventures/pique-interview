@@ -9,13 +9,13 @@ class ApplicationController < ActionController::Base
     return providers_setup_account_path if (!current_provider.job_title ||
                                            !current_provider.photo_url)
 
-    # new_scholarship if none has been saved
-    return new_providers_scholarship_path if !current_provider.has_saved_scholarship?
-
-    # dashboard if one has been completed
-    if current_provider.has_completed_scholarship?
+    # dashboard if Provider is not an admin or one has already been completed
+    if !current_provider.admin? || current_provider.has_completed_scholarship?
       return providers_scholarship_dashboard_path(current_provider.primary_scholarship)
     end
+
+    # new_scholarship if none has been saved for the Org
+    return new_providers_scholarship_path if !current_provider.has_saved_scholarship?
 
     # next incomplete step if one has been saved but not completed
     return providers_scholarship_step_path(
@@ -41,4 +41,10 @@ class ApplicationController < ActionController::Base
   def after_resetting_password_path_for(resource)
     new_providers_scholarship_path
   end
+
+  # override redirect path for accepted invitations -> go to Account Info
+  def after_accept_path_for(resource)
+    self.send("#{resource_class.to_s.downcase.pluralize}_setup_account_path")
+  end
+
 end

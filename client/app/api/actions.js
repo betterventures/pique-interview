@@ -123,3 +123,18 @@ export const saveNewFieldToScoreCard = payload => {
     )
   }
 }
+
+// Invitations
+export const inviteProvider = payload => {
+  return (dispatch) => {
+    API.inviteProvider(payload)
+      .then(res => {
+        console.log(`Successfully invited Provider.`)
+        return true
+      })
+      .catch(err => {
+        console.error(`Error inviting Provider. Text: ${err}.`)
+        return false
+      })
+  }
+}

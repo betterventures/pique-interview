@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   # Provider flow
   devise_for :providers, controllers: {
-    registrations: 'providers/registrations'
+    registrations: 'providers/registrations',
+    invitations: 'providers/invitations',
   }
   namespace :providers do
     resources :organizations, only: [:new, :create, :edit, :update, :show]

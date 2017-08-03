@@ -1,73 +1,133 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Button from 'components/Button'
-import * as Actions from 'api/actions'
+import { inviteProvider } from 'api/actions'
 import img from './901-av.png'
 import css from './style.css'
 
-export const Committee = ({ launchModal }) => {
-  return (
-    <div className={css.root}>
-      <div className={css.inner}>
-        <div className={css.header}>
-          Scholarship Selection Committee
-        </div>
-        <div className={css.divider} />
+export class Committee extends Component {
+  constructor(props) {
+    super(props)
+    this.inviteProvider = ::this.inviteProvider
+    this.setInviteeEmail = ::this.setInviteeEmail
+    this.setInviteeFirstName = ::this.setInviteeFirstName
+    this.setInviteeLastName = ::this.setInviteeLastName
+    this.state = {
+      inviteeFirstName: '',
+      inviteeLastName: '',
+      inviteeEmail: '',
+    }
+  }
 
-        <div className={css.row}>
-          <div className={css.comment}>
-            Add a New Reviewer to Your Selection Committee
-          </div>
-        </div>
-        <div className={css.borderrow}>
-          <div className={css.innerrow}>
-            <input className={css.sminput}
-              type="text"
-              placeholder="Email Address"
-              onChange=''
-            />
-            <input className={css.sminput}
-              type="text"
-              placeholder="First Name"
-              onChange=''
-            />
-            <input className={css.sminput}
-              type="text"
-              placeholder="Last Name"
-              onChange=''
-            />
-            <Button
-              className={css.btn}
-              onClick=''
-            >
-              Send Invite!
-            </Button>
-          </div>
-        </div>
+  inviteProvider(email, firstName, lastName, orgId) {
+    // for now, Reviewers are Providers
+    // (this may change into an admin/user relationship in the future)
+    return this.props.inviteProvider({
+      email: email,
+      first_name: firstName,
+      last_name: lastName,
+      role: 'provider',
+      admin: false,
+      reviewer: true,
+      organization_id: orgId,
+    })
+  }
 
-        <div className={css.row}>
-          <div className={css.comment}>
-            Current Selection Committee
+  setInviteeEmail(e) {
+    this.setState({
+      inviteeEmail: e.target.value
+    })
+  }
+
+  setInviteeFirstName(e) {
+    this.setState({
+      inviteeFirstName: e.target.value
+    })
+  }
+
+  setInviteeLastName(e) {
+    this.setState({
+      inviteeLastName: e.target.value
+    })
+  }
+
+  render() {
+    const currentOrgId = this.props.scholarship && this.props.scholarship.organization_id
+
+    return (
+      <div className={css.root}>
+        <div className={css.inner}>
+          <div className={css.header}>
+            Scholarship Selection Committee
           </div>
+          <div className={css.divider} />
+
+          <div className={css.row}>
+            <div className={css.comment}>
+              Add a New Reviewer to Your Selection Committee
+            </div>
+          </div>
+          <div className={css.borderrow}>
+            <div className={css.innerrow}>
+              <input className={css.sminput}
+                type="text"
+                placeholder="Email Address"
+                onChange={this.setInviteeEmail}
+                value={this.state.inviteeEmail}
+              />
+              { this.state.inviteeEmail }
+              <input className={css.sminput}
+                type="text"
+                placeholder="First Name"
+                onChange={this.setInviteeFirstName}
+                value={this.state.inviteeFirstName}
+              />
+              { this.state.inviteeFirstName }
+              <input className={css.sminput}
+                type="text"
+                placeholder="Last Name"
+                onChange={this.setInviteeLastName}
+                value={this.state.inviteeLastName}
+              />
+              { this.state.inviteeLastName }
+              <Button
+                className={css.btn}
+                onClick={() => this.inviteProvider(
+                  this.state.inviteeEmail,
+                  this.state.inviteeFirstName,
+                  this.state.inviteeLastName,
+                  currentOrgId,
+                )}
+              >
+                Send Invite!
+              </Button>
+            </div>
+          </div>
+
+          <div className={css.row}>
+            <div className={css.comment}>
+              Current Selection Committee
+            </div>
+          </div>
+          <ul className={css.ul}>
+          {team.map((x, i) =>
+            <li key={i} className={css.li}>
+              <div className={css.imgwrapper}>
+                <img className={css.img} src={x.img} />
+              </div>
+              <div className={css.details}>
+                <div className={css.name}>{x.name}</div>
+                <div className={css.info}>{x.position}</div>
+                <div className={css.info}>{x.company}</div>
+                <div className={css.remove}>Remove Reviewer</div>
+              </div>
+            </li>
+          )}
+          </ul>
         </div>
-        <ul className={css.ul}>
-        {team.map((x, i) =>
-          <li key={i} className={css.li}>
-            <div className={css.imgwrapper}>
-              <img className={css.img} src={x.img} />
-            </div>
-            <div className={css.details}>
-              <div className={css.name}>{x.name}</div>
-              <div className={css.info}>{x.position}</div>
-              <div className={css.info}>{x.company}</div>
-              <div className={css.remove}>Remove Reviewer</div>
-            </div>
-          </li>
-        )}
-        </ul>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 const team = [
@@ -97,4 +157,9 @@ const team = [
   },
 ]
 
-export default connect(null, Actions)(Committee)
+export default connect(
+  state => ({
+    scholarship: state.app.scholarships.all[0],
+  }),
+  { inviteProvider }
+)(Committee)

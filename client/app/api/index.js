@@ -167,3 +167,14 @@ export const updateScholarship = payload => {
     }
   )
 }
+
+export const inviteProvider = payload => {
+  // NB: This URL may change if Providers::InvitationsController route changes
+  return axios.post(
+    `/providers/invitation`,
+    payload,
+    {
+      headers: authenticityHeaders(),
+    }
+  )
+}

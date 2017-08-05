@@ -66,6 +66,10 @@ class Scholarship < ApplicationRecord
   # awards
   has_many :awards, inverse_of: :scholarship
 
+  # reviewers
+  has_many :reviewers, through: :organization, source: :reviewers
+  has_many :accepted_reviewers, through: :organization, source: :accepted_reviewers
+
   # requirements
   has_many :area_of_study_requirements, inverse_of: :scholarship, dependent: :destroy
   has_many :essay_requirements, inverse_of: :scholarship, dependent: :destroy
@@ -171,6 +175,10 @@ class Scholarship < ApplicationRecord
               },
             },
           },
+        },
+        accepted_reviewers: {
+          only: [:id, :first_name, :last_name, :reviewer, :admin, :role, :job_title, :employer_name],
+          methods: [:name, :photo_url],
         },
       },
       methods: [

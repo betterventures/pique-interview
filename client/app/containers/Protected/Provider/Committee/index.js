@@ -52,7 +52,8 @@ export class Committee extends Component {
   }
 
   render() {
-    const currentOrgId = this.props.scholarship && this.props.scholarship.organization_id
+    const scholarship = this.props.scholarship
+    const currentOrgId = scholarship && scholarship.organization_id
 
     return (
       <div className={css.root}>
@@ -110,19 +111,37 @@ export class Committee extends Component {
             </div>
           </div>
           <ul className={css.ul}>
-          {team.map((x, i) =>
-            <li key={i} className={css.li}>
-              <div className={css.imgwrapper}>
-                <img className={css.img} src={x.img} />
-              </div>
-              <div className={css.details}>
-                <div className={css.name}>{x.name}</div>
-                <div className={css.info}>{x.position}</div>
-                <div className={css.info}>{x.company}</div>
-                <div className={css.remove}>Remove Reviewer</div>
-              </div>
-            </li>
-          )}
+            {
+              scholarship.accepted_reviewers.length > 0
+                ?
+                  scholarship.accepted_reviewers.map((x, i) =>
+                    <li key={i} className={css.li}>
+                      <div className={css.imgwrapper}>
+                        <img className={css.img} src={x.photo_url} />
+                      </div>
+                      <div className={css.details}>
+                        <div className={css.name}>{x.name}</div>
+                        <div className={css.info}>{x.job_title || 'No Position Specified'}</div>
+                        <div className={css.info}>{x.employer_name || 'No Employer Specified' }</div>
+                        <div className={css.remove}>Remove Reviewer</div>
+                      </div>
+                    </li>
+                  )
+                :
+                  team.map((x, i) =>
+                    <li key={i} className={css.li}>
+                      <div className={css.imgwrapper}>
+                        <img className={css.img} src={x.img} />
+                      </div>
+                      <div className={css.details}>
+                        <div className={css.name}>{x.name}</div>
+                        <div className={css.info}>{x.position}</div>
+                        <div className={css.info}>{x.company}</div>
+                        <div className={css.remove}>Remove Reviewer</div>
+                      </div>
+                    </li>
+                  )
+            }
           </ul>
         </div>
       </div>

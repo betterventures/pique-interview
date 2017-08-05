@@ -10,6 +10,8 @@ class Provider < User
 
   scope :admin,    -> { where(admin: true) }
   scope :reviewer, -> { where(reviewer: true) }
+  scope :accepted_invite, -> { where('invitation_accepted_at IS NOT NULL') }
+  scope :accepted_reviewer, -> { reviewer.accepted_invite }
 
   def primary_scholarship
     scholarships.first
@@ -32,10 +34,15 @@ class Provider < User
     {
       id: id,
       displayName: name,
-      photoURL: photo_url || DEFAULT_PHOTO_URL,
+      photoURL: photo_url,
       type: role,
       reviewer: reviewer,
+      admin: admin,
     }
+  end
+
+  def photo_url
+    self[:photo_url] || DEFAULT_PHOTO_URL
   end
 
   private

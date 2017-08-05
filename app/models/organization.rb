@@ -4,4 +4,5 @@ class Organization < ApplicationRecord
   has_many :scholarships
   has_many :administrators, -> { admin }, class_name: 'Provider'
   has_many :reviewers, -> { reviewer }, class_name: 'Provider'
+  has_many :accepted_reviewers, -> { accepted_reviewer }, class_name: 'Provider'
 end

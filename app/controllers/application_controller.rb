@@ -9,19 +9,8 @@ class ApplicationController < ActionController::Base
     return providers_setup_account_path if (!current_provider.job_title ||
                                            !current_provider.photo_url)
 
-    # dashboard if Provider is not an admin or one has already been completed
-    if !current_provider.admin? || current_provider.has_completed_scholarship?
-      return providers_scholarship_dashboard_path(current_provider.primary_scholarship)
-    end
-
-    # new_scholarship if none has been saved for the Org
-    return new_providers_scholarship_path if !current_provider.has_saved_scholarship?
-
-    # next incomplete step if one has been saved but not completed
-    return providers_scholarship_step_path(
-      current_provider.primary_scholarship,
-      current_provider.primary_scholarship.next_incomplete_step
-    )
+    # new, step, or dashboard, depending on where the current provider is at
+    return next_scholarship_path_for_provider
   end
 
   # NB: this is overridden in Providers::RegistrationsController.
@@ -47,4 +36,20 @@ class ApplicationController < ActionController::Base
     self.send("#{resource_class.to_s.downcase.pluralize}_setup_account_path")
   end
 
+  # the next valid scholarship path for the current provider (new, step, or dashboard)
+  def next_scholarship_path_for_provider
+    # dashboard if Provider is not an admin or one has already been completed
+    if !current_provider.admin? || current_provider.has_completed_scholarship?
+      return providers_scholarship_dashboard_path(current_provider.primary_scholarship)
+    end
+
+    # new_scholarship if none has been saved for the Org
+    return new_providers_scholarship_path if !current_provider.has_saved_scholarship?
+
+    # next incomplete step if one has been saved but not completed
+    return providers_scholarship_step_path(
+      current_provider.primary_scholarship,
+      current_provider.primary_scholarship.next_incomplete_step
+    )
+  end
 end

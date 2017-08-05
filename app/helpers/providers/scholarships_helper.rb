@@ -5,7 +5,7 @@ module Providers
 
     def authorize_provider_access_to_scholarship!(scholarship_id)
       unless current_provider.administers?(scholarship_id.to_i)
-        redirect_to providers_scholarship_dashboard_path(current_provider.primary_scholarship)
+        redirect_to next_scholarship_path_for_provider
       end
     end
 

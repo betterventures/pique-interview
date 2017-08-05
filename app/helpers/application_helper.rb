@@ -18,4 +18,5 @@ module ApplicationHelper
   def current_user
     current_provider
   end
+
 end

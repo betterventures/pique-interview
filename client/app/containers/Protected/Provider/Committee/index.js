@@ -128,19 +128,22 @@ export class Committee extends Component {
                     </li>
                   )
                 :
-                  team.map((x, i) =>
-                    <li key={i} className={css.li}>
-                      <div className={css.imgwrapper}>
-                        <img className={css.img} src={x.img} />
-                      </div>
-                      <div className={css.details}>
-                        <div className={css.name}>{x.name}</div>
-                        <div className={css.info}>{x.position}</div>
-                        <div className={css.info}>{x.company}</div>
-                        <div className={css.remove}>Remove Reviewer</div>
-                      </div>
-                    </li>
-                  )
+                  ''
+              }
+              {
+                team.map((x, i) =>
+                  <li key={i} className={css.li}>
+                    <div className={css.imgwrapper}>
+                      <img className={css.img} src={x.img} />
+                    </div>
+                    <div className={css.details}>
+                      <div className={css.name}>{x.name}</div>
+                      <div className={css.info}>{x.position}</div>
+                      <div className={css.info}>{x.company}</div>
+                      <div className={css.remove}>Remove Reviewer</div>
+                    </div>
+                  </li>
+                )
             }
           </ul>
         </div>

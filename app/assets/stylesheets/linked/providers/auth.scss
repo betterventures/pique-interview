@@ -10,7 +10,8 @@
 // Container config
 .signup-root,
 .signin-root,
-.password-root {
+.password-root,
+.invite-root {
   background-color: $white;
   border-radius: 0;
   box-shadow: 0 5px 33px rgba(39, 39, 39, 0.5);
@@ -41,10 +42,16 @@
   top: 188px;
 }
 
+.invite-root {
+  max-width: 400px;
+  top: 188px;
+}
+
 // Form element config
 .signup-root,
 .signin-root,
-.password-root {
+.password-root,
+.invite-root {
   .header {
     border-bottom: 1px solid $pastel-blue;
     color: $pastel-blue;
@@ -195,7 +202,8 @@
   }
 }
 
-.password-root {
+.password-root,
+.invite-root {
   padding: 30px 39px 6px;
 
   .btns {
@@ -234,7 +242,13 @@
   .notify {
     margin-bottom: 0;
   }
+}
 
+.invite-root {
+  .btn {
+    float: none;
+    width: 58%;
+  }
 }
 
 .signup-root {
@@ -259,6 +273,15 @@
 .password-root {
   .header:after {
     content: 'Forgot Your Password?';
+  }
+
+  .caption:after {
+  }
+}
+
+.invite-root {
+  .header:after {
+    content: 'Set Your Password!';
   }
 
   .caption:after {

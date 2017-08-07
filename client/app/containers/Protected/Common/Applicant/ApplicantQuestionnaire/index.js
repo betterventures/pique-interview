@@ -9,6 +9,7 @@ export class ApplicantQuestionnaire extends Component {
     super(props)
     this.saveScholarship = ::this.saveScholarship
     this.ratingPctForRatingCard = ::this.ratingPctForRatingCard
+    this.getScoreForRatingField = ::this.getScoreForRatingField
     this.setScoreForRatingField = ::this.setScoreForRatingField
     this.setCommentForRating = ::this.setCommentForRating
     this.getApplicationForStudent = getApplicationForStudent
@@ -64,7 +65,7 @@ export class ApplicantQuestionnaire extends Component {
     )
   }
 
-  // Set the Score for the appropriate RatingField
+  // Map scoreCardFieldId to the appropriate field in state.rating
   setScoreForRatingField(e, scoreCardFieldId) {
     let newRating = Object.assign({}, this.state.rating)
     let ratingFieldToUpdate = newRating.fields.filter(field => {
@@ -74,6 +75,15 @@ export class ApplicantQuestionnaire extends Component {
     this.setState({
       rating: newRating
     })
+  }
+
+  // Map scoreCardFieldId to the appropriate field in state.rating
+  getScoreForRatingField(scoreCardFieldId) {
+    let desiredRatingField = this.state.rating.fields.filter(f => {
+      return f.score_card_field_id === scoreCardFieldId
+    })[0]
+
+    return desiredRatingField.score
   }
 
   setCommentForRating(e) {
@@ -126,7 +136,7 @@ export class ApplicantQuestionnaire extends Component {
                               <input
                                 className={css.xsinput}
                                 type="text"
-                                value={rating.fields[i].score}
+                                value={this.getScoreForRatingField(scoreCardField.id)}
                                 onChange={e => this.setScoreForRatingField(e, scoreCardField.id)}
                               />
                               <span className={css.score}>/ { scoreCardField.possible_score }</span>

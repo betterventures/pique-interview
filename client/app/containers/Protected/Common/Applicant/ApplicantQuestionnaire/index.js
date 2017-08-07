@@ -39,7 +39,8 @@ export class ApplicantQuestionnaire extends Component {
       disabled: true,
     })
 
-    // if Rating is new (has no id), push it into the Scholarship's `ratings` array
+    // if Rating is new (has no id),
+    // push it into the ScholarshipApplication's `ratings` array
     if (!this.state.rating.id) {
       let appForStudent = getApplicationForStudent(
         this.state.scholarship.scholarship_applications,
@@ -47,6 +48,31 @@ export class ApplicantQuestionnaire extends Component {
       )
       appForStudent.ratings = appForStudent.ratings || []
       appForStudent.ratings.push(this.state.rating)
+    }
+    // otherwise ensure that the Rating is updated (ie with both comment and fields)
+    else {
+      // DIRTY HACK: This is probably a dirty hack.
+      // We replace the current rating with the one in state to ensure the rating comment
+      // gets updated in the scenario described in #150022138.
+      // In actuality, there is likely some downstream reason why the comment does not update
+      // when you update a score field.
+      // Either that or some React-y reason that I don't understand very well.
+      // See [https://www.pivotaltracker.com/story/show/150022138](ticket) for more details.
+
+      let appForStudent = getApplicationForStudent(
+        this.state.scholarship.scholarship_applications,
+        this.props.applicantId
+      )
+      // strip out existing rating
+      let updatedRatingId = this.state.rating.id
+      let remainingAppRatings = appForStudent.ratings.filter(r =>
+        r.id != updatedRatingId
+      )
+      // re-push it into the ratings array
+      appForStudent.ratings = remainingAppRatings
+      appForStudent.ratings.push(
+        this.state.rating
+      )
     }
 
     this.props.saveAndUpdateScholarship({

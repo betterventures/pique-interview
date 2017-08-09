@@ -53,7 +53,20 @@
       </div>
       <div class="col">
         <div id="filepicker-img-overlay">
-          <img id="filepicker-img-preview" src="<%= @scholarship.try(:photo_url) %>" height="100" width="160" />
+          <% if @scholarship.try(:photo_url) %>
+            <img
+              id="filepicker-img-preview"
+              src="<%= @scholarship.try(:photo_url) %>"
+              height="100"
+              width="160"
+            />
+          <% else %>
+            <img
+              id="filepicker-img-preview"
+              height="100"
+              width="160"
+            />
+          <% end %>
         </div>
       </div>
     </div>

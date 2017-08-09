@@ -76,21 +76,18 @@ export class Committee extends Component {
                 onChange={this.setInviteeEmail}
                 value={this.state.inviteeEmail}
               />
-              { this.state.inviteeEmail }
               <input className={css.sminput}
                 type="text"
                 placeholder="First Name"
                 onChange={this.setInviteeFirstName}
                 value={this.state.inviteeFirstName}
               />
-              { this.state.inviteeFirstName }
               <input className={css.sminput}
                 type="text"
                 placeholder="Last Name"
                 onChange={this.setInviteeLastName}
                 value={this.state.inviteeLastName}
               />
-              { this.state.inviteeLastName }
               <Button
                 className={css.btn}
                 onClick={() => this.inviteProvider(

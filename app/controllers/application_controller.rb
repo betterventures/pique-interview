@@ -38,6 +38,11 @@ class ApplicationController < ActionController::Base
 
   # the next valid scholarship path for the current provider (new, step, or dashboard)
   def next_scholarship_path_for_provider
+    #
+    # TODO: we need an additional one here where "if not an admin and no scholarship complete
+    #       then ask your org to complete scholarship before you can review" page.
+    #
+
     # dashboard if Provider is not an admin or one has already been completed
     if !current_provider.admin? || current_provider.has_completed_scholarship?
       return providers_scholarship_dashboard_path(current_provider.primary_scholarship)

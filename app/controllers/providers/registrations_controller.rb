@@ -16,6 +16,8 @@ class Providers::RegistrationsController < Devise::RegistrationsController
         :first_name,
         :last_name,
         :role,
+        :admin,
+        :reviewer,
       ]
     )
   end

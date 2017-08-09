@@ -37,6 +37,9 @@ group :development do
   gem 'rubocop', '0.48.1', require: false
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+
+  # mail
+  gem 'letter_opener'
 end
 
 # react_on_rails' webpacker_lite fork of Webpacker

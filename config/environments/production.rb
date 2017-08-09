@@ -61,7 +61,7 @@ Rails.application.configure do
     port:                 587,
     domain:               'mail.google.com',
     user_name:            'piquedeveloper@gmail.com',
-    password:             'creatingequity',
+    password:             'creatingequityandaccess',
     authentication:       'plain',
     enable_starttls_auto: true
   }

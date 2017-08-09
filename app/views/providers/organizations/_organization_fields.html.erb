@@ -30,12 +30,20 @@
       </div>
       <div class="col">
         <div id="filepicker-img-overlay">
-          <img
-            id="filepicker-img-preview"
-            src="<%= @organization.try(:logo_url) %>"
-            height="100"
-            width="100"
-          />
+          <% if @organization.try(:logo_url) %>
+            <img
+              id="filepicker-img-preview"
+              src="<%= @organization.try(:logo_url) %>"
+              height="100"
+              width="100"
+            />
+          <% else %>
+            <img
+              id="filepicker-img-preview"
+              height="100"
+              width="100"
+            />
+          <% end %>
         </div>
       </div>
     </div>
@@ -96,8 +104,11 @@
 
   function insertFilepickerImg(event) {
     var $filepickerImg = $('#filepicker-img-preview');
+    // fade out
     $filepickerImg.toggleClass('fade');
+    // add new image
     $filepickerImg.attr('src', event.fpfile.url);
+    // fade in
     $filepickerImg.toggleClass('fade');
   }
 

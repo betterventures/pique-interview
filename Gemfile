@@ -22,6 +22,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 3.2.0'
 gem 'wicked'
 
+# mail
+gem 'mandrill-api'
+
 # datepicker
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'momentjs-rails', '>= 2.9.0'

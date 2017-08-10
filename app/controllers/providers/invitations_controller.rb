@@ -30,7 +30,11 @@ class Providers::InvitationsController < Devise::InvitationsController
 
     # invites a Provider (resource_class),
     # passing the sanitized params (invitation_params)
-    resource_class.invite!(invitation_params, current_inviter, &block)
+    # and a set of options needed to derive the merge variables in MandrillMailer::invitation_instructions
+    options = {
+      current_inviter_id: current_inviter.id,
+    }
+    resource_class.invite!(invitation_params, current_inviter, options, &block)
   end
 
   # redefine the params to pass down into the model

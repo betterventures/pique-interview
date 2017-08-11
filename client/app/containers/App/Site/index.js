@@ -36,20 +36,18 @@ export class SiteApp extends Component {
   render() {
     const site = _ => importDefault(import('containers/Site'))
     const { redirect } = this.state
-    const { user, initialized, loading, open } = this.props
+    const { user, loading, open } = this.props
 
     if (redirect) {
       return <Redirect to='/' />
     }
     return (
       <div className={`${css.root} ${open ? css.open : ''}`}>
-        {initialized
-          ? <div className={`${css.router} ${!loading ? css.ready : ''}`}>
-              <LazyLoad modules={{Component: site}}>
-                {({ Component }) => <Component />}
-              </LazyLoad>
-            </div>
-          : <LoadingIndicator />}
+        <div className={`${css.router} ${loading ? '' : css.ready}`}>
+          <LazyLoad modules={{Component: site}}>
+            {({ Component }) => <Component />}
+          </LazyLoad>
+        </div>
       </div>
     )
   }
@@ -57,10 +55,10 @@ export class SiteApp extends Component {
 
 export default connect(
   state => ({
-    open: state.open,
     route: state.route,
-    user: state.user,  // formerly state.auth.user
     loading: state.loading,
+    open: state.open,
+    user: state.user,  // formerly state.auth.user
     initialized: true, // formerly state.auth.initialized
     isAuthed: true     // formerly states.auth.isAuthed
   }),

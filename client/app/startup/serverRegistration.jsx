@@ -18,6 +18,8 @@ import Logo from 'components/Icons/Logo'
 // App / Containers
 import ReduxlessHeader from '../containers/Protected/Common/ReduxlessHeader'
 import Root from 'containers/Root'
+import StaticRoot from '../containers/StaticRoot'
+import ProviderRoot from '../containers/ProviderRoot'
 
 // Stores
 // Whatever had `applyMiddleware` called on it
@@ -31,7 +33,8 @@ import 'sanitize.css/sanitize.css'
 ReactOnRails.register({
   Logo,
   ReduxlessHeader,
-  Root,
+  StaticRoot,
+  ProviderRoot,
 });
 
 ReactOnRails.registerStore({

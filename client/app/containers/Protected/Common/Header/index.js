@@ -55,7 +55,7 @@ export class AppHeader extends Component {
             <div className={css.curtain} onClick={this.toggleDropdown} />
           </div>
 
-          <div className={`${css.wrap} ${compact ? css.compact : ''}`}>
+          <div className={css.wrap}>
             <div className={css.brand}>
               <Link className={css.link} to="/dashboard">
                 <LogoIcon className={css.logo} />

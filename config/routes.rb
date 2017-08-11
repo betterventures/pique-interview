@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_scope :provider do
-    root 'providers/sessions#new'
+    root to: 'landing_pages#new'
   end
 
   get 'indiegogo/share', to: 'indiegogo#share'

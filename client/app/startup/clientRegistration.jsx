@@ -19,6 +19,8 @@ import Logo from 'components/Icons/Logo'
 // Go with NoReduxHeader (LayoutHeader), and add some logic around it
 import ReduxlessHeader from '../containers/Protected/Common/ReduxlessHeader'
 import Root from '../containers/Root'
+import StaticRoot from '../containers/StaticRoot'
+import ProviderRoot from '../containers/ProviderRoot'
 
 // Stores
 // (Note: Whatever had `applyMiddleware` called on it
@@ -37,7 +39,8 @@ ReactOnRails.setOptions({
 ReactOnRails.register({
   ReduxlessHeader,
   Logo,
-  Root,
+  StaticRoot,
+  ProviderRoot,
 });
 
 ReactOnRails.registerStore({

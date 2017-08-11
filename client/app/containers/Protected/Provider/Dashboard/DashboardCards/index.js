@@ -107,7 +107,7 @@ export class DashboardCards extends Component {
   }
 
   render() {
-    const { items, scholarship } = this.props
+    const { items, scholarship, user } = this.props
     const { student } = this.state
     const awards = this.remainingAwards(scholarship)
     const studentFirstName = student && student.name.split(' ')[0]
@@ -225,18 +225,24 @@ export class DashboardCards extends Component {
                     </div>
                   </div>
                 </Link>
-                <Match
-                  pattern='/dashboard/scored'
-                  render={() =>
-                    <span
-                      onClick={() => this.showAwardModal(x) }
-                    >
-                      <AwardRibbon
-                        className={css.awardicon}
+                {
+                  // only admins can see the award modal and give awards
+                  user.admin
+                    ?
+                      <Match
+                        pattern='/dashboard/scored'
+                        render={() =>
+                          <span
+                            onClick={() => this.showAwardModal(x) }
+                          >
+                            <AwardRibbon
+                              className={css.awardicon}
+                            />
+                          </span>
+                        }
                       />
-                    </span>
-                  }
-                />
+                    : ''
+                }
                 <div className={css.details}>
                   <div className={css.info}>
                     <div className={css.title}>GPA</div>
@@ -277,6 +283,7 @@ export class DashboardCards extends Component {
 
 export default connect(
   state => ({
+    user: state.user,
     scholarship: state.app.scholarships.all[0]
   }),
   { saveAndUpdateScholarship }

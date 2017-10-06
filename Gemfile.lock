@@ -80,6 +80,8 @@ GEM
     ffi (1.9.18)
     filestack-rails (2.2.0)
       rails (>= 3.2)
+    foreman (0.84.0)
+      thor (~> 0.19.1)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.1)
@@ -239,6 +241,7 @@ DEPENDENCIES
   devise (~> 4.2.1)
   devise_invitable (~> 1.7.0)
   filestack-rails
+  foreman
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks

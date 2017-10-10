@@ -1,0 +1,58 @@
+<% content_for :navbar, render('shared/auth_navbar') %>
+
+<div class="auth-root">
+
+  <div class="signup-root user-signup-root">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="header">
+      </div>
+
+      <div class="notify">
+        <%= devise_error_messages? ? devise_error_flash : alert %>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <%= f.text_field :first_name, :autofocus => true, :placeholder => "First Name", class: "firstname" %>
+        </div>
+
+        <div class="field">
+          <%= f.text_field :last_name, :placeholder => "Last Name", class: "lastname" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <%= f.email_field :email, :placeholder => "Enter your email", class: "full" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <%= f.password_field :password, autocomplete: "off", placeholder: "Password #{@minimum_password_length ? '(' + @minimum_password_length.to_s + ' character minimum)' : ''}", class: "full" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm password", class: "full" %>
+        </div>
+      </div>
+
+       <div class="row">
+        <div class="field">
+         <%= f.select :role, user_signup_roles, { prompt: 'I am a...' }, class: "full" %>
+        </div>
+      </div>
+
+      <div class="caption">
+      </div>
+
+      <div class="btns">
+        <%= f.submit "Sign Up", class: "btn submit user-signup-btn" %>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>

@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     registrations: 'providers/registrations',
     invitations: 'providers/invitations',
   }
+
+ 
+  devise_for :users, path: "", only: [:registrations], controllers: { registrations: "users/registrations" }
+
   namespace :providers do
     resources :organizations, only: [:new, :create, :edit, :update, :show]
 

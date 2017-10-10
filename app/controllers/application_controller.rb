@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(resource)
+    return root_path unless current_provider
     # org_creation if no org for user
     return new_providers_organization_path if !current_provider.organization
 

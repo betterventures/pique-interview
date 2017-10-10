@@ -1,6 +1,6 @@
 class Educator < User
 
-	default_scope {
+  default_scope {
     where(role: :educator)
   }
  

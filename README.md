@@ -6,6 +6,7 @@
 
 We have a few tricky dependencies in this project. Thus, please follow the following steps:
 
+1. Checkout a new branch for the interview: `git checkout -b interview-<yourname>`
 1. Make sure you have Postgres installed: `brew install postgresql`
 1. Make sure you have Bundler installed: `gem install bundler`
 1. Install gems: `bundle`

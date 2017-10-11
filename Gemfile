@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.4.0'
 
 gem 'cocoon', '~> 1.2.9'
 gem 'coffee-rails', '~> 4.2'

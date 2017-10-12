@@ -28,15 +28,15 @@ We follow the following agile workflow:
 1. Standup (M-F @ 11am IST)
   - in Google Hangout
   - did yesterday, did today, blockers, questions, interestings
-1. EOD (M-F @ 8pm IST (or whenever you finish for day))
+2. EOD (M-F @ 8pm IST (or whenever you finish for day))
   - in Slack
   - got this far on X, blocked on Y, need resource/design Z
   - Frank will code review any PRs and either merge or ask for modifications
-1. IPM (M @ 11am IST)
+3. IPM (M @ 11am IST)
   - in Google Hangout and Pivotal Tracker
   - go over tickets for week's sprint, estimate as a team, raise any questions
   - do any stories need to be specified further?
-1. Retro (F @ 8pm IST)
+4. Retro (F @ 8pm IST)
   - in Google Hangout + Google Sheets
   - happy/meh/sad format
   - what is going well and what could be better with: communication, tech, hours, workflow, testing

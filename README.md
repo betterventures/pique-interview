@@ -2,6 +2,8 @@
 
 [![CircleCI](https://circleci.com/gh/getpique/pique-web/tree/master.svg?style=svg&circle-token=52dc88cce50f809d38402f54dffe054528bebb34)](https://circleci.com/gh/getpique/pique-web/tree/master)
 
+Welcome to the Pique web app! We're happy you're here :)
+
 ## Setup
 
 We have a few tricky dependencies in this project. Thus, please follow the following steps:
